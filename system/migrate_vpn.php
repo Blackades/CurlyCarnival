@@ -64,8 +64,8 @@ $migrations = [
         `error_message` TEXT NULL,
         `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (`router_id`) REFERENCES `tbl_routers`(`id`) ON DELETE CASCADE,
-        FOREIGN KEY (`admin_id`) REFERENCES `tbl_users`(`id`) ON DELETE CASCADE,
         INDEX `idx_router_id` (`router_id`),
+        INDEX `idx_admin_id` (`admin_id`),
         INDEX `idx_created_at` (`created_at`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci",
     
