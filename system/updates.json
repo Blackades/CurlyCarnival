@@ -209,5 +209,19 @@
     ],
     "2025.11.17" : [
         "CREATE TABLE IF NOT EXISTS `tbl_odps` (`id` INT NOT NULL AUTO_INCREMENT, `name` VARCHAR(32) NOT NULL COLLATE 'latin1_swedish_ci',`port_amount` INT NOT NULL,`attenuation` DECIMAL(15,2) NOT NULL DEFAULT '0.00',`address` MEDIUMTEXT NOT NULL COLLATE 'latin1_swedish_ci',`coordinates` VARCHAR(50) NOT NULL COLLATE 'latin1_swedish_ci', `coverage` INT NOT NULL DEFAULT '0', PRIMARY KEY (`id`) USING BTREE) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;"
+    ],
+    "2025.12.3.vpn": [
+        "ALTER TABLE `tbl_routers` ADD COLUMN `connection_type` ENUM('local', 'remote') DEFAULT 'local' AFTER `enabled`;",
+        "ALTER TABLE `tbl_routers` ADD COLUMN `vpn_username` VARCHAR(50) NULL AFTER `connection_type`;",
+        "ALTER TABLE `tbl_routers` ADD COLUMN `vpn_password_hash` VARCHAR(255) NULL AFTER `vpn_username`;",
+        "ALTER TABLE `tbl_routers` ADD COLUMN `vpn_ip` VARCHAR(45) NULL AFTER `vpn_password_hash`;",
+        "ALTER TABLE `tbl_routers` ADD COLUMN `certificate_path` VARCHAR(255) NULL AFTER `vpn_ip`;",
+        "ALTER TABLE `tbl_routers` ADD COLUMN `certificate_expiry` DATE NULL AFTER `certificate_path`;",
+        "ALTER TABLE `tbl_routers` ADD COLUMN `ovpn_status` ENUM('connected', 'disconnected', 'error', 'pending') DEFAULT 'pending' AFTER `certificate_expiry`;",
+        "ALTER TABLE `tbl_routers` ADD COLUMN `last_vpn_check` DATETIME NULL AFTER `ovpn_status`;",
+        "ALTER TABLE `tbl_routers` ADD COLUMN `config_package_path` VARCHAR(255) NULL AFTER `last_vpn_check`;",
+        "CREATE TABLE IF NOT EXISTS `tbl_vpn_audit_log` (`id` INT AUTO_INCREMENT PRIMARY KEY, `router_id` INT NOT NULL, `action` VARCHAR(50) NOT NULL, `admin_id` INT NOT NULL, `details` TEXT NULL, `ip_address` VARCHAR(45) NULL, `status` ENUM('success', 'failed', 'pending') DEFAULT 'pending', `error_message` TEXT NULL, `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (`router_id`) REFERENCES `tbl_routers`(`id`) ON DELETE CASCADE, FOREIGN KEY (`admin_id`) REFERENCES `tbl_users`(`id`) ON DELETE CASCADE, INDEX `idx_router_id` (`router_id`), INDEX `idx_created_at` (`created_at`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;",
+        "CREATE TABLE IF NOT EXISTS `tbl_vpn_certificates` (`id` INT AUTO_INCREMENT PRIMARY KEY, `router_id` INT NOT NULL, `client_name` VARCHAR(100) NOT NULL UNIQUE, `certificate_path` VARCHAR(255) NOT NULL, `key_path` VARCHAR(255) NOT NULL, `ca_path` VARCHAR(255) NOT NULL, `ovpn_file_path` VARCHAR(255) NOT NULL, `issued_date` DATETIME NOT NULL, `expiry_date` DATETIME NOT NULL, `status` ENUM('active', 'expired', 'revoked') DEFAULT 'active', `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (`router_id`) REFERENCES `tbl_routers`(`id`) ON DELETE CASCADE, INDEX `idx_expiry_date` (`expiry_date`), INDEX `idx_status` (`status`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;",
+        "CREATE TABLE IF NOT EXISTS `tbl_vpn_connection_logs` (`id` INT AUTO_INCREMENT PRIMARY KEY, `router_id` INT NOT NULL, `vpn_ip` VARCHAR(45) NULL, `connection_status` ENUM('connected', 'disconnected', 'error') NOT NULL, `bytes_sent` BIGINT DEFAULT 0, `bytes_received` BIGINT DEFAULT 0, `connection_time` DATETIME NULL, `disconnection_time` DATETIME NULL, `error_details` TEXT NULL, `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (`router_id`) REFERENCES `tbl_routers`(`id`) ON DELETE CASCADE, INDEX `idx_router_id` (`router_id`), INDEX `idx_created_at` (`created_at`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;"
     ]
 }
