@@ -1,6 +1,6 @@
-<div class="row" style="margin-bottom: 24px;">
+<div class="row">
     {if in_array($_admin['user_type'],['SuperAdmin','Admin', 'Report'])}
-        <div class="col-lg-3 col-xs-6" style="margin-bottom: 16px;">
+        <div class="col-lg-3 col-xs-6">
             <div class="info-box bg-aqua">
                 <span class="info-box-icon"><i class="ion ion-clock"></i></span>
                 <div class="info-box-content">
@@ -15,7 +15,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-xs-6" style="margin-bottom: 16px;">
+        <div class="col-lg-3 col-xs-6">
             <div class="info-box bg-green">
                 <span class="info-box-icon"><i class="ion ion-android-calendar"></i></span>
                 <div class="info-box-content">
@@ -31,7 +31,7 @@
             </div>
         </div>
     {/if}
-    <div class="col-lg-3 col-xs-6" style="margin-bottom: 16px;">
+    <div class="col-lg-3 col-xs-6">
         <div class="info-box bg-yellow">
             <span class="info-box-icon"><i class="ion ion-person"></i></span>
             <div class="info-box-content">
@@ -43,7 +43,7 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-3 col-xs-6" style="margin-bottom: 16px;">
+    <div class="col-lg-3 col-xs-6">
         <div class="info-box bg-red">
             <span class="info-box-icon"><i class="ion ion-android-people"></i></span>
             <div class="info-box-content">
