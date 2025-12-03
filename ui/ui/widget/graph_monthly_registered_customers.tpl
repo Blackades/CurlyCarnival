@@ -1,17 +1,22 @@
-<div class="box box-solid ">
-    <div class="box-header">
-        <i class="fa fa-th"></i>
+<div style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 24px; overflow: hidden;">
+    <div style="padding: 20px 24px; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #1890ff 0%, #40a9ff 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                <i class="fa fa-th" style="color: white; font-size: 18px;"></i>
+            </div>
+            <h3 style="margin: 0; font-size: 16px; font-weight: 600; color: #262626;">{Lang::T('Monthly Registered Customers')}</h3>
+        </div>
 
-        <h3 class="box-title">{Lang::T('Monthly Registered Customers')}</h3>
-
-        <div class="box-tools pull-right">
-            <button type="button" class="btn bg-teal btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
+        <div style="display: flex; gap: 8px;">
+            <button type="button" class="btn btn-default btn-sm" data-widget="collapse" style="border-radius: 6px; border: 1px solid #d9d9d9; background: white; padding: 6px 12px;">
+                <i class="fa fa-minus" style="color: #595959;"></i>
             </button>
-            <a href="{Text::url('dashboard&refresh')}" class="btn bg-teal btn-sm"><i class="fa fa-refresh"></i>
+            <a href="{Text::url('dashboard&refresh')}" class="btn btn-default btn-sm" style="border-radius: 6px; border: 1px solid #d9d9d9; background: white; padding: 6px 12px; text-decoration: none;">
+                <i class="fa fa-refresh" style="color: #595959;"></i>
             </a>
         </div>
     </div>
-    <div class="box-body border-radius-none">
+    <div style="padding: 24px;">
         <canvas class="chart" id="chart" style="height: 250px;"></canvas>
     </div>
 </div>
@@ -44,9 +49,11 @@
                     datasets: [{
                         label: 'Registered Members',
                         data: data,
-                        backgroundColor: 'rgba(0, 0, 255, 0.5)',
-                        borderColor: 'rgba(0, 0, 255, 0.7)',
-                        borderWidth: 1
+                        backgroundColor: 'rgba(24, 144, 255, 0.1)',
+                        borderColor: '#1890ff',
+                        borderWidth: 2,
+                        borderRadius: 6,
+                        hoverBackgroundColor: 'rgba(24, 144, 255, 0.2)'
                     }]
                 },
                 options: {
