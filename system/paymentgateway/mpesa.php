@@ -139,7 +139,7 @@ function mpesa_create_transaction($trx, $user)
         $timestamp = date('YmdHis');
         
         // Step 4: Generate transaction password
-        $shortcode = $config['mpesa_shortcode'];
+        $shortcode = (string)$config['mpesa_shortcode']; // Ensure shortcode is string, not integer
         $passkey = $config['mpesa_passkey'];
         $password = mpesa_generate_password($shortcode, $passkey, $timestamp);
         
@@ -148,13 +148,13 @@ function mpesa_create_transaction($trx, $user)
         $amount = (int)$trx['price']; // M-Pesa expects integer amount without decimals
         
         $request_data = [
-            'BusinessShortCode' => $shortcode,
+            'BusinessShortCode' => $shortcode, // Must be string
             'Password' => $password,
             'Timestamp' => $timestamp,
             'TransactionType' => 'CustomerPayBillOnline',
             'Amount' => $amount,
             'PartyA' => $formatted_phone,
-            'PartyB' => $shortcode,
+            'PartyB' => $shortcode, // Must be string
             'PhoneNumber' => $formatted_phone,
             'CallBackURL' => $callback_url,
             'AccountReference' => $user['username'],
@@ -461,13 +461,13 @@ function mpesa_get_status($trx, $user)
         $timestamp = date('YmdHis');
         
         // Step 3: Generate transaction password
-        $shortcode = $config['mpesa_shortcode'];
+        $shortcode = (string)$config['mpesa_shortcode']; // Ensure shortcode is string, not integer
         $passkey = $config['mpesa_passkey'];
         $password = mpesa_generate_password($shortcode, $passkey, $timestamp);
         
         // Step 4: Prepare status query JSON payload with CheckoutRequestID
         $request_data = [
-            'BusinessShortCode' => $shortcode,
+            'BusinessShortCode' => $shortcode, // Must be string
             'Password' => $password,
             'Timestamp' => $timestamp,
             'CheckoutRequestID' => $trx['gateway_trx_id']
