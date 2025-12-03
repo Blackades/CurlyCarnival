@@ -14,10 +14,9 @@
 set -e
 
 # Configuration
-EASYRSA_DIR="${EASYRSA_DIR:-/etc/openvpn/easy-rsa}"
-PKI_DIR="${EASYRSA_DIR}/pki"
-CA_CERT="${PKI_DIR}/ca.crt"
-SERVER_CERT="${PKI_DIR}/issued/server.crt"
+OPENVPN_DIR="${OPENVPN_DIR:-/etc/openvpn}"
+CA_CERT="${OPENVPN_DIR}/ca.crt"
+SERVER_CERT="${OPENVPN_DIR}/server.crt"
 WARNING_DAYS=30
 
 # Function to get certificate expiry date
