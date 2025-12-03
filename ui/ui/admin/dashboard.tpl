@@ -1,15 +1,15 @@
 {include file="sections/header.tpl"}
 
 <!-- Dashboard Content Wrapper -->
-<div class="content-wrapper dashboard-content">
-    <section class="content-header">
-        <h1 class="dashboard-title">
+<div class="content-wrapper dashboard-content" style="padding: 0 !important;">
+    <section class="content-header" style="padding: 10px 16px !important; margin-bottom: 8px !important;">
+        <h1 class="dashboard-title" style="font-size: 20px !important; margin: 0 !important;">
             {Lang::T('Dashboard')}
-            <small>{Lang::T('Control Panel')}</small>
+            <small style="font-size: 14px !important;">{Lang::T('Control Panel')}</small>
         </h1>
     </section>
 
-    <section class="content dashboard-main">
+    <section class="content dashboard-main" style="padding: 12px 16px !important; background-color: #ffffff !important;">
         {* Alert Messages Container - for system notifications *}
         {if isset($notify)}
             <div class="row">
@@ -39,20 +39,20 @@
         {assign var="rows" value="."|explode:$_c[$dtipe]}
         {assign var="pos" value=1}
         
-        <div class="dashboard-widgets">
+        <div class="dashboard-widgets" style="padding: 0 !important; margin: 0 !important; background-color: #ffffff !important;">
             {foreach $rows as $cols}
                 {if $cols == 12}
-                    <div class="row widget-row">
-                        <div class="col-md-12">
+                    <div class="row widget-row" style="margin-left: -8px !important; margin-right: -8px !important; margin-bottom: 12px !important;">
+                        <div class="col-md-12" style="padding-left: 8px !important; padding-right: 8px !important;">
                             {showWidget widgets=$widgets pos=$pos}
                         </div>
                     </div>
                     {assign var="pos" value=$pos+1}
                 {else}
                     {assign var="colss" value=","|explode:$cols}
-                    <div class="row widget-row">
+                    <div class="row widget-row" style="margin-left: -8px !important; margin-right: -8px !important; margin-bottom: 12px !important;">
                         {foreach $colss as $c}
-                            <div class="col-md-{$c} widget-col">
+                            <div class="col-md-{$c} widget-col" style="padding-left: 8px !important; padding-right: 8px !important;">
                                 {showWidget widgets=$widgets pos=$pos}
                             </div>
                             {assign var="pos" value=$pos+1}
