@@ -8729,3 +8729,479 @@ a:hover {
 }
 
 /* End of white background overrides */
+
+
+/* ============================================================================
+   CRITICAL: Override modern-skin-dark Theme
+   ========================================================================= */
+
+/* Force white theme even when modern-skin-dark class is present */
+body.modern-skin-dark,
+body.hold-transition,
+body.sidebar-mini {
+    background-color: #f5f5f5 !important;
+}
+
+.modern-skin-dark .wrapper,
+.hold-transition .wrapper {
+    background-color: #f5f5f5 !important;
+}
+
+.modern-skin-dark .content-wrapper,
+.hold-transition .content-wrapper {
+    background-color: #ffffff !important;
+}
+
+.modern-skin-dark .main-header,
+.hold-transition .main-header {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #d9d9d9 !important;
+}
+
+.modern-skin-dark .main-header .navbar,
+.hold-transition .main-header .navbar {
+    background-color: #ffffff !important;
+}
+
+.modern-skin-dark .main-header .logo,
+.hold-transition .main-header .logo {
+    background-color: #1890ff !important;
+    color: #ffffff !important;
+}
+
+.modern-skin-dark .main-sidebar,
+.hold-transition .main-sidebar {
+    background-color: #ffffff !important;
+    border-right: 1px solid #d9d9d9 !important;
+}
+
+.modern-skin-dark .sidebar,
+.hold-transition .sidebar {
+    background-color: #ffffff !important;
+}
+
+.modern-skin-dark .sidebar-menu > li > a,
+.hold-transition .sidebar-menu > li > a {
+    color: #595959 !important;
+    background-color: transparent !important;
+}
+
+.modern-skin-dark .sidebar-menu > li:hover > a,
+.hold-transition .sidebar-menu > li:hover > a {
+    background-color: #f5f5f5 !important;
+    color: #262626 !important;
+}
+
+.modern-skin-dark .sidebar-menu > li.active > a,
+.hold-transition .sidebar-menu > li.active > a {
+    background-color: #e6f7ff !important;
+    color: #1890ff !important;
+    border-left: 3px solid #1890ff !important;
+}
+
+.modern-skin-dark .sidebar-menu .treeview-menu > li > a,
+.hold-transition .sidebar-menu .treeview-menu > li > a {
+    color: #595959 !important;
+    background-color: transparent !important;
+}
+
+.modern-skin-dark .sidebar-menu .treeview-menu > li:hover > a,
+.hold-transition .sidebar-menu .treeview-menu > li:hover > a {
+    background-color: #f5f5f5 !important;
+    color: #262626 !important;
+}
+
+.modern-skin-dark .sidebar-menu .treeview-menu > li.active > a,
+.hold-transition .sidebar-menu .treeview-menu > li.active > a {
+    background-color: #e6f7ff !important;
+    color: #1890ff !important;
+}
+
+/* Content sections */
+.modern-skin-dark .content,
+.hold-transition .content {
+    background-color: #f5f5f5 !important;
+    padding: 24px !important;
+}
+
+.modern-skin-dark .content-header,
+.hold-transition .content-header {
+    background-color: #ffffff !important;
+    padding: 15px 24px !important;
+    margin-bottom: 0 !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+}
+
+.modern-skin-dark .content-header h1,
+.hold-transition .content-header h1 {
+    color: #262626 !important;
+    font-size: 24px !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
+}
+
+/* Panels and boxes */
+.modern-skin-dark .panel,
+.modern-skin-dark .box,
+.hold-transition .panel,
+.hold-transition .box {
+    background-color: #ffffff !important;
+    border: 1px solid #f0f0f0 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+    border-radius: 8px !important;
+    margin-bottom: 24px !important;
+}
+
+.modern-skin-dark .panel-heading,
+.modern-skin-dark .box-header,
+.hold-transition .panel-heading,
+.hold-transition .box-header {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+    color: #262626 !important;
+    padding: 15px 20px !important;
+    font-weight: 600 !important;
+}
+
+.modern-skin-dark .panel-body,
+.modern-skin-dark .box-body,
+.hold-transition .panel-body,
+.hold-transition .box-body {
+    background-color: #ffffff !important;
+    color: #262626 !important;
+    padding: 20px !important;
+}
+
+/* Info boxes */
+.modern-skin-dark .info-box,
+.hold-transition .info-box {
+    background-color: #ffffff !important;
+    border: 1px solid #f0f0f0 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+    border-radius: 8px !important;
+    margin-bottom: 16px !important;
+}
+
+.modern-skin-dark .info-box-content,
+.hold-transition .info-box-content {
+    color: #262626 !important;
+}
+
+.modern-skin-dark .info-box-text,
+.hold-transition .info-box-text {
+    color: #595959 !important;
+}
+
+.modern-skin-dark .info-box-number,
+.hold-transition .info-box-number {
+    color: #262626 !important;
+    font-weight: 600 !important;
+}
+
+/* Small boxes */
+.modern-skin-dark .small-box,
+.hold-transition .small-box {
+    background-color: #ffffff !important;
+    border: 1px solid #f0f0f0 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+    border-radius: 8px !important;
+}
+
+.modern-skin-dark .small-box h3,
+.modern-skin-dark .small-box p,
+.hold-transition .small-box h3,
+.hold-transition .small-box p {
+    color: #262626 !important;
+}
+
+/* Tables */
+.modern-skin-dark .table,
+.hold-transition .table {
+    background-color: #ffffff !important;
+}
+
+.modern-skin-dark .table thead th,
+.hold-transition .table thead th {
+    background-color: #fafafa !important;
+    color: #262626 !important;
+    border-bottom: 2px solid #d9d9d9 !important;
+    font-weight: 600 !important;
+}
+
+.modern-skin-dark .table tbody tr,
+.hold-transition .table tbody tr {
+    background-color: #ffffff !important;
+}
+
+.modern-skin-dark .table tbody tr:hover,
+.hold-transition .table tbody tr:hover {
+    background-color: #f5f5f5 !important;
+}
+
+.modern-skin-dark .table tbody td,
+.hold-transition .table tbody td {
+    color: #262626 !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+}
+
+/* Forms */
+.modern-skin-dark .form-control,
+.hold-transition .form-control {
+    background-color: #ffffff !important;
+    border: 1px solid #d9d9d9 !important;
+    color: #262626 !important;
+}
+
+.modern-skin-dark .form-control:focus,
+.hold-transition .form-control:focus {
+    border-color: #1890ff !important;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2) !important;
+}
+
+.modern-skin-dark .form-group label,
+.hold-transition .form-group label {
+    color: #262626 !important;
+    font-weight: 500 !important;
+}
+
+/* Buttons - ensure they're visible */
+.modern-skin-dark .btn-primary,
+.hold-transition .btn-primary {
+    background-color: #1890ff !important;
+    border-color: #1890ff !important;
+    color: #ffffff !important;
+}
+
+.modern-skin-dark .btn-primary:hover,
+.hold-transition .btn-primary:hover {
+    background-color: #40a9ff !important;
+    border-color: #40a9ff !important;
+}
+
+.modern-skin-dark .btn-success,
+.hold-transition .btn-success {
+    background-color: #52c41a !important;
+    border-color: #52c41a !important;
+    color: #ffffff !important;
+}
+
+.modern-skin-dark .btn-warning,
+.hold-transition .btn-warning {
+    background-color: #faad14 !important;
+    border-color: #faad14 !important;
+    color: #ffffff !important;
+}
+
+.modern-skin-dark .btn-danger,
+.hold-transition .btn-danger {
+    background-color: #f5222d !important;
+    border-color: #f5222d !important;
+    color: #ffffff !important;
+}
+
+.modern-skin-dark .btn-default,
+.hold-transition .btn-default {
+    background-color: #ffffff !important;
+    border-color: #d9d9d9 !important;
+    color: #262626 !important;
+}
+
+.modern-skin-dark .btn-default:hover,
+.hold-transition .btn-default:hover {
+    background-color: #f5f5f5 !important;
+    border-color: #d9d9d9 !important;
+}
+
+/* Modals */
+.modern-skin-dark .modal-content,
+.hold-transition .modal-content {
+    background-color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 8px !important;
+}
+
+.modern-skin-dark .modal-header,
+.hold-transition .modal-header {
+    background-color: #fafafa !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+    padding: 16px 24px !important;
+}
+
+.modern-skin-dark .modal-title,
+.hold-transition .modal-title {
+    color: #262626 !important;
+    font-weight: 600 !important;
+}
+
+.modern-skin-dark .modal-body,
+.hold-transition .modal-body {
+    background-color: #ffffff !important;
+    color: #262626 !important;
+    padding: 24px !important;
+}
+
+.modern-skin-dark .modal-footer,
+.hold-transition .modal-footer {
+    background-color: #fafafa !important;
+    border-top: 1px solid #f0f0f0 !important;
+    padding: 16px 24px !important;
+}
+
+/* Alerts */
+.modern-skin-dark .alert,
+.hold-transition .alert {
+    border-radius: 8px !important;
+    border: 1px solid transparent !important;
+    padding: 12px 16px !important;
+}
+
+/* Dropdown menus */
+.modern-skin-dark .dropdown-menu,
+.hold-transition .dropdown-menu {
+    background-color: #ffffff !important;
+    border: 1px solid #f0f0f0 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+    border-radius: 4px !important;
+}
+
+.modern-skin-dark .dropdown-menu > li > a,
+.hold-transition .dropdown-menu > li > a {
+    color: #262626 !important;
+}
+
+.modern-skin-dark .dropdown-menu > li > a:hover,
+.hold-transition .dropdown-menu > li > a:hover {
+    background-color: #f5f5f5 !important;
+    color: #1890ff !important;
+}
+
+/* User menu dropdown */
+.modern-skin-dark .user-menu .dropdown-menu,
+.hold-transition .user-menu .dropdown-menu {
+    background-color: #ffffff !important;
+}
+
+.modern-skin-dark .user-header,
+.hold-transition .user-header {
+    background-color: #1890ff !important;
+    color: #ffffff !important;
+}
+
+.modern-skin-dark .user-body,
+.hold-transition .user-body {
+    background-color: #ffffff !important;
+}
+
+.modern-skin-dark .user-body a,
+.hold-transition .user-body a {
+    color: #1890ff !important;
+}
+
+.modern-skin-dark .user-footer,
+.hold-transition .user-footer {
+    background-color: #fafafa !important;
+}
+
+/* Navbar */
+.modern-skin-dark .navbar-nav > li > a,
+.hold-transition .navbar-nav > li > a {
+    color: #595959 !important;
+}
+
+.modern-skin-dark .navbar-nav > li > a:hover,
+.hold-transition .navbar-nav > li > a:hover {
+    background-color: #f5f5f5 !important;
+    color: #262626 !important;
+}
+
+/* Breadcrumbs */
+.modern-skin-dark .breadcrumb,
+.hold-transition .breadcrumb {
+    background-color: transparent !important;
+}
+
+.modern-skin-dark .breadcrumb > li > a,
+.hold-transition .breadcrumb > li > a {
+    color: #1890ff !important;
+}
+
+/* Pagination */
+.modern-skin-dark .pagination > li > a,
+.modern-skin-dark .pagination > li > span,
+.hold-transition .pagination > li > a,
+.hold-transition .pagination > li > span {
+    background-color: #ffffff !important;
+    border: 1px solid #d9d9d9 !important;
+    color: #262626 !important;
+}
+
+.modern-skin-dark .pagination > .active > a,
+.modern-skin-dark .pagination > .active > span,
+.hold-transition .pagination > .active > a,
+.hold-transition .pagination > .active > span {
+    background-color: #1890ff !important;
+    border-color: #1890ff !important;
+    color: #ffffff !important;
+}
+
+/* Text colors */
+.modern-skin-dark h1,
+.modern-skin-dark h2,
+.modern-skin-dark h3,
+.modern-skin-dark h4,
+.modern-skin-dark h5,
+.modern-skin-dark h6,
+.hold-transition h1,
+.hold-transition h2,
+.hold-transition h3,
+.hold-transition h4,
+.hold-transition h5,
+.hold-transition h6 {
+    color: #262626 !important;
+}
+
+.modern-skin-dark p,
+.modern-skin-dark span,
+.modern-skin-dark div,
+.modern-skin-dark td,
+.modern-skin-dark th,
+.modern-skin-dark li,
+.hold-transition p,
+.hold-transition span,
+.hold-transition div,
+.hold-transition td,
+.hold-transition th,
+.hold-transition li {
+    color: inherit;
+}
+
+/* Links */
+.modern-skin-dark a,
+.hold-transition a {
+    color: #1890ff;
+}
+
+.modern-skin-dark a:hover,
+.hold-transition a:hover {
+    color: #40a9ff;
+}
+
+/* Dashboard specific */
+.modern-skin-dark .dashboard-content,
+.hold-transition .dashboard-content {
+    background-color: #f5f5f5 !important;
+}
+
+.modern-skin-dark .dashboard-main,
+.hold-transition .dashboard-main {
+    background-color: #f5f5f5 !important;
+}
+
+/* Widget styling */
+.modern-skin-dark .widget-row,
+.hold-transition .widget-row {
+    margin-bottom: 24px;
+}
+
+/* End of modern-skin-dark overrides */
