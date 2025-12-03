@@ -211,10 +211,10 @@ try {
     
     echo "Deleting M-Pesa configuration entries...\n";
     
+    $stmt = $pdo->prepare("DELETE FROM tbl_appconfig WHERE setting = ?");
     foreach ($mpesa_settings as $setting) {
-        $deleted = ORM::for_table('tbl_appconfig')
-            ->where('setting', $setting)
-            ->delete_many();
+        $stmt->execute([$setting]);
+        $deleted = $stmt->rowCount();
         
         if ($deleted > 0) {
             echo "  ✓ Deleted: $setting\n";
@@ -223,10 +223,10 @@ try {
     
     // Verify deletion
     $remaining = 0;
+    $stmt = $pdo->prepare("SELECT setting FROM tbl_appconfig WHERE setting = ?");
     foreach ($mpesa_settings as $setting) {
-        $config_entry = ORM::for_table('tbl_appconfig')
-            ->where('setting', $setting)
-            ->find_one();
+        $stmt->execute([$setting]);
+        $config_entry = $stmt->fetch(PDO::FETCH_ASSOC);
         
         if ($config_entry) {
             echo "  ⚠ WARNING: $setting still exists!\n";
