@@ -9205,3 +9205,173 @@ body.sidebar-mini {
 }
 
 /* End of modern-skin-dark overrides */
+
+
+/* ============================================================================
+   CRITICAL FIX: Force White Sidebar (Override ALL dark backgrounds)
+   ========================================================================= */
+
+/* Target every possible sidebar selector */
+aside.main-sidebar,
+.main-sidebar,
+.sidebar,
+.sidebar-wrapper,
+section.sidebar,
+.main-sidebar .sidebar,
+body .main-sidebar,
+body.modern-skin-dark aside.main-sidebar,
+body.modern-skin-dark .main-sidebar,
+body.modern-skin-dark .sidebar,
+body.hold-transition aside.main-sidebar,
+body.hold-transition .main-sidebar,
+body.hold-transition .sidebar {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    border-right: 1px solid #d9d9d9 !important;
+}
+
+/* Force white background on sidebar inner elements */
+.main-sidebar::before,
+.main-sidebar::after,
+.sidebar::before,
+.sidebar::after {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+}
+
+/* Override any skin-specific sidebar colors */
+.skin-blue .main-sidebar,
+.skin-black .main-sidebar,
+.skin-purple .main-sidebar,
+.skin-green .main-sidebar,
+.skin-red .main-sidebar,
+.skin-yellow .main-sidebar,
+.skin-blue-light .main-sidebar,
+.skin-black-light .main-sidebar,
+.skin-purple-light .main-sidebar,
+.skin-green-light .main-sidebar,
+.skin-red-light .main-sidebar,
+.skin-yellow-light .main-sidebar {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+}
+
+/* ============================================================================
+   FIX: Reduce Wasted Space - Compact Layout
+   ========================================================================= */
+
+/* Remove excessive padding from content wrapper */
+.content-wrapper {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Compact content header */
+.content-header {
+    padding: 12px 20px !important;
+    margin-bottom: 0 !important;
+    min-height: auto !important;
+}
+
+.content-header h1 {
+    font-size: 20px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.content-header h1 small {
+    font-size: 14px !important;
+}
+
+/* Compact main content area */
+.content {
+    padding: 16px 20px !important;
+    margin: 0 !important;
+}
+
+/* Reduce dashboard widget spacing */
+.dashboard-content {
+    padding: 0 !important;
+}
+
+.dashboard-main {
+    padding: 16px 20px !important;
+}
+
+.dashboard-widgets {
+    margin: 0 !important;
+}
+
+.widget-row {
+    margin-bottom: 16px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.widget-col {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
+
+/* Compact info boxes */
+.info-box {
+    margin-bottom: 12px !important;
+    padding: 12px !important;
+}
+
+/* Compact panels */
+.panel {
+    margin-bottom: 16px !important;
+}
+
+.panel-heading {
+    padding: 12px 16px !important;
+}
+
+.panel-body {
+    padding: 16px !important;
+}
+
+/* Compact boxes */
+.box {
+    margin-bottom: 16px !important;
+}
+
+.box-header {
+    padding: 12px 16px !important;
+}
+
+.box-body {
+    padding: 16px !important;
+}
+
+/* Remove row negative margins that create extra space */
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Compact column padding */
+[class*="col-"] {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
+
+/* Specific fix for dashboard title area */
+.dashboard-content .content-header {
+    background-color: transparent !important;
+    border-bottom: none !important;
+    padding: 16px 20px 8px 20px !important;
+}
+
+/* Remove extra spacing from sections */
+section.content {
+    padding-top: 0 !important;
+}
+
+section.content-header {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+}
+
+/* End of spacing fixes */
