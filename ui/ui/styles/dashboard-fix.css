@@ -1,12 +1,35 @@
 /**
- * Dashboard Layout Fixes
+ * Dashboard Layout Fixes - Enhanced
  * This file contains critical fixes for dashboard spacing and info-box display
  * Load this file last to ensure styles are not overridden
  */
 
-/* Force remove excessive padding from dashboard */
+/* Force remove excessive padding and margins from main content area */
 body .content-wrapper.dashboard-content {
     padding: 0 !important;
+    margin-left: 0 !important;
+}
+
+/* Fix main wrapper spacing */
+body .main-sidebar + .content-wrapper,
+body .content-wrapper {
+    margin-left: 230px !important; /* Match your sidebar width */
+}
+
+@media (max-width: 767px) {
+    body .main-sidebar + .content-wrapper,
+    body .content-wrapper {
+        margin-left: 0 !important;
+    }
+}
+
+/* Remove any container padding that creates the gray space */
+body .content-wrapper > .container,
+body .content-wrapper > .container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
 
 body .dashboard-content .content-header {
@@ -23,6 +46,12 @@ body .dashboard-content .content {
 body .dashboard-main {
     padding: 15px !important;
     background-color: #f5f5f5 !important;
+}
+
+/* Remove any row negative margins that create horizontal scroll */
+body .dashboard-content .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
 
 /* Info Box Critical Styles - Force Display */
