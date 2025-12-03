@@ -8,6 +8,9 @@
 
 require_once '../init.php';
 
+// Include the mpesa payment gateway functions
+require_once 'paymentgateway/mpesa.php';
+
 echo "╔════════════════════════════════════════════════════════════════════════════╗\n";
 echo "║              Test Fixed M-Pesa STK Push                                   ║\n";
 echo "╚════════════════════════════════════════════════════════════════════════════╝\n\n";
