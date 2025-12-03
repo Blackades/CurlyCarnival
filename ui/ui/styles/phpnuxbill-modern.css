@@ -9514,3 +9514,97 @@ section.content.dashboard-main {
 }
 
 /* End of duplicate header fix */
+
+
+/* ============================================================================
+   FIX: Sidebar Overlap - Proper Content Margin
+   ========================================================================= */
+
+/* Ensure content-wrapper has proper left margin to account for sidebar */
+.content-wrapper {
+    margin-left: 230px !important;
+    transition: margin-left 0.3s ease-in-out !important;
+}
+
+/* When sidebar is collapsed, reduce margin */
+.sidebar-collapse .content-wrapper {
+    margin-left: 50px !important;
+}
+
+/* Ensure sidebar is fixed and doesn't overlap */
+.main-sidebar {
+    position: fixed !important;
+    top: 50px !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 230px !important;
+    z-index: 810 !important;
+    overflow-y: auto !important;
+    transition: transform 0.3s ease-in-out !important;
+}
+
+/* Sidebar collapsed state */
+.sidebar-collapse .main-sidebar {
+    transform: translateX(-180px) !important;
+}
+
+/* Ensure header accounts for sidebar */
+.main-header {
+    margin-left: 230px !important;
+    transition: margin-left 0.3s ease-in-out !important;
+}
+
+.sidebar-collapse .main-header {
+    margin-left: 50px !important;
+}
+
+/* Fix logo positioning */
+.main-header .logo {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 230px !important;
+    height: 50px !important;
+    z-index: 820 !important;
+}
+
+/* Ensure navbar doesn't overlap */
+.main-header .navbar {
+    margin-left: 230px !important;
+    transition: margin-left 0.3s ease-in-out !important;
+}
+
+.sidebar-collapse .main-header .navbar {
+    margin-left: 50px !important;
+}
+
+/* Fix content positioning */
+.content-wrapper,
+.main-footer {
+    margin-left: 230px !important;
+    transition: margin-left 0.3s ease-in-out !important;
+}
+
+.sidebar-collapse .content-wrapper,
+.sidebar-collapse .main-footer {
+    margin-left: 50px !important;
+}
+
+/* Ensure widgets don't go under sidebar */
+.dashboard-widgets {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Fix row positioning */
+.content .row {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Prevent any absolute positioned elements from going under sidebar */
+.content-wrapper > * {
+    position: relative !important;
+}
+
+/* End of sidebar overlap fix */
