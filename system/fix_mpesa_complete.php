@@ -15,13 +15,30 @@
  * - Web browser: http://yoursite.com/system/fix_mpesa_complete.php
  */
 
-// Load PHPNuxBill system
-require_once '../init.php';
-
-// Check if user is admin (for web access)
-if (php_sapi_name() !== 'cli') {
-    Admin::_auth();
+// Determine the correct path to config.php
+$config_path = dirname(__DIR__) . '/config.php';
+if (!file_exists($config_path)) {
+    // Try parent directory (in case we're in a subdirectory)
+    $config_path = dirname(dirname(__DIR__)) . '/config.php';
 }
+
+if (!file_exists($config_path)) {
+    echo "╔════════════════════════════════════════════════════════════════════════════╗\n";
+    echo "║                              ERROR                                         ║\n";
+    echo "╚════════════════════════════════════════════════════════════════════════════╝\n\n";
+    echo "config.php not found!\n\n";
+    echo "Looked in:\n";
+    echo "  - " . dirname(__DIR__) . "/config.php\n";
+    echo "  - " . dirname(dirname(__DIR__)) . "/config.php\n\n";
+    echo "Please ensure config.php exists in your PHPNuxBill root directory.\n";
+    echo "If it doesn't exist, create it from config.sample.php:\n\n";
+    echo "  cp config.sample.php config.php\n";
+    echo "  nano config.php  # Edit database settings\n\n";
+    exit(1);
+}
+
+// Load config
+require_once $config_path;
 
 echo "╔════════════════════════════════════════════════════════════════════════════╗\n";
 echo "║                    M-Pesa Complete Fix Script                              ║\n";
@@ -34,11 +51,14 @@ echo "║  4. Clean corrupted configuration entries                             
 echo "║  5. Prepare for fresh configuration                                        ║\n";
 echo "╚════════════════════════════════════════════════════════════════════════════╝\n\n";
 
+echo "Using config from: $config_path\n\n";
+
 // Get database connection details
-$db_host = $config['db_host'];
-$db_user = $config['db_user'];
-$db_pass = $config['db_password'];
-$db_name = $config['db_name'];
+$db_host = isset($db_host) ? $db_host : 'localhost';
+$db_user = isset($db_user) ? $db_user : 'root';
+$db_pass = isset($db_pass) ? $db_pass : '';
+$db_name = isset($db_name) ? $db_name : 'phpnuxbill';
+$db_port = isset($db_port) ? $db_port : '';
 
 $mpesa_settings = [
     'mpesa_consumer_key',
@@ -49,8 +69,19 @@ $mpesa_settings = [
 ];
 
 try {
+    // Fix localhost socket issue - use 127.0.0.1 for TCP connection
+    if ($db_host === 'localhost') {
+        $db_host = '127.0.0.1';
+    }
+    
+    // Build DSN with port if specified
+    $dsn = "mysql:host=$db_host;dbname=$db_name";
+    if (!empty($db_port)) {
+        $dsn .= ";port=$db_port";
+    }
+    
     // Connect to database
-    $pdo = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
+    $pdo = new PDO($dsn, $db_user, $db_pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     // ========================================================================

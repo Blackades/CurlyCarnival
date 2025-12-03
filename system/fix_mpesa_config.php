@@ -12,12 +12,24 @@
  * 3. After running, reconfigure M-Pesa settings in admin panel
  */
 
-// Load PHPNuxBill system
-require_once '../init.php';
+// Load PHPNuxBill system - but handle it gracefully if init.php has issues
+$init_path = dirname(__DIR__) . '/init.php';
+if (!file_exists($init_path)) {
+    echo "ERROR: init.php not found at $init_path\n";
+    exit(1);
+}
 
-// Check if user is admin (for web access)
-if (php_sapi_name() !== 'cli') {
-    Admin::_auth();
+try {
+    require_once $init_path;
+    
+    // Check if user is admin (for web access)
+    if (php_sapi_name() !== 'cli') {
+        Admin::_auth();
+    }
+} catch (Exception $e) {
+    echo "ERROR loading PHPNuxBill system: " . $e->getMessage() . "\n";
+    echo "This script requires a working PHPNuxBill installation.\n";
+    exit(1);
 }
 
 echo "=== M-Pesa Configuration Fix Script ===\n\n";
