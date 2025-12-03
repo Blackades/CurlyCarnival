@@ -9608,3 +9608,99 @@ section.content.dashboard-main {
 }
 
 /* End of sidebar overlap fix */
+
+
+/* ============================================================================
+   FINAL FIX: White Sidebar Background (Nuclear Option)
+   ========================================================================= */
+
+/* Force white background on EVERY possible sidebar selector */
+.main-sidebar,
+aside.main-sidebar,
+.sidebar,
+.sidebar-wrapper,
+section.sidebar,
+.main-sidebar .sidebar,
+.skin-blue .main-sidebar,
+.skin-black .main-sidebar,
+.skin-purple .main-sidebar,
+.skin-green .main-sidebar,
+.skin-red .main-sidebar,
+.skin-yellow .main-sidebar,
+body .main-sidebar,
+html body .main-sidebar,
+body.modern-skin-dark .main-sidebar,
+body.hold-transition .main-sidebar {
+    background-color: #ffffff !important;
+    background-image: none !important;
+    background: #ffffff !important;
+}
+
+/* Force white on sidebar inner wrapper */
+.sidebar-wrapper,
+.main-sidebar > *,
+.sidebar > * {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+}
+
+/* Override any inline styles */
+.main-sidebar[style] {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+}
+
+/* ============================================================================
+   DASHBOARD ONLY: Reduce Wasted Space
+   ========================================================================= */
+
+/* Target ONLY dashboard page - reduce left margin */
+.dashboard-content .content-wrapper {
+    margin-left: 230px !important;
+}
+
+/* Dashboard specific: compact header */
+.dashboard-content .content-header {
+    padding: 8px 16px !important;
+    margin-bottom: 8px !important;
+}
+
+/* Dashboard specific: compact content */
+.dashboard-content .content {
+    padding: 12px 16px !important;
+}
+
+/* Dashboard specific: compact widgets */
+.dashboard-content .widget-row {
+    margin-bottom: 12px !important;
+}
+
+.dashboard-content .widget-col {
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+}
+
+/* Dashboard specific: reduce info-box margins */
+.dashboard-content .info-box {
+    margin-bottom: 10px !important;
+}
+
+/* Dashboard specific: compact title */
+.dashboard-content .dashboard-title {
+    font-size: 18px !important;
+    margin: 0 !important;
+}
+
+/* Dashboard specific: remove extra row margins */
+.dashboard-content .row {
+    margin-left: -6px !important;
+    margin-right: -6px !important;
+}
+
+/* Dashboard specific: compact columns */
+.dashboard-content [class*="col-"] {
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+}
+
+/* End of final fixes */
