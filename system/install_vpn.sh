@@ -26,7 +26,16 @@ NC='\033[0m' # No Color
 
 # Configuration
 PHPNUXBILL_DIR="/var/www/html"
-WEB_USER="www-data"
+
+# Detect web server user (apache for CentOS/RHEL, www-data for Debian/Ubuntu)
+if id "apache" &>/dev/null; then
+    WEB_USER="apache"
+elif id "www-data" &>/dev/null; then
+    WEB_USER="www-data"
+else
+    WEB_USER="nginx"  # Fallback to nginx
+fi
+
 SCRIPT_DIR="$PHPNUXBILL_DIR/system/scripts/vpn"
 STORAGE_DIR="$PHPNUXBILL_DIR/system/storage/vpn-configs"
 LOG_DIR="/var/log/phpnuxbill"
@@ -76,30 +85,30 @@ echo ""
 echo -e "${YELLOW}[4/7]${NC} Configuring sudo permissions..."
 SUDOERS_FILE="/etc/sudoers.d/phpnuxbill-vpn"
 
-cat > "$SUDOERS_FILE" << 'EOF'
+cat > "$SUDOERS_FILE" << EOF
 # PHPNuxBill VPN Management Scripts
 # Web server user sudo permissions for VPN operations
-Defaults:www-data !requiretty
+Defaults:$WEB_USER !requiretty
 
 # Certificate management
-www-data ALL=(ALL) NOPASSWD: /var/www/html/system/scripts/vpn/check_certificates.sh
-www-data ALL=(ALL) NOPASSWD: /var/www/html/system/scripts/vpn/generate_client_cert.sh *
-www-data ALL=(ALL) NOPASSWD: /var/www/html/system/scripts/vpn/revoke_client_cert.sh *
+$WEB_USER ALL=(ALL) NOPASSWD: /var/www/html/system/scripts/vpn/check_certificates.sh
+$WEB_USER ALL=(ALL) NOPASSWD: /var/www/html/system/scripts/vpn/generate_client_cert.sh *
+$WEB_USER ALL=(ALL) NOPASSWD: /var/www/html/system/scripts/vpn/revoke_client_cert.sh *
 
 # VPN user management
-www-data ALL=(ALL) NOPASSWD: /var/www/html/system/scripts/vpn/add_vpn_user.sh * *
-www-data ALL=(ALL) NOPASSWD: /var/www/html/system/scripts/vpn/remove_vpn_user.sh *
+$WEB_USER ALL=(ALL) NOPASSWD: /var/www/html/system/scripts/vpn/add_vpn_user.sh * *
+$WEB_USER ALL=(ALL) NOPASSWD: /var/www/html/system/scripts/vpn/remove_vpn_user.sh *
 
 # OpenVPN service management
-www-data ALL=(ALL) NOPASSWD: /var/www/html/system/scripts/vpn/restart_openvpn.sh
-www-data ALL=(ALL) NOPASSWD: /var/www/html/system/scripts/vpn/get_vpn_status.sh
-www-data ALL=(ALL) NOPASSWD: /var/www/html/system/scripts/vpn/get_connected_clients.sh
+$WEB_USER ALL=(ALL) NOPASSWD: /var/www/html/system/scripts/vpn/restart_openvpn.sh
+$WEB_USER ALL=(ALL) NOPASSWD: /var/www/html/system/scripts/vpn/get_vpn_status.sh
+$WEB_USER ALL=(ALL) NOPASSWD: /var/www/html/system/scripts/vpn/get_connected_clients.sh
 
 # Configuration generation
-www-data ALL=(ALL) NOPASSWD: /var/www/html/system/scripts/vpn/generate_ovpn_config.sh * * *
+$WEB_USER ALL=(ALL) NOPASSWD: /var/www/html/system/scripts/vpn/generate_ovpn_config.sh * * *
 
 # Cleanup
-www-data ALL=(ALL) NOPASSWD: /var/www/html/system/scripts/vpn/cleanup_expired_certs.sh
+$WEB_USER ALL=(ALL) NOPASSWD: /var/www/html/system/scripts/vpn/cleanup_expired_certs.sh
 EOF
 
 chmod 440 "$SUDOERS_FILE"
