@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badge Styles Test - PHPNuxBill Modern UI</title>
+    
+    <!-- Bootstrap 3 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- Modern PHPNuxBill CSS -->
+    <link rel="stylesheet" href="styles/phpnuxbill-modern.css">
+    
+    <style>
+        body {
+            padding: 40px;
+            background-color: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .test-section h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .test-section h3 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #595959;
+        }
+        .test-row {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fafafa;
+            border-radius: 4px;
+        }
+        .test-label {
+            display: inline-block;
+            width: 200px;
+            font-weight: 500;
+            color: #262626;
+        }
+        .dark-bg {
+            background-color: #262626;
+            padding: 20px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1>Badge and Label Styles Test</h1>
+        <p class="lead">Testing all badge and label variants from Task 8</p>
+        
+        <!-- 8.1 Base Badge Structure -->
+        <div class="test-section">
+            <h2>8.1 Base Badge Structure</h2>
+            
+            <h3>Standard Badges</h3>
+            <div class="test-row">
+                <span class="test-label">Default Badge:</span>
+                <span class="badge badge-default">Default</span>
+                <span class="label label-default">Label Default</span>
+            </div>
+            
+            <h3>Badge Sizes</h3>
+            <div class="test-row">
+                <span class="test-label">Small:</span>
+                <span class="badge badge-sm badge-primary">Small Badge</span>
+                <span class="label label-sm label-primary">Small Label</span>
+            </div>
+            <div class="test-row">
+                <span class="test-label">Default:</span>
+                <span class="badge badge-primary">Default Badge</span>
+                <span class="label label-primary">Default Label</span>
+            </div>
+            <div class="test-row">
+                <span class="test-label">Large:</span>
+                <span class="badge badge-lg badge-primary">Large Badge</span>
+                <span class="label label-lg label-primary">Large Label</span>
+            </div>
+            
+            <h3>Badge Shapes</h3>
+            <div class="test-row">
+                <span class="test-label">Pill (default):</span>
+                <span class="badge badge-primary">Pill Badge</span>
+            </div>
+            <div class="test-row">
+                <span class="test-label">Rounded:</span>
+                <span class="badge badge-rounded badge-primary">Rounded Badge</span>
+            </div>
+            
+            <h3>Badges with Icons</h3>
+            <div class="test-row">
+                <span class="test-label">Icon + Text:</span>
+                <span class="badge badge-success"><i class="fa fa-check"></i> Active</span>
+                <span class="badge badge-warning"><i class="fa fa-clock-o"></i> Pending</span>
+                <span class="badge badge-danger"><i class="fa fa-times"></i> Inactive</span>
+            </div>
+            <div class="test-row">
+                <span class="test-label">Icon Only:</span>
+                <span class="badge badge-success"><i class="fa fa-check"></i></span>
+                <span class="badge badge-warning"><i class="fa fa-clock-o"></i></span>
+                <span class="badge badge-danger"><i class="fa fa-times"></i></span>
+            </div>
+        </div>
+        
+        <!-- 8.2 Badge Color Variants -->
+        <div class="test-section">
+            <h2>8.2 Badge Color Variants</h2>
+            
+            <h3>Light Background Variants (Default)</h3>
+            <div class="test-row">
+                <span class="test-label">Success:</span>
+                <span class="badge badge-success">Success</span>
+                <span class="label label-success">Success</span>
+            </div>
+            <div class="test-row">
+                <span class="test-label">Warning:</span>
+                <span class="badge badge-warning">Warning</span>
+                <span class="label label-warning">Warning</span>
+            </div>
+            <div class="test-row">
+                <span class="test-label">Danger:</span>
+                <span class="badge badge-danger">Danger</span>
+                <span class="label label-danger">Danger</span>
+            </div>
+            <div class="test-row">
+                <span class="test-label">Info:</span>
+                <span class="badge badge-info">Info</span>
+                <span class="label label-info">Info</span>
+            </div>
+            <div class="test-row">
+                <span class="test-label">Primary:</span>
+                <span class="badge badge-primary">Primary</span>
+                <span class="label label-primary">Primary</span>
+            </div>
+            <div class="test-row">
+                <span class="test-label">Default:</span>
+                <span class="badge badge-default">Default</span>
+                <span class="label label-default">Default</span>
+            </div>
+            
+            <h3>Solid Variants</h3>
+            <div class="test-row">
+                <span class="test-label">Solid Success:</span>
+                <span class="badge badge-success badge-solid">Success</span>
+                <span class="label label-success label-solid">Success</span>
+            </div>
+            <div class="test-row">
+                <span class="test-label">Solid Warning:</span>
+                <span class="badge badge-warning badge-solid">Warning</span>
+                <span class="label label-warning label-solid">Warning</span>
+            </div>
+            <div class="test-row">
+                <span class="test-label">Solid Danger:</span>
+                <span class="badge badge-danger badge-solid">Danger</span>
+                <span class="label label-danger label-solid">Danger</span>
+            </div>
+            <div class="test-row">
+                <span class="test-label">Solid Info:</span>
+                <span class="badge badge-info badge-solid">Info</span>
+                <span class="label label-info label-solid">Info</span>
+            </div>
+            <div class="test-row">
+                <span class="test-label">Solid Primary:</span>
+                <span class="badge badge-primary badge-solid">Primary</span>
+                <span class="label label-primary label-solid">Primary</span>
+            </div>
+            
+            <h3>Outline Variants</h3>
+            <div class="test-row">
+                <span class="test-label">Outline Success:</span>
+                <span class="badge badge-outline-success">Success</span>
+                <span class="label label-outline-success">Success</span>
+            </div>
+            <div class="test-row">
+                <span class="test-label">Outline Warning:</span>
+                <span class="badge badge-outline-warning">Warning</span>
+                <span class="label label-outline-warning">Warning</span>
+            </div>
+            <div class="test-row">
+                <span class="test-label">Outline Danger:</span>
+                <span class="badge badge-outline-danger">Danger</span>
+                <span class="label label-outline-danger">Danger</span>
+            </div>
+            <div class="test-row">
+                <span class="test-label">Outline Info:</span>
+                <span class="badge badge-outline-info">Info</span>
+                <span class="label label-outline-info">Info</span>
+            </div>
+            <div class="test-row">
+                <span class="test-label">Outline Primary:</span>
+                <span class="badge badge-outline-primary">Primary</span>
+                <span class="label label-outline-primary">Primary</span>
+            </div>
+            
+            <h3>Light and Dark Variants</h3>
+            <div class="test-row">
+                <span class="test-label">Light:</span>
+                <span class="badge badge-light">Light</span>
+                <span class="label label-light">Light</span>
+            </div>
+            <div class="test-row dark-bg">
+                <span class="test-label" style="color: white;">Dark:</span>
+                <span class="badge badge-dark">Dark</span>
+                <span class="label label-dark">Dark</span>
+            </div>
+        </div>
+        
+        <!-- 8.3 Status Indicators -->
+        <div class="test-section">
+            <h2>8.3 Status Indicators</h2>
+            
+            <h3>Status Dots</h3>
+            <div class="test-row">
+                <span class="test-label">Success Dot:</span>
+                <span class="status-indicator">
+                    <span class="status-dot status-dot-success"></span>
+                    Active
+                </span>
+            </div>
+            <div class="test-row">
+                <span class="test-label">Warning Dot:</span>
+                <span class="status-indicator">
+                    <span class="status-dot status-dot-warning"></span>
+                    Pending
+                </span>
+            </div>
+            <div class="test-row">
+                <span class="test-label">Danger Dot:</span>
+                <span class="status-indicator">
+                    <span class="status-dot status-dot-danger"></span>
+                    Inactive
+                </span>
+            </div>
+            <div class="test-row">
+                <span class="test-label">Info Dot:</span>
+                <span class="status-indicator">
+                    <span class="status-dot status-dot-info"></span>
+                    Processing
+                </span>
+            </div>
+            <div class="test-row">
+                <span class="test-label">Primary Dot:</span>
+                <span class="status-indicator">
+                    <span class="status-dot status-dot-primary"></span>
+                    Connected
+                </span>
+            </div>
+            <div class="test-row">
+                <span class="test-label">Neutral Dot:</span>
+                <span class="status-indicator">
+                    <span class="status-dot status-dot-neutral"></span>
+                    Unknown
+                </span>
+            </div>
+            
+            <h3>Pulsing Status Dots (Animated)</h3>
+            <div class="test-row">
+                <span class="test-label">Live Status:</span>
+                <span class="status-indicator">
+                    <span class="status-dot status-dot-success status-dot-pulse"></span>
+                    Online
+                </span>
+                <span class="status-indicator" style="margin-left: 20px;">
+                    <span class="status-dot status-dot-danger status-dot-pulse"></span>
+                    Error
+                </span>
+            </div>
+            
+            <h3>Icon-based Status Indicators</h3>
+            <div class="test-row">
+                <span class="test-label">Success Icon:</span>
+                <span class="status-icon status-icon-success">
+                    <i class="fa fa-check-circle"></i>
+                    Verified
+                </span>
+            </div>
+            <div class="test-row">
+                <span class="test-label">Warning Icon:</span>
+                <span class="status-icon status-icon-warning">
+                    <i class="fa fa-exclamation-triangle"></i>
+                    Warning
+                </span>
+            </div>
+            <div class="test-row">
+                <span class="test-label">Danger Icon:</span>
+                <span class="status-icon status-icon-danger">
+                    <i class="fa fa-times-circle"></i>
+                    Failed
+                </span>
+            </div>
+            <div class="test-row">
+                <span class="test-label">Info Icon:</span>
+                <span class="status-icon status-icon-info">
+                    <i class="fa fa-info-circle"></i>
+                    Information
+                </span>
+            </div>
+            
+            <h3>Status Text (No Icon)</h3>
+            <div class="test-row">
+                <span class="test-label">Status Text:</span>
+                <span class="status-text status-text-success">Active</span>
+                <span class="status-text status-text-warning">Pending</span>
+                <span class="status-text status-text-danger">Inactive</span>
+                <span class="status-text status-text-info">Processing</span>
+            </div>
+        </div>
+        
+        <!-- 8.4 Badge Groups -->
+        <div class="test-section">
+            <h2>8.4 Badge Groups</h2>
+            
+            <h3>Horizontal Badge Group</h3>
+            <div class="test-row">
+                <span class="test-label">Badge Group:</span>
+                <div class="badge-group">
+                    <span class="badge badge-success">Active</span>
+                    <span class="badge badge-primary">VPN</span>
+                    <span class="badge badge-info">Monitored</span>
+                </div>
+            </div>
+            
+            <h3>Vertical Badge Group</h3>
+            <div class="test-row">
+                <span class="test-label">Vertical Group:</span>
+                <div class="badge-group-vertical">
+                    <span class="badge badge-success">Status: Active</span>
+                    <span class="badge badge-warning">Cert Expires: 30 days</span>
+                    <span class="badge badge-info">Clients: 15</span>
+                </div>
+            </div>
+            
+            <h3>Badge Group with Separators</h3>
+            <div class="test-row">
+                <span class="test-label">Separated:</span>
+                <div class="badge-group badge-group-separated">
+                    <span class="badge badge-default">Router 1</span>
+                    <span class="badge badge-default">Router 2</span>
+                    <span class="badge badge-default">Router 3</span>
+                </div>
+            </div>
+            
+            <h3>Badge Stack (Overlapping)</h3>
+            <div class="test-row">
+                <span class="test-label">Stacked:</span>
+                <div class="badge-stack">
+                    <span class="badge badge-primary badge-solid">5</span>
+                    <span class="badge badge-success badge-solid">3</span>
+                    <span class="badge badge-warning badge-solid">2</span>
+                </div>
+            </div>
+            
+            <h3>Dismissible Badges</h3>
+            <div class="test-row">
+                <span class="test-label">With Close:</span>
+                <span class="badge badge-primary badge-dismissible">
+                    Filter Applied
+                    <button class="close">&times;</button>
+                </span>
+                <span class="badge badge-success badge-dismissible">
+                    Tag 1
+                    <button class="close">&times;</button>
+                </span>
+            </div>
+            
+            <h3>Badge Counter (Notifications)</h3>
+            <div class="test-row">
+                <span class="test-label">Counters:</span>
+                <span class="badge badge-counter badge-danger badge-solid">5</span>
+                <span class="badge badge-counter badge-primary badge-solid">12</span>
+                <span class="badge badge-counter badge-success badge-solid">99+</span>
+            </div>
+            
+            <h3>Badge Notification Dot</h3>
+            <div class="test-row">
+                <span class="test-label">Notification:</span>
+                <button class="btn btn-default" style="position: relative;">
+                    Notifications
+                    <span class="badge badge-notification badge-danger badge-solid badge-positioned"></span>
+                </button>
+                <button class="btn btn-default" style="position: relative; margin-left: 10px;">
+                    Messages
+                    <span class="badge badge-notification badge-primary badge-solid badge-positioned"></span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 8.5 Badges in Context -->
+        <div class="test-section">
+            <h2>8.5 Badges in Different Contexts</h2>
+            
+            <h3>Badges in Tables</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Router Name</th>
+                        <th>Status</th>
+                        <th>VPN Status</th>
+                        <th>Certificate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Router-01</td>
+                        <td>
+                            <span class="status-indicator">
+                                <span class="status-dot status-dot-success"></span>
+                                Online
+                            </span>
+                        </td>
+                        <td><span class="badge badge-success">Active</span></td>
+                        <td><span class="badge badge-success">Valid</span></td>
+                    </tr>
+                    <tr>
+                        <td>Router-02</td>
+                        <td>
+                            <span class="status-indicator">
+                                <span class="status-dot status-dot-warning"></span>
+                                Degraded
+                            </span>
+                        </td>
+                        <td><span class="badge badge-warning">Pending</span></td>
+                        <td><span class="badge badge-warning">Expires Soon</span></td>
+                    </tr>
+                    <tr>
+                        <td>Router-03</td>
+                        <td>
+                            <span class="status-indicator">
+                                <span class="status-dot status-dot-danger"></span>
+                                Offline
+                            </span>
+                        </td>
+                        <td><span class="badge badge-danger">Inactive</span></td>
+                        <td><span class="badge badge-danger">Expired</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Badges in Buttons</h3>
+            <div class="test-row">
+                <button class="btn btn-primary">
+                    Notifications
+                    <span class="badge badge-light">5</span>
+                </button>
+                <button class="btn btn-success">
+                    Active Routers
+                    <span class="badge badge-light">12</span>
+                </button>
+                <button class="btn btn-default">
+                    Pending
+                    <span class="badge badge-warning">3</span>
+                </button>
+            </div>
+            
+            <h3>Badges in Cards</h3>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        VPN Status
+                        <span class="badge badge-success">Active</span>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="badge-group">
+                        <span class="badge badge-info">15 Clients Connected</span>
+                        <span class="badge badge-success">Certificate Valid</span>
+                        <span class="badge badge-primary">Monitoring Enabled</span>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Badges in Alerts</h3>
+            <div class="alert alert-success">
+                <strong>Success!</strong> VPN configuration updated successfully.
+                <span class="badge badge-success badge-solid">Completed</span>
+            </div>
+            <div class="alert alert-warning">
+                <strong>Warning!</strong> Certificate expires in 30 days.
+                <span class="badge badge-warning badge-solid">Action Required</span>
+            </div>
+            <div class="alert alert-danger">
+                <strong>Error!</strong> VPN connection failed.
+                <span class="badge badge-danger badge-solid">Failed</span>
+            </div>
+            
+            <h3>Badges in List Groups</h3>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    Router-01
+                    <span class="badge badge-success">Online</span>
+                </li>
+                <li class="list-group-item">
+                    Router-02
+                    <span class="badge badge-warning">Degraded</span>
+                </li>
+                <li class="list-group-item">
+                    Router-03
+                    <span class="badge badge-danger">Offline</span>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Real-world Examples -->
+        <div class="test-section">
+            <h2>Real-world VPN/Router Status Examples</h2>
+            
+            <h3>VPN Connection Status</h3>
+            <div class="test-row">
+                <span class="status-indicator">
+                    <span class="status-dot status-dot-success status-dot-pulse"></span>
+                    Connected
+                </span>
+                <span class="badge badge-success" style="margin-left: 10px;">15 Clients</span>
+            </div>
+            
+            <h3>Certificate Status</h3>
+            <div class="test-row">
+                <div class="badge-group">
+                    <span class="badge badge-success"><i class="fa fa-certificate"></i> Valid</span>
+                    <span class="badge badge-info">Expires: 2025-06-15</span>
+                    <span class="badge badge-default">90 days remaining</span>
+                </div>
+            </div>
+            
+            <h3>Router Health Status</h3>
+            <div class="test-row">
+                <div class="badge-group-vertical">
+                    <span class="status-indicator">
+                        <span class="status-dot status-dot-success"></span>
+                        System: Healthy
+                    </span>
+                    <span class="status-indicator">
+                        <span class="status-dot status-dot-success"></span>
+                        VPN: Active
+                    </span>
+                    <span class="status-indicator">
+                        <span class="status-dot status-dot-warning"></span>
+                        CPU: 75%
+                    </span>
+                </div>
+            </div>
+            
+            <h3>Connection Log Entry</h3>
+            <div class="test-row">
+                <strong>2024-12-03 14:30:25</strong>
+                <span class="badge badge-success"><i class="fa fa-sign-in"></i> Connected</span>
+                <span class="badge badge-default">user@192.168.1.100</span>
+                <span class="badge badge-info">Duration: 2h 15m</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        // Add click handlers for dismissible badges
+        document.querySelectorAll('.badge-dismissible .close, .label-dismissible .close').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                this.parentElement.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

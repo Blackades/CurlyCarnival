@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Button Styles Test - PHPNuxBill Modern UI</title>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/phpnuxbill-modern.css?v=1.0.0">
+    <style>
+        body {
+            padding: 40px;
+            background-color: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .test-section h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .button-row {
+            margin-bottom: 20px;
+        }
+        .button-row:last-child {
+            margin-bottom: 0;
+        }
+        .label-text {
+            display: inline-block;
+            width: 150px;
+            font-weight: 500;
+            color: #595959;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="margin-bottom: 30px;">PHPNuxBill Modern Button Styles Test</h1>
+        
+        <!-- Button Variants -->
+        <div class="test-section">
+            <h2>Button Variants</h2>
+            <div class="button-row">
+                <span class="label-text">Primary:</span>
+                <button class="btn btn-primary">Primary Button</button>
+                <button class="btn btn-primary" disabled>Disabled</button>
+            </div>
+            <div class="button-row">
+                <span class="label-text">Success:</span>
+                <button class="btn btn-success">Success Button</button>
+                <button class="btn btn-success" disabled>Disabled</button>
+            </div>
+            <div class="button-row">
+                <span class="label-text">Warning:</span>
+                <button class="btn btn-warning">Warning Button</button>
+                <button class="btn btn-warning" disabled>Disabled</button>
+            </div>
+            <div class="button-row">
+                <span class="label-text">Danger:</span>
+                <button class="btn btn-danger">Danger Button</button>
+                <button class="btn btn-danger" disabled>Disabled</button>
+            </div>
+            <div class="button-row">
+                <span class="label-text">Info:</span>
+                <button class="btn btn-info">Info Button</button>
+                <button class="btn btn-info" disabled>Disabled</button>
+            </div>
+            <div class="button-row">
+                <span class="label-text">Default:</span>
+                <button class="btn btn-default">Default Button</button>
+                <button class="btn btn-default" disabled>Disabled</button>
+            </div>
+            <div class="button-row">
+                <span class="label-text">Link:</span>
+                <button class="btn btn-link">Link Button</button>
+                <button class="btn btn-link" disabled>Disabled</button>
+            </div>
+        </div>
+
+        <!-- Button Sizes -->
+        <div class="test-section">
+            <h2>Button Sizes</h2>
+            <div class="button-row">
+                <span class="label-text">Extra Small:</span>
+                <button class="btn btn-primary btn-xs">Extra Small</button>
+                <button class="btn btn-success btn-xs">Extra Small</button>
+                <button class="btn btn-danger btn-xs">Extra Small</button>
+            </div>
+            <div class="button-row">
+                <span class="label-text">Small:</span>
+                <button class="btn btn-primary btn-sm">Small Button</button>
+                <button class="btn btn-success btn-sm">Small Button</button>
+                <button class="btn btn-danger btn-sm">Small Button</button>
+            </div>
+            <div class="button-row">
+                <span class="label-text">Default:</span>
+                <button class="btn btn-primary">Default Button</button>
+                <button class="btn btn-success">Default Button</button>
+                <button class="btn btn-danger">Default Button</button>
+            </div>
+            <div class="button-row">
+                <span class="label-text">Large:</span>
+                <button class="btn btn-primary btn-lg">Large Button</button>
+                <button class="btn btn-success btn-lg">Large Button</button>
+                <button class="btn btn-danger btn-lg">Large Button</button>
+            </div>
+        </div>
+
+        <!-- Buttons with Icons -->
+        <div class="test-section">
+            <h2>Buttons with Icons</h2>
+            <div class="button-row">
+                <span class="label-text">With Icons:</span>
+                <button class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+                <button class="btn btn-success"><i class="fa fa-check"></i> Approve</button>
+                <button class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
+                <button class="btn btn-info"><i class="fa fa-edit"></i> Edit</button>
+            </div>
+            <div class="button-row">
+                <span class="label-text">Icon Only:</span>
+                <button class="btn btn-primary btn-icon"><i class="fa fa-save"></i></button>
+                <button class="btn btn-success btn-icon"><i class="fa fa-check"></i></button>
+                <button class="btn btn-danger btn-icon"><i class="fa fa-trash"></i></button>
+                <button class="btn btn-info btn-icon"><i class="fa fa-edit"></i></button>
+            </div>
+            <div class="button-row">
+                <span class="label-text">Icon Circle:</span>
+                <button class="btn btn-primary btn-icon btn-circle"><i class="fa fa-save"></i></button>
+                <button class="btn btn-success btn-icon btn-circle"><i class="fa fa-check"></i></button>
+                <button class="btn btn-danger btn-icon btn-circle"><i class="fa fa-trash"></i></button>
+                <button class="btn btn-info btn-icon btn-circle"><i class="fa fa-edit"></i></button>
+            </div>
+        </div>
+
+        <!-- Button Groups -->
+        <div class="test-section">
+            <h2>Button Groups</h2>
+            <div class="button-row">
+                <span class="label-text">Horizontal Group:</span>
+                <div class="btn-group">
+                    <button class="btn btn-default">Left</button>
+                    <button class="btn btn-default">Middle</button>
+                    <button class="btn btn-default">Right</button>
+                </div>
+            </div>
+            <div class="button-row">
+                <span class="label-text">Colored Group:</span>
+                <div class="btn-group">
+                    <button class="btn btn-primary">Primary</button>
+                    <button class="btn btn-success">Success</button>
+                    <button class="btn btn-danger">Danger</button>
+                </div>
+            </div>
+            <div class="button-row">
+                <span class="label-text">Toolbar:</span>
+                <div class="btn-toolbar">
+                    <div class="btn-group">
+                        <button class="btn btn-default"><i class="fa fa-align-left"></i></button>
+                        <button class="btn btn-default"><i class="fa fa-align-center"></i></button>
+                        <button class="btn btn-default"><i class="fa fa-align-right"></i></button>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-default"><i class="fa fa-bold"></i></button>
+                        <button class="btn btn-default"><i class="fa fa-italic"></i></button>
+                        <button class="btn btn-default"><i class="fa fa-underline"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Outline Buttons -->
+        <div class="test-section">
+            <h2>Outline Button Variants</h2>
+            <div class="button-row">
+                <span class="label-text">Outline Buttons:</span>
+                <button class="btn btn-outline-primary">Primary</button>
+                <button class="btn btn-outline-success">Success</button>
+                <button class="btn btn-outline-warning">Warning</button>
+                <button class="btn btn-outline-danger">Danger</button>
+                <button class="btn btn-outline-info">Info</button>
+            </div>
+        </div>
+
+        <!-- Block Buttons -->
+        <div class="test-section">
+            <h2>Block Buttons</h2>
+            <div class="button-row">
+                <button class="btn btn-primary btn-block">Primary Block Button</button>
+            </div>
+            <div class="button-row">
+                <button class="btn btn-success btn-block">Success Block Button</button>
+            </div>
+        </div>
+
+        <!-- Real-world Examples -->
+        <div class="test-section">
+            <h2>Real-world Examples</h2>
+            <div class="button-row">
+                <span class="label-text">Form Actions:</span>
+                <button class="btn btn-primary"><i class="fa fa-save"></i> Save Changes</button>
+                <button class="btn btn-default">Cancel</button>
+            </div>
+            <div class="button-row">
+                <span class="label-text">Table Actions:</span>
+                <button class="btn btn-info btn-xs"><i class="fa fa-edit"></i> Edit</button>
+                <button class="btn btn-warning btn-xs"><i class="fa fa-eye"></i> View</button>
+                <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</button>
+            </div>
+            <div class="button-row">
+                <span class="label-text">Search Form:</span>
+                <div class="input-group" style="width: 400px;">
+                    <input type="text" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-success" type="button"><i class="fa fa-search"></i> Search</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

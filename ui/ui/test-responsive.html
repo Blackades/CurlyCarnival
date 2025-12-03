@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Design Test - PHPNuxBill Modern UI</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/phpnuxbill-modern.css">
+    <style>
+        body { padding: 20px; background: #f5f5f5; }
+        .viewport-indicator {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #1890ff;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 600;
+            z-index: 9999;
+            font-size: 14px;
+        }
+        .test-section {
+            background: white;
+            padding: 24px;
+            margin-bottom: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .test-section h2 {
+            margin-top: 0;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="viewport-indicator">
+        <span class="hidden-xs hidden-sm hidden-md">Desktop (>1024px)</span>
+        <span class="visible-md hidden-xs hidden-sm hidden-lg">Small Desktop (1024px)</span>
+        <span class="visible-sm hidden-xs hidden-md hidden-lg">Tablet (768px)</span>
+        <span class="visible-xs hidden-sm hidden-md hidden-lg">Mobile (375px)</span>
+    </div>
+
+    <h1>Responsive Design Test</h1>
+    <p class="text-secondary">Resize your browser window to test responsive behavior at different breakpoints: 375px (mobile), 768px (tablet), 1024px (small desktop), 1920px (large desktop)</p>
+
+    <!-- Test 1: Mobile Navigation -->
+    <div class="test-section">
+        <h2>1. Mobile Navigation</h2>
+        <p>On mobile (< 768px), the sidebar should collapse and a hamburger menu should appear.</p>
+        <button class="navbar-toggle" type="button">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div class="alert alert-info">
+            <i class="fa fa-info-circle"></i>
+            Navigation menu items have increased touch targets (min 44px) on mobile.
+        </div>
+    </div>
+
+    <!-- Test 2: Responsive Tables -->
+    <div class="test-section">
+        <h2>2. Responsive Tables</h2>
+        <p>Tables should scroll horizontally on mobile or convert to card layout on very small screens.</p>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Created</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td><span class="label label-success">Active</span></td>
+                        <td>2024-01-15</td>
+                        <td>
+                            <button class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></button>
+                            <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td><span class="label label-warning">Pending</span></td>
+                        <td>2024-01-16</td>
+                        <td>
+                            <button class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></button>
+                            <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Test 3: Responsive Forms -->
+    <div class="test-section">
+        <h2>3. Responsive Forms</h2>
+        <p>Form fields should stack vertically and become full-width on mobile with increased touch targets.</p>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-md-3">Username</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" placeholder="Enter username">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3">Email</label>
+                <div class="col-md-9">
+                    <input type="email" class="form-control" placeholder="Enter email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3">Status</label>
+                <div class="col-md-9">
+                    <select class="form-control">
+                        <option>Active</option>
+                        <option>Inactive</option>
+                        <option>Pending</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-9 col-md-offset-3">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Remember me
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-9 col-md-offset-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-default">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Test 4: Button Groups -->
+    <div class="test-section">
+        <h2>4. Button Groups</h2>
+        <p>Button groups should wrap or stack vertically on mobile with adequate spacing.</p>
+        <div class="btn-group" style="margin-bottom: 16px;">
+            <button class="btn btn-default"><i class="fa fa-align-left"></i> Left</button>
+            <button class="btn btn-default"><i class="fa fa-align-center"></i> Center</button>
+            <button class="btn btn-default"><i class="fa fa-align-right"></i> Right</button>
+        </div>
+        <br>
+        <div class="btn-toolbar">
+            <button class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+            <button class="btn btn-success"><i class="fa fa-check"></i> Approve</button>
+            <button class="btn btn-warning"><i class="fa fa-clock-o"></i> Pending</button>
+            <button class="btn btn-danger"><i class="fa fa-times"></i> Reject</button>
+        </div>
+    </div>
+
+    <!-- Test 5: Dashboard Widgets -->
+    <div class="test-section">
+        <h2>5. Dashboard Widgets</h2>
+        <p>Widgets should display in 4 columns on large desktop, 3 on medium, 2 on tablet, and 1 on mobile.</p>
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Total Users</h3>
+                    </div>
+                    <div class="panel-body">
+                        <h2 style="margin: 0;">1,234</h2>
+                        <p class="text-success"><i class="fa fa-arrow-up"></i> 12% increase</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Active Sessions</h3>
+                    </div>
+                    <div class="panel-body">
+                        <h2 style="margin: 0;">567</h2>
+                        <p class="text-info"><i class="fa fa-minus"></i> No change</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Revenue</h3>
+                    </div>
+                    <div class="panel-body">
+                        <h2 style="margin: 0;">$45,678</h2>
+                        <p class="text-success"><i class="fa fa-arrow-up"></i> 8% increase</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Support Tickets</h3>
+                    </div>
+                    <div class="panel-body">
+                        <h2 style="margin: 0;">23</h2>
+                        <p class="text-warning"><i class="fa fa-arrow-down"></i> 5% decrease</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Test 6: Search and Filters -->
+    <div class="test-section">
+        <h2>6. Search and Filters</h2>
+        <p>Search and filter controls should stack vertically on mobile.</p>
+        <div class="search-filter-container" style="display: flex; gap: 12px; margin-bottom: 16px;">
+            <div class="search-input-wrapper" style="flex: 1;">
+                <input type="search" class="form-control" placeholder="Search...">
+            </div>
+            <select class="form-control" style="width: 200px;">
+                <option>All Status</option>
+                <option>Active</option>
+                <option>Inactive</option>
+            </select>
+            <button class="btn btn-primary">Filter</button>
+        </div>
+    </div>
+
+    <!-- Test 7: Modals -->
+    <div class="test-section">
+        <h2>7. Modal Dialogs</h2>
+        <p>Modal buttons should stack vertically on mobile.</p>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#testModal">Open Modal</button>
+        
+        <div class="modal fade" id="testModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Test Modal</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>This is a test modal. On mobile, the buttons in the footer should stack vertically.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Test 8: Alerts -->
+    <div class="test-section">
+        <h2>8. Alerts and Notifications</h2>
+        <div class="alert alert-success">
+            <i class="fa fa-check-circle"></i>
+            <strong>Success!</strong> Your changes have been saved successfully.
+        </div>
+        <div class="alert alert-warning">
+            <i class="fa fa-exclamation-triangle"></i>
+            <strong>Warning!</strong> Please review your settings before proceeding.
+        </div>
+        <div class="alert alert-danger">
+            <i class="fa fa-times-circle"></i>
+            <strong>Error!</strong> An error occurred while processing your request.
+        </div>
+    </div>
+
+    <!-- Viewport Testing Guide -->
+    <div class="test-section">
+        <h2>Testing Checklist</h2>
+        <h4>375px (Mobile)</h4>
+        <ul>
+            <li>✓ Sidebar collapses, hamburger menu visible</li>
+            <li>✓ Tables scroll horizontally</li>
+            <li>✓ Form fields stack vertically and full-width</li>
+            <li>✓ Buttons stack vertically with 44px min height</li>
+            <li>✓ Widgets display in single column</li>
+            <li>✓ Touch targets are at least 44×44px</li>
+        </ul>
+        
+        <h4>768px (Tablet)</h4>
+        <ul>
+            <li>✓ Widgets display in 2 columns</li>
+            <li>✓ Forms remain horizontal but more compact</li>
+            <li>✓ Tables remain scrollable if needed</li>
+            <li>✓ Button groups wrap appropriately</li>
+        </ul>
+        
+        <h4>1024px (Small Desktop)</h4>
+        <ul>
+            <li>✓ Sidebar visible and expanded</li>
+            <li>✓ Widgets display in 3 columns</li>
+            <li>✓ Full desktop layout active</li>
+        </ul>
+        
+        <h4>1920px (Large Desktop)</h4>
+        <ul>
+            <li>✓ Widgets display in 4 columns</li>
+            <li>✓ Content has max-width constraint</li>
+            <li>✓ Optimal spacing and padding</li>
+        </ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

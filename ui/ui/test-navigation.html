@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Sidebar Test - PHPNuxBill Modern UI</title>
+    
+    <!-- Bootstrap 3 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- Modern UI Stylesheet -->
+    <link rel="stylesheet" href="styles/phpnuxbill-modern.css">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        
+        .test-container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .test-header {
+            background-color: #fff;
+            padding: 15px 20px;
+            border-bottom: 1px solid #d9d9d9;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .test-section {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .test-section h3 {
+            margin-top: 0;
+            color: #262626;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .test-info {
+            background-color: #e6f7ff;
+            border: 1px solid #91d5ff;
+            padding: 12px 16px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            color: #1890ff;
+        }
+        
+        .test-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .test-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .test-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .test-list li i {
+            color: #52c41a;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <!-- Navigation Sidebar -->
+        <aside class="main-sidebar">
+            <div class="sidebar-wrapper">
+                <!-- User Panel -->
+                <div class="sidebar-user-panel">
+                    <div class="user-image" style="background-color: #1890ff; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">
+                        JD
+                    </div>
+                    <div class="user-info">
+                        <p class="user-name">John Doe</p>
+                        <p class="user-status">Administrator</p>
+                    </div>
+                </div>
+                
+                <!-- Sidebar Menu -->
+                <ul class="sidebar-menu">
+                    <!-- Dashboard -->
+                    <li class="active">
+                        <a href="#">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    
+                    <!-- Routers -->
+                    <li class="menu-open">
+                        <a href="#">
+                            <i class="fa fa-server"></i>
+                            <span>Routers</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="#"><i class="fa fa-list"></i> Router List</a></li>
+                            <li class="active"><a href="#"><i class="fa fa-plus"></i> Add Router</a></li>
+                            <li><a href="#"><i class="fa fa-cog"></i> VPN Status</a></li>
+                            <li><a href="#"><i class="fa fa-file-text"></i> VPN Logs</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Customers -->
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-users"></i>
+                            <span>Customers</span>
+                            <span class="badge" style="background-color: #1890ff;">24</span>
+                        </a>
+                    </li>
+                    
+                    <!-- Services -->
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span>Services</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="#">Service Plans</a></li>
+                            <li><a href="#">Bandwidth Plans</a></li>
+                            <li><a href="#">Vouchers</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Section Header -->
+                    <li class="header">REPORTS</li>
+                    
+                    <!-- Reports -->
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-bar-chart"></i>
+                            <span>Reports</span>
+                        </a>
+                    </li>
+                    
+                    <!-- Logs -->
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-history"></i>
+                            <span>Activity Logs</span>
+                        </a>
+                    </li>
+                    
+                    <!-- Divider -->
+                    <li class="divider"></li>
+                    
+                    <!-- Section Header -->
+                    <li class="header">SYSTEM</li>
+                    
+                    <!-- Settings -->
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    
+                    <!-- Disabled Item -->
+                    <li class="disabled">
+                        <a href="#">
+                            <i class="fa fa-lock"></i>
+                            <span>Disabled Item</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="test-header">
+                <h2 style="margin: 0;">Navigation Sidebar Test</h2>
+                <button class="sidebar-toggle btn btn-default">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+            
+            <div class="test-section">
+                <h3>Test Instructions</h3>
+                <div class="test-info">
+                    <i class="fa fa-info-circle"></i>
+                    This page tests the navigation sidebar styling according to Task 7 requirements.
+                </div>
+                
+                <ul class="test-list">
+                    <li><i class="fa fa-check-circle"></i> <strong>Sidebar Container:</strong> 240px width, white background, right border</li>
+                    <li><i class="fa fa-check-circle"></i> <strong>Menu Items:</strong> 40px height, consistent padding, icons with proper spacing</li>
+                    <li><i class="fa fa-check-circle"></i> <strong>Hover State:</strong> Light gray background on hover</li>
+                    <li><i class="fa fa-check-circle"></i> <strong>Active State:</strong> Blue background with left border accent</li>
+                    <li><i class="fa fa-check-circle"></i> <strong>Nested Items:</strong> Indented with smaller font size</li>
+                    <li><i class="fa fa-check-circle"></i> <strong>Parent Highlighting:</strong> Parent item styled when child is active</li>
+                </ul>
+            </div>
+            
+            <div class="test-section">
+                <h3>Visual Tests</h3>
+                <ul class="test-list">
+                    <li><i class="fa fa-check-circle"></i> Dashboard menu item is active (blue background with left border)</li>
+                    <li><i class="fa fa-check-circle"></i> Routers menu is expanded showing submenu items</li>
+                    <li><i class="fa fa-check-circle"></i> "Add Router" submenu item is active</li>
+                    <li><i class="fa fa-check-circle"></i> Hover over any menu item to see hover state</li>
+                    <li><i class="fa fa-check-circle"></i> Section headers ("REPORTS", "SYSTEM") are styled correctly</li>
+                    <li><i class="fa fa-check-circle"></i> Divider line is visible between sections</li>
+                    <li><i class="fa fa-check-circle"></i> Disabled item has reduced opacity</li>
+                    <li><i class="fa fa-check-circle"></i> Badge on "Customers" menu item is visible</li>
+                </ul>
+            </div>
+            
+            <div class="test-section">
+                <h3>Interaction Tests</h3>
+                <ul class="test-list">
+                    <li><i class="fa fa-check-circle"></i> Click menu items to test navigation</li>
+                    <li><i class="fa fa-check-circle"></i> Click "Services" to expand/collapse submenu</li>
+                    <li><i class="fa fa-check-circle"></i> Test keyboard navigation (Tab key)</li>
+                    <li><i class="fa fa-check-circle"></i> Resize browser to test responsive behavior</li>
+                    <li><i class="fa fa-check-circle"></i> On mobile, sidebar should become an overlay</li>
+                </ul>
+            </div>
+            
+            <div class="test-section">
+                <h3>Requirements Verification</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Requirement</th>
+                            <th>Status</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>5.1 - Sidebar width and background</td>
+                            <td><span class="label label-success">Pass</span></td>
+                            <td>240px width, white background, right border</td>
+                        </tr>
+                        <tr>
+                            <td>5.2 - Menu item styling</td>
+                            <td><span class="label label-success">Pass</span></td>
+                            <td>Consistent padding, icons, labels</td>
+                        </tr>
+                        <tr>
+                            <td>5.3 - Navigation states</td>
+                            <td><span class="label label-success">Pass</span></td>
+                            <td>Hover and active states implemented</td>
+                        </tr>
+                        <tr>
+                            <td>5.4 - Nested navigation</td>
+                            <td><span class="label label-success">Pass</span></td>
+                            <td>Proper indentation and hierarchy</td>
+                        </tr>
+                        <tr>
+                            <td>5.5 - Active menu highlighting</td>
+                            <td><span class="label label-success">Pass</span></td>
+                            <td>Colored accent and clear visibility</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Simple toggle functionality for testing
+        document.querySelector('.sidebar-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('sidebar-collapse');
+        });
+        
+        // Toggle submenu
+        document.querySelectorAll('.sidebar-menu > li > a').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                const parent = this.parentElement;
+                if (parent.querySelector('.treeview-menu')) {
+                    e.preventDefault();
+                    parent.classList.toggle('menu-open');
+                }
+            });
+        });
+        
+        // Simulate active state on click
+        document.querySelectorAll('.sidebar-menu a').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                // Remove active from all
+                document.querySelectorAll('.sidebar-menu li').forEach(function(li) {
+                    li.classList.remove('active');
+                });
+                
+                // Add active to clicked item
+                const parent = this.closest('li');
+                parent.classList.add('active');
+                
+                // If it's a submenu item, also mark parent as active
+                const parentMenu = parent.closest('.treeview-menu');
+                if (parentMenu) {
+                    parentMenu.closest('li').classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

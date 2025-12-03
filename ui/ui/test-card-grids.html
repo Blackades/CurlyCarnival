@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Grid Layouts Test - PHPNuxBill Modern UI</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/phpnuxbill-modern.css">
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-section {
+            margin-bottom: 60px;
+        }
+        .test-section h2 {
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #1890ff;
+        }
+        .viewport-indicator {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #1890ff;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <div class="viewport-indicator">
+        <span id="viewport-width"></span>
+    </div>
+
+    <div class="container-fluid">
+        <h1>Card Grid Layouts Test</h1>
+        <p class="text-secondary">Testing multi-column card layouts with responsive stacking</p>
+        <hr>
+
+        <!-- Auto-fill Grid (Default) -->
+        <div class="test-section">
+            <h2>Auto-fill Grid (Default)</h2>
+            <p>Cards automatically fill available space with minimum 300px width</p>
+            
+            <div class="card-grid">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Card 1</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>This is an auto-fill grid that adapts to available space.</p>
+                        <p class="text-muted">Minimum width: 300px</p>
+                    </div>
+                </div>
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Card 2</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>Cards will automatically wrap to new rows as needed.</p>
+                        <p class="text-muted">Responsive by default</p>
+                    </div>
+                </div>
+
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Card 3</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>Grid gap is set to 24px for consistent spacing.</p>
+                        <p class="text-muted">Clean and modern</p>
+                    </div>
+                </div>
+
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Card 4</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>On mobile (< 768px), cards stack to single column.</p>
+                        <p class="text-muted">Mobile-friendly</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Two Column Grid -->
+        <div class="test-section">
+            <h2>Two Column Grid</h2>
+            <p>Fixed 2-column layout that stacks on mobile</p>
+            
+            <div class="card-grid card-grid-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-server"></i> Server Status</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p><strong>Status:</strong> <span class="text-success">Online</span></p>
+                        <p><strong>Uptime:</strong> 45 days</p>
+                        <p><strong>Load:</strong> 2.3</p>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-database"></i> Database</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p><strong>Status:</strong> <span class="text-success">Connected</span></p>
+                        <p><strong>Size:</strong> 2.4 GB</p>
+                        <p><strong>Tables:</strong> 42</p>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-users"></i> Active Users</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p><strong>Online:</strong> 156</p>
+                        <p><strong>Today:</strong> 423</p>
+                        <p><strong>This Month:</strong> 8,234</p>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-signal"></i> Bandwidth</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p><strong>Current:</strong> 245 Mbps</p>
+                        <p><strong>Peak:</strong> 890 Mbps</p>
+                        <p><strong>Average:</strong> 320 Mbps</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Three Column Grid -->
+        <div class="test-section">
+            <h2>Three Column Grid</h2>
+            <p>Fixed 3-column layout (2 columns on tablet, 1 on mobile)</p>
+            
+            <div class="card-grid card-grid-3">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h3 class="box-title">Router 1</h3>
+                    </div>
+                    <div class="box-body">
+                        <p><strong>IP:</strong> 192.168.1.1</p>
+                        <p><strong>Model:</strong> MikroTik RB4011</p>
+                        <p><span class="label label-success">Active</span></p>
+                    </div>
+                </div>
+
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h3 class="box-title">Router 2</h3>
+                    </div>
+                    <div class="box-body">
+                        <p><strong>IP:</strong> 192.168.1.2</p>
+                        <p><strong>Model:</strong> MikroTik CCR1036</p>
+                        <p><span class="label label-success">Active</span></p>
+                    </div>
+                </div>
+
+                <div class="box box-warning">
+                    <div class="box-header">
+                        <h3 class="box-title">Router 3</h3>
+                    </div>
+                    <div class="box-body">
+                        <p><strong>IP:</strong> 192.168.1.3</p>
+                        <p><strong>Model:</strong> MikroTik hEX</p>
+                        <p><span class="label label-warning">Warning</span></p>
+                    </div>
+                </div>
+
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h3 class="box-title">Router 4</h3>
+                    </div>
+                    <div class="box-body">
+                        <p><strong>IP:</strong> 192.168.1.4</p>
+                        <p><strong>Model:</strong> MikroTik RB3011</p>
+                        <p><span class="label label-success">Active</span></p>
+                    </div>
+                </div>
+
+                <div class="box box-danger">
+                    <div class="box-header">
+                        <h3 class="box-title">Router 5</h3>
+                    </div>
+                    <div class="box-body">
+                        <p><strong>IP:</strong> 192.168.1.5</p>
+                        <p><strong>Model:</strong> MikroTik RB750</p>
+                        <p><span class="label label-danger">Offline</span></p>
+                    </div>
+                </div>
+
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h3 class="box-title">Router 6</h3>
+                    </div>
+                    <div class="box-body">
+                        <p><strong>IP:</strong> 192.168.1.6</p>
+                        <p><strong>Model:</strong> MikroTik RB2011</p>
+                        <p><span class="label label-success">Active</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Four Column Grid -->
+        <div class="test-section">
+            <h2>Four Column Grid</h2>
+            <p>Fixed 4-column layout (3 on large screens, 2 on tablet, 1 on mobile)</p>
+            
+            <div class="card-grid card-grid-4">
+                <div class="panel panel-default">
+                    <div class="panel-body text-center">
+                        <i class="fa fa-users fa-3x text-primary"></i>
+                        <h3>1,234</h3>
+                        <p class="text-muted">Total Users</p>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-body text-center">
+                        <i class="fa fa-server fa-3x text-success"></i>
+                        <h3>12</h3>
+                        <p class="text-muted">Routers</p>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-body text-center">
+                        <i class="fa fa-wifi fa-3x text-info"></i>
+                        <h3>456</h3>
+                        <p class="text-muted">Active Sessions</p>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-body text-center">
+                        <i class="fa fa-dollar fa-3x text-warning"></i>
+                        <h3>$12,345</h3>
+                        <p class="text-muted">Revenue</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flexbox Card Row (Alternative) -->
+        <div class="test-section">
+            <h2>Flexbox Card Row (Alternative)</h2>
+            <p>Flexible row layout that wraps cards automatically</p>
+            
+            <div class="card-row">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Flexible Card 1</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>This uses flexbox instead of CSS Grid.</p>
+                        <p class="text-muted">Minimum width: 280px</p>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Flexible Card 2</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>Cards grow to fill available space equally.</p>
+                        <p class="text-muted">Flexible sizing</p>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Flexible Card 3</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>Works well for older browsers without Grid support.</p>
+                        <p class="text-muted">Better compatibility</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Responsive Behavior Demo -->
+        <div class="test-section">
+            <h2>Responsive Behavior</h2>
+            <p>Resize your browser to see how cards adapt to different screen sizes:</p>
+            <ul>
+                <li><strong>Desktop (> 1200px):</strong> 4-column grid shows 4 columns</li>
+                <li><strong>Large Tablet (992px - 1200px):</strong> 4-column grid shows 3 columns</li>
+                <li><strong>Tablet (768px - 992px):</strong> 3 & 4-column grids show 2 columns</li>
+                <li><strong>Mobile (< 768px):</strong> All grids stack to single column</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Display current viewport width
+        function updateViewportIndicator() {
+            const width = window.innerWidth;
+            const indicator = document.getElementById('viewport-width');
+            let device = '';
+            
+            if (width >= 1200) {
+                device = 'Desktop';
+            } else if (width >= 992) {
+                device = 'Large Tablet';
+            } else if (width >= 768) {
+                device = 'Tablet';
+            } else {
+                device = 'Mobile';
+            }
+            
+            indicator.textContent = `${width}px (${device})`;
+        }
+        
+        updateViewportIndicator();
+        window.addEventListener('resize', updateViewportIndicator);
+    </script>
+</body>
+</html>

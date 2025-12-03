@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search and Filter Controls - PHPNuxBill Modern UI</title>
+    
+    <!-- Bootstrap 3 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- Modern CSS -->
+    <link rel="stylesheet" href="styles/phpnuxbill-modern.css">
+    
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .demo-section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .demo-section h2 {
+            margin-top: 0;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+            margin-bottom: 25px;
+        }
+        .demo-item {
+            margin-bottom: 25px;
+        }
+        .demo-item h4 {
+            margin-bottom: 15px;
+            color: #595959;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .code-label {
+            display: inline-block;
+            padding: 2px 8px;
+            background: #f0f0f0;
+            border-radius: 3px;
+            font-size: 12px;
+            font-family: monospace;
+            margin-bottom: 10px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1>Search and Filter Controls Test Page</h1>
+        <p class="text-muted">Testing modern search and filter control styles for PHPNuxBill</p>
+        
+        <!-- Search Input Fields -->
+        <div class="demo-section">
+            <h2>1. Search Input Fields</h2>
+            
+            <div class="demo-item">
+                <h4>Basic Search Input</h4>
+                <div class="search-input-wrapper">
+                    <input type="search" class="form-control" placeholder="Search...">
+                </div>
+            </div>
+            
+            <div class="demo-item">
+                <h4>Search Input with Icon (using wrapper)</h4>
+                <div class="search-wrapper">
+                    <input type="text" class="form-control" placeholder="Search routers...">
+                </div>
+            </div>
+            
+            <div class="demo-item">
+                <h4>Search Input Sizes</h4>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <div class="search-input-wrapper input-sm">
+                        <input type="search" class="form-control" placeholder="Small search">
+                    </div>
+                    <div class="search-input-wrapper">
+                        <input type="search" class="form-control" placeholder="Default search">
+                    </div>
+                    <div class="search-input-wrapper input-lg">
+                        <input type="search" class="form-control" placeholder="Large search">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="demo-item">
+                <h4>Search with Clear Button</h4>
+                <div class="search-input-wrapper has-clear">
+                    <input type="search" class="form-control" placeholder="Search customers..." value="John Doe">
+                    <button class="search-clear-btn" type="button">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="demo-item">
+                <h4>Search with Loading State</h4>
+                <div class="search-input-wrapper loading">
+                    <input type="search" class="form-control" placeholder="Searching..." value="test query">
+                </div>
+            </div>
+            
+            <div class="demo-item">
+                <h4>DataTables Search (styled automatically)</h4>
+                <div class="dataTables_filter">
+                    <label>
+                        Search:
+                        <input type="search" class="form-control" placeholder="">
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Filter Dropdown Controls -->
+        <div class="demo-section">
+            <h2>2. Filter Dropdown Controls</h2>
+            
+            <div class="demo-item">
+                <h4>Basic Filter Dropdown</h4>
+                <select class="filter-select">
+                    <option value="">All Status</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                    <option value="suspended">Suspended</option>
+                </select>
+            </div>
+            
+            <div class="demo-item">
+                <h4>Filter with Label</h4>
+                <div class="filter-container">
+                    <span class="filter-label">Status:</span>
+                    <select class="filter-dropdown">
+                        <option value="">All</option>
+                        <option value="online">Online</option>
+                        <option value="offline">Offline</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="demo-item">
+                <h4>Filter Dropdown Sizes</h4>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center;">
+                    <select class="filter-select input-sm">
+                        <option>Small</option>
+                        <option>Option 1</option>
+                    </select>
+                    <select class="filter-select">
+                        <option>Default</option>
+                        <option>Option 1</option>
+                    </select>
+                    <select class="filter-select input-lg">
+                        <option>Large</option>
+                        <option>Option 1</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="demo-item">
+                <h4>DataTables Length Selector (styled automatically)</h4>
+                <div class="dataTables_length">
+                    <label>
+                        Show
+                        <select class="form-control">
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                        entries
+                    </label>
+                </div>
+            </div>
+            
+            <div class="demo-item">
+                <h4>Filter with Loading State</h4>
+                <select class="filter-select loading">
+                    <option>Loading...</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- Filter Groups and Layouts -->
+        <div class="demo-section">
+            <h2>3. Filter Groups and Layouts</h2>
+            
+            <div class="demo-item">
+                <h4>Horizontal Filter Bar</h4>
+                <div class="filter-bar">
+                    <div class="search-input-wrapper">
+                        <input type="search" class="form-control" placeholder="Search...">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <span class="filter-label">Status:</span>
+                        <select class="filter-select">
+                            <option value="">All</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <span class="filter-label">Type:</span>
+                        <select class="filter-select">
+                            <option value="">All Types</option>
+                            <option value="mikrotik">MikroTik</option>
+                            <option value="cisco">Cisco</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-actions">
+                        <button class="btn btn-primary btn-apply-filter">Apply</button>
+                        <button class="btn btn-default btn-reset-filter">Reset</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="demo-item">
+                <h4>Horizontal Filters Layout</h4>
+                <div class="filters-horizontal">
+                    <div class="filter-item">
+                        <span class="filter-label">Search:</span>
+                        <div class="search-input-wrapper">
+                            <input type="search" class="form-control" placeholder="Search...">
+                        </div>
+                    </div>
+                    
+                    <div class="filter-item">
+                        <span class="filter-label">Date Range:</span>
+                        <div class="date-range-filter">
+                            <input type="date" class="form-control">
+                            <span class="date-range-separator">to</span>
+                            <input type="date" class="form-control">
+                        </div>
+                    </div>
+                    
+                    <div class="filter-item">
+                        <button class="btn btn-primary">Filter</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="demo-item">
+                <h4>Vertical Filters Layout</h4>
+                <div class="filters-vertical" style="max-width: 300px;">
+                    <div class="filter-item">
+                        <label>Search</label>
+                        <div class="search-input-wrapper">
+                            <input type="search" class="form-control" placeholder="Search...">
+                        </div>
+                    </div>
+                    
+                    <div class="filter-item">
+                        <label>Status</label>
+                        <select class="filter-select">
+                            <option value="">All Status</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-item">
+                        <label>Category</label>
+                        <select class="filter-select">
+                            <option value="">All Categories</option>
+                            <option value="cat1">Category 1</option>
+                            <option value="cat2">Category 2</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-buttons">
+                        <button class="btn btn-primary btn-block">Apply Filters</button>
+                        <button class="btn btn-default btn-block">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Active Filter Tags -->
+        <div class="demo-section">
+            <h2>4. Active Filter Tags</h2>
+            
+            <div class="demo-item">
+                <h4>Filter Tags with Clear Buttons</h4>
+                <div class="filter-tags">
+                    <span class="filter-tags-label">Active Filters:</span>
+                    
+                    <div class="filter-tag">
+                        <span class="filter-tag-label">Status:</span>
+                        <span class="filter-tag-value">Active</span>
+                        <button class="filter-tag-close" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="filter-tag">
+                        <span class="filter-tag-label">Type:</span>
+                        <span class="filter-tag-value">MikroTik</span>
+                        <button class="filter-tag-close" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="filter-tag">
+                        <span class="filter-tag-label">Location:</span>
+                        <span class="filter-tag-value">New York</span>
+                        <button class="filter-tag-close" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <button class="clear-all-filters">
+                        <i class="fa fa-times-circle"></i> Clear All
+                    </button>
+                </div>
+            </div>
+            
+            <div class="demo-item">
+                <h4>Colored Filter Tags</h4>
+                <div class="filter-tags">
+                    <div class="filter-tag primary">
+                        <span>Primary Filter</span>
+                        <button class="filter-tag-close" type="button">×</button>
+                    </div>
+                    
+                    <div class="filter-tag success">
+                        <span>Success Filter</span>
+                        <button class="filter-tag-close" type="button">×</button>
+                    </div>
+                    
+                    <div class="filter-tag warning">
+                        <span>Warning Filter</span>
+                        <button class="filter-tag-close" type="button">×</button>
+                    </div>
+                    
+                    <div class="filter-tag danger">
+                        <span>Danger Filter</span>
+                        <button class="filter-tag-close" type="button">×</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="demo-item">
+                <h4>Filter Count Badge</h4>
+                <button class="btn btn-default">
+                    Filters
+                    <span class="filter-count">3</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Advanced Features -->
+        <div class="demo-section">
+            <h2>5. Advanced Filter Features</h2>
+            
+            <div class="demo-item">
+                <h4>Quick Filter Buttons</h4>
+                <div class="quick-filters">
+                    <button class="quick-filter-btn active">All</button>
+                    <button class="quick-filter-btn">Today</button>
+                    <button class="quick-filter-btn">This Week</button>
+                    <button class="quick-filter-btn">This Month</button>
+                    <button class="quick-filter-btn">Custom</button>
+                </div>
+            </div>
+            
+            <div class="demo-item">
+                <h4>Filter Preset Selector</h4>
+                <div class="filter-preset-selector">
+                    <label>Saved Filters:</label>
+                    <select class="filter-select">
+                        <option value="">Select a preset...</option>
+                        <option value="preset1">Active Customers</option>
+                        <option value="preset2">Overdue Payments</option>
+                        <option value="preset3">New This Month</option>
+                    </select>
+                    <button class="btn-save-filter-preset">
+                        <i class="fa fa-save"></i> Save Current
+                    </button>
+                </div>
+            </div>
+            
+            <div class="demo-item">
+                <h4>Advanced Filter Toggle</h4>
+                <button class="advanced-filter-toggle">
+                    <i class="fa fa-filter icon"></i>
+                    <span>Advanced Filters</span>
+                    <i class="fa fa-chevron-down icon"></i>
+                </button>
+                
+                <div class="advanced-filters">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Created Date From</label>
+                                <input type="date" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Created Date To</label>
+                                <input type="date" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Amount Range</label>
+                                <select class="form-control">
+                                    <option>Any Amount</option>
+                                    <option>$0 - $100</option>
+                                    <option>$100 - $500</option>
+                                    <option>$500+</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="demo-item">
+                <h4>Filter Results Summary</h4>
+                <div class="filter-results-summary">
+                    <span>Showing</span>
+                    <span class="filter-results-count">47</span>
+                    <span>results matching your filters</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Complete Example -->
+        <div class="demo-section">
+            <h2>6. Complete Filter Interface Example</h2>
+            
+            <div class="demo-item">
+                <h4>Router List Page Filter Example</h4>
+                
+                <!-- Filter Bar -->
+                <div class="filter-bar">
+                    <div class="search-input-wrapper">
+                        <input type="search" class="form-control" placeholder="Search routers...">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <span class="filter-label">Status:</span>
+                        <select class="filter-select">
+                            <option value="">All Status</option>
+                            <option value="online">Online</option>
+                            <option value="offline">Offline</option>
+                            <option value="error">Error</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <span class="filter-label">Type:</span>
+                        <select class="filter-select">
+                            <option value="">All Types</option>
+                            <option value="mikrotik">MikroTik</option>
+                            <option value="cisco">Cisco</option>
+                            <option value="ubiquiti">Ubiquiti</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-actions">
+                        <button class="btn btn-primary btn-sm">
+                            <i class="fa fa-filter"></i> Apply
+                        </button>
+                        <button class="btn btn-default btn-sm">
+                            <i class="fa fa-refresh"></i> Reset
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Active Filters -->
+                <div class="filter-tags">
+                    <span class="filter-tags-label">Active Filters:</span>
+                    
+                    <div class="filter-tag">
+                        <span class="filter-tag-label">Status:</span>
+                        <span class="filter-tag-value">Online</span>
+                        <button class="filter-tag-close" type="button">×</button>
+                    </div>
+                    
+                    <div class="filter-tag">
+                        <span class="filter-tag-label">Type:</span>
+                        <span class="filter-tag-value">MikroTik</span>
+                        <button class="filter-tag-close" type="button">×</button>
+                    </div>
+                    
+                    <button class="clear-all-filters">
+                        <i class="fa fa-times-circle"></i> Clear All
+                    </button>
+                </div>
+                
+                <!-- Results Summary -->
+                <div class="filter-results-summary">
+                    <span>Showing</span>
+                    <span class="filter-results-count">12</span>
+                    <span>of 47 routers</span>
+                </div>
+                
+                <!-- Sample Table -->
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Router Name</th>
+                            <th>IP Address</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Router-01</td>
+                            <td>192.168.1.1</td>
+                            <td>MikroTik</td>
+                            <td><span class="label label-success">Online</span></td>
+                            <td>
+                                <button class="btn btn-xs btn-primary">Edit</button>
+                                <button class="btn btn-xs btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Router-02</td>
+                            <td>192.168.1.2</td>
+                            <td>MikroTik</td>
+                            <td><span class="label label-success">Online</span></td>
+                            <td>
+                                <button class="btn btn-xs btn-primary">Edit</button>
+                                <button class="btn btn-xs btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Responsive Test -->
+        <div class="demo-section">
+            <h2>7. Responsive Behavior</h2>
+            <p class="text-muted">Resize your browser window to see how filters adapt to smaller screens (mobile/tablet)</p>
+            
+            <div class="demo-item">
+                <div class="filter-bar">
+                    <div class="search-input-wrapper">
+                        <input type="search" class="form-control" placeholder="Search...">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <span class="filter-label">Filter 1:</span>
+                        <select class="filter-select">
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <span class="filter-label">Filter 2:</span>
+                        <select class="filter-select">
+                            <option>Option A</option>
+                            <option>Option B</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-actions">
+                        <button class="btn btn-primary">Apply</button>
+                        <button class="btn btn-default">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Simple demo interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Clear button functionality
+            document.querySelectorAll('.search-clear-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const input = this.previousElementSibling;
+                    if (input && input.tagName === 'INPUT') {
+                        input.value = '';
+                        input.focus();
+                    }
+                });
+            });
+            
+            // Filter tag close buttons
+            document.querySelectorAll('.filter-tag-close').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.closest('.filter-tag').remove();
+                });
+            });
+            
+            // Clear all filters
+            document.querySelectorAll('.clear-all-filters, .btn-clear-filters').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const container = this.closest('.filter-tags, .active-filters');
+                    if (container) {
+                        container.querySelectorAll('.filter-tag').forEach(tag => tag.remove());
+                    }
+                });
+            });
+            
+            // Advanced filter toggle
+            document.querySelectorAll('.advanced-filter-toggle').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.classList.toggle('expanded');
+                    const panel = this.nextElementSibling;
+                    if (panel && panel.classList.contains('advanced-filters')) {
+                        panel.classList.toggle('show');
+                    }
+                });
+            });
+            
+            // Quick filter buttons
+            document.querySelectorAll('.quick-filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.quick-filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

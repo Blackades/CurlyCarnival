@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal and Alert Styles Test - PHPNuxBill Modern UI</title>
+    
+    <!-- Bootstrap 3 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    
+    <!-- Modern PHPNuxBill Styles -->
+    <link rel="stylesheet" href="styles/phpnuxbill-modern.css">
+    
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 24px;
+            margin-bottom: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .test-section h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .test-row {
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1>Modal and Alert Styles Test</h1>
+        <p class="text-muted">Testing modern modal dialogs and alert message styles</p>
+
+        <!-- Alert Messages Section -->
+        <div class="test-section">
+            <h2>Alert Messages</h2>
+            
+            <div class="test-row">
+                <h4>Basic Alerts</h4>
+                <div class="alert alert-success">
+                    <i class="fa fa-check-circle"></i>
+                    <div class="alert-content">
+                        <strong>Success!</strong> Your operation completed successfully.
+                    </div>
+                </div>
+                
+                <div class="alert alert-info">
+                    <i class="fa fa-info-circle"></i>
+                    <div class="alert-content">
+                        <strong>Information:</strong> This is an informational message.
+                    </div>
+                </div>
+                
+                <div class="alert alert-warning">
+                    <i class="fa fa-exclamation-triangle"></i>
+                    <div class="alert-content">
+                        <strong>Warning!</strong> Please review this important information.
+                    </div>
+                </div>
+                
+                <div class="alert alert-danger">
+                    <i class="fa fa-times-circle"></i>
+                    <div class="alert-content">
+                        <strong>Error!</strong> Something went wrong. Please try again.
+                    </div>
+                </div>
+            </div>
+
+            <div class="test-row">
+                <h4>Dismissible Alerts</h4>
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <i class="fa fa-check-circle"></i>
+                    <div class="alert-content">
+                        <strong>Success!</strong> This alert can be dismissed.
+                    </div>
+                </div>
+                
+                <div class="alert alert-warning alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <i class="fa fa-exclamation-triangle"></i>
+                    <div class="alert-content">
+                        <strong>Warning!</strong> Click the × to dismiss this alert.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="test-row">
+                <h4>Bordered Alerts</h4>
+                <div class="alert alert-success alert-bordered">
+                    <i class="fa fa-check-circle"></i>
+                    <div class="alert-content">
+                        <strong>Success!</strong> Alert with left border accent.
+                    </div>
+                </div>
+                
+                <div class="alert alert-danger alert-bordered">
+                    <i class="fa fa-times-circle"></i>
+                    <div class="alert-content">
+                        <strong>Error!</strong> Alert with left border accent.
+                    </div>
+                </div>
+            </div>
+
+            <div class="test-row">
+                <h4>Alerts with Heading</h4>
+                <div class="alert alert-info">
+                    <i class="fa fa-info-circle"></i>
+                    <div class="alert-content">
+                        <h4 class="alert-heading">Did you know?</h4>
+                        <p>You can use alerts with headings to provide more structured information.</p>
+                        <p class="mb-0">This is a multi-paragraph alert with a heading.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="test-row">
+                <h4>Alert Sizes</h4>
+                <div class="alert alert-info alert-sm">
+                    <i class="fa fa-info-circle"></i>
+                    <div class="alert-content">Small alert message</div>
+                </div>
+                
+                <div class="alert alert-info">
+                    <i class="fa fa-info-circle"></i>
+                    <div class="alert-content">Default size alert message</div>
+                </div>
+                
+                <div class="alert alert-info alert-lg">
+                    <i class="fa fa-info-circle"></i>
+                    <div class="alert-content">Large alert message</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Dialogs Section -->
+        <div class="test-section">
+            <h2>Modal Dialogs</h2>
+            
+            <div class="test-row">
+                <h4>Modal Triggers</h4>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalSmall">
+                    Small Modal
+                </button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDefault">
+                    Default Modal
+                </button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalLarge">
+                    Large Modal
+                </button>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalWithIcon">
+                    Modal with Icon
+                </button>
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalScrollable">
+                    Scrollable Modal
+                </button>
+            </div>
+        </div>
+        
+        <!-- SweetAlert2 Section -->
+        <div class="test-section">
+            <h2>SweetAlert2 Confirmation Dialogs</h2>
+            
+            <div class="test-row">
+                <h4>Confirmation Dialogs</h4>
+                <button type="button" class="btn btn-success" onclick="showSuccessAlert()">
+                    Success Alert
+                </button>
+                <button type="button" class="btn btn-warning" onclick="showWarningAlert()">
+                    Warning Alert
+                </button>
+                <button type="button" class="btn btn-danger" onclick="showDeleteConfirm()">
+                    Delete Confirmation
+                </button>
+                <button type="button" class="btn btn-info" onclick="showInfoAlert()">
+                    Info Alert
+                </button>
+                <button type="button" class="btn btn-default" onclick="showInputAlert()">
+                    Input Dialog
+                </button>
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- Small Modal -->
+    <div class="modal fade" id="modalSmall" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Small Modal</h4>
+                </div>
+                <div class="modal-body">
+                    <p>This is a small modal dialog. It's perfect for simple confirmations or brief messages.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Default Modal -->
+    <div class="modal fade" id="modalDefault" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Default Modal</h4>
+                </div>
+                <div class="modal-body">
+                    <p>This is a default-sized modal dialog. It provides a good balance between content space and screen real estate.</p>
+                    <p>You can include forms, tables, or other content here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Large Modal -->
+    <div class="modal fade" id="modalLarge" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Large Modal</h4>
+                </div>
+                <div class="modal-body">
+                    <p>This is a large modal dialog. It's ideal for displaying more complex content or forms.</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Column 1</h5>
+                            <p>You can use grid layouts inside modals to organize content effectively.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Column 2</h5>
+                            <p>Large modals provide plenty of space for detailed information.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal with Icon -->
+    <div class="modal fade" id="modalWithIcon" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title modal-icon modal-icon-success">
+                        <i class="fa fa-check-circle"></i>
+                        <span>Success Message</span>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <p>This modal includes an icon in the title to provide visual context.</p>
+                    <p>Icons help users quickly understand the purpose or status of the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scrollable Modal -->
+    <div class="modal fade" id="modalScrollable" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Scrollable Content</h4>
+                </div>
+                <div class="modal-body modal-body-scrollable">
+                    <p>This modal has scrollable content when it exceeds the maximum height.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Bootstrap 3 JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <script>
+        // SweetAlert2 Examples
+        function showSuccessAlert() {
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: 'Your operation completed successfully.',
+                confirmButtonText: 'OK'
+            });
+        }
+        
+        function showWarningAlert() {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Warning',
+                text: 'Please review this important information before proceeding.',
+                confirmButtonText: 'I Understand',
+                showCancelButton: true,
+                cancelButtonText: 'Cancel'
+            });
+        }
+        
+        function showDeleteConfirm() {
+            Swal.fire({
+                icon: 'error',
+                title: 'Are you sure?',
+                text: 'This action cannot be undone. Do you want to delete this item?',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it',
+                cancelButtonText: 'Cancel',
+                confirmButtonColor: '#f5222d',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire('Deleted!', 'The item has been deleted.', 'success');
+                }
+            });
+        }
+
+        function showInfoAlert() {
+            Swal.fire({
+                icon: 'info',
+                title: 'Information',
+                text: 'Here is some important information you should know.',
+                confirmButtonText: 'Got it'
+            });
+        }
+        
+        function showInputAlert() {
+            Swal.fire({
+                title: 'Enter your name',
+                input: 'text',
+                inputPlaceholder: 'Type your name here',
+                showCancelButton: true,
+                confirmButtonText: 'Submit',
+                cancelButtonText: 'Cancel',
+                inputValidator: (value) => {
+                    if (!value) {
+                        return 'You need to enter something!';
+                    }
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire('Hello ' + result.value + '!', 'Nice to meet you!', 'success');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

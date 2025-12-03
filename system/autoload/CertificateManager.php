@@ -273,7 +273,8 @@ class CertificateManager
         }
 
         // Build command with escaped arguments
-        $command = 'sudo ' . escapeshellarg($scriptPath);
+        // Use 'sudo bash' to avoid secure_path issues
+        $command = 'sudo bash ' . escapeshellarg($scriptPath);
         foreach ($args as $arg) {
             $command .= ' ' . escapeshellarg($arg);
         }
