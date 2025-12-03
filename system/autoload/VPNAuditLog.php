@@ -20,6 +20,15 @@ class VPNAuditLog
      */
     public static function logAction($routerId, $action, $adminId, $details = [], $status = 'success', $errorMessage = null)
     {
+        // Skip logging if router_id is 0 (router not yet created)
+        // This prevents foreign key constraint violations during error handling
+        if ($routerId == 0) {
+            // Log to file instead for debugging
+            error_log("VPN Audit (no router): Action=$action, Admin=$adminId, Status=$status, Details=" . 
+                (is_array($details) ? json_encode($details) : $details));
+            return null;
+        }
+        
         $log = ORM::for_table('tbl_vpn_audit_log')->create();
         $log->router_id = $routerId;
         $log->action = $action;
