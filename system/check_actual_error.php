@@ -12,7 +12,7 @@ echo "╚═══════════════════════�
 
 // Find the most recent M-Pesa transaction
 $trx = ORM::for_table('tbl_payment_gateway')
-    ->where('payment_gateway', 'mpesa')
+    ->where('gateway', 'mpesa')
     ->order_by_desc('id')
     ->find_one();
 
