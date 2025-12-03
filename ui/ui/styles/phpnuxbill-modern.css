@@ -9375,3 +9375,142 @@ section.content-header {
 }
 
 /* End of spacing fixes */
+
+
+/* ============================================================================
+   FINAL FIXES: Dashboard White Background & Prevent Overlap
+   ========================================================================= */
+
+/* Force dashboard content area to be white */
+.dashboard-content,
+.dashboard-content .content,
+.dashboard-main,
+body .dashboard-content,
+body .dashboard-main,
+.modern-skin-dark .dashboard-content,
+.modern-skin-dark .dashboard-main,
+.hold-transition .dashboard-content,
+.hold-transition .dashboard-main {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+}
+
+/* Ensure dashboard widgets container is white */
+.dashboard-widgets,
+.dashboard-content .dashboard-widgets {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+}
+
+/* Fix dashboard header to not overlap content */
+.dashboard-content .content-header {
+    position: relative !important;
+    z-index: 1 !important;
+    background-color: #ffffff !important;
+    margin-bottom: 16px !important;
+    padding-bottom: 12px !important;
+}
+
+/* Ensure dashboard title doesn't overlap */
+.dashboard-title {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Fix widget positioning to prevent overlap */
+.dashboard-widgets .row {
+    position: relative !important;
+    z-index: 2 !important;
+    margin-top: 0 !important;
+}
+
+/* Ensure proper spacing between header and widgets */
+.dashboard-content section.content {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* Remove any absolute positioning that might cause overlap */
+.dashboard-content .content-header h1 {
+    position: relative !important;
+    display: block !important;
+}
+
+/* Fix any floating elements in dashboard */
+.dashboard-content::after,
+.dashboard-main::after {
+    content: "" !important;
+    display: table !important;
+    clear: both !important;
+}
+
+/* Ensure widgets start below the header */
+.widget-row:first-child {
+    margin-top: 0 !important;
+    clear: both !important;
+}
+
+/* Additional white background enforcement for dashboard */
+body.modern-skin-dark .content-wrapper .dashboard-content,
+body.hold-transition .content-wrapper .dashboard-content {
+    background-color: #ffffff !important;
+}
+
+/* Fix section backgrounds */
+section.dashboard-main,
+section.content.dashboard-main {
+    background-color: #ffffff !important;
+}
+
+/* End of final fixes */
+
+
+/* ============================================================================
+   CRITICAL: Fix Duplicate Header Issue
+   ========================================================================= */
+
+/* Hide the default header from header.tpl when dashboard has its own */
+.dashboard-content > .content-header:first-child {
+    display: block !important;
+}
+
+/* Ensure only one content-header is visible */
+.content-wrapper.dashboard-content .content-header {
+    display: block !important;
+    position: relative !important;
+}
+
+/* Fix header positioning */
+.content-wrapper .content-header {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+}
+
+/* Prevent header from being absolute positioned */
+.content-header {
+    position: relative !important;
+}
+
+/* Ensure content starts after header */
+.content-wrapper > section.content {
+    margin-top: 0 !important;
+    padding-top: 16px !important;
+}
+
+/* Fix z-index stacking */
+.content-wrapper {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.content-header {
+    z-index: 10 !important;
+}
+
+.content {
+    z-index: 5 !important;
+}
+
+/* End of duplicate header fix */
