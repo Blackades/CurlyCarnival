@@ -38,6 +38,7 @@
                         <thead>
                             <tr>
                                 <th>{Lang::T('Router Name')}</th>
+                                <th>{Lang::T('Type')}</th>
                                 <th>{Lang::T('IP Address')}</th>
                                 <th>{Lang::T('Username')}</th>
                                 <th>{Lang::T('Description')}</th>
@@ -45,6 +46,9 @@
                                     <th>{Lang::T('Online Status')}</th>
                                     <th>{Lang::T('Last Seen')}</th>
                                 {/if}
+                                <th>{Lang::T('VPN Status')}</th>
+                                <th>{Lang::T('Certificate')}</th>
+                                <th>{Lang::T('Last Check')}</th>
                                 <th>{Lang::T('Status')}</th>
                                 <th>{Lang::T('Manage')}</th>
                                 <th>ID</th>
@@ -61,9 +65,22 @@
                                         {/if}
                                         {$ds['name']}
                                     </td>
+                                    <td>
+                                        {if $ds['connection_type'] == 'remote'}
+                                            <span class="label label-info"><i class="glyphicon glyphicon-cloud"></i> {Lang::T('Remote')}</span>
+                                        {else}
+                                            <span class="label label-default"><i class="glyphicon glyphicon-hdd"></i> {Lang::T('Local')}</span>
+                                        {/if}
+                                    </td>
                                     <td style="background-color: black; color: black;"
                                         onmouseleave="this.style.backgroundColor = 'black';"
-                                        onmouseenter="this.style.backgroundColor = 'white';">{$ds['ip_address']}</td>
+                                        onmouseenter="this.style.backgroundColor = 'white';">
+                                        {if $ds['connection_type'] == 'remote'}
+                                            {if $ds['vpn_ip']}{$ds['vpn_ip']}{else}{Lang::T('Pending')}{/if}
+                                        {else}
+                                            {$ds['ip_address']}
+                                        {/if}
+                                    </td>
                                     <td style="background-color: black; color: black;"
                                         onmouseleave="this.style.backgroundColor = 'black';"
                                         onmouseenter="this.style.backgroundColor = 'white';">{$ds['username']}</td>
@@ -81,10 +98,56 @@
                                         </td>
                                         <td>{$ds['last_seen']}</td>
                                     {/if}
+                                    <td>
+                                        {if $ds['connection_type'] == 'remote'}
+                                            {if $ds['ovpn_status'] == 'connected'}
+                                                <span class="label label-success"><i class="glyphicon glyphicon-ok-circle"></i> {Lang::T('Connected')}</span>
+                                            {elseif $ds['ovpn_status'] == 'disconnected'}
+                                                <span class="label label-danger"><i class="glyphicon glyphicon-remove-circle"></i> {Lang::T('Disconnected')}</span>
+                                            {elseif $ds['ovpn_status'] == 'error'}
+                                                <span class="label label-warning"><i class="glyphicon glyphicon-exclamation-sign"></i> {Lang::T('Error')}</span>
+                                            {else}
+                                                <span class="label label-default"><i class="glyphicon glyphicon-time"></i> {Lang::T('Pending')}</span>
+                                            {/if}
+                                        {else}
+                                            <span class="text-muted">N/A</span>
+                                        {/if}
+                                    </td>
+                                    <td>
+                                        {if $ds['connection_type'] == 'remote' && $ds['certificate_expiry']}
+                                            {assign var="cert_date" value=$ds['certificate_expiry']|strtotime}
+                                            {assign var="now" value=$smarty.now}
+                                            {assign var="days_left" value=(($cert_date - $now) / 86400)|floor}
+                                            {if $days_left < 7}
+                                                <span class="label label-danger"><i class="glyphicon glyphicon-warning-sign"></i> {$days_left} {Lang::T('days')}</span>
+                                            {elseif $days_left < 30}
+                                                <span class="label label-warning"><i class="glyphicon glyphicon-time"></i> {$days_left} {Lang::T('days')}</span>
+                                            {else}
+                                                <span class="label label-success"><i class="glyphicon glyphicon-ok"></i> {$days_left} {Lang::T('days')}</span>
+                                            {/if}
+                                        {else}
+                                            <span class="text-muted">N/A</span>
+                                        {/if}
+                                    </td>
+                                    <td>
+                                        {if $ds['connection_type'] == 'remote'}
+                                            {if $ds['last_vpn_check']}
+                                                {$ds['last_vpn_check']}
+                                            {else}
+                                                <span class="text-muted">{Lang::T('Never')}</span>
+                                            {/if}
+                                        {else}
+                                            <span class="text-muted">N/A</span>
+                                        {/if}
+                                    </td>
                                     <td>{if $ds['enabled'] == 1}{Lang::T('Enabled')}{else}{Lang::T('Disabled')}{/if}</td>
                                     <td>
                                         <a href="{Text::url('')}routers/edit/{$ds['id']}"
                                             class="btn btn-info btn-xs">{Lang::T('Edit')}</a>
+                                        {if $ds['connection_type'] == 'remote'}
+                                            <a href="{Text::url('')}routers/vpn-logs/{$ds['id']}"
+                                                class="btn btn-warning btn-xs" title="{Lang::T('VPN Logs')}"><i class="glyphicon glyphicon-list-alt"></i></a>
+                                        {/if}
                                         <a href="{Text::url('')}routers/delete/{$ds['id']}" id="{$ds['id']}"
                                             onclick="return ask(this, '{Lang::T('Delete')}?')"
                                             class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></a>

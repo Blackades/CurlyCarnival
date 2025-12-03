@@ -31,8 +31,14 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label">{Lang::T('IP Address')}</label>
                         <div class="col-md-6">
-                            <input type="text" placeholder="192.168.88.1:8728" class="form-control" id="ip_address"
-                                name="ip_address" value="{$d['ip_address']}">
+                            {if $d['connection_type'] == 'remote'}
+                                <input type="text" placeholder="10.8.0.x" class="form-control" id="vpn_ip"
+                                    name="vpn_ip" value="{$d['vpn_ip']}">
+                                <p class="help-block">{Lang::T('VPN IP address assigned to this router')}</p>
+                            {else}
+                                <input type="text" placeholder="192.168.88.1:8728" class="form-control" id="ip_address"
+                                    name="ip_address" value="{$d['ip_address']}">
+                            {/if}
                         </div>
                     </div>
                     <div class="form-group">
