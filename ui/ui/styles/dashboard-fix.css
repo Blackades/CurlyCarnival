@@ -102,6 +102,8 @@ body .info-box-content {
 
 body .info-box-text {
     display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
     font-size: 14px !important;
     font-weight: 600 !important;
     color: rgba(0, 0, 0, 0.6) !important;
@@ -112,31 +114,44 @@ body .info-box-text {
     line-height: 1.4 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.5px !important;
+    position: relative !important;
+    z-index: 10 !important;
 }
 
 body .info-box-number {
     display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
     font-size: 32px !important;
     font-weight: 700 !important;
     color: rgba(0, 0, 0, 0.85) !important;
     line-height: 1.2 !important;
     margin-bottom: 8px !important;
+    position: relative !important;
+    z-index: 10 !important;
 }
 
 body .info-box-number small {
     font-size: 16px !important;
     font-weight: 400 !important;
     margin-right: 4px !important;
+    display: inline !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 body .info-box-link {
     display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
     align-items: center !important;
     font-size: 13px !important;
     font-weight: 500 !important;
     color: rgba(0, 0, 0, 0.5) !important;
     text-decoration: none !important;
     transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+    position: relative !important;
+    z-index: 10 !important;
 }
 
 body .info-box-link:hover {
@@ -147,6 +162,18 @@ body .info-box-link:hover {
 body .info-box-link i {
     margin-left: 4px !important;
     font-size: 11px !important;
+    display: inline !important;
+    visibility: visible !important;
+}
+
+/* Force visibility for all info-box children */
+body .info-box * {
+    visibility: visible !important;
+}
+
+body .info-box-content * {
+    display: block !important;
+    visibility: visible !important;
 }
 
 /* Colored Info Boxes - Match reference design */
