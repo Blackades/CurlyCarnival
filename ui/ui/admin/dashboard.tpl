@@ -35,9 +35,9 @@
         {/function}
 
         {* Dynamic Widget Grid Layout *}
-        {assign dtipe value="dashboard_`$tipeUser`"}
-        {assign rows explode(".", $_c[$dtipe])}
-        {assign pos 1}
+        {assign var="dtipe" value="dashboard_`$tipeUser`"}
+        {assign var="rows" value="."|explode:$_c[$dtipe]}
+        {assign var="pos" value=1}
         
         <div class="dashboard-widgets">
             {foreach $rows as $cols}
@@ -47,15 +47,15 @@
                             {showWidget widgets=$widgets pos=$pos}
                         </div>
                     </div>
-                    {assign pos value=$pos+1}
+                    {assign var="pos" value=$pos+1}
                 {else}
-                    {assign colss explode(",", $cols)}
+                    {assign var="colss" value=","|explode:$cols}
                     <div class="row widget-row">
                         {foreach $colss as $c}
                             <div class="col-md-{$c} widget-col">
                                 {showWidget widgets=$widgets pos=$pos}
                             </div>
-                            {assign pos value=$pos+1}
+                            {assign var="pos" value=$pos+1}
                         {/foreach}
                     </div>
                 {/if}
