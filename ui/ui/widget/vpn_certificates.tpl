@@ -1,5 +1,5 @@
 <div class="box box-warning">
-    <div class="box-header with-border">
+    <div class="box-header">
         <h3 class="box-title">VPN Certificate Status</h3>
         <div class="box-tools pull-right">
             <a href="{Text::url('routers/list')}" class="btn btn-box-tool" title="View Routers">
@@ -72,7 +72,7 @@
                                     <td><code>{$cert.client_name}</code></td>
                                     <td>{date('M d, Y', strtotime($cert.expiry_date))}</td>
                                     <td>
-                                        <span class="label label-{if $cert.days_remaining <= 7}danger{elseif $cert.days_remaining <= 14}warning{else}info{/if}">
+                                        <span class="badge badge-{if $cert.days_remaining <= 7}danger{elseif $cert.days_remaining <= 14}warning{else}info{/if}">
                                             {$cert.days_remaining} days
                                         </span>
                                     </td>

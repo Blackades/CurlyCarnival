@@ -34,7 +34,7 @@
                     </div>&nbsp;
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped table-condensed">
+                    <table class="table table-bordered table-striped table-hover table-condensed">
                         <thead>
                             <tr>
                                 <th>{Lang::T('Router Name')}</th>
@@ -67,9 +67,9 @@
                                     </td>
                                     <td>
                                         {if $ds['connection_type'] == 'remote'}
-                                            <span class="label label-info"><i class="glyphicon glyphicon-cloud"></i> {Lang::T('Remote')}</span>
+                                            <span class="badge badge-info"><i class="glyphicon glyphicon-cloud"></i> {Lang::T('Remote')}</span>
                                         {else}
-                                            <span class="label label-default"><i class="glyphicon glyphicon-hdd"></i> {Lang::T('Local')}</span>
+                                            <span class="badge badge-default"><i class="glyphicon glyphicon-hdd"></i> {Lang::T('Local')}</span>
                                         {/if}
                                     </td>
                                     <td style="background-color: black; color: black;"
@@ -87,27 +87,42 @@
                                     <td>{$ds['description']}</td>
                                     {if $_c['router_check']}
                                         <td>
-                                            <span
-                                                class="label {if $ds['status'] == 'Online'}label-success {else}label-danger {/if}">
-                                                {if $ds['status'] == 'Online'}
-                                                    {Lang::T('Online')}
-                                                {else}
-                                                    {Lang::T('Offline')}
-                                                {/if}
-                                            </span>
+                                            {if $ds['status'] == 'Online'}
+                                                <span class="status-indicator">
+                                                    <span class="status-dot status-dot-success"></span>
+                                                    <span class="badge badge-success">{Lang::T('Online')}</span>
+                                                </span>
+                                            {else}
+                                                <span class="status-indicator">
+                                                    <span class="status-dot status-dot-danger"></span>
+                                                    <span class="badge badge-danger">{Lang::T('Offline')}</span>
+                                                </span>
+                                            {/if}
                                         </td>
                                         <td>{$ds['last_seen']}</td>
                                     {/if}
                                     <td>
                                         {if $ds['connection_type'] == 'remote'}
                                             {if $ds['ovpn_status'] == 'connected'}
-                                                <span class="label label-success"><i class="glyphicon glyphicon-ok-circle"></i> {Lang::T('Connected')}</span>
+                                                <span class="status-indicator">
+                                                    <span class="status-dot status-dot-success"></span>
+                                                    <span class="badge badge-success"><i class="glyphicon glyphicon-ok-circle"></i> {Lang::T('Connected')}</span>
+                                                </span>
                                             {elseif $ds['ovpn_status'] == 'disconnected'}
-                                                <span class="label label-danger"><i class="glyphicon glyphicon-remove-circle"></i> {Lang::T('Disconnected')}</span>
+                                                <span class="status-indicator">
+                                                    <span class="status-dot status-dot-danger"></span>
+                                                    <span class="badge badge-danger"><i class="glyphicon glyphicon-remove-circle"></i> {Lang::T('Disconnected')}</span>
+                                                </span>
                                             {elseif $ds['ovpn_status'] == 'error'}
-                                                <span class="label label-warning"><i class="glyphicon glyphicon-exclamation-sign"></i> {Lang::T('Error')}</span>
+                                                <span class="status-indicator">
+                                                    <span class="status-dot status-dot-warning"></span>
+                                                    <span class="badge badge-warning"><i class="glyphicon glyphicon-exclamation-sign"></i> {Lang::T('Error')}</span>
+                                                </span>
                                             {else}
-                                                <span class="label label-default"><i class="glyphicon glyphicon-time"></i> {Lang::T('Pending')}</span>
+                                                <span class="status-indicator">
+                                                    <span class="status-dot status-dot-default"></span>
+                                                    <span class="badge badge-default"><i class="glyphicon glyphicon-time"></i> {Lang::T('Pending')}</span>
+                                                </span>
                                             {/if}
                                         {else}
                                             <span class="text-muted">N/A</span>
@@ -119,11 +134,11 @@
                                             {assign var="now" value=$smarty.now}
                                             {assign var="days_left" value=(($cert_date - $now) / 86400)|floor}
                                             {if $days_left < 7}
-                                                <span class="label label-danger"><i class="glyphicon glyphicon-warning-sign"></i> {$days_left} {Lang::T('days')}</span>
+                                                <span class="badge badge-danger"><i class="glyphicon glyphicon-warning-sign"></i> {$days_left} {Lang::T('days')}</span>
                                             {elseif $days_left < 30}
-                                                <span class="label label-warning"><i class="glyphicon glyphicon-time"></i> {$days_left} {Lang::T('days')}</span>
+                                                <span class="badge badge-warning"><i class="glyphicon glyphicon-time"></i> {$days_left} {Lang::T('days')}</span>
                                             {else}
-                                                <span class="label label-success"><i class="glyphicon glyphicon-ok"></i> {$days_left} {Lang::T('days')}</span>
+                                                <span class="badge badge-success"><i class="glyphicon glyphicon-ok"></i> {$days_left} {Lang::T('days')}</span>
                                             {/if}
                                         {else}
                                             <span class="text-muted">N/A</span>
@@ -141,16 +156,16 @@
                                         {/if}
                                     </td>
                                     <td>{if $ds['enabled'] == 1}{Lang::T('Enabled')}{else}{Lang::T('Disabled')}{/if}</td>
-                                    <td>
+                                    <td class="table-actions">
                                         <a href="{Text::url('')}routers/edit/{$ds['id']}"
                                             class="btn btn-info btn-xs">{Lang::T('Edit')}</a>
                                         {if $ds['connection_type'] == 'remote'}
                                             <a href="{Text::url('')}routers/vpn-logs/{$ds['id']}"
-                                                class="btn btn-warning btn-xs" title="{Lang::T('VPN Logs')}"><i class="glyphicon glyphicon-list-alt"></i></a>
+                                                class="btn btn-warning btn-xs btn-icon" title="{Lang::T('VPN Logs')}"><i class="glyphicon glyphicon-list-alt"></i></a>
                                         {/if}
                                         <a href="{Text::url('')}routers/delete/{$ds['id']}" id="{$ds['id']}"
                                             onclick="return ask(this, '{Lang::T('Delete')}?')"
-                                            class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></a>
+                                            class="btn btn-danger btn-xs btn-icon"><i class="glyphicon glyphicon-trash"></i></a>
                                     </td>
                                     <td>{$ds['id']}</td>
                                 </tr>

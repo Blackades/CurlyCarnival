@@ -40,20 +40,32 @@
                             <div class="col-md-3">
                                 <strong>{Lang::T('Current Status')}:</strong><br>
                                 {if $router['ovpn_status'] == 'connected'}
-                                    <span class="label label-success">
-                                        <i class="glyphicon glyphicon-ok-circle"></i> {Lang::T('Connected')}
+                                    <span class="status-indicator">
+                                        <span class="status-dot status-dot-success"></span>
+                                        <span class="badge badge-success">
+                                            <i class="glyphicon glyphicon-ok-circle"></i> {Lang::T('Connected')}
+                                        </span>
                                     </span>
                                 {elseif $router['ovpn_status'] == 'disconnected'}
-                                    <span class="label label-danger">
-                                        <i class="glyphicon glyphicon-remove-circle"></i> {Lang::T('Disconnected')}
+                                    <span class="status-indicator">
+                                        <span class="status-dot status-dot-danger"></span>
+                                        <span class="badge badge-danger">
+                                            <i class="glyphicon glyphicon-remove-circle"></i> {Lang::T('Disconnected')}
+                                        </span>
                                     </span>
                                 {elseif $router['ovpn_status'] == 'error'}
-                                    <span class="label label-warning">
-                                        <i class="glyphicon glyphicon-exclamation-sign"></i> {Lang::T('Error')}
+                                    <span class="status-indicator">
+                                        <span class="status-dot status-dot-warning"></span>
+                                        <span class="badge badge-warning">
+                                            <i class="glyphicon glyphicon-exclamation-sign"></i> {Lang::T('Error')}
+                                        </span>
                                     </span>
                                 {else}
-                                    <span class="label label-default">
-                                        <i class="glyphicon glyphicon-time"></i> {Lang::T('Pending')}
+                                    <span class="status-indicator">
+                                        <span class="status-dot status-dot-default"></span>
+                                        <span class="badge badge-default">
+                                            <i class="glyphicon glyphicon-time"></i> {Lang::T('Pending')}
+                                        </span>
                                     </span>
                                 {/if}
                             </div>
@@ -105,7 +117,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered table-striped table-condensed">
+                            <table class="table table-bordered table-striped table-hover table-condensed">
                                 <thead>
                                     <tr>
                                         <th>{Lang::T('Timestamp')}</th>
@@ -126,15 +138,15 @@
                                                 <td>{$log['created_at']}</td>
                                                 <td>
                                                     {if $log['connection_status'] == 'connected'}
-                                                        <span class="label label-success">
+                                                        <span class="badge badge-success">
                                                             <i class="glyphicon glyphicon-ok-circle"></i> {Lang::T('Connected')}
                                                         </span>
                                                     {elseif $log['connection_status'] == 'disconnected'}
-                                                        <span class="label label-danger">
+                                                        <span class="badge badge-danger">
                                                             <i class="glyphicon glyphicon-remove-circle"></i> {Lang::T('Disconnected')}
                                                         </span>
                                                     {else}
-                                                        <span class="label label-warning">
+                                                        <span class="badge badge-warning">
                                                             <i class="glyphicon glyphicon-exclamation-sign"></i> {Lang::T('Error')}
                                                         </span>
                                                     {/if}
@@ -254,7 +266,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered table-striped table-condensed">
+                            <table class="table table-bordered table-striped table-hover table-condensed">
                                 <thead>
                                     <tr>
                                         <th>{Lang::T('Timestamp')}</th>
@@ -289,15 +301,15 @@
                                                 </td>
                                                 <td>
                                                     {if $log['status'] == 'success'}
-                                                        <span class="label label-success">
+                                                        <span class="badge badge-success">
                                                             <i class="glyphicon glyphicon-ok"></i> {Lang::T('Success')}
                                                         </span>
                                                     {elseif $log['status'] == 'failed'}
-                                                        <span class="label label-danger">
+                                                        <span class="badge badge-danger">
                                                             <i class="glyphicon glyphicon-remove"></i> {Lang::T('Failed')}
                                                         </span>
                                                     {else}
-                                                        <span class="label label-warning">
+                                                        <span class="badge badge-warning">
                                                             <i class="glyphicon glyphicon-time"></i> {Lang::T('Pending')}
                                                         </span>
                                                     {/if}

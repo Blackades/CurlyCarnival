@@ -20,11 +20,10 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label">{Lang::T('Service Plan')}</label>
                         <div class="col-md-6">
-
                             <select id="id_plan" name="id_plan" class="form-control select2">
                                 {foreach $p as $ps}
                                     <option value="{$ps['id']}" {if $d['plan_id'] eq $ps['id']} selected {/if}>
-                                        {if $ps['enabled'] neq 1}DISABLED PLAN &bull; {/if}
+                                        {if $ps['enabled'] neq 1}<span class="badge badge-warning">DISABLED</span> {/if}
                                         {$ps['name_plan']} &bull;
                                         {Lang::moneyFormat($ps['price'])}
                                         {if $ps['prepaid'] neq 'yes'} &bull; POSTPAID {/if}
@@ -58,8 +57,12 @@
 
                     <div class="form-group">
                         <div class="col-lg-offset-2 col-lg-10">
-                            <button class="btn btn-success" onclick="return ask(this, '{Lang::T('Continue the package change process')}?')" type="submit">{Lang::T('Edit')}</button>
-                            Or <a href="{Text::url('')}plan/list">{Lang::T('Cancel')}</a>
+                            <button class="btn btn-success" type="submit" onclick="return ask(this, '{Lang::T('Continue the package change process')}?')">
+                                <i class="fa fa-save"></i> {Lang::T('Save Changes')}
+                            </button>
+                            <a href="{Text::url('')}plan/list" class="btn btn-default">
+                                <i class="fa fa-times"></i> {Lang::T('Cancel')}
+                            </a>
                         </div>
                     </div>
                 </form>

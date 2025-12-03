@@ -3,12 +3,12 @@
 <div class="row">
     <div class="col-sm-12">
         {if $_c['enable_balance'] == 'yes'}
-            <div class="box box-solid box-success bg-gray-light">
+            <div class="box box-solid box-success bg-gray-light balance-package-container">
                 <div class="box-header">{Lang::T('Buy Balance Package')}</div>
                 <div class="box-body row">
                     {foreach $plans_balance as $plan}
                         <div class="col col-md-4">
-                            <div class="box box-solid box-default">
+                            <div class="box box-solid box-default balance-plan-card">
                                 <div class="box-header text-bold">{$plan['name_plan']}</div>
                                 <div class="table-responsive">
                                     <div style="margin-left: 5px; margin-right: 5px;">
@@ -30,7 +30,7 @@
                                 <div class="box-body">
                                     <a href="{Text::url('order/gateway/0/')}{$plan['id']}"
                                         onclick="return ask(this, '{Lang::T('Buy Balance')}?')"
-                                        class="btn btn-sm btn-block btn-primary">{Lang::T('Buy')}</a>
+                                        class="btn btn-sm btn-block btn-primary btn-buy">{Lang::T('Buy')}</a>
                                 </div>
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                         <div class="col col-md-4">
                             <form action="{Text::url('order/gateway/0/0')}" method="post">
                                 <input type="hidden" name="custom" value="1">
-                                <div class="box box-solid box-default">
+                                <div class="box box-solid box-default balance-plan-card custom-balance-card">
                                     <div class="box-header text-bold">{Lang::T('Custom Balance')}</div>
                                     <div class="table-responsive">
                                         <div style="margin-left: 5px; margin-right: 5px;">
@@ -55,7 +55,7 @@
                                     </div>
                                     <div class="box-body">
                                         <button onclick="return ask(this, '{Lang::T('Buy Balance')}?')"
-                                            class="btn btn-sm btn-block btn-primary">{Lang::T('Buy')}</button>
+                                            class="btn btn-sm btn-block btn-primary btn-buy">{Lang::T('Buy')}</button>
                                     </div>
                                 </div>
                             </form>

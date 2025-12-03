@@ -1,37 +1,68 @@
 {include file="sections/header.tpl"}
 
-{function showWidget pos=0}
-    {foreach $widgets as $w}
-        {if $w['position'] == $pos}
-            {$w['content']}
-        {/if}
-    {/foreach}
-{/function}
+<!-- Dashboard Content Wrapper -->
+<div class="content-wrapper dashboard-content">
+    <section class="content-header">
+        <h1 class="dashboard-title">
+            {Lang::T('Dashboard')}
+            <small>{Lang::T('Control Panel')}</small>
+        </h1>
+    </section>
 
-{assign dtipe value="dashboard_`$tipeUser`"}
-
-{assign rows explode(".", $_c[$dtipe])}
-{assign pos 1}
-{foreach $rows as $cols}
-    {if $cols == 12}
-        <div class="row">
-            <div class="col-md-12">
-                {showWidget widgets=$widgets pos=$pos}
-            </div>
-        </div>
-        {assign pos value=$pos+1}
-    {else}
-        {assign colss explode(",", $cols)}
-        <div class="row">
-            {foreach $colss as $c}
-                <div class="col-md-{$c}">
-                    {showWidget widgets=$widgets pos=$pos}
+    <section class="content dashboard-main">
+        {* Alert Messages Container - for system notifications *}
+        {if isset($notify)}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-{$notify.type} alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>{if $notify.type == 'success'}{Lang::T('Success')}{elseif $notify.type == 'warning'}{Lang::T('Warning')}{elseif $notify.type == 'danger'}{Lang::T('Error')}{else}{Lang::T('Info')}{/if}:</strong>
+                        {$notify.text}
+                    </div>
                 </div>
-                {assign pos value=$pos+1}
+            </div>
+        {/if}
+
+        {* Widget Display Function *}
+        {function showWidget pos=0}
+            {foreach $widgets as $w}
+                {if $w['position'] == $pos}
+                    {$w['content']}
+                {/if}
+            {/foreach}
+        {/function}
+
+        {* Dynamic Widget Grid Layout *}
+        {assign dtipe value="dashboard_`$tipeUser`"}
+        {assign rows explode(".", $_c[$dtipe])}
+        {assign pos 1}
+        
+        <div class="dashboard-widgets">
+            {foreach $rows as $cols}
+                {if $cols == 12}
+                    <div class="row widget-row">
+                        <div class="col-md-12">
+                            {showWidget widgets=$widgets pos=$pos}
+                        </div>
+                    </div>
+                    {assign pos value=$pos+1}
+                {else}
+                    {assign colss explode(",", $cols)}
+                    <div class="row widget-row">
+                        {foreach $colss as $c}
+                            <div class="col-md-{$c} widget-col">
+                                {showWidget widgets=$widgets pos=$pos}
+                            </div>
+                            {assign pos value=$pos+1}
+                        {/foreach}
+                    </div>
+                {/if}
             {/foreach}
         </div>
-    {/if}
-{/foreach}
+    </section>
+</div>
 
 {if $_c['new_version_notify'] != 'disable'}
     <script>

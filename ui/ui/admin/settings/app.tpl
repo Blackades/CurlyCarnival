@@ -9,7 +9,7 @@
 <form class="form-horizontal" method="post" role="form" action="{Text::url('')}settings/app-post"
     enctype="multipart/form-data">
     <input type="hidden" name="csrf_token" value="{$csrf_token}">
-    <div class="panel" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default" id="accordion" role="tablist" aria-multiselectable="true">
         <div class="panel-heading" role="tab" id="General">
             <h3 class="panel-title">
                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseGeneral"
@@ -150,7 +150,7 @@
         </div>
     </div>
 
-    <div class="panel" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default" id="accordion" role="tablist" aria-multiselectable="true">
         <div class="panel-heading" role="tab" id="LoginPage">
             <h3 class="panel-title">
                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseLoginPage"
@@ -254,7 +254,7 @@
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="Registration">
             <h4 class="panel-title">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
@@ -392,7 +392,7 @@
     </div>
 
 
-    <div class="panel">
+    <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="Security">
             <h4 class="panel-title">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
@@ -465,7 +465,7 @@
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="Voucher">
             <h4 class="panel-title">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
@@ -529,7 +529,7 @@
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="FreeRadius">
             <h4 class="panel-title">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
@@ -560,7 +560,7 @@
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="ExtendPostpaidExpiration">
             <h4 class="panel-title">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
@@ -604,7 +604,7 @@
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="CustomerBalanceSystem">
             <h4 class="panel-title">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
@@ -674,7 +674,7 @@
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="TelegramNotification">
             <h4 class="panel-title">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
@@ -714,7 +714,7 @@
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="SMSNotification">
             <h4 class="panel-title">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
@@ -773,7 +773,7 @@
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="WhatsappNotification">
             <h4 class="panel-title">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
@@ -807,7 +807,7 @@
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="EmailNotification">
             <h4 class="panel-title">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
@@ -889,7 +889,7 @@
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="UserNotification">
             <h4 class="panel-title">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
@@ -970,7 +970,7 @@
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="TawkToChatWidget">
             <h4 class="panel-title">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
@@ -1007,7 +1007,7 @@
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="APIKey">
             <h4 class="panel-title">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
@@ -1034,7 +1034,7 @@
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="Proxy">
             <h4 class="panel-title">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseProxy"
@@ -1067,7 +1067,7 @@
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="TaxSystem">
             <h4 class="panel-title">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
@@ -1138,7 +1138,7 @@
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="GithubAuthentication">
             <h4 class="panel-title">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"

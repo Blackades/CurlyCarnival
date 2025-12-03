@@ -3,11 +3,11 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <div class="panel mb20 panel-hovered panel-primary">
+        <div class="panel mb20 panel-hovered panel-primary service-status-card">
             <div class="panel-heading">{Lang::T('Transaction History List')}</div>
             <div class="panel-body">
                 <div class="table-responsive">
-                    <table id="datatable" class="table table-bordered table-striped table-condensed">
+                    <table id="datatable" class="table table-bordered table-striped table-condensed table-hover">
                         <thead>
                             <tr>
                                 <th>{Lang::T('Invoice')}</th>

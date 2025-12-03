@@ -6,9 +6,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
-        <div class="panel panel-hovered panel-primary panel-stacked mb30">
+        <div class="panel panel-hovered panel-primary panel-stacked mb30 invoice-card">
             <div class="panel-heading">{$in['invoice']}</div>
-            <div class="panel-body">
+            <div class="panel-body invoice-body">
                 {if !empty($logo)}
                     <center><img src="{$app_url}/{$logo}"></center>
                 {/if}
@@ -17,12 +17,12 @@
                         style="border: 0px; ;text-align: center; background-color: transparent; background-image: url('{$app_url}/system/uploads/paid.png');background-repeat:no-repeat;background-position: center">{$invoice}</pre>
                     <input type="hidden" name="id" value="{$in['id']}">
                     {if !empty($_user)}
-                        <a href="{Text::url('voucher/list-activated')}" class="btn btn-default btn-sm"><i
+                        <a href="{Text::url('voucher/list-activated')}" class="btn btn-default btn-sm btn-back"><i
                             class="ion-reply-all"></i>{Lang::T('Finish')}</a>
                     {/if}
-                    <a href="javascript:download()" class="btn btn-success btn-sm text-black">
+                    <a href="javascript:download()" class="btn btn-success btn-sm text-black btn-download">
                         <i class="glyphicon glyphicon-share"></i> Download</a>
-                    <a href="https://api.whatsapp.com/send/?text={$whatsapp}" class="btn btn-primary btn-sm">
+                    <a href="https://api.whatsapp.com/send/?text={$whatsapp}" class="btn btn-primary btn-sm btn-share">
                         <i class="glyphicon glyphicon-share"></i> WhatsApp</a>
                         <br><br>
                         <input type="text" class="form-control form-sm" style="border: 0px; padding: 1px; background-color: white;" readonly onclick="this.select()" value="{$public_url}">

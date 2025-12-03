@@ -120,7 +120,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered table-striped table-condensed">
+                            <table class="table table-bordered table-striped table-hover table-condensed">
                                 <thead>
                                     <tr>
                                         <th>{Lang::T('Router Name')}</th>
@@ -156,20 +156,32 @@
                                                 </td>
                                                 <td>
                                                     {if $router['ovpn_status'] == 'connected'}
-                                                        <span class="label label-success">
-                                                            <i class="glyphicon glyphicon-ok-circle"></i> {Lang::T('Connected')}
+                                                        <span class="status-indicator">
+                                                            <span class="status-dot status-dot-success"></span>
+                                                            <span class="badge badge-success">
+                                                                <i class="glyphicon glyphicon-ok-circle"></i> {Lang::T('Connected')}
+                                                            </span>
                                                         </span>
                                                     {elseif $router['ovpn_status'] == 'disconnected'}
-                                                        <span class="label label-danger">
-                                                            <i class="glyphicon glyphicon-remove-circle"></i> {Lang::T('Disconnected')}
+                                                        <span class="status-indicator">
+                                                            <span class="status-dot status-dot-danger"></span>
+                                                            <span class="badge badge-danger">
+                                                                <i class="glyphicon glyphicon-remove-circle"></i> {Lang::T('Disconnected')}
+                                                            </span>
                                                         </span>
                                                     {elseif $router['ovpn_status'] == 'error'}
-                                                        <span class="label label-warning">
-                                                            <i class="glyphicon glyphicon-exclamation-sign"></i> {Lang::T('Error')}
+                                                        <span class="status-indicator">
+                                                            <span class="status-dot status-dot-warning"></span>
+                                                            <span class="badge badge-warning">
+                                                                <i class="glyphicon glyphicon-exclamation-sign"></i> {Lang::T('Error')}
+                                                            </span>
                                                         </span>
                                                     {else}
-                                                        <span class="label label-default">
-                                                            <i class="glyphicon glyphicon-time"></i> {Lang::T('Pending')}
+                                                        <span class="status-indicator">
+                                                            <span class="status-dot status-dot-default"></span>
+                                                            <span class="badge badge-default">
+                                                                <i class="glyphicon glyphicon-time"></i> {Lang::T('Pending')}
+                                                            </span>
                                                         </span>
                                                     {/if}
                                                 </td>
@@ -183,13 +195,13 @@
                                                 <td>
                                                     {if isset($router['uptime_percentage'])}
                                                         {if $router['uptime_percentage'] >= 95}
-                                                            <span class="label label-success">{$router['uptime_percentage']}%</span>
+                                                            <span class="badge badge-success">{$router['uptime_percentage']}%</span>
                                                         {elseif $router['uptime_percentage'] >= 80}
-                                                            <span class="label label-info">{$router['uptime_percentage']}%</span>
+                                                            <span class="badge badge-info">{$router['uptime_percentage']}%</span>
                                                         {elseif $router['uptime_percentage'] >= 50}
-                                                            <span class="label label-warning">{$router['uptime_percentage']}%</span>
+                                                            <span class="badge badge-warning">{$router['uptime_percentage']}%</span>
                                                         {else}
-                                                            <span class="label label-danger">{$router['uptime_percentage']}%</span>
+                                                            <span class="badge badge-danger">{$router['uptime_percentage']}%</span>
                                                         {/if}
                                                     {else}
                                                         <span class="text-muted">N/A</span>
@@ -201,15 +213,15 @@
                                                         {assign var="now" value=$smarty.now}
                                                         {assign var="days_left" value=(($cert_date - $now) / 86400)|floor}
                                                         {if $days_left < 7}
-                                                            <span class="label label-danger">
+                                                            <span class="badge badge-danger">
                                                                 <i class="glyphicon glyphicon-warning-sign"></i> {$days_left} {Lang::T('days')}
                                                             </span>
                                                         {elseif $days_left < 30}
-                                                            <span class="label label-warning">
+                                                            <span class="badge badge-warning">
                                                                 <i class="glyphicon glyphicon-time"></i> {$days_left} {Lang::T('days')}
                                                             </span>
                                                         {else}
-                                                            <span class="label label-success">
+                                                            <span class="badge badge-success">
                                                                 <i class="glyphicon glyphicon-ok"></i> {$days_left} {Lang::T('days')}
                                                             </span>
                                                         {/if}
@@ -217,17 +229,17 @@
                                                         <span class="text-muted">N/A</span>
                                                     {/if}
                                                 </td>
-                                                <td>
+                                                <td class="table-actions">
                                                     <a href="{Text::url('')}routers/edit/{$router['id']}" 
-                                                       class="btn btn-info btn-xs" title="{Lang::T('Edit')}">
+                                                       class="btn btn-info btn-xs btn-icon" title="{Lang::T('Edit')}">
                                                         <i class="glyphicon glyphicon-edit"></i>
                                                     </a>
                                                     <a href="{Text::url('')}routers/vpn-logs/{$router['id']}" 
-                                                       class="btn btn-warning btn-xs" title="{Lang::T('View Logs')}">
+                                                       class="btn btn-warning btn-xs btn-icon" title="{Lang::T('View Logs')}">
                                                         <i class="glyphicon glyphicon-list-alt"></i>
                                                     </a>
                                                     <a href="{Text::url('')}routers/test-vpn-connection/{$router['id']}" 
-                                                       class="btn btn-success btn-xs" title="{Lang::T('Test Connection')}">
+                                                       class="btn btn-success btn-xs btn-icon" title="{Lang::T('Test Connection')}">
                                                         <i class="glyphicon glyphicon-flash"></i>
                                                     </a>
                                                 </td>

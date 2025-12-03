@@ -12,7 +12,7 @@
 <br>
 {function showWidget pos=0}
     <form method="post" action="{Text::url('widgets/pos/', '&user=', $tipeUser)}">
-        <div class="panel panel-info">
+        <div class="panel panel-default">
             <div class="panel-heading">{Lang::T("Area Fields")} {$pos}</div>
             <div class="panel-body">
                 {foreach $widgets as $w}
@@ -20,7 +20,7 @@
                         <div class="panel panel-{if $w['enabled']}default{else}danger{/if}">
                             <div class="panel-heading"><b>{$w['title']}</b></div>
                             <div class="panel-body">{ucwords(str_replace('.php', '', str_replace('_', ' ', $w['widget'])))}</div>
-                            <table class="table table-bordered table-condensed">
+                            <table class="table table-bordered table-condensed table-hover">
                                 <tr>
                                     <td>
                                         <div class="input-group">
@@ -60,7 +60,7 @@
 {assign dtipe value="dashboard_`$tipeUser`"}
 <div class="row">
     <div class="col-md-3">
-        <div class="panel panel-info">
+        <div class="panel panel-default">
             <div class="panel-heading">{Lang::T("Dashboard Structure")}</div>
             <div class="panel-body">
                 {assign rows explode(".", $_c[$dtipe])}

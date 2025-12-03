@@ -30,7 +30,7 @@
                             </label>
                             <label class="radio-inline">
                                 <input type="radio" name="connection_type" value="remote" id="type_remote" onchange="toggleConnectionType()"> 
-                                <i class="glyphicon glyphicon-cloud"></i> {Lang::T('Remote Location')} <span class="label label-info">VPN</span>
+                                <i class="glyphicon glyphicon-cloud"></i> {Lang::T('Remote Location')} <span class="badge badge-info">VPN</span>
                             </label>
                             <p class="help-block">{Lang::T('Select Local for routers on the same network, or Remote for routers that will connect via OpenVPN')}</p>
                         </div>
@@ -87,7 +87,7 @@
                             <div class="panel-heading">
                                 <h4 class="panel-title"><i class="glyphicon glyphicon-lock"></i> {Lang::T('OpenVPN Credentials')}</h4>
                             </div>
-                            <div class="panel-body">
+                            <div class="panel-body form-section">
                                 <div class="form-group">
                                     <label class="col-md-2 control-label">{Lang::T('VPN Username')}</label>
                                     <div class="col-md-6">
@@ -120,7 +120,7 @@
                             <div class="panel-heading">
                                 <h4 class="panel-title"><i class="glyphicon glyphicon-certificate"></i> {Lang::T('Certificate Settings')}</h4>
                             </div>
-                            <div class="panel-body">
+                            <div class="panel-body form-section">
                                 <div class="form-group">
                                     <label class="col-md-2 control-label">{Lang::T('Certificate Validity')}</label>
                                     <div class="col-md-6">
@@ -139,7 +139,7 @@
                             <div class="panel-heading">
                                 <h4 class="panel-title"><i class="glyphicon glyphicon-cog"></i> {Lang::T('MikroTik API Credentials')}</h4>
                             </div>
-                            <div class="panel-body">
+                            <div class="panel-body form-section">
                                 <div class="form-group">
                                     <label class="col-md-2 control-label">{Lang::T('API Username')}</label>
                                     <div class="col-md-6">

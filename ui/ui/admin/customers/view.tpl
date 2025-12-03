@@ -11,8 +11,18 @@
                 <h3 class="profile-username text-center">{$d['fullname']}</h3>
                 <ul class="list-group list-group-unbordered">
                     <li class="list-group-item">
-                        <b>{Lang::T('Status')}</b> <span
-                            class="pull-right {if $d['status'] !='Active'}bg-red{/if}">&nbsp;{Lang::T($d['status'])}&nbsp;</span>
+                        <b>{Lang::T('Status')}</b> 
+                        <span class="pull-right">
+                            {if $d['status'] == 'Active'}
+                                <span class="badge badge-success">{Lang::T($d['status'])}</span>
+                            {elseif $d['status'] == 'Disabled'}
+                                <span class="badge badge-warning">{Lang::T($d['status'])}</span>
+                            {elseif $d['status'] == 'Banned'}
+                                <span class="badge badge-danger">{Lang::T($d['status'])}</span>
+                            {else}
+                                <span class="badge badge-default">{Lang::T($d['status'])}</span>
+                            {/if}
+                        </span>
                     </li>
                     <li class="list-group-item">
                         <b>{Lang::T('Username')}</b> <span class="pull-right">{$d['username']}</span>
@@ -114,11 +124,11 @@
                     <div class="col-xs-4">
                         <a href="{Text::url('customers/delete/', $d['id'], '&token=', $csrf_token)}" id="{$d['id']}"
                             class="btn btn-danger btn-block btn-sm"
-                            onclick="return ask(this, '{Lang::T('Delete')}?')"><span class="fa fa-trash"></span></a>
+                            onclick="return ask(this, '{Lang::T('Delete')}?')"><i class="fa fa-trash"></i></a>
                     </div>
                     <div class="col-xs-8">
                         <a href="{Text::url('customers/edit/', $d['id'], '&token=', $csrf_token)}"
-                            class="btn btn-warning btn-sm btn-block">{Lang::T('Edit')}</a>
+                            class="btn btn-warning btn-sm btn-block"><i class="fa fa-edit"></i> {Lang::T('Edit')}</a>
                     </div>
                 </div>
             </div>
@@ -151,12 +161,12 @@
                         <tbody>
                             {foreach $activation as $ds}
                                 <tr onclick="window.location.href = '{Text::url('plan/view/', $ds['id'])}'"
-                                    style="cursor:pointer;">
+                                    style="cursor:pointer;" class="clickable-row">
                                     <td>{$ds['invoice']}</td>
                                     <td>{$ds['username']}</td>
                                     <td>{$ds['plan_name']}</td>
                                     <td>{Lang::moneyFormat($ds['price'])}</td>
-                                    <td>{$ds['type']}</td>
+                                    <td><span class="badge badge-info">{$ds['type']}</span></td>
                                     <td class="text-success">
                                         {Lang::dateAndTimeFormat($ds['recharged_on'],$ds['recharged_time'])}
                                     </td>
@@ -192,12 +202,19 @@
                                     <td class="text-danger">{Lang::dateTimeFormat($ds['expired_date'])}</td>
                                     <td class="text-success">{if $ds['status']!=1}{Lang::dateTimeFormat($ds['paid_date'])}{/if}
                                     </td>
-                                    <td>{if $ds['status']==1}{Lang::T('UNPAID')}
-                                        {elseif $ds['status']==2}{Lang::T('PAID')}
-                                        {elseif $ds['status']==3}{$_L['FAILED']}
-                                        {elseif $ds['status']==4}{Lang::T('CANCELED')}
-                                        {elseif $ds['status']==5}{Lang::T('UNKNOWN')}
-                                        {/if}</td>
+                                    <td>
+                                        {if $ds['status']==1}
+                                            <span class="badge badge-warning">{Lang::T('UNPAID')}</span>
+                                        {elseif $ds['status']==2}
+                                            <span class="badge badge-success">{Lang::T('PAID')}</span>
+                                        {elseif $ds['status']==3}
+                                            <span class="badge badge-danger">{$_L['FAILED']}</span>
+                                        {elseif $ds['status']==4}
+                                            <span class="badge badge-default">{Lang::T('CANCELED')}</span>
+                                        {elseif $ds['status']==5}
+                                            <span class="badge badge-default">{Lang::T('UNKNOWN')}</span>
+                                        {/if}
+                                    </td>
                                 </tr>
                             {/foreach}
                         </tbody>
@@ -216,13 +233,24 @@
                             </h4>
                             <ul class="list-group list-group-unbordered">
                                 <li class="list-group-item">
-                                    {Lang::T('Active')} <span class="pull-right">{if
-                        $package['status']=='on'}yes{else}no
-                                    {/if}</span>
+                                    {Lang::T('Active')} 
+                                    <span class="pull-right">
+                                        {if $package['status']=='on'}
+                                            <span class="badge badge-success">yes</span>
+                                        {else}
+                                            <span class="badge badge-danger">no</span>
+                                        {/if}
+                                    </span>
                             </li>
                             <li class="list-group-item">
-                                {Lang::T('Type')} <span class="pull-right">
-                                    {if $package['prepaid'] eq yes}Prepaid{else}<b>{Lang::T('Postpaid')}</b>{/if}</span>
+                                {Lang::T('Type')} 
+                                <span class="pull-right">
+                                    {if $package['prepaid'] eq yes}
+                                        <span class="badge badge-info">Prepaid</span>
+                                    {else}
+                                        <span class="badge badge-warning">{Lang::T('Postpaid')}</span>
+                                    {/if}
+                                </span>
                             </li>
                             <li class="list-group-item">
                                 {Lang::T('Bandwidth')} <span class="pull-right">
@@ -244,11 +272,15 @@
                             <div class="col-xs-4">
                                 <a href="{Text::url('customers/deactivate/', $d['id'],'/',$package['plan_id'], '&token=', $csrf_token)}"
                                     id="{$d['id']}" class="btn btn-danger btn-block btn-sm"
-                                    onclick="return ask(this, '{Lang::T('This will deactivate Customer Plan, and make it expired')}')">{Lang::T('Deactivate')}</a>
+                                    onclick="return ask(this, '{Lang::T('This will deactivate Customer Plan, and make it expired')}')">
+                                    <i class="fa fa-times"></i> {Lang::T('Deactivate')}
+                                </a>
                             </div>
                             <div class="col-xs-8">
                                 <a href="{Text::url('customers/recharge/', $d['id'], '/', $package['plan_id'], '&token=', $csrf_token)}"
-                                    class="btn btn-success btn-sm btn-block">{Lang::T('Recharge')}</a>
+                                    class="btn btn-success btn-sm btn-block">
+                                    <i class="fa fa-refresh"></i> {Lang::T('Recharge')}
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -261,23 +293,27 @@
 <hr>
 <div class="row">
     <div class="col-xs-6 col-md-3">
-        <a href="{Text::url('customers/list')}" class="btn btn-primary btn-sm btn-block">{Lang::T('Back')}</a>
+        <a href="{Text::url('customers/list')}" class="btn btn-primary btn-sm btn-block">
+            <i class="fa fa-arrow-left"></i> {Lang::T('Back')}
+        </a>
     </div>
     <div class="col-xs-6 col-md-3">
         <a href="{Text::url('customers/sync/', $d['id'], '&token=', $csrf_token)}"
             onclick="return ask(this, '{Lang::T('This will sync Customer to Mikrotik')}?')"
-            class="btn btn-info btn-sm btn-block">{Lang::T('Sync')}</a>
+            class="btn btn-info btn-sm btn-block">
+            <i class="fa fa-refresh"></i> {Lang::T('Sync')}
+        </a>
     </div>
     <div class="col-xs-6 col-md-3">
         <a href="{Text::url('message/send/', $d['id'], '&token=', $csrf_token)}"
             class="btn btn-success btn-sm btn-block">
-            {Lang::T('Send Message')}
+            <i class="fa fa-envelope"></i> {Lang::T('Send Message')}
         </a>
     </div>
     <div class="col-xs-6 col-md-3">
         <a href="{Text::url('customers/login/', $d['id'], '&token=', $csrf_token)}" target="_blank"
             class="btn btn-warning btn-sm btn-block">
-            {Lang::T('Login as Customer')}
+            <i class="fa fa-sign-in"></i> {Lang::T('Login as Customer')}
         </a>
     </div>
 </div>

@@ -2,11 +2,11 @@
 
 <div class="row">
     <div class="col-sm-7">
-        <div class="panel panel-primary">
+        <div class="panel panel-default">
             <div class="panel-heading">{Lang::T('Backup Database')}</div>
             <form method="post" action="{Text::url('')}settings/dbbackup">
                 <div class="table-responsive">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-striped table-hover">
                         <thead>
                             <tr>
                                 <th width="50%">{Lang::T('Table Name')}</th>
@@ -39,7 +39,7 @@
         </div>
     </div>
     <div class="col-sm-5">
-        <div class="panel panel-primary">
+        <div class="panel panel-default">
             <div class="panel-heading">{Lang::T('Restore Database')}</div>
             <form method="post" action="{Text::url('')}settings/dbrestore" enctype="multipart/form-data">
                 <div class="panel-body">

@@ -3,11 +3,11 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <div class="panel mb20 panel-hovered panel-primary">
+        <div class="panel mb20 panel-hovered panel-primary order-history-card">
             <div class="panel-heading">{Lang::T('Order History')}</div>
             <div class="panel-body">
                 <div class="table-responsive">
-                    <table id="datatable" class="table table-bordered table-striped table-condensed">
+                    <table id="datatable" class="table table-bordered table-striped table-condensed table-hover">
                         <thead>
                             <tr>
                                 <th>{Lang::T('Package Name')}</th>
@@ -35,12 +35,14 @@
                                         strtotime($ds['expired_date']))}</td>
                                     <td class="text-success">{if $ds['status']!=1}{date("{$_c['date_format']} H:i",
                                         strtotime($ds['paid_date']))}{/if}</td>
-                                    <td>{if $ds['status']==1}{Lang::T('UNPAID')}
-                                        {elseif $ds['status']==2}{Lang::T('PAID')}
-                                        {elseif $ds['status']==3}{$_L['FAILED']}
-                                        {elseif $ds['status']==4}{Lang::T('CANCELED')}
-                                        {elseif $ds['status']==5}{Lang::T('UNKNOWN')}
-                                        {/if}</td>
+                                    <td>
+                                        {if $ds['status']==1}<span class="badge badge-warning">{Lang::T('UNPAID')}</span>
+                                        {elseif $ds['status']==2}<span class="badge badge-success">{Lang::T('PAID')}</span>
+                                        {elseif $ds['status']==3}<span class="badge badge-danger">{$_L['FAILED']}</span>
+                                        {elseif $ds['status']==4}<span class="badge badge-danger">{Lang::T('CANCELED')}</span>
+                                        {elseif $ds['status']==5}<span class="badge badge-default">{Lang::T('UNKNOWN')}</span>
+                                        {/if}
+                                    </td>
                                 </tr>
                             {/foreach}
                         </tbody>

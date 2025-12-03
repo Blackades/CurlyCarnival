@@ -94,7 +94,7 @@
                 </form>
                 <br>&nbsp;
                 <div class="table-responsive table_mobile">
-                    <table id="customerTable" class="table table-bordered table-striped table-condensed">
+                    <table id="customerTable" class="table table-bordered table-striped table-hover table-condensed">
                         <thead>
                             <tr>
                                 <th><input type="checkbox" id="select-all"></th>
@@ -128,22 +128,24 @@
                                     style="cursor: pointer;">{$ds['fullname']}</td>
                                 <td>{Lang::moneyFormat($ds['balance'])}</td>
                                 <td align="center">
-                                    {if $ds['phonenumber']}
-                                    <a href="tel:{$ds['phonenumber']}" class="btn btn-default btn-xs"
-                                        title="{$ds['phonenumber']}"><i class="glyphicon glyphicon-earphone"></i></a>
-                                    {/if}
-                                    {if $ds['email']}
-                                    <a href="mailto:{$ds['email']}" class="btn btn-default btn-xs"
-                                        title="{$ds['email']}"><i class="glyphicon glyphicon-envelope"></i></a>
-                                    {/if}
-                                    {if $ds['coordinates']}
-                                    <a href="https://www.google.com/maps/dir//{$ds['coordinates']}/" target="_blank"
-                                        class="btn btn-default btn-xs" title="{$ds['coordinates']}"><i
-                                            class="glyphicon glyphicon-map-marker"></i></a>
-                                    {/if}
+                                    <div class="table-actions">
+                                        {if $ds['phonenumber']}
+                                        <a href="tel:{$ds['phonenumber']}" class="btn btn-default btn-xs btn-icon"
+                                            title="{$ds['phonenumber']}"><i class="glyphicon glyphicon-earphone"></i></a>
+                                        {/if}
+                                        {if $ds['email']}
+                                        <a href="mailto:{$ds['email']}" class="btn btn-default btn-xs btn-icon"
+                                            title="{$ds['email']}"><i class="glyphicon glyphicon-envelope"></i></a>
+                                        {/if}
+                                        {if $ds['coordinates']}
+                                        <a href="https://www.google.com/maps/dir//{$ds['coordinates']}/" target="_blank"
+                                            class="btn btn-default btn-xs btn-icon" title="{$ds['coordinates']}"><i
+                                                class="glyphicon glyphicon-map-marker"></i></a>
+                                        {/if}
+                                    </div>
                                 </td>
                                 <td align="center" api-get-text="{Text::url('autoload/plan_is_active/')}{$ds['id']}">
-                                    <span class="label label-default">&bull;</span>
+                                    <span class="badge badge-default">&bull;</span>
                                 </td>
                                 <td>{$ds['service_type']}</td>
                                 <td>
@@ -151,21 +153,32 @@
                                     {if !empty($ds['pppoe_username']) && !empty($ds['pppoe_ip'])}:{/if}
                                     {$ds['pppoe_ip']}
                                 </td>
-                                <td>{Lang::T($ds['status'])}</td>
+                                <td>
+                                    {if $ds['status'] == 'Active'}
+                                        <span class="badge badge-success">{Lang::T($ds['status'])}</span>
+                                    {elseif $ds['status'] == 'Disabled'}
+                                        <span class="badge badge-warning">{Lang::T($ds['status'])}</span>
+                                    {elseif $ds['status'] == 'Banned'}
+                                        <span class="badge badge-danger">{Lang::T($ds['status'])}</span>
+                                    {else}
+                                        <span class="badge badge-default">{Lang::T($ds['status'])}</span>
+                                    {/if}
+                                </td>
                                 <td>{Lang::dateTimeFormat($ds['created_at'])}</td>
                                 <td align="center">
-                                    <a href="{Text::url('customers/view/')}{$ds['id']}" id="{$ds['id']}"
-                                        style="margin: 0px; color:black"
-                                        class="btn btn-success btn-xs">&nbsp;&nbsp;{Lang::T('View')}&nbsp;&nbsp;</a>
-                                    <a href="{Text::url('customers/edit/', $ds['id'], '&token=', $csrf_token)}"
-                                        id="{$ds['id']}" style="margin: 0px; color:black"
-                                        class="btn btn-info btn-xs">&nbsp;&nbsp;{Lang::T('Edit')}&nbsp;&nbsp;</a>
-                                    <a href="{Text::url('customers/sync/', $ds['id'], '&token=', $csrf_token)}"
-                                        id="{$ds['id']}" style="margin: 5px; color:black"
-                                        class="btn btn-success btn-xs">&nbsp;&nbsp;{Lang::T('Sync')}&nbsp;&nbsp;</a>
-                                    <a href="{Text::url('plan/recharge/', $ds['id'], '&token=', $csrf_token)}"
-                                        id="{$ds['id']}" style="margin: 0px;"
-                                        class="btn btn-primary btn-xs">{Lang::T('Recharge')}</a>
+                                    <div class="table-actions">
+                                        <a href="{Text::url('customers/view/')}{$ds['id']}" id="{$ds['id']}"
+                                            class="btn btn-success btn-xs">{Lang::T('View')}</a>
+                                        <a href="{Text::url('customers/edit/', $ds['id'], '&token=', $csrf_token)}"
+                                            id="{$ds['id']}"
+                                            class="btn btn-info btn-xs">{Lang::T('Edit')}</a>
+                                        <a href="{Text::url('customers/sync/', $ds['id'], '&token=', $csrf_token)}"
+                                            id="{$ds['id']}"
+                                            class="btn btn-success btn-xs">{Lang::T('Sync')}</a>
+                                        <a href="{Text::url('plan/recharge/', $ds['id'], '&token=', $csrf_token)}"
+                                            id="{$ds['id']}"
+                                            class="btn btn-primary btn-xs">{Lang::T('Recharge')}</a>
+                                    </div>
                                 </td>
                             </tr>
                             {/foreach}

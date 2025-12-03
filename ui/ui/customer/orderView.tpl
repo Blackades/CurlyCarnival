@@ -4,7 +4,7 @@
     <div class="col-md-3"></div>
     <div class="col-md-6">
         <div
-            class="panel mb20 {if $trx['status']==1}panel-warning{elseif $trx['status']==2}panel-success{elseif $trx['status']==3}panel-danger{elseif $trx['status']==4}panel-danger{else}panel-primary{/if} panel-hovered">
+            class="panel mb20 {if $trx['status']==1}panel-warning{elseif $trx['status']==2}panel-success{elseif $trx['status']==3}panel-danger{elseif $trx['status']==4}panel-danger{else}panel-primary{/if} panel-hovered service-order-card">
             <div class="panel-footer">{Lang::T('Transaction')} #{$trx['id']}</div>
             {if !in_array($trx['routers'],['balance','radius'])}
                 <div class="panel-body">
@@ -56,7 +56,12 @@
                         <tbody>
                             <tr>
                                 <td>{Lang::T('Status')}</td>
-                                <td>{if $trx['status']==1}{Lang::T('UNPAID')}{elseif $trx['status']==2}{Lang::T('PAID')}{elseif $trx['status']==3}{Lang::T('FAILED')}{elseif $trx['status']==4}{Lang::T('CANCELED')}{else}{Lang::T('UNKNOWN')}{/if}
+                                <td>
+                                    {if $trx['status']==1}<span class="badge badge-warning">{Lang::T('UNPAID')}</span>
+                                    {elseif $trx['status']==2}<span class="badge badge-success">{Lang::T('PAID')}</span>
+                                    {elseif $trx['status']==3}<span class="badge badge-danger">{Lang::T('FAILED')}</span>
+                                    {elseif $trx['status']==4}<span class="badge badge-danger">{Lang::T('CANCELED')}</span>
+                                    {else}<span class="badge badge-default">{Lang::T('UNKNOWN')}</span>{/if}
                                 </td>
                             </tr>
                             <tr>

@@ -2,7 +2,7 @@
 <form class="form-horizontal" method="post" role="form" action="" enctype="multipart/form-data">
     <div class="row">
         <div class="col-sm-12 col-md-12">
-            <div class="panel panel-primary panel-hovered panel-stacked mb30">
+            <div class="panel panel-default panel-hovered panel-stacked mb30">
                 <div class="panel-heading">
                     <div class="btn-group pull-right">
                         <button class="btn btn-primary btn-xs" title="save" name="save" value="save" type="submit"><span

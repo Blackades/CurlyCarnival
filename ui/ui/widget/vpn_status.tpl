@@ -1,5 +1,5 @@
 <div class="box box-primary">
-    <div class="box-header with-border">
+    <div class="box-header">
         <h3 class="box-title">VPN Connection Status</h3>
         <div class="box-tools pull-right">
             <a href="{Text::url('routers/vpn-status')}" class="btn btn-box-tool" title="View Details">
@@ -53,7 +53,7 @@
                         <span class="progress-text">Connection Rate</span>
                         <span class="progress-number"><b>{$vpn_connected}</b>/{$vpn_total}</span>
                         <div class="progress sm">
-                            <div class="progress-bar progress-bar-{if $vpn_connection_rate >= 80}green{elseif $vpn_connection_rate >= 50}yellow{else}red{/if}" 
+                            <div class="progress-bar progress-bar-{if $vpn_connection_rate >= 80}success{elseif $vpn_connection_rate >= 50}warning{else}danger{/if}" 
                                  style="width: {$vpn_connection_rate}%"></div>
                         </div>
                         <span class="progress-number">{$vpn_connection_rate}%</span>

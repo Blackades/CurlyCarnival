@@ -2,7 +2,7 @@
 <!-- user-orderPlan -->
 <div class="row">
     <div class="col-sm-12">
-        <div class="box box-solid box-default">
+        <div class="box box-solid box-default order-package-header">
             <div class="box-header">{Lang::T('Order Internet Package')}</div>
         </div>
         {if $_c['radius_enable']}

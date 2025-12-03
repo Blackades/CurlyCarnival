@@ -1,22 +1,16 @@
-<div style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 24px; overflow: hidden;">
-    <div style="padding: 20px 24px; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: space-between;">
-        <div style="display: flex; align-items: center; gap: 12px;">
-            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #1890ff 0%, #40a9ff 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                <i class="fa fa-th" style="color: white; font-size: 18px;"></i>
-            </div>
-            <h3 style="margin: 0; font-size: 16px; font-weight: 600; color: #262626;">{Lang::T('Monthly Registered Customers')}</h3>
-        </div>
-
-        <div style="display: flex; gap: 8px;">
-            <button type="button" class="btn btn-default btn-sm" data-widget="collapse" style="border-radius: 6px; border: 1px solid #d9d9d9; background: white; padding: 6px 12px;">
-                <i class="fa fa-minus" style="color: #595959;"></i>
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title"><i class="fa fa-bar-chart"></i> {Lang::T('Monthly Registered Customers')}</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                <i class="fa fa-minus"></i>
             </button>
-            <a href="{Text::url('dashboard&refresh')}" class="btn btn-default btn-sm" style="border-radius: 6px; border: 1px solid #d9d9d9; background: white; padding: 6px 12px; text-decoration: none;">
-                <i class="fa fa-refresh" style="color: #595959;"></i>
+            <a href="{Text::url('dashboard&refresh')}" class="btn btn-box-tool" title="Refresh">
+                <i class="fa fa-refresh"></i>
             </a>
         </div>
     </div>
-    <div style="padding: 24px;">
+    <div class="box-body">
         <canvas class="chart" id="chart" style="height: 250px;"></canvas>
     </div>
 </div>

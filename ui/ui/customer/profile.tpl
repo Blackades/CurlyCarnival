@@ -3,9 +3,9 @@
 
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
-        <div class="panel panel-primary panel-hovered panel-stacked mb30">
+        <div class="panel panel-primary panel-hovered panel-stacked mb30 profile-card">
             <div class="panel-heading">{Lang::T('Data Change')}</div>
-            <div class="panel-body">
+            <div class="panel-body profile-form-body">
                 <form class="form-horizontal" enctype="multipart/form-data" method="post" role="form"
                     action="{Text::url('accounts/edit-profile-post')}">
                     <input type="hidden" name="csrf_token" value="{$csrf_token}">
@@ -116,10 +116,10 @@
                     {$customFields}
                     <div class="form-group">
                         <div class="col-md-offset-3 col-md-9">
-                            <button class="btn btn-success btn-block" type="submit">
+                            <button class="btn btn-success btn-block btn-save" type="submit">
                                 {Lang::T('Save Changes')}</button>
                             <br>
-                            <a href="{Text::url('home')}" class="btn btn-link btn-block">{Lang::T('Cancel')}</a>
+                            <a href="{Text::url('home')}" class="btn btn-link btn-block btn-cancel">{Lang::T('Cancel')}</a>
                         </div>
                     </div>
                 </form>

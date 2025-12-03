@@ -2,7 +2,7 @@
 
 <div class="row">
 	<div class="col-sm-12 col-md-12">
-		<div class="panel panel-primary panel-hovered panel-stacked mb30">
+		<div class="panel panel-default panel-hovered panel-stacked mb30">
 			<div class="panel-heading">{Lang::T('Translation')}</div>
 			<div class="panel-body">
 				<form class="form-horizontal" method="post" role="form" action="{Text::url('')}settings/lang-post">

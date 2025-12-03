@@ -4,7 +4,7 @@
     <input type="hidden" name="csrf_token" value="{$csrf_token}">
     <div class="row">
         <div class="col-sm-12 col-md-12">
-            <div class="panel panel-primary panel-hovered panel-stacked mb30">
+            <div class="panel panel-default panel-hovered panel-stacked mb30">
                 <div class="panel-heading">
                     <div class="btn-group pull-right">
                         <button class="btn btn-primary btn-xs" title="save" type="submit"><span

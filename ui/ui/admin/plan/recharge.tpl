@@ -22,11 +22,17 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label">{Lang::T('Type')}</label>
                         <div class="col-md-6">
-                            <label><input type="radio" id="Hot" name="type" value="Hotspot">
-                                {Lang::T('Hotspot Plans')}</label>
-                            <label><input type="radio" id="POE" name="type" value="PPPOE">
-                                {Lang::T('PPPOE Plans')}</label>
-                            <label><input type="radio" id="VPN" name="type" value="VPN"> {Lang::T('VPN Plans')}</label>
+                            <div class="radio">
+                                <label><input type="radio" id="Hot" name="type" value="Hotspot">
+                                    {Lang::T('Hotspot Plans')}</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" id="POE" name="type" value="PPPOE">
+                                    {Lang::T('PPPOE Plans')}</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" id="VPN" name="type" value="VPN"> {Lang::T('VPN Plans')}</label>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -60,16 +66,19 @@
                                     <option value="zero">{$_c['currency_code']} 0</option>
                                 {/if}
                             </select>
+                            <p class="help-block">{Lang::T('Postpaid Recharge for the first time use')}
+                                {$_c['currency_code']} 0</p>
                         </div>
-                        <p class="help-block col-md-4">{Lang::T('Postpaid Recharge for the first time use')}
-                            {$_c['currency_code']} 0</p>
                     </div>
                     <div class="form-group">
                         <div class="col-lg-offset-2 col-lg-10">
-                            <button class="btn btn-success"
-                                onclick="return ask(this, '{Lang::T('Continue the Recharge process')}?')"
-                                type="submit">{Lang::T('Recharge')}</button>
-                            {Lang::T('Or')} <a href="{Text::url('')}customers/list">{Lang::T('Cancel')}</a>
+                            <button class="btn btn-success" type="submit"
+                                onclick="return ask(this, '{Lang::T('Continue the Recharge process')}?')">
+                                <i class="fa fa-check"></i> {Lang::T('Recharge')}
+                            </button>
+                            <a href="{Text::url('')}customers/list" class="btn btn-default">
+                                <i class="fa fa-times"></i> {Lang::T('Cancel')}
+                            </a>
                         </div>
                     </div>
                 </form>

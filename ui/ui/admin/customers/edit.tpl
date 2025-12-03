@@ -243,9 +243,9 @@
         </div>
     </div>
     <center>
-        <button class="btn btn-primary" onclick="return ask(this, '{Lang::T("Continue the Customer Data change process?")}')"
+        <button class="btn btn-primary btn-lg" onclick="return ask(this, '{Lang::T("Continue the Customer Data change process?")}')"
             type="submit">
-            {Lang::T('Save Changes')}
+            <i class="fa fa-save"></i> {Lang::T('Save Changes')}
         </button>
         <br><a href="{Text::url('')}customers/list" class="btn btn-link">{Lang::T('Cancel')}</a>
     </center>

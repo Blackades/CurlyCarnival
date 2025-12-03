@@ -3,7 +3,7 @@
 <form class="form-horizontal" method="post" role="form" action="{Text::url('')}customfield/save">
     <div class="row">
         <div class="col-md-6">
-            <div class="panel panel-success panel-hovered panel-stacked mb30">
+            <div class="panel panel-default panel-hovered panel-stacked mb30">
                 <div class="panel-heading">{Lang::T('New Field')}</div>
                 <div class="panel-body">
                     <div class="form-group">
@@ -73,7 +73,7 @@
         </div>
         <div class="col-md-6">
             {foreach $fields as $field}
-                <div class="panel panel-primary">
+                <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="form-group">
                             <label class="col-md-4 control-label">{Lang::T("Sequence")}</label>

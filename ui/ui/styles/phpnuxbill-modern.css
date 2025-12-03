@@ -8076,3 +8076,275 @@ select.filter {
 /* ============================================================================
    End of Responsive Design Improvements
    ========================================================================= */
+
+
+/* ============================================================================
+   Dashboard Layout Enhancements
+   ========================================================================= */
+
+/* Dashboard Content Wrapper */
+.dashboard-content {
+    background-color: var(--background-secondary);
+}
+
+.dashboard-content .content-header {
+    padding: var(--spacing-lg) var(--spacing-xl);
+    background-color: var(--background);
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 0;
+}
+
+.dashboard-title {
+    font-size: 24px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.dashboard-title small {
+    font-size: 14px;
+    font-weight: var(--font-weight-normal);
+    color: var(--text-secondary);
+    margin-left: var(--spacing-sm);
+}
+
+/* Dashboard Main Content */
+.dashboard-main {
+    padding: var(--spacing-xl);
+}
+
+/* Dashboard Widgets Container */
+.dashboard-widgets {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+/* Widget Rows */
+.widget-row {
+    margin-left: calc(var(--spacing-sm) * -1);
+    margin-right: calc(var(--spacing-sm) * -1);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.widget-row + .widget-row {
+    margin-top: var(--spacing-lg);
+}
+
+.widget-col {
+    padding-left: var(--spacing-sm);
+    padding-right: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Enhanced Alert Styling for Dashboard */
+.dashboard-main .alert {
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    border-width: 1px;
+    border-style: solid;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+}
+
+.dashboard-main .alert strong {
+    font-weight: var(--font-weight-semibold);
+}
+
+.dashboard-main .alert .close {
+    margin-left: auto;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    font-size: 20px;
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+    color: inherit;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity var(--transition-fast);
+}
+
+.dashboard-main .alert .close:hover {
+    opacity: 0.8;
+}
+
+/* Alert Variants with Modern Colors */
+.dashboard-main .alert-success {
+    background-color: var(--success-bg);
+    border-color: var(--success-border);
+    color: var(--success-color);
+}
+
+.dashboard-main .alert-info {
+    background-color: var(--info-bg);
+    border-color: var(--info-border);
+    color: var(--info-color);
+}
+
+.dashboard-main .alert-warning {
+    background-color: var(--warning-bg);
+    border-color: var(--warning-border);
+    color: var(--warning-color);
+}
+
+.dashboard-main .alert-danger {
+    background-color: var(--danger-bg);
+    border-color: var(--danger-border);
+    color: var(--danger-color);
+}
+
+/* Info Box Enhancements for Dashboard */
+.dashboard-widgets .info-box {
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-fast);
+    margin-bottom: 0;
+}
+
+.dashboard-widgets .info-box:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.dashboard-widgets .info-box-icon {
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+
+.dashboard-widgets .info-box-content {
+    padding: var(--spacing-md) var(--spacing-lg);
+}
+
+.dashboard-widgets .info-box-text {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.dashboard-widgets .info-box-number {
+    font-size: 24px;
+    font-weight: var(--font-weight-bold);
+    margin-top: var(--spacing-xs);
+}
+
+.dashboard-widgets .info-box-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    color: inherit;
+    opacity: 0.8;
+    text-decoration: none;
+    transition: opacity var(--transition-fast);
+}
+
+.dashboard-widgets .info-box-link:hover {
+    opacity: 1;
+    text-decoration: none;
+}
+
+/* Box/Panel Enhancements for Dashboard Widgets */
+.dashboard-widgets .box,
+.dashboard-widgets .panel {
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    margin-bottom: 0;
+    transition: box-shadow var(--transition-fast);
+}
+
+.dashboard-widgets .box:hover,
+.dashboard-widgets .panel:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.dashboard-widgets .box-header,
+.dashboard-widgets .panel-heading {
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    padding: var(--spacing-md) var(--spacing-lg);
+}
+
+.dashboard-widgets .box-body,
+.dashboard-widgets .panel-body {
+    padding: var(--spacing-lg);
+}
+
+.dashboard-widgets .box-title,
+.dashboard-widgets .panel-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* Responsive Dashboard Layout */
+@media (max-width: 768px) {
+    .dashboard-main {
+        padding: var(--spacing-md);
+    }
+    
+    .dashboard-content .content-header {
+        padding: var(--spacing-md);
+    }
+    
+    .dashboard-title {
+        font-size: 20px;
+    }
+    
+    .dashboard-widgets {
+        gap: var(--spacing-md);
+    }
+    
+    .widget-row + .widget-row {
+        margin-top: var(--spacing-md);
+    }
+    
+    .widget-col {
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .dashboard-widgets .info-box-number {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-main {
+        padding: var(--spacing-sm);
+    }
+    
+    .dashboard-content .content-header {
+        padding: var(--spacing-sm);
+    }
+    
+    .dashboard-title {
+        font-size: 18px;
+    }
+    
+    .dashboard-title small {
+        display: block;
+        margin-left: 0;
+        margin-top: var(--spacing-xs);
+    }
+}
+
+/* Grid System Enhancements */
+.dashboard-widgets .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: calc(var(--spacing-sm) * -1);
+    margin-right: calc(var(--spacing-sm) * -1);
+}
+
+.dashboard-widgets [class*="col-"] {
+    padding-left: var(--spacing-sm);
+    padding-right: var(--spacing-sm);
+}
+
+/* Ensure proper spacing for full-width widgets */
+.dashboard-widgets .col-md-12 {
+    width: 100%;
+}

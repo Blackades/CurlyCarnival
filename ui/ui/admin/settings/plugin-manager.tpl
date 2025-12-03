@@ -9,7 +9,7 @@
 <form method="post" enctype="multipart/form-data"
     onsubmit="return ask(this, 'Warning, installing unknown source can damage your server, continue?')"
     action="{Text::url('')}pluginmanager/dlinstall">
-    <div class="panel panel-primary panel-hovered">
+    <div class="panel panel-default panel-hovered">
         <div class="panel-heading">
             {Lang::T('Plugin Installer')}
             <div class="btn-group pull-right">
@@ -58,7 +58,7 @@
             <div class="row">
                 {foreach $plugins as $plugin}
                     <div class="col-md-4">
-                        <div class="box box-hovered mb20 box-primary">
+                        <div class="box box-hovered mb20 box-default">
                             <div class="box-header">
                                 <h3 class="box-title text1line">{$plugin['name']}</h3>
                             </div>
@@ -97,7 +97,7 @@
             <div class="row">
                 {foreach $pgs as $pg}
                     <div class="col-md-4">
-                        <div class="box box-hovered mb20 box-primary">
+                        <div class="box box-hovered mb20 box-default">
                             <div class="box-header">
                                 <h3 class="box-title text1line">{$pg['name']}</h3>
                             </div>
@@ -132,7 +132,7 @@
             <div class="row">
                 {foreach $dvcs as $dvc}
                     <div class="col-md-4">
-                        <div class="box box-hovered mb20 box-primary">
+                        <div class="box box-hovered mb20 box-default">
                             <div class="box-header">
                                 <h3 class="box-title text1line">{$dvc['name']}</h3>
                             </div>

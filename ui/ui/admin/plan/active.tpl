@@ -72,7 +72,7 @@
             </form>
             <div class="table-responsive">
                 <div style="margin-left: 5px; margin-right: 5px;">&nbsp;
-                    <table id="datatable" class="table table-bordered table-striped table-condensed">
+                    <table id="datatable" class="table table-bordered table-striped table-hover table-condensed">
                         <thead>
                             <tr>
                                 <th>{Lang::T("Username")}</th>
@@ -108,24 +108,28 @@
                                         {elseif $ds['type'] == 'VPN'}
                                             <a href="{Text::url('')}services/vpn-edit/{$ds['plan_id']}">{$ds['namebp']}</a>
                                         {/if}
-
+                                        {if $ds['status']=='on'}
+                                            <span class="badge badge-success">{Lang::T("Active")}</span>
+                                        {else}
+                                            <span class="badge badge-danger">{Lang::T("Expired")}</span>
+                                        {/if}
                                     </td>
                                     <td>{$ds['type']}</td>
                                     <td>{Lang::dateAndTimeFormat($ds['recharged_on'],$ds['recharged_time'])}</td>
                                     <td>{Lang::dateAndTimeFormat($ds['expiration'],$ds['time'])}</td>
                                     <td>{$ds['method']}</td>
                                     <td>{$ds['routers']}</td>
-                                    <td>
+                                    <td class="table-actions">
                                         <a href="{Text::url('')}plan/edit/{$ds['id']}" class="btn btn-warning btn-xs"
-                                            style="color: black;">{Lang::T("Edit")}</a>
+                                            title="{Lang::T('Edit')}"><i class="fa fa-edit"></i></a>
                                         {if in_array($_admin['user_type'],['SuperAdmin','Admin'])}
                                             <a href="{Text::url('')}plan/delete/{$ds['id']}" id="{$ds['id']}"
                                                 onclick="return ask(this, '{Lang::T("Delete")}?')"
-                                                class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></a>
+                                                class="btn btn-danger btn-xs" title="{Lang::T('Delete')}"><i class="glyphicon glyphicon-trash"></i></a>
                                         {/if}
                                         {if $ds['status']=='off' && $_c['extend_expired']}
                                             <a href="javascript:extend('{$ds['id']}')"
-                                                class="btn btn-info btn-xs">{Lang::T("Extend")}</a>
+                                                class="btn btn-info btn-xs" title="{Lang::T('Extend')}"><i class="fa fa-clock-o"></i></a>
                                         {/if}
                                     </td>
                                 </tr>

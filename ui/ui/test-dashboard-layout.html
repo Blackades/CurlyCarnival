@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Layout Test - PHPNuxBill Modern UI</title>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="fonts/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="styles/modern-AdminLTE.min.css">
+    <link rel="stylesheet" href="styles/phpnuxbill-modern.css">
+    <style>
+        body {
+            background-color: #ecf0f5;
+            padding: 20px;
+        }
+        .test-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1 style="margin-bottom: 30px;">Dashboard Layout Test</h1>
+        
+        <!-- Dashboard Content Wrapper -->
+        <div class="content-wrapper dashboard-content" style="margin-left: 0;">
+            <section class="content-header">
+                <h1 class="dashboard-title">
+                    Dashboard
+                    <small>Control Panel</small>
+                </h1>
+            </section>
+
+            <section class="content dashboard-main">
+                <!-- Alert Messages Test -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <strong>Success:</strong> Your changes have been saved successfully!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-info alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <strong>Info:</strong> New version available. Click here to update.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-warning alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <strong>Warning:</strong> Your SSL certificate will expire in 7 days.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <strong>Error:</strong> Failed to connect to the database.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Widget Grid Layout Test -->
+                <div class="dashboard-widgets">
+                    <!-- Row 1: 4 Metric Cards -->
+                    <div class="row widget-row">
+                        <div class="col-lg-3 col-xs-6 widget-col">
+                            <div class="info-box bg-aqua">
+                                <span class="info-box-icon"><i class="ion ion-clock"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Income Today</span>
+                                    <span class="info-box-number">
+                                        <small>USD</small>
+                                        1,250
+                                    </span>
+                                    <a href="#" class="info-box-link">
+                                        View Details <i class="fa fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-xs-6 widget-col">
+                            <div class="info-box bg-green">
+                                <span class="info-box-icon"><i class="ion ion-android-calendar"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Income This Month</span>
+                                    <span class="info-box-number">
+                                        <small>USD</small>
+                                        35,420
+                                    </span>
+                                    <a href="#" class="info-box-link">
+                                        View Details <i class="fa fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-xs-6 widget-col">
+                            <div class="info-box bg-yellow">
+                                <span class="info-box-icon"><i class="ion ion-person"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Active/Expired</span>
+                                    <span class="info-box-number">245/18</span>
+                                    <a href="#" class="info-box-link">
+                                        View Details <i class="fa fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-xs-6 widget-col">
+                            <div class="info-box bg-red">
+                                <span class="info-box-icon"><i class="ion ion-android-people"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Customers</span>
+                                    <span class="info-box-number">263</span>
+                                    <a href="#" class="info-box-link">
+                                        View Details <i class="fa fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Two Half-Width Panels -->
+                    <div class="row widget-row">
+                        <div class="col-md-6 widget-col">
+                            <div class="box box-primary">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">Recent Activity</h3>
+                                </div>
+                                <div class="box-body">
+                                    <ul class="list-unstyled">
+                                        <li style="padding: 8px 0; border-bottom: 1px solid #f0f0f0;">
+                                            <i class="fa fa-user text-primary"></i> New customer registered
+                                            <span class="pull-right text-muted">2 min ago</span>
+                                        </li>
+                                        <li style="padding: 8px 0; border-bottom: 1px solid #f0f0f0;">
+                                            <i class="fa fa-check text-success"></i> Payment received
+                                            <span class="pull-right text-muted">15 min ago</span>
+                                        </li>
+                                        <li style="padding: 8px 0; border-bottom: 1px solid #f0f0f0;">
+                                            <i class="fa fa-warning text-warning"></i> Certificate expiring soon
+                                            <span class="pull-right text-muted">1 hour ago</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 widget-col">
+                            <div class="box box-success">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">VPN Status</h3>
+                                </div>
+                                <div class="box-body">
+                                    <div style="padding: 12px 0;">
+                                        <strong>Connected Clients:</strong> 42
+                                    </div>
+                                    <div style="padding: 12px 0;">
+                                        <strong>Server Status:</strong> 
+                                        <span class="badge badge-success">Online</span>
+                                    </div>
+                                    <div style="padding: 12px 0;">
+                                        <strong>Uptime:</strong> 15 days, 3 hours
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Full Width Panel -->
+                    <div class="row widget-row">
+                        <div class="col-md-12 widget-col">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Monthly Revenue Chart</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div style="height: 200px; display: flex; align-items: center; justify-content: center; background: #f5f5f5; border-radius: 4px;">
+                                        <p style="color: #8c8c8c;">Chart placeholder - Revenue trend visualization</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Responsive Test Info -->
+        <div style="margin-top: 40px; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+            <h3>Responsive Testing Guide</h3>
+            <p>Test the dashboard layout at different viewport sizes:</p>
+            <ul>
+                <li><strong>Desktop (1920px):</strong> All widgets display in optimal grid layout</li>
+                <li><strong>Laptop (1366px):</strong> Widgets adjust with proper spacing</li>
+                <li><strong>Tablet (768px):</strong> Metric cards stack to 2 columns, panels go full width</li>
+                <li><strong>Mobile (375px):</strong> All widgets stack vertically for optimal mobile viewing</li>
+            </ul>
+            <p><strong>Features to verify:</strong></p>
+            <ul>
+                <li>Alert messages display with modern styling and proper colors</li>
+                <li>Widget grid maintains consistent spacing</li>
+                <li>Info boxes have hover effects (shadow and slight lift)</li>
+                <li>Panels and boxes have rounded corners and modern shadows</li>
+                <li>Typography is clear and properly sized</li>
+                <li>All interactive elements (links, buttons) have proper hover states</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script>
+        // Alert dismiss functionality
+        $('.alert .close').on('click', function() {
+            $(this).closest('.alert').fadeOut();
+        });
+    </script>
+</body>
+</html>

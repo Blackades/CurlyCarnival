@@ -32,7 +32,7 @@
                                     </tr>
                                     <tr>
                                         <td><strong>{Lang::T('Status')}:</strong></td>
-                                        <td><span class="label label-success">{Lang::T('Active')}</span></td>
+                                        <td><span class="badge badge-success">{Lang::T('Active')}</span></td>
                                     </tr>
                                 </table>
                             </div>
@@ -76,7 +76,7 @@
                                 <table class="table table-bordered">
                                     <tr>
                                         <td width="25%"><strong>{Lang::T('Status')}:</strong></td>
-                                        <td><span class="label label-success">{Lang::T('Running')}</span></td>
+                                        <td><span class="badge badge-success">{Lang::T('Running')}</span></td>
                                     </tr>
                                     <tr>
                                         <td><strong>{Lang::T('Server')}:</strong></td>

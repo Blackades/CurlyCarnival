@@ -10,7 +10,7 @@
         </div>
     {/if}
     <div class="{if file_exists("$PAGES_PATH/Payment_Info.html")}col-md-6{else}col-md-6 col-md-offset-3{/if}">
-        <div class="panel panel-success panel-hovered">
+        <div class="panel panel-success panel-hovered payment-gateway-card">
             <div class="panel-heading">{Lang::T('Make Payment')}</div>
 
             <div class="panel-body">
@@ -82,7 +82,7 @@
                                         required placeholder="{Lang::T('Enter your coupon code')}">
                                     <span class="input-group-btn">
                                         <button type="submit" name="add_coupon"
-                                            class="btn btn-info btn-flat">{Lang::T('Apply Coupon')}</button>
+                                            class="btn btn-info btn-flat btn-apply-coupon">{Lang::T('Apply Coupon')}</button>
                                     </span>
                                 </div>
                             </div>
@@ -165,9 +165,9 @@
                         </div>
                     </div>
                     <center>
-                        <button type="submit" name="pay" class="btn btn-primary"
+                        <button type="submit" name="pay" class="btn btn-primary btn-pay"
                         onclick="return ask(this, '{Lang::T("Are You Sure?")}')">{Lang::T('Pay Now')}</button>
-                        <a href="{Text::url('home')}" class="btn btn-secondary">{Lang::T('Cancel')}</a>
+                        <a href="{Text::url('home')}" class="btn btn-secondary btn-cancel">{Lang::T('Cancel')}</a>
                     </center>
                 </form>
             </div>

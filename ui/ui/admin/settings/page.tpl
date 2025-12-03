@@ -3,7 +3,7 @@
 <form id="formpages" method="post" role="form" action="{Text::url('')}pages/{$PageFile}-post">
     <div class="row">
         <div class="{if $action=='Voucher'}col-md-8{else}col-md-12{/if}">
-            <div class="panel mb20 panel-primary panel-hovered">
+            <div class="panel mb20 panel-default panel-hovered">
                 <div class="panel-heading">
                     {if $action!='Voucher'}
                         <div class="btn-group pull-right">
@@ -56,7 +56,7 @@
             <div class="col-md-4">
                 {foreach $vouchers as $v}
                     {if is_file("$PAGES_PATH/vouchers/$v")}
-                        <div class="panel mb20 panel-primary panel-hovered" style="cursor: pointer;" onclick="selectTemplate(this)">
+                        <div class="panel mb20 panel-default panel-hovered" style="cursor: pointer;" onclick="selectTemplate(this)">
                             <div class="panel-heading">{str_replace(".html", '', $v)}</div>
                             <div class="panel-body">{include file="$PAGES_PATH/vouchers/$v"}</div>
                         </div>
