@@ -9704,3 +9704,63 @@ body.hold-transition .main-sidebar {
 }
 
 /* End of final fixes */
+
+
+/* ============================================================================
+   DASHBOARD SPACING FIX: Use body class or URL-based targeting
+   ========================================================================= */
+
+/* Target dashboard by checking if URL contains 'dashboard' */
+/* Since we can't use URL in CSS, we'll use more specific selectors */
+
+/* Dashboard has .dashboard-content class on content-wrapper */
+.content-wrapper.dashboard-content {
+    padding: 0 !important;
+}
+
+.content-wrapper.dashboard-content > .content-header {
+    padding: 10px 16px !important;
+    margin-bottom: 8px !important;
+}
+
+.content-wrapper.dashboard-content > section.content {
+    padding: 12px 16px !important;
+}
+
+/* Target dashboard widgets specifically */
+.content-wrapper.dashboard-content .dashboard-widgets {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.content-wrapper.dashboard-content .dashboard-widgets .row {
+    margin-left: -8px !important;
+    margin-right: -8px !important;
+}
+
+.content-wrapper.dashboard-content .dashboard-widgets [class*="col-"] {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
+
+.content-wrapper.dashboard-content .info-box {
+    margin-bottom: 12px !important;
+}
+
+/* Compact dashboard title */
+.content-wrapper.dashboard-content h1.dashboard-title {
+    font-size: 20px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.content-wrapper.dashboard-content h1.dashboard-title small {
+    font-size: 14px !important;
+}
+
+/* Remove duplicate "Dashboard" heading if it exists */
+.content-wrapper.dashboard-content .content-header + section.content > h1:first-child {
+    display: none !important;
+}
+
+/* End of dashboard spacing fix */
