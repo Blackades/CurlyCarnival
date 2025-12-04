@@ -156,7 +156,7 @@ $timestamp = date('YmdHis');
 $password = base64_encode($config['shortcode'] . $config['passkey'] . $timestamp);
 
 // Test phone number (use sandbox test number or prompt for real number)
-echo "\nEnter test phone number (format: 254XXXXXXXXX): ";
+echo "\nEnter test phone number (format: 254XXXXXXXXX): "; 
 $phone = trim(fgets(STDIN));
 
 if (empty($phone)) {
