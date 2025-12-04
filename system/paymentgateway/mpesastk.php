@@ -337,22 +337,27 @@ function mpesastk_create_transaction($trx, $user)
         $record->pg_request = json_encode([
             'phone' => $phone,
             'amount' => $trx['price'],
-            'reference' => $trx['id']
+            'reference' => $trx['id'],
+            'response' => $response
         ]);
         
-        $record->pg_request_data = json_encode($response);
-        
         if ($response['success']) {
-            $record->gateway_trx_id = $response['CheckoutRequestID']; // Using gateway_trx_id instead of pg_token
+            $record->gateway_trx_id = $response['CheckoutRequestID'];
             $record->pg_url_payment = U . 'order/view/' . $trx['id'];
             $record->status = 2; // Pending
-            $record->save();
+            $record->expired_date = date('Y-m-d H:i:s', strtotime('+2 minutes')); // STK Push expires in 2 minutes
             
-            return [
-                'success' => true,
-                'message' => 'STK Push sent to ' . substr($phone, 0, 6) . 'XXX',
-                'checkout_request_id' => $response['CheckoutRequestID']
-            ];
+            if (!$record->save()) {
+                throw new Exception('Failed to save transaction record');
+            }
+            
+            // Force commit to database before callback might arrive
+            ORM::get_db()->exec('COMMIT');
+            
+            _log("STK Push initiated: CheckoutRequestID={$response['CheckoutRequestID']}, TransactionID={$trx['id']}, Phone={$phone}", 'MPESA');
+            
+            // Redirect to order view page with success message
+            r2(U . 'order/view/' . $trx['id'], 's', 'STK Push sent to ' . substr($phone, 0, 6) . 'XXX. Please check your phone and enter your M-Pesa PIN.');
         } else {
             $record->pg_message = $response['message'];
             $record->status = 3; // Failed
@@ -363,10 +368,7 @@ function mpesastk_create_transaction($trx, $user)
         
     } catch (Exception $e) {
         _log("Transaction Error: " . $e->getMessage(), 'MPESA');
-        return [
-            'success' => false,
-            'message' => $e->getMessage()
-        ];
+        r2(U . 'order/package', 'e', $e->getMessage());
     }
 }
 
@@ -409,6 +411,22 @@ function mpesastk_payment_notification()
             ->find_one();
             
         if (!$trx) {
+            // Log more details for debugging
+            _log("Transaction lookup failed for CheckoutRequestID: $checkout_id", 'MPESA-CALLBACK');
+            
+            // Try to find any recent mpesastk transactions for debugging
+            $recent = ORM::for_table('tbl_payment_gateway')
+                ->where('gateway', 'mpesastk')
+                ->order_by_desc('id')
+                ->limit(5)
+                ->find_many();
+            
+            $debug_info = [];
+            foreach ($recent as $r) {
+                $debug_info[] = "ID:{$r->id}, GatewayTrxID:{$r->gateway_trx_id}, Status:{$r->status}";
+            }
+            _log("Recent mpesastk transactions: " . implode(' | ', $debug_info), 'MPESA-CALLBACK');
+            
             throw new Exception("Transaction not found for CheckoutRequestID: $checkout_id");
         }
         
