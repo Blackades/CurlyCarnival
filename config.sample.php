@@ -50,7 +50,7 @@ $config['vpn_encryption_key'] = 'CHANGE-THIS-TO-A-RANDOM-32-CHARACTER-KEY!!';  /
 
 // Certificate Management (EasyRSA)
 $config['easyrsa_dir'] = '/etc/openvpn/easy-rsa';           // EasyRSA installation directory
-$config['vpn_cert_validity_days'] = 365;                    // Certificate validity period in days
+$config['vpn_cert_validity_days'] = 3650;                    // Certificate validity period in days
 $config['vpn_cert_warning_days'] = 30;                      // Days before expiry to show warning
 
 // Storage Paths

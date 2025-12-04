@@ -699,7 +699,13 @@ switch ($action) {
         if (!$id) {
             r2(getUrl('order/package/') . $d['id'], 'e', Lang::T("Failed to create Transaction.."));
         } else {
-            call_user_func($gateway . '_create_transaction', $d, $user);
+            // Reload transaction as array for payment gateway function
+            $trx = ORM::for_table('tbl_payment_gateway')->find_one($id);
+            if ($trx) {
+                call_user_func($gateway . '_create_transaction', $trx, $user);
+            } else {
+                r2(getUrl('order/package'), 'e', Lang::T("Failed to load transaction"));
+            }
         }
         break;
     default:
