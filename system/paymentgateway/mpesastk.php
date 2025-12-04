@@ -322,46 +322,41 @@ function mpesastk_initiate_stk_push($phone, $amount, $reference)
 function mpesastk_create_transaction($trx, $user)
 {
     try {
-        if (empty($trx['id']) || empty($trx['price']) || $trx['price'] <= 0) {
+        if (empty($trx->id) || empty($trx->price) || $trx->price <= 0) {
             throw new Exception('Invalid transaction');
         }
         
         $phone = $user['phonenumber'] ?? _post('phone');
         if (empty($phone)) throw new Exception('Phone number required');
         
-        $response = mpesastk_initiate_stk_push($phone, $trx['price'], $trx['id']);
+        $response = mpesastk_initiate_stk_push($phone, $trx->price, $trx->id);
         
-        $record = ORM::for_table('tbl_payment_gateway')->find_one($trx['id']);
-        if (!$record) throw new Exception('Transaction not found');
-        
-        $record->pg_request = json_encode([
+        // $trx is already the ORM record, no need to find it again
+        $trx->pg_request = json_encode([
             'phone' => $phone,
-            'amount' => $trx['price'],
-            'reference' => $trx['id'],
+            'amount' => $trx->price,
+            'reference' => $trx->id,
             'response' => $response
         ]);
         
         if ($response['success']) {
-            $record->gateway_trx_id = $response['CheckoutRequestID'];
-            $record->pg_url_payment = U . 'order/view/' . $trx['id'];
-            $record->status = 2; // Pending
-            $record->expired_date = date('Y-m-d H:i:s', strtotime('+2 minutes')); // STK Push expires in 2 minutes
+            $trx->gateway_trx_id = $response['CheckoutRequestID'];
+            $trx->pg_url_payment = U . 'order/view/' . $trx->id;
+            $trx->status = 2; // Pending
+            $trx->expired_date = date('Y-m-d H:i:s', strtotime('+2 minutes')); // STK Push expires in 2 minutes
             
-            if (!$record->save()) {
+            if (!$trx->save()) {
                 throw new Exception('Failed to save transaction record');
             }
             
-            // Force commit to database before callback might arrive
-            ORM::get_db()->exec('COMMIT');
-            
-            _log("STK Push initiated: CheckoutRequestID={$response['CheckoutRequestID']}, TransactionID={$trx['id']}, Phone={$phone}", 'MPESA');
+            _log("STK Push initiated: CheckoutRequestID={$response['CheckoutRequestID']}, TransactionID={$trx->id}, Phone={$phone}", 'MPESA');
             
             // Redirect to order view page with success message
-            r2(U . 'order/view/' . $trx['id'], 's', 'STK Push sent to ' . substr($phone, 0, 6) . 'XXX. Please check your phone and enter your M-Pesa PIN.');
+            r2(U . 'order/view/' . $trx->id, 's', 'STK Push sent to ' . substr($phone, 0, 6) . 'XXX. Please check your phone and enter your M-Pesa PIN.');
         } else {
-            $record->pg_message = $response['message'];
-            $record->status = 3; // Failed
-            $record->save();
+            $trx->pg_message = $response['message'];
+            $trx->status = 3; // Failed
+            $trx->save();
             
             throw new Exception($response['message']);
         }
