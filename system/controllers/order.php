@@ -693,6 +693,10 @@ switch ($action) {
                     $d->created_date = date('Y-m-d H:i:s');
                     $d->status = 1;
                     $d->save();
+                    // Ensure $id is set when updating existing transaction
+                    if (empty($id)) {
+                        $id = $d->id();
+                    }
                 }
                 break;
         }
