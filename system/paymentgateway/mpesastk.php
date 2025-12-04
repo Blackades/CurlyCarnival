@@ -322,6 +322,8 @@ function mpesastk_initiate_stk_push($phone, $amount, $reference)
 function mpesastk_create_transaction($trx, $user)
 {
     try {
+        _log("Create transaction called: TrxID={$trx->id}, Price={$trx->price}", 'MPESA');
+        
         if (empty($trx->id) || empty($trx->price) || $trx->price <= 0) {
             throw new Exception('Invalid transaction');
         }
@@ -329,7 +331,11 @@ function mpesastk_create_transaction($trx, $user)
         $phone = $user['phonenumber'] ?? _post('phone');
         if (empty($phone)) throw new Exception('Phone number required');
         
+        _log("Initiating STK Push: Phone={$phone}, Amount={$trx->price}, Ref={$trx->id}", 'MPESA');
+        
         $response = mpesastk_initiate_stk_push($phone, $trx->price, $trx->id);
+        
+        _log("STK Push response: " . json_encode($response), 'MPESA');
         
         // $trx is already the ORM record, no need to find it again
         $trx->pg_request = json_encode([
@@ -339,7 +345,7 @@ function mpesastk_create_transaction($trx, $user)
             'response' => $response
         ]);
         
-        if ($response['success']) {
+        if (isset($response['success']) && $response['success']) {
             $trx->gateway_trx_id = $response['CheckoutRequestID'];
             $trx->pg_url_payment = U . 'order/view/' . $trx->id;
             $trx->status = 2; // Pending
