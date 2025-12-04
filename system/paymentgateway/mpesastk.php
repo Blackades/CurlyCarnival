@@ -460,6 +460,8 @@ function mpesastk_payment_notification()
             ORM::get_db()->beginTransaction();
             
             try {
+                _log("Processing successful payment callback for CheckoutRequestID: $checkout_id", 'MPESA-CALLBACK');
+                
                 // Update transaction record FIRST
                 $trx->status = 2; // Mark as paid (status 2 = PAID in this application)
                 $trx->paid_date = date('Y-m-d H:i:s');
@@ -479,6 +481,8 @@ function mpesastk_payment_notification()
                     throw new Exception('Failed to update transaction record');
                 }
                 
+                _log("Transaction record updated, now processing user activation", 'MPESA-CALLBACK');
+                
                 // THEN process the successful payment
                 mpesastk_process_successful_payment($trx);
                 
@@ -490,6 +494,7 @@ function mpesastk_payment_notification()
             } catch (Exception $e) {
                 // Rollback on any error
                 ORM::get_db()->rollback();
+                _log("Payment processing error: " . $e->getMessage(), 'MPESA-ERROR');
                 throw $e;
             }
             
@@ -671,7 +676,8 @@ function mpesastk_get_status($trx, $user)
         $record = ORM::for_table('tbl_payment_gateway')->find_one($trx['id']);
         if (!$record) throw new Exception('Transaction not found');
         
-        $record->pg_check_data = json_encode($response);
+        // Note: pg_check_data column may not exist, so we'll just log the response
+        _log("Status check response: " . json_encode($response), 'MPESA');
         
         if (isset($response['ResultCode'])) {
             if ($response['ResultCode'] == 0) {
