@@ -189,6 +189,7 @@ function mpesa_create_transaction($trx, $user)
                 if ($d) {
                     $d->gateway_trx_id = $checkout_request_id;
                     $d->pg_request = json_encode($request_data);
+                    $d->pg_url_payment = 'mpesa_stk'; // Set placeholder to prevent redirect loop
                     $d->expired_date = date('Y-m-d H:i:s', strtotime('+2 minutes')); // STK Push expires in 2 minutes
                     $d->save();
                 }
