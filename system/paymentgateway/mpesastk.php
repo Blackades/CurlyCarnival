@@ -36,7 +36,7 @@ function mpesastk_show_config()
     $ui->assign('mpesastk_transaction_desc', $config['transaction_desc'] ?? 'Payment for Internet Access');
     $ui->assign('mpesastk_callback_url', U . 'callback/mpesastk');
     
-    $ui->display('paymentgateway/mpesastk.tpl');
+    $ui->display('mpesastk.tpl');
 }
 
 /**
