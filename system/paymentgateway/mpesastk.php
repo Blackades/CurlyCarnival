@@ -348,7 +348,7 @@ function mpesastk_create_transaction($trx, $user)
         if (isset($response['success']) && $response['success']) {
             $trx->gateway_trx_id = $response['CheckoutRequestID'];
             $trx->pg_url_payment = U . 'order/view/' . $trx->id;
-            $trx->status = 2; // Pending
+            $trx->status = 1; // Unpaid/Pending (waiting for M-Pesa callback)
             $trx->expired_date = date('Y-m-d H:i:s', strtotime('+2 minutes')); // STK Push expires in 2 minutes
             
             if (!$trx->save()) {
@@ -357,8 +357,8 @@ function mpesastk_create_transaction($trx, $user)
             
             _log("STK Push initiated: CheckoutRequestID={$response['CheckoutRequestID']}, TransactionID={$trx->id}, Phone={$phone}", 'MPESA');
             
-            // Redirect to order view page with success message
-            r2(U . 'order/view/' . $trx->id, 's', 'STK Push sent to ' . substr($phone, 0, 6) . 'XXX. Please check your phone and enter your M-Pesa PIN.');
+            // Redirect to order view page with warning message (payment pending)
+            r2(U . 'order/view/' . $trx->id, 'w', 'Payment request sent to ' . substr($phone, 0, 6) . 'XXX. Please complete payment on your phone. This page will update automatically once payment is confirmed.');
         } else {
             $trx->pg_message = $response['message'];
             $trx->status = 3; // Failed
@@ -431,16 +431,13 @@ function mpesastk_payment_notification()
             throw new Exception("Transaction not found for CheckoutRequestID: $checkout_id");
         }
         
-        // Check if already processed
-        if (!empty($trx->pg_paid_response)) {
+        // Check if already processed (check status instead of pg_paid_response)
+        if ($trx->status == 2) {
             _log('Callback already processed for transaction: ' . $trx->id, 'MPESA-CALLBACK');
             // Return success to avoid repeated callbacks
             echo json_encode($response);
             exit;
         }
-        
-        // Store raw callback data
-        $trx->pg_paid_response = $input;
         
         if ($callback['ResultCode'] == 0) {
             // SUCCESS - Process payment
@@ -464,16 +461,17 @@ function mpesastk_payment_notification()
             
             try {
                 // Update transaction record FIRST
-                $trx->status = 1; // Mark as paid
+                $trx->status = 2; // Mark as paid (status 2 = PAID in this application)
                 $trx->paid_date = date('Y-m-d H:i:s');
                 $trx->payment_method = 'M-Pesa';
                 $trx->payment_channel = 'M-Pesa STK Push';
                 
-                // Store receipt number in a separate field or append to existing gateway_trx_id
+                // Store receipt number and callback data
                 $trx->pg_paid_response = json_encode([
                     'receipt_number' => $metadata['MpesaReceiptNumber'],
                     'amount' => $metadata['Amount'] ?? null,
                     'phone' => $metadata['PhoneNumber'] ?? null,
+                    'transaction_date' => $metadata['TransactionDate'] ?? null,
                     'callback_data' => $callback
                 ]);
                 
@@ -681,7 +679,7 @@ function mpesastk_get_status($trx, $user)
                 $record->pg_paid_response = json_encode($response);
                 $record->pg_paid_date = date('Y-m-d H:i:s');
                 $record->paid_date = date('Y-m-d H:i:s');
-                $record->status = 1; // Paid
+                $record->status = 2; // Paid (status 2 = PAID in this application)
                 $record->save();
                 
                 mpesastk_process_successful_payment($record);
