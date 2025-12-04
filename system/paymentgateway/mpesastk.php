@@ -25,23 +25,18 @@ function mpesastk_show_config()
     global $ui;
     $ui->assign('_title', 'M-Pesa STK Push Configuration');
 
-    try {
-        $config = mpesastk_get_config();
-        
-        $ui->assign('mpesastk_consumer_key', $config['consumer_key'] ?? '');
-        $ui->assign('mpesastk_consumer_secret', $config['consumer_secret'] ?? '');
-        $ui->assign('mpesastk_business_shortcode', $config['business_shortcode'] ?? '');
-        $ui->assign('mpesastk_passkey', $config['passkey'] ?? '');
-        $ui->assign('mpesastk_environment', $config['environment'] ?? 'sandbox');
-        $ui->assign('mpesastk_account_reference', $config['account_reference'] ?? 'PHPNuxBill');
-        $ui->assign('mpesastk_transaction_desc', $config['transaction_desc'] ?? 'Payment for Internet Access');
-        $ui->assign('mpesastk_callback_url', U . 'callback/mpesastk');
-        
-        $ui->display('paymentgateway/mpesastk.tpl');
-    } catch (Exception $e) {
-        _log('Config Error: ' . $e->getMessage(), 'Admin');
-        r2(U . 'paymentgateway', 'e', 'Failed to load configuration');
-    }
+    $config = mpesastk_get_config(false);
+    
+    $ui->assign('mpesastk_consumer_key', $config['consumer_key'] ?? '');
+    $ui->assign('mpesastk_consumer_secret', $config['consumer_secret'] ?? '');
+    $ui->assign('mpesastk_business_shortcode', $config['business_shortcode'] ?? '');
+    $ui->assign('mpesastk_passkey', $config['passkey'] ?? '');
+    $ui->assign('mpesastk_environment', $config['environment'] ?? 'sandbox');
+    $ui->assign('mpesastk_account_reference', $config['account_reference'] ?? 'PHPNuxBill');
+    $ui->assign('mpesastk_transaction_desc', $config['transaction_desc'] ?? 'Payment for Internet Access');
+    $ui->assign('mpesastk_callback_url', U . 'callback/mpesastk');
+    
+    $ui->display('paymentgateway/mpesastk.tpl');
 }
 
 /**
@@ -100,28 +95,60 @@ function mpesastk_save_config()
 
 /**
  * Get M-Pesa configuration
+ * @param bool $strict When true (default), throws exceptions for missing config. When false, returns defaults.
+ * @return array Configuration array
  */
-function mpesastk_get_config()
+function mpesastk_get_config($strict = true)
 {
-    static $config;
+    static $config_cache = [];
     
-    if ($config === null) {
+    // Use strict mode as cache key to handle both modes correctly
+    $cache_key = $strict ? 'strict' : 'permissive';
+    
+    if (!isset($config_cache[$cache_key])) {
         $record = ORM::for_table('tbl_appconfig')
             ->where('setting', 'mpesastk_config')
             ->find_one();
-            
+        
+        // Default configuration structure
+        $default_config = [
+            'consumer_key' => '',
+            'consumer_secret' => '',
+            'business_shortcode' => '',
+            'passkey' => '',
+            'environment' => 'sandbox',
+            'account_reference' => 'PHPNuxBill',
+            'transaction_desc' => 'Payment for Internet Access'
+        ];
+        
         if (!$record) {
-            throw new Exception('M-Pesa configuration not found');
+            if ($strict) {
+                throw new Exception('M-Pesa configuration is required. Please configure M-Pesa settings before processing payments.');
+            } else {
+                // Permissive mode: log and return defaults
+                _log('M-Pesa configuration not found, returning defaults', 'MPESA-CONFIG');
+                $config_cache[$cache_key] = $default_config;
+                return $config_cache[$cache_key];
+            }
         }
         
         $config = json_decode($record->value, true);
         
         if (json_last_error() !== JSON_ERROR_NONE) {
-            throw new Exception('Invalid configuration format');
+            if ($strict) {
+                throw new Exception('M-Pesa configuration is invalid. Please reconfigure M-Pesa settings before processing payments.');
+            } else {
+                // Permissive mode: log error and return defaults
+                _log('Invalid M-Pesa configuration JSON format: ' . json_last_error_msg(), 'MPESA-CONFIG');
+                $config_cache[$cache_key] = $default_config;
+                return $config_cache[$cache_key];
+            }
         }
+        
+        $config_cache[$cache_key] = $config;
     }
     
-    return $config;
+    return $config_cache[$cache_key];
 }
 
 /**
