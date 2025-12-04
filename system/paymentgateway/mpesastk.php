@@ -18,6 +18,33 @@ if (isset($_GET['_route']) && $_GET['_route'] == 'callback/mpesastk') {
 // ========================
 
 /**
+ * Validate M-Pesa STK Push configuration
+ * 
+ * Checks if required M-Pesa credentials are configured before allowing payment processing.
+ * Redirects with error message if configuration is incomplete.
+ * 
+ * @return void
+ */
+function mpesastk_validate_config()
+{
+    try {
+        // This will throw an exception if config is not found or invalid (strict mode)
+        $config = mpesastk_get_config();
+        
+        // Validate required fields
+        if (empty($config['consumer_key']) || 
+            empty($config['consumer_secret']) || 
+            empty($config['business_shortcode']) || 
+            empty($config['passkey'])) {
+            throw new Exception('M-Pesa STK Push configuration is incomplete');
+        }
+    } catch (Exception $e) {
+        sendTelegram("M-Pesa STK Push payment gateway error: " . $e->getMessage());
+        r2(U . 'order/package', 'e', "M-Pesa STK Push is not configured. Please contact admin or choose another payment method.");
+    }
+}
+
+/**
  * Display configuration form
  */
 function mpesastk_show_config()
