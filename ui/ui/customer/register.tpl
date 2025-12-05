@@ -3,18 +3,18 @@
 
 <div class="row">
     <div class="col-md-4">
-        <div class="panel panel-primary">
-            <div class="panel-heading">{Lang::T('Registration Info')}</div>
-            <div class="panel-body">
+        <div class="box box-solid box-primary">
+            <div class="box-header">{Lang::T('Registration Info')}</div>
+            <div class="box-body">
                 {include file="$_path/../pages/Registration_Info.html"}
             </div>
         </div>
     </div>
     <form enctype="multipart/form-data" action="{Text::url('register/post')}" method="post">
         <div class="col-md-4">
-            <div class="panel panel-primary">
-                <div class="panel-heading">1. {Lang::T('Register as Member')}</div>
-                <div class="panel-body">
+            <div class="box box-solid box-primary">
+                <div class="box-header">1. {Lang::T('Register as Member')}</div>
+                <div class="box-body">
                     <div class="form-container">
                         <div class="form-group">
                             <label>
@@ -68,9 +68,9 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="panel panel-primary">
-                <div class="panel-heading">2. {Lang::T('Password')}</div>
-                <div class="panel-body">
+            <div class="box box-solid box-primary">
+                <div class="box-header">2. {Lang::T('Password')}</div>
+                <div class="box-body">
                     <div class="form-container">
                         <div class="form-group">
                             <label>{Lang::T('Password')}</label>

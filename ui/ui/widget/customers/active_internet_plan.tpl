@@ -107,12 +107,12 @@
                             <td class="small text-primary text-uppercase text-normal">{Lang::T('Login Status')}</td>
                             <td class="small mb15">
                                 {if $logged == '1'}
-                                    <a href="http://{$hostname}/status" class="btn btn-success btn-xs btn-block">
+                                    <a href="http://{$hostname}/status" class="btn btn-success btn-xs btn-block" style="white-space: normal;">
                                         {Lang::T('You are Online, Check Status')}</a>
                                 {else}
                                     <a href="{Text::url('home&mikrotik=login')}"
                                         onclick="return ask(this, '{Lang::T('Connect to Internet')}')"
-                                        class="btn btn-danger btn-xs btn-block">{Lang::T('Not Online, Login now?')}</a>
+                                        class="btn btn-danger btn-xs btn-block" style="white-space: normal;">{Lang::T('Not Online, Login now?')}</a>
                                 {/if}
                             </td>
                         </tr>

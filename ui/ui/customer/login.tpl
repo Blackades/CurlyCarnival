@@ -3,9 +3,9 @@
 <div class="hidden-xs" style="height:100px"></div>
 <div class="row">
     <div class="col-sm-6 col-sm-offset-1">
-        <div class="panel panel-info">
-            <div class="panel-heading">{Lang::T('Announcement')}</div>
-            <div class="panel-body">
+        <div class="box box-solid box-info">
+            <div class="box-header">{Lang::T('Announcement')}</div>
+            <div class="box-body">
                 {$Announcement = "{$PAGES_PATH}/Announcement.html"}
                 {if file_exists($Announcement)}
                     {include file=$Announcement}
@@ -14,9 +14,9 @@
         </div>
     </div>
     <div class="col-sm-4">
-        <div class="panel panel-primary">
-            <div class="panel-heading">{Lang::T('Log in to Member Panel')}</div>
-            <div class="panel-body">
+        <div class="box box-solid box-primary">
+            <div class="box-header">{Lang::T('Log in to Member Panel')}</div>
+            <div class="box-body">
                 <form action="{Text::url('login/post')}" method="post">
                     <input type="hidden" name="csrf_token" value="{$csrf_token}">
                     <div class="form-group">

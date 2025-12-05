@@ -2,17 +2,17 @@
 <div class="hidden-xs" style="height:100px"></div>
 <div class="row">
     <div class="col-sm-8">
-        <div class="panel panel-info">
-            <div class="panel-heading">{Lang::T('Announcement')}</div>
-            <div class="panel-body">
+        <div class="box box-solid box-info">
+            <div class="box-header">{Lang::T('Announcement')}</div>
+            <div class="box-body">
                 {include file="$_path/../pages/Announcement.html"}
             </div>
         </div>
     </div>
     <div class="col-sm-4">
-        <div class="panel panel-primary">
-            <div class="panel-heading">{Lang::T('Login / Activate Voucher')}</div>
-            <div class="panel-body">
+        <div class="box box-solid box-primary">
+            <div class="box-header">{Lang::T('Login / Activate Voucher')}</div>
+            <div class="box-body">
                 <form action="{Text::url('login/activation')}" method="post">
                     <input type="hidden" name="csrf_token" value="{$csrf_token}">
                     <div class="form-group">
@@ -60,9 +60,9 @@
                 </form>
             </div>
         </div>
-        <div class="panel panel-primary">
-            <div class="panel-heading">{Lang::T('Activate Voucher')}</div>
-            <div class="panel-body">
+        <div class="box box-solid box-primary">
+            <div class="box-header">{Lang::T('Activate Voucher')}</div>
+            <div class="box-body">
                 <form action="{Text::url('login/activation')}" method="post">
                     <input type="hidden" name="csrf_token" value="{$csrf_token}">
                     <div class="form-group">
