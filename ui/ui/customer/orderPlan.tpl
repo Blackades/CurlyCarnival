@@ -18,8 +18,7 @@
                                 <div class="box box-primary">
                                     <div class="box-header text-bold">{$plan['name_plan']}</div>
                                     <div class="table-responsive">
-                                        <div style="margin-left: 5px; margin-right: 5px;">
-                                            <table class="table table-bordered table-striped">
+                                        <table class="table table-bordered table-striped table-package-info">
                                                 <tbody>
                                                     <tr>
                                                         <td>{Lang::T('Type')}</td>
@@ -46,7 +45,6 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                        </div>
                                     </div>
                                     <div class="box-body">
                                         <a href="{Text::url('order/gateway/radius/',$plan['id'],'&stoken=',App::getToken())}"
@@ -76,7 +74,7 @@
                                     <div class="box-header text-bold">{$plan['name_plan']}</div>
                                     <div class="table-responsive">
                                         <div style="margin-left: 5px; margin-right: 5px;">
-                                            <table class="table table-bordered table-striped">
+                                            <table class="table table-bordered table-striped table-package-info">
                                                 <tbody>
                                                     <tr>
                                                         <td>{Lang::T('Type')}</td>
@@ -134,7 +132,7 @@
                                     <div class="box-header text-bold">{$plan['name_plan']}</div>
                                     <div class="table-responsive">
                                         <div style="margin-left: 5px; margin-right: 5px;">
-                                            <table class="table table-bordered table-striped">
+                                            <table class="table table-bordered table-striped table-package-info">
                                                 <tbody>
                                                     <tr>
                                                         <td>{Lang::T('Type')}</td>
@@ -190,7 +188,7 @@
                                     <div class="box-header text-bold">{$plan['name_plan']}</div>
                                     <div class="table-responsive">
                                         <div style="margin-left: 5px; margin-right: 5px;">
-                                            <table class="table table-bordered table-striped">
+                                            <table class="table table-bordered table-striped table-package-info">
                                                 <tbody>
                                                     <tr>
                                                         <td>{Lang::T('Type')}</td>
@@ -259,7 +257,7 @@
                                         <div class="box-header text-center text-bold">{$plan['name_plan']}</div>
                                         <div class="table-responsive">
                                             <div style="margin-left: 5px; margin-right: 5px;">
-                                                <table class="table table-bordered table-striped">
+                                                <table class="table table-bordered table-striped table-package-info">
                                                     <tbody>
                                                         <tr>
                                                             <td>{Lang::T('Type')}</td>
@@ -315,7 +313,7 @@
                                         <div class="box-header text-bold text-center">{$plan['name_plan']}</div>
                                         <div class="table-responsive">
                                             <div style="margin-left: 5px; margin-right: 5px;">
-                                                <table class="table table-bordered table-striped">
+                                                <table class="table table-bordered table-striped table-package-info">
                                                     <tbody>
                                                         <tr>
                                                             <td>{Lang::T('Type')}</td>
@@ -371,7 +369,7 @@
                                         <div class="box-header text-bold text-center">{$plan['name_plan']}</div>
                                         <div class="table-responsive">
                                             <div style="margin-left: 5px; margin-right: 5px;">
-                                                <table class="table table-bordered table-striped">
+                                                <table class="table table-bordered table-striped table-package-info">
                                                     <tbody>
                                                         <tr>
                                                             <td>{Lang::T('Type')}</td>
@@ -431,7 +429,7 @@
                                     <div class="box-header text-center text-bold">{$plan['name_plan']}</div>
                                     <div class="table-responsive">
                                         <div style="margin-left: 5px; margin-right: 5px;">
-                                            <table class="table table-bordered table-striped">
+                                            <table class="table table-bordered table-striped table-package-info">
                                                 <tbody>
                                                     <tr>
                                                         <td>{Lang::T('Type')}</td>
@@ -485,7 +483,7 @@
                                     <div class="box-header text-bold text-center">{$plan['name_plan']}</div>
                                     <div class="table-responsive">
                                         <div style="margin-left: 5px; margin-right: 5px;">
-                                            <table class="table table-bordered table-striped">
+                                            <table class="table table-bordered table-striped table-package-info">
                                                 <tbody>
                                                     <tr>
                                                         <td>{Lang::T('Type')}</td>
@@ -539,7 +537,7 @@
                                     <div class="box-header text-bold text-center">{$plan['name_plan']}</div>
                                     <div class="table-responsive">
                                         <div style="margin-left: 5px; margin-right: 5px;">
-                                            <table class="table table-bordered table-striped">
+                                            <table class="table table-bordered table-striped table-package-info">
                                                 <tbody>
                                                     <tr>
                                                         <td>{Lang::T('Type')}</td>

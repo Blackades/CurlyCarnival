@@ -10216,3 +10216,89 @@ body.hold-transition .main-sidebar {
     vertical-align: middle !important;
     margin-top: 0 !important;
 }
+/* ============================================================================
+   PACKAGE ORDER TABLE FIX
+   ========================================================================= */
+
+/* Ensure table fits within container */
+.table-package-info {
+    width: 100% !important;
+    table-layout: fixed !important;
+    /* Force table to respect width */
+    margin-bottom: 0 !important;
+}
+
+/* Adjust column widths */
+.table-package-info td:first-child {
+    width: 35% !important;
+    /* Fixed width for labels */
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.table-package-info td:last-child {
+    width: 65% !important;
+    /* Remaining width for content */
+    word-wrap: break-word !important;
+    /* Force text wrapping */
+    word-break: break-all !important;
+    /* Break long words if necessary */
+    white-space: normal !important;
+    /* Ensure wrapping */
+}
+
+/* Mobile specific overrides */
+@media (max-width: 767px) {
+    .table-package-info td {
+        padding: 8px 10px !important;
+        /* Reduce padding on mobile */
+        font-size: 14px !important;
+    }
+}
+/* ============================================================================
+   PACKAGE ORDER TABLE FIX
+   ========================================================================= */
+
+/* Ensure table fits within container */
+.table-package-info {
+    width: 100% !important;
+    max-width: 100% !important;
+    table-layout: fixed !important;
+    /* Force table to respect width */
+    margin-bottom: 0 !important;
+}
+
+/* Adjust column widths */
+.table-package-info td:first-child {
+    width: 35% !important;
+    /* Fixed width for labels */
+    color: var(--text-secondary);
+    font-weight: 500;
+    white-space: nowrap !important;
+}
+
+.table-package-info td:last-child {
+    width: 65% !important;
+    /* Remaining width for content */
+    word-wrap: break-word !important;
+    /* Force text wrapping */
+    word-break: break-all !important;
+    /* Break long words if necessary */
+    white-space: normal !important;
+    /* Ensure wrapping */
+}
+
+/* Mobile specific overrides */
+@media (max-width: 767px) {
+    .table-package-info td {
+        padding: 6px 8px !important;
+        /* Reduce padding on mobile */
+        font-size: 13px !important;
+    }
+
+    /* Ensure no container forces scroll */
+    .table-responsive {
+        border: none !important;
+        overflow-x: visible !important;
+    }
+}
