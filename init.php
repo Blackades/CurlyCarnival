@@ -60,11 +60,6 @@ $WIDGET_PATH = $root_path . File::pathFixer('system/widgets');
 $PAYMENTGATEWAY_PATH = $root_path . File::pathFixer('system/paymentgateway');
 $UI_PATH = 'ui';
 
-// Initialize pages directory if it doesn't exist
-if (!file_exists($PAGES_PATH)) {
-    Pages::initialize($PAGES_PATH, $root_path . File::pathFixer('pages_template'));
-}
-
 if (!file_exists($UPLOAD_PATH . File::pathFixer('/notifications.default.json'))) {
     echo $UPLOAD_PATH . File::pathFixer("/notifications.default.json file not found");
     die();
@@ -143,6 +138,11 @@ if (empty($http_proxy) && !empty($config['http_proxy'])) {
     }
 }
 date_default_timezone_set($config['timezone']);
+
+// Initialize pages directory if it doesn't exist
+if (!file_exists($PAGES_PATH)) {
+    Pages::initialize($PAGES_PATH, $root_path . File::pathFixer('pages_template'));
+}
 
 if ((!empty($radius_user) && $config['radius_enable']) || _post('radius_enable')) {
     if (!empty($radius_password)) {
