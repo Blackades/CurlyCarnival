@@ -10168,3 +10168,51 @@ body.hold-transition .main-sidebar {
         padding-right: 0 !important;
     }
 }
+/* ============================================================================
+   MOBILE UI TWEAKS
+   ========================================================================= */
+
+/* 1. Hamburger Menu Visibility Fix */
+.main-header .sidebar-toggle,
+.main-header .sidebar-toggle:hover {
+    color: #333 !important;
+    /* Ensure visibility on light background */
+}
+
+.modern-skin-dark .main-header .sidebar-toggle {
+    color: #333 !important;
+    /* Force dark color even in dark skin if header is white */
+}
+
+/* 2. Recharge/Sync Button Alignment */
+/* Assuming the buttons are likely in a flex container or button group within the widget */
+.dashboard-widgets .btn-group,
+.dashboard-widgets .btn-toolbar {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    /* Space between buttons */
+}
+
+/* Specific fix for the user info widget buttons if they are direct siblings */
+.dashboard-widgets .box-body .btn,
+.dashboard-widgets .panel-body .btn {
+    margin-bottom: 5px !important;
+}
+
+/* Ensure buttons have same height */
+.dashboard-widgets .btn {
+    height: 34px !important;
+    line-height: 1.5 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Fix for specific "Recharge" and "Sync" buttons if they are in a specific container */
+/* Based on screenshot, they look like they might be in a td or div */
+.dashboard-widgets td .btn,
+.dashboard-widgets div .btn {
+    vertical-align: middle !important;
+    margin-top: 0 !important;
+}
