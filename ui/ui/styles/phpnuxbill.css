@@ -38,9 +38,70 @@ body {
     background-color: rgb(28 36 52);
 }
 
+/* ============================================================================
+   Consistent Spacing and Typography
+   ========================================================================= */
+
+/* Base menu item styling with consistent spacing and typography */
 .sidebar-menu li>a {
     position: relative;
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
     background-color: rgb(28 36 52);
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    line-height: 1.4;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+/* Uniform vertical spacing between menu items */
+.sidebar-menu > li {
+    margin-bottom: 2px;
+}
+
+/* Treeview parent spacing */
+.sidebar-menu > li.treeview {
+    margin-bottom: 4px;
+}
+
+/* Icon styling with fixed width */
+.sidebar-menu li > a > i {
+    flex-shrink: 0;
+    width: 20px;
+    margin-right: 12px;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Text label styling */
+.sidebar-menu li > a > span {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4;
+}
+
+/* Angle indicator for expandable items */
+.sidebar-menu li > a > .pull-right-container {
+    margin-left: auto;
+    padding-left: 10px;
+}
+
+.sidebar-menu li>a:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #10d435;
+    border-radius: 8px;
+    margin: 4px 8px;
+    transition: all 0.3s ease;
+}
+
+.sidebar-menu li>a:hover > i {
+    color: #10d435;
+    transition: color 0.3s ease;
 }
 
 .sidebar-menu li:focus,
@@ -49,30 +110,111 @@ body {
 
 }
 
-.modern-skin-dark .main-sidebar .sidebar .sidebar-menu li.active a {
+.modern-skin-dark .main-sidebar .sidebar .sidebar-menu li.active > a {
     background-color: #2e298e;
-    border-radius: 5px;
-    margin: 10px;
+    border-radius: 8px;
+    margin: 4px 8px;
+    padding: 12px 15px;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
 
+.modern-skin-dark .main-sidebar .sidebar .sidebar-menu li.active a {
+    margin: 4px 8px;
 }
 
 .modern-skin-dark .main-sidebar .sidebar .sidebar-menu {
     background-color: rgb(28 36 52);
 }
 
-.modern-skin-dark .main-sidebar .sidebar .sidebar-menu li .treeview-menu li.active a {
-    background-color: transparent !important;
-    color: rgb(84, 131, 227);
-}
-
-.modern-skin-dark .main-sidebar .sidebar .sidebar-menu li .treeview-menu li>a {
-    background-color: transparent !important;
-    padding: 10px 5px 5px 15px;
-}
-
+/* Submenu container with proper indentation */
 .modern-skin-dark .main-sidebar .sidebar .sidebar-menu li .treeview-menu {
     padding-left: 0;
+    margin-left: 20px;
     border-left: 3px solid #10d435;
+    background-color: transparent;
+}
+
+/* Submenu items with appropriate padding and typography */
+.modern-skin-dark .main-sidebar .sidebar .sidebar-menu li .treeview-menu li>a {
+    padding: 10px 15px 10px 20px;
+    background-color: transparent;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    line-height: 1.4;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+/* Submenu item spacing */
+.treeview-menu > li {
+    margin-bottom: 0;
+}
+
+/* Active submenu item highlighting */
+.modern-skin-dark .main-sidebar .sidebar .sidebar-menu li .treeview-menu li.active > a {
+    background-color: transparent;
+    color: rgb(84, 131, 227);
+    border-left: 3px solid rgb(84, 131, 227);
+    margin-left: -3px;
+    padding-left: 20px;
+}
+
+/* Submenu hover states with subtle background changes */
+.modern-skin-dark .main-sidebar .sidebar .sidebar-menu li .treeview-menu li > a:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: #10d435;
+    margin: 0;
+    border-radius: 0;
+}
+
+/* ============================================================================
+   Collapsed Sidebar State Optimization
+   ========================================================================= */
+
+/* Center icons and adjust layout when sidebar is collapsed */
+.sidebar-collapse .sidebar-menu li > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 0;
+    margin: 4px 0;
+}
+
+/* Hide text labels in collapsed state */
+.sidebar-collapse .sidebar-menu li > a > span {
+    display: none;
+}
+
+/* Hide angle indicators in collapsed state */
+.sidebar-collapse .sidebar-menu li > a > .pull-right-container {
+    display: none;
+}
+
+/* Adjust icon sizing for better visibility when collapsed */
+.sidebar-collapse .sidebar-menu li > a > i {
+    margin-right: 0;
+    font-size: 18px;
+    width: auto;
+}
+
+/* Ensure proper spacing for collapsed active items */
+.sidebar-collapse .modern-skin-dark .main-sidebar .sidebar .sidebar-menu li.active > a {
+    margin: 4px 0;
+    padding: 12px 0;
+    border-radius: 8px;
+}
+
+/* Hide submenu in collapsed state */
+.sidebar-collapse .sidebar-menu li .treeview-menu {
+    display: none;
+}
+
+/* Adjust hover state for collapsed sidebar */
+.sidebar-collapse .sidebar-menu li > a:hover {
+    margin: 4px 0;
+    padding: 12px 0;
 }
 
 .content-header {

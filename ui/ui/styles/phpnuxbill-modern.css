@@ -4298,6 +4298,7 @@ input[type="button"].btn:disabled {
 .sidebar-nav > li {
     position: relative;
     margin: 0;
+    margin-bottom: 2px;
 }
 
 /* Menu Link */
@@ -4305,17 +4306,19 @@ input[type="button"].btn:disabled {
 .sidebar-nav > li > a {
     display: flex;
     align-items: center;
-    height: 40px;
-    padding: 10px 16px;
+    min-height: 40px;
+    padding: 12px 15px;
     color: var(--text-secondary);
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-normal);
     text-decoration: none;
-    border-radius: 0;
     transition: all var(--transition-base);
     position: relative;
     margin: 0 var(--spacing-sm);
     border-radius: var(--radius-sm);
+    white-space: normal;
+    word-wrap: break-word;
+    line-height: 1.4;
 }
 
 /* Menu Icon */
@@ -4325,14 +4328,11 @@ input[type="button"].btn:disabled {
 .sidebar-nav > li > a > i,
 .sidebar-nav > li > a > .fa,
 .sidebar-nav > li > a > .glyphicon {
-    width: 16px;
-    height: 16px;
+    width: 20px;
     font-size: 16px;
     margin-right: 12px;
     flex-shrink: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
     color: var(--text-secondary);
     transition: color var(--transition-base);
 }
@@ -4341,9 +4341,10 @@ input[type="button"].btn:disabled {
 .sidebar-menu > li > a > span,
 .sidebar-nav > li > a > span {
     flex: 1;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow: visible;
+    line-height: 1.4;
+    word-wrap: break-word;
+    white-space: normal;
 }
 
 /* Menu Badge/Label */
@@ -4361,8 +4362,10 @@ input[type="button"].btn:disabled {
 .sidebar-menu > li > a > .pull-right-container,
 .sidebar-nav > li > a > .pull-right-container {
     margin-left: auto;
+    padding-left: 10px;
     display: flex;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .sidebar-menu > li > a > .pull-right-container > .fa-angle-left,
@@ -9938,4 +9941,63 @@ body.hold-transition .main-sidebar {
     .info-box-text {
         font-size: 12px !important;
     }
+}
+
+
+/* ==========================================================================
+   Admin Sidebar Menu UI Fix - Icon and Text Alignment
+   ========================================================================= */
+
+/* Icon styling with fixed width and proper margins */
+.sidebar-menu li > a > i {
+    flex-shrink: 0;
+    width: 20px;
+    margin-right: 12px;
+    text-align: center;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+/* Text label styling with flex properties */
+.sidebar-menu li > a > span {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+/* Angle indicator positioning using flexbox */
+.sidebar-menu li > a > .pull-right-container {
+    margin-left: auto;
+    padding-left: 10px;
+    flex-shrink: 0;
+}
+
+/* Ensure consistent spacing between icons and text */
+.sidebar-menu li > a {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+/* Modern skin dark theme specific icon styles */
+.modern-skin-dark .main-sidebar .sidebar .sidebar-menu li > a > i {
+    color: #b8c7ce;
+}
+
+.modern-skin-dark .main-sidebar .sidebar .sidebar-menu li.active > a > i {
+    color: #ffffff;
+}
+
+.modern-skin-dark .main-sidebar .sidebar .sidebar-menu li > a:hover > i {
+    color: #10d435;
+}
+
+/* Submenu icon alignment */
+.modern-skin-dark .main-sidebar .sidebar .sidebar-menu li .treeview-menu li > a > i {
+    width: 16px;
+    margin-right: 10px;
+    font-size: 14px;
 }
