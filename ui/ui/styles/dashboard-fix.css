@@ -1,31 +1,44 @@
 /**
+ * Dashboard Layout Fixes
+ */
+
+/* Force remove excessive padding and margins from main content area */
+:root {
+    --sidebar-width: 200px !important;
+}
+
+body .dashboard-content {
+    padding: 0 !important;
+    margin-left: 0 !important;
+    width: 100% !important;
+}
+
+/* Fix main wrapper spacing (Outer Wrapper Only) */
+body .main-sidebar {
+    width: 200px !important;
+}
+
+body .main-sidebar+.content-wrapper,
+body .content-wrapper {
+    margin-left: 200px !important;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+body.sidebar-collapse .main-sidebar+.content-wrapper,
+body.sidebar-collapse .content-wrapper {
+    margin-left: 50px !important;
+}
+
+/* Ensure no nested margin issues */
+body .dashboard-content .content-wrapper {
+    margin-left: 0 !important;
+}
+
 /* Remove any container padding that creates the gray space */
 body .content-wrapper>.container,
 body .content-wrapper>.container-fluid {
     padding-left: 0 !important;
     padding-right: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-}
-
-body .dashboard-content .content-header {
-    padding: 10px 15px !important;
-    margin-bottom: 0 !important;
-    background-color: #ffffff !important;
-}
-
-body .dashboard-content .content {
-    padding: 15px !important;
-    background-color: #f5f5f5 !important;
-}
-
-body .dashboard-main {
-    padding: 15px !important;
-    background-color: #f5f5f5 !important;
-}
-
-/* Remove any row negative margins that create horizontal scroll */
-body .dashboard-content .row {
     margin-left: 0 !important;
     margin-right: 0 !important;
 }

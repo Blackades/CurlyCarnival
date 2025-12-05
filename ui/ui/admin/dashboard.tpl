@@ -2,8 +2,8 @@
 
 
 
-<!-- Dashboard Content Wrapper -->
-<div class="content-wrapper dashboard-content">
+<!-- Dashboard Content Container (No content-wrapper class to avoid double margins) -->
+<div class="dashboard-content">
     <section class="content-header">
         <h1 class="dashboard-title">
             {Lang::T('Dashboard')}
