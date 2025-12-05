@@ -10302,3 +10302,23 @@ body.hold-transition .main-sidebar {
         overflow-x: visible !important;
     }
 }
+/* ============================================================================
+   LOGIN STATUS BUTTON FIX
+   ========================================================================= */
+
+/* Override fixed height for block buttons in dashboard to allow text wrapping */
+.dashboard-widgets .btn.btn-block {
+    height: auto !important;
+    min-height: 34px !important;
+    white-space: normal !important;
+    padding: 6px 12px !important;
+    display: block !important;
+    /* Reset to block to handle text wrapping properly */
+    line-height: 1.4 !important;
+    /* Standard line height for readability */
+}
+
+/* Ensure the cell containing the button also adapts */
+.dashboard-widgets td .btn.btn-block {
+    margin: 0 !important;
+}
