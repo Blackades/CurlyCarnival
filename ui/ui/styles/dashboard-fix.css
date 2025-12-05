@@ -19,7 +19,7 @@ body .main-sidebar {
 }
 
 /* Desktop Only Layout Rules */
-@media (min-width: 768px) {
+@media (min-width: 992px) {
 
     body .main-sidebar+.content-wrapper,
     body .content-wrapper {
@@ -323,8 +323,8 @@ body .dashboard-widgets .widget-col {
     padding-right: 7.5px !important;
 }
 
-/* Responsive */
-@media (max-width: 767px) {
+/* Responsive - Critical Fixes for Mobile & Tablet */
+@media (max-width: 991px) {
 
     /* Critical Mobile Layout Fixes */
     body .main-sidebar+.content-wrapper,
@@ -344,6 +344,7 @@ body .dashboard-widgets .widget-col {
         margin-left: 0 !important;
     }
 
+    /* Hide sidebar off-screen by default on mobile/tablet */
     body .main-sidebar {
         -webkit-transform: translate(-200px, 0);
         -ms-transform: translate(-200px, 0);
@@ -351,13 +352,21 @@ body .dashboard-widgets .widget-col {
         transform: translate(-200px, 0);
         width: 200px !important;
         padding-top: 50px !important;
+        z-index: 9999 !important;
     }
 
+    /* Slide in when open */
     body.sidebar-open .main-sidebar {
         -webkit-transform: translate(0, 0);
         -ms-transform: translate(0, 0);
         -o-transform: translate(0, 0);
         transform: translate(0, 0);
+    }
+
+    /* Overlay effect for sidebar open */
+    body.sidebar-open .content-wrapper {
+        position: relative;
+        /* margin-left: 200px !important; Optional: Push content or just overlay */
     }
 
     /* Ensure no horizontal scroll */
@@ -386,6 +395,17 @@ body .dashboard-widgets .widget-col {
 
     body .info-box-text {
         font-size: 13px !important;
+    }
+
+    /* Force tables to be responsive */
+    .table-responsive {
+        width: 100% !important;
+        margin-bottom: 15px !important;
+        overflow-y: hidden !important;
+        -ms-overflow-style: -ms-autohiding-scrollbar !important;
+        border: 1px solid #ddd !important;
+        overflow-x: scroll !important;
+        display: block !important;
     }
 }
 
