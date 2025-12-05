@@ -67,20 +67,6 @@ body .sidebar-menu .badge {
     padding: 3px 6px !important;
     font-size: 9px !important;
     line-height: .9 !important;
-    margin-top: 0 !important;
-}
-
-/* Mobile Sidebar Adaptation */
-@media (max-width: 767px) {
-    body .main-sidebar {
-        width: 230px !important;
-        /* Restore standard width on mobile open */
-    }
-}
-
-/* Info Box Critical Styles - Force Display */
-body .info-box {
-    display: flex !important;
     align-items: center !important;
     min-height: 140px !important;
     height: 140px !important;
