@@ -225,7 +225,8 @@
             
             if (countdown <= 0) {
                 clearInterval(interval);
-                window.location.href = '{$_url}home';
+                // Force hard refresh by adding timestamp to URL and using location.replace
+                window.location.replace('{$_url}home?t=' + new Date().getTime());
             }
         }, 1000);
     }
