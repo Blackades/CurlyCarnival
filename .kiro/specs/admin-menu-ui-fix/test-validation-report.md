@@ -5,7 +5,7 @@
 **Status:** In Progress
 
 ## Test Environment
-- **CSS File:** `ui/ui/styles/phpnuxbill.css`
+- **CSS File:** `ui/ui/styles/phpnuxbill-modern.css`
 - **Theme:** modern-skin-dark
 - **Browser Testing Required:** Chrome, Firefox, Edge, Safari
 
@@ -285,7 +285,7 @@
 
 **CSS Implementation Status:** ✅ COMPLETE
 
-All required CSS rules have been successfully implemented in `ui/ui/styles/phpnuxbill.css`:
+All required CSS rules have been successfully implemented in `ui/ui/styles/phpnuxbill-modern.css`:
 - Text visibility and wrapping
 - Consistent spacing and alignment
 - Hover and active state transitions

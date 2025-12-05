@@ -4229,6 +4229,17 @@ input[type="button"].btn:disabled {
     -webkit-overflow-scrolling: touch;
 }
 
+/* Dark Theme Sidebar */
+.modern-skin-dark .main-sidebar .sidebar {
+    background-color: rgb(28 36 52);
+    bottom: 0;
+}
+
+.modern-skin-dark .main-sidebar {
+    background-color: rgb(28 36 52);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+}
+
 /* Sidebar Scrollbar Styling (Webkit browsers) */
 .main-sidebar::-webkit-scrollbar,
 .sidebar::-webkit-scrollbar {
@@ -4273,14 +4284,24 @@ input[type="button"].btn:disabled {
 }
 
 .sidebar-collapse .sidebar-menu > li > a {
-    padding: 10px 0;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 0;
+    margin: 4px 0;
 }
 
 .sidebar-collapse .sidebar-menu > li > a > i,
 .sidebar-collapse .sidebar-menu > li > a > .fa,
 .sidebar-collapse .sidebar-menu > li > a > .glyphicon {
     margin-right: 0;
+    font-size: 18px;
+    width: auto;
+}
+
+/* Hide angle indicators in collapsed state */
+.sidebar-collapse .sidebar-menu li > a > .pull-right-container {
+    display: none;
 }
 
 /* ===== 7.2 Navigation Menu Item Styles ===== */
@@ -4304,21 +4325,27 @@ input[type="button"].btn:disabled {
 /* Menu Link */
 .sidebar-menu > li > a,
 .sidebar-nav > li > a {
+    position: relative;
     display: flex;
     align-items: center;
     min-height: 40px;
     padding: 12px 15px;
     color: var(--text-secondary);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-normal);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
     text-decoration: none;
-    transition: all var(--transition-base);
-    position: relative;
+    transition: all 0.3s ease;
     margin: 0 var(--spacing-sm);
     border-radius: var(--radius-sm);
     white-space: normal;
     word-wrap: break-word;
     line-height: 1.4;
+}
+
+/* Dark Theme Menu Link */
+.modern-skin-dark .sidebar-menu li > a {
+    background-color: rgb(28 36 52);
 }
 
 /* Menu Icon */
@@ -4328,20 +4355,21 @@ input[type="button"].btn:disabled {
 .sidebar-nav > li > a > i,
 .sidebar-nav > li > a > .fa,
 .sidebar-nav > li > a > .glyphicon {
-    width: 20px;
-    font-size: 16px;
-    margin-right: 12px;
     flex-shrink: 0;
+    width: 20px;
+    margin-right: 12px;
     text-align: center;
+    font-size: 16px;
     color: var(--text-secondary);
-    transition: color var(--transition-base);
+    transition: color 0.3s ease;
 }
 
 /* Menu Label/Text */
 .sidebar-menu > li > a > span,
 .sidebar-nav > li > a > span {
     flex: 1;
-    overflow: visible;
+    overflow: hidden;
+    text-overflow: ellipsis;
     line-height: 1.4;
     word-wrap: break-word;
     white-space: normal;
@@ -4396,6 +4424,25 @@ input[type="button"].btn:disabled {
     color: var(--text-primary);
 }
 
+/* Dark Theme Hover State */
+.modern-skin-dark .sidebar-menu li > a:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #10d435;
+    border-radius: 8px;
+    margin: 4px 8px;
+    transition: all 0.3s ease;
+}
+
+.modern-skin-dark .sidebar-menu li > a:hover > i {
+    color: #10d435;
+    transition: color 0.3s ease;
+}
+
+.modern-skin-dark .sidebar-menu li:focus,
+.modern-skin-dark .sidebar-menu li:hover {
+    color: #10d435;
+}
+
 /* Focus State (for keyboard navigation) */
 .sidebar-menu > li > a:focus,
 .sidebar-nav > li > a:focus {
@@ -4437,6 +4484,24 @@ input[type="button"].btn:disabled {
     color: var(--primary-color);
 }
 
+/* Dark Theme Active State */
+.modern-skin-dark .main-sidebar .sidebar .sidebar-menu li.active > a {
+    background-color: #2e298e;
+    border-radius: 8px;
+    margin: 4px 8px;
+    padding: 12px 15px;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.modern-skin-dark .main-sidebar .sidebar .sidebar-menu li.active a {
+    margin: 4px 8px;
+}
+
+.modern-skin-dark .main-sidebar .sidebar .sidebar-menu {
+    background-color: rgb(28 36 52);
+}
+
 /* Disabled State */
 .sidebar-menu > li.disabled > a,
 .sidebar-nav > li.disabled > a {
@@ -4460,6 +4525,14 @@ input[type="button"].btn:disabled {
     max-height: 0;
     overflow: hidden;
     transition: max-height var(--transition-base);
+}
+
+/* Dark Theme Submenu Container */
+.modern-skin-dark .main-sidebar .sidebar .sidebar-menu li .treeview-menu {
+    padding-left: 0;
+    margin-left: 20px;
+    border-left: 3px solid #10d435;
+    background-color: transparent;
 }
 
 /* Expanded Submenu */
@@ -4500,6 +4573,23 @@ input[type="button"].btn:disabled {
     transition: all var(--transition-base);
     margin: 0 var(--spacing-sm);
     border-radius: var(--radius-sm);
+}
+
+/* Dark Theme Submenu Link */
+.modern-skin-dark .main-sidebar .sidebar .sidebar-menu li .treeview-menu li > a {
+    padding: 10px 15px 10px 20px;
+    background-color: transparent;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    line-height: 1.4;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+/* Submenu item spacing */
+.treeview-menu > li {
+    margin-bottom: 0;
 }
 
 /* Submenu Icon */
@@ -4573,6 +4663,14 @@ input[type="button"].btn:disabled {
     color: var(--text-primary);
 }
 
+/* Dark Theme Submenu Hover */
+.modern-skin-dark .main-sidebar .sidebar .sidebar-menu li .treeview-menu li > a:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: #10d435;
+    margin: 0;
+    border-radius: 0;
+}
+
 /* Submenu Active State */
 .sidebar-menu > li > .treeview-menu > li.active > a,
 .sidebar-menu > li > ul > li.active > a,
@@ -4595,6 +4693,15 @@ input[type="button"].btn:disabled {
 .sidebar-menu > li > ul > li.active > a > .fa,
 .sidebar-menu > li > ul > li.active > a > .glyphicon {
     color: var(--primary-color);
+}
+
+/* Dark Theme Submenu Active State */
+.modern-skin-dark .main-sidebar .sidebar .sidebar-menu li .treeview-menu li.active > a {
+    background-color: transparent;
+    color: rgb(84, 131, 227);
+    border-left: 3px solid rgb(84, 131, 227);
+    margin-left: -3px;
+    padding-left: 20px;
 }
 
 /* Third Level Nesting (if needed) */
