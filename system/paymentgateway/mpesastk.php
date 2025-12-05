@@ -463,48 +463,33 @@ function mpesastk_payment_notification()
                 throw new Exception('Missing receipt number in callback');
             }
             
-            // Start transaction to ensure atomicity
-            _log("Starting database transaction", 'MPESA-CALLBACK');
-            ORM::get_db()->beginTransaction();
+            _log("Processing successful payment callback for CheckoutRequestID: $checkout_id", 'MPESA-CALLBACK');
             
-            try {
-                _log("Processing successful payment callback for CheckoutRequestID: $checkout_id", 'MPESA-CALLBACK');
-                
-                // Update transaction record FIRST
-                $trx->status = 2; // Mark as paid (status 2 = PAID in this application)
-                $trx->paid_date = date('Y-m-d H:i:s');
-                $trx->payment_method = 'M-Pesa';
-                $trx->payment_channel = 'M-Pesa STK Push';
-                
-                // Store receipt number and callback data
-                $trx->pg_paid_response = json_encode([
-                    'receipt_number' => $metadata['MpesaReceiptNumber'],
-                    'amount' => $metadata['Amount'] ?? null,
-                    'phone' => $metadata['PhoneNumber'] ?? null,
-                    'transaction_date' => $metadata['TransactionDate'] ?? null,
-                    'callback_data' => $callback
-                ]);
-                
-                if (!$trx->save()) {
-                    throw new Exception('Failed to update transaction record');
-                }
-                
-                _log("Transaction record updated, now processing user activation", 'MPESA-CALLBACK');
-                
-                // THEN process the successful payment
-                mpesastk_process_successful_payment($trx);
-                
-                // Commit transaction
-                ORM::get_db()->commit();
-                
-                _log("Payment Success: $checkout_id - Receipt: {$metadata['MpesaReceiptNumber']}", 'MPESA-CALLBACK');
-                
-            } catch (Exception $e) {
-                // Rollback on any error
-                ORM::get_db()->rollback();
-                _log("Payment processing error: " . $e->getMessage(), 'MPESA-ERROR');
-                throw $e;
+            // Update transaction record FIRST
+            $trx->status = 2; // Mark as paid (status 2 = PAID in this application)
+            $trx->paid_date = date('Y-m-d H:i:s');
+            $trx->payment_method = 'M-Pesa';
+            $trx->payment_channel = 'M-Pesa STK Push';
+            
+            // Store receipt number and callback data
+            $trx->pg_paid_response = json_encode([
+                'receipt_number' => $metadata['MpesaReceiptNumber'],
+                'amount' => $metadata['Amount'] ?? null,
+                'phone' => $metadata['PhoneNumber'] ?? null,
+                'transaction_date' => $metadata['TransactionDate'] ?? null,
+                'callback_data' => $callback
+            ]);
+            
+            if (!$trx->save()) {
+                throw new Exception('Failed to update transaction record');
             }
+            
+            _log("Transaction record updated, now processing user activation", 'MPESA-CALLBACK');
+            
+            // THEN process the successful payment
+            mpesastk_process_successful_payment($trx);
+            
+            _log("Payment Success: $checkout_id - Receipt: {$metadata['MpesaReceiptNumber']}", 'MPESA-CALLBACK');
             
         } else {
             // FAILED - Update status
