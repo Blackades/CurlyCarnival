@@ -167,3 +167,97 @@ function showTaC() {
 		$('#HTMLModal').modal('handleUpdate')
 	});
 }
+
+// ============================================================================
+// Mobile Sidebar Navigation Auto-Close Behavior
+// ============================================================================
+(function() {
+    'use strict';
+    
+    // Only apply mobile sidebar behavior on mobile devices
+    function isMobileDevice() {
+        return window.innerWidth <= 767;
+    }
+    
+    // Close sidebar function
+    function closeSidebar() {
+        if ($('body').hasClass('sidebar-open')) {
+            $('body').removeClass('sidebar-open');
+        }
+    }
+    
+    // Auto-close sidebar after navigation link click on mobile
+    function initSidebarAutoClose() {
+        if (!isMobileDevice()) {
+            return;
+        }
+        
+        // Close sidebar when clicking on non-treeview menu items
+        $('.sidebar-menu li > a:not(.treeview-toggle)').on('click', function(e) {
+            // Check if this is a navigation link (not a treeview toggle)
+            var $link = $(this);
+            var $parent = $link.parent();
+            
+            // If it's not a treeview parent, close the sidebar
+            if (!$parent.hasClass('treeview')) {
+                setTimeout(closeSidebar, 150);
+            }
+        });
+        
+        // Close sidebar when clicking on submenu items
+        $('.sidebar-menu .treeview-menu > li > a').on('click', function(e) {
+            setTimeout(closeSidebar, 150);
+        });
+    }
+    
+    // Close sidebar when clicking overlay
+    function initOverlayClickHandler() {
+        if (!isMobileDevice()) {
+            return;
+        }
+        
+        $(document).on('click', function(e) {
+            // Check if sidebar is open
+            if (!$('body').hasClass('sidebar-open')) {
+                return;
+            }
+            
+            // Check if click is outside sidebar and sidebar toggle button
+            var $target = $(e.target);
+            var isClickInsideSidebar = $target.closest('.main-sidebar').length > 0;
+            var isClickOnToggle = $target.closest('.sidebar-toggle').length > 0;
+            
+            if (!isClickInsideSidebar && !isClickOnToggle) {
+                closeSidebar();
+            }
+        });
+    }
+    
+    // Manage sidebar state on orientation change and window resize
+    function initResizeHandler() {
+        var resizeTimer;
+        
+        $(window).on('resize orientationchange', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                // Close sidebar if window is resized to desktop size
+                if (window.innerWidth > 767 && $('body').hasClass('sidebar-open')) {
+                    closeSidebar();
+                }
+            }, 250);
+        });
+    }
+    
+    // Initialize all mobile sidebar behaviors
+    function initMobileSidebar() {
+        initSidebarAutoClose();
+        initOverlayClickHandler();
+        initResizeHandler();
+    }
+    
+    // Initialize when document is ready
+    $(document).ready(function() {
+        initMobileSidebar();
+    });
+    
+})();
