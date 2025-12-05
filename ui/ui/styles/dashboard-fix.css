@@ -43,6 +43,39 @@ body .content-wrapper>.container-fluid {
     margin-right: 0 !important;
 }
 
+/* Sidebar Menu Compact Fixes (for 200px width) */
+body .sidebar-menu>li>a {
+    padding: 12px 10px 12px 12px !important;
+}
+
+body .sidebar-menu>li>a>span {
+    font-size: 13px !important;
+    letter-spacing: -0.2px !important;
+}
+
+/* Fix Badge/Label Positioning in Sidebar */
+body .sidebar-menu .pull-right-container {
+    right: 8px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
+
+body .sidebar-menu .label,
+body .sidebar-menu .badge {
+    padding: 3px 6px !important;
+    font-size: 9px !important;
+    line-height: .9 !important;
+    margin-top: 0 !important;
+}
+
+/* Mobile Sidebar Adaptation */
+@media (max-width: 767px) {
+    body .main-sidebar {
+        width: 230px !important;
+        /* Restore standard width on mobile open */
+    }
+}
+
 /* Info Box Critical Styles - Force Display */
 body .info-box {
     display: flex !important;
