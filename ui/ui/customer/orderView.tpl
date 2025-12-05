@@ -157,4 +157,71 @@
         </div>
     </div>
 </div>
+
+{if $trx['status']==1 && $trx['gateway']=='mpesastk'}
+<script>
+// Auto-refresh for M-Pesa STK Push payments
+(function() {
+    var checkCount = 0;
+    var maxChecks = 24; // Check for 2 minutes (24 * 5 seconds)
+    var checkInterval = 5000; // 5 seconds
+    
+    function checkPaymentStatus() {
+        checkCount++;
+        
+        if (checkCount > maxChecks) {
+            console.log('Payment check timeout');
+            return;
+        }
+        
+        // Reload the page to check status
+        fetch(window.location.href, {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(response => response.text())
+        .then(html => {
+            // Parse the response to check if status changed
+            var parser = new DOMParser();
+            var doc = parser.parseFromString(html, 'text/html');
+            var statusBadge = doc.querySelector('.badge');
+            
+            if (statusBadge) {
+                var statusText = statusBadge.textContent.trim();
+                
+                // If status changed from UNPAID, reload the page
+                if (statusText !== 'UNPAID' && statusText !== '{Lang::T("UNPAID")}') {
+                    window.location.reload();
+                    return;
+                }
+            }
+            
+            // Continue checking
+            setTimeout(checkPaymentStatus, checkInterval);
+        })
+        .catch(error => {
+            console.error('Error checking payment status:', error);
+            // Continue checking even on error
+            setTimeout(checkPaymentStatus, checkInterval);
+        });
+    }
+    
+    // Show a message to the user
+    var statusDiv = document.querySelector('.panel-warning');
+    if (statusDiv) {
+        var messageDiv = document.createElement('div');
+        messageDiv.className = 'alert alert-info';
+        messageDiv.style.margin = '15px';
+        messageDiv.innerHTML = '<i class="fa fa-spinner fa-spin"></i> {Lang::T("Waiting for payment confirmation...")} {Lang::T("This page will update automatically.")}';
+        statusDiv.insertBefore(messageDiv, statusDiv.firstChild);
+    }
+    
+    // Start checking after 5 seconds
+    setTimeout(checkPaymentStatus, checkInterval);
+})();
+</script>
+{/if}
+
 {include file="customer/footer.tpl"}

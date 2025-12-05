@@ -683,8 +683,9 @@ function mpesastk_get_status($trx, $user)
             if ($response['ResultCode'] == 0) {
                 // Payment successful
                 $record->pg_paid_response = json_encode($response);
-                $record->pg_paid_date = date('Y-m-d H:i:s');
                 $record->paid_date = date('Y-m-d H:i:s');
+                $record->payment_method = 'M-Pesa';
+                $record->payment_channel = 'M-Pesa STK Push';
                 $record->status = 2; // Paid (status 2 = PAID in this application)
                 $record->save();
                 
