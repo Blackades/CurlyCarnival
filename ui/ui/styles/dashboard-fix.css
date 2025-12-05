@@ -1,28 +1,4 @@
 /**
- * Dashboard Layout Fixes - Enhanced
- * This file contains critical fixes for dashboard spacing and info-box display
- * Load this file last to ensure styles are not overridden
- */
-
-/* Force remove excessive padding and margins from main content area */
-body .content-wrapper.dashboard-content {
-    padding: 0 !important;
-}
-
-/* Fix main wrapper spacing */
-body .main-sidebar+.content-wrapper,
-body .content-wrapper,
-body .content-wrapper.dashboard-content {
-    margin-left: 230px !important;
-    transition: margin-left 0.3s ease-in-out;
-}
-
-body.sidebar-collapse .main-sidebar+.content-wrapper,
-body.sidebar-collapse .content-wrapper,
-body.sidebar-collapse .content-wrapper.dashboard-content {
-    margin-left: 50px !important;
-}
-
 /* Remove any container padding that creates the gray space */
 body .content-wrapper>.container,
 body .content-wrapper>.container-fluid {
