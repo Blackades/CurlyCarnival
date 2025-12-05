@@ -10697,7 +10697,20 @@ body {
     transition: transform 0.3s ease-in-out, width 0.3s ease-in-out !important;
 }
 
-/* 4. DASHBOARD WIDGETS - HIGH SPECIFICITY OVERRIDES */
+/* 4. DASHBOARD WIDGETS (Splynx "White Card" Style) */
+
+/* Container & Row Resets to minimize Gaps */
+.content.dashboard-main {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+.dashboard-widgets .row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin-left: -5px !important;
+    margin-right: -5px !important;
+}
 
 /* Force White Cards on ALL Info Boxes */
 html body .info-box,
@@ -10827,6 +10840,8 @@ body.sidebar-collapse .main-sidebar {
 body.sidebar-collapse .content-wrapper {
     margin-left: 0 !important;
 }
+
+/* 6. MOBILE RESPONSIVENESS */
 
 body.sidebar-collapse .main-header .logo {
     width: 0 !important;
