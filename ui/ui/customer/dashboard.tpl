@@ -1,8 +1,7 @@
 {include file="customer/header.tpl"}
 <!-- user-dashboard -->
-<div class="content-wrapper dashboard-content">
-    <section class="content dashboard-main">
-        <div class="dashboard-widgets">
+<!-- user-dashboard -->
+    <div class="dashboard-widgets">
 
 {function showWidget pos=0}
     {foreach $widgets as $w}
@@ -36,8 +35,6 @@
     {/if}
 {/foreach}
     </div>
-</section>
-</div>
 
 
 {if isset($hostname) && $hchap == 'true' && $_c['hs_auth_method'] == 'hchap'}

@@ -10108,3 +10108,63 @@ body.hold-transition .main-sidebar {
     margin-right: 10px;
     font-size: 14px;
 }
+/* ============================================================================
+   MOBILE RESPONSIVE FIXES
+   ========================================================================= */
+
+@media (max-width: 767px) {
+    /* Reset content margin */
+    .content-wrapper,
+    .main-footer {
+        margin-left: 0 !important;
+    }
+
+    /* Hide sidebar by default on mobile (off-canvas) */
+    .main-sidebar {
+        transform: translate(-230px, 0) !important;
+    }
+
+    /* Show sidebar when open */
+    .sidebar-open .main-sidebar {
+        transform: translate(0, 0) !important;
+    }
+
+    /* Overlay when sidebar is open */
+    .sidebar-open .content-wrapper {
+        transform: translate(230px, 0);
+    }
+
+    /* Fix Header Width */
+    .main-header {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    .main-header .logo,
+    .main-header .navbar {
+        width: 100% !important;
+        float: none !important;
+        margin-left: 0 !important;
+    }
+
+    /* Fix Navbar Menu */
+    .navbar-custom-menu {
+        float: right;
+    }
+
+    /* Ensure body doesn't overflow */
+    body {
+        overflow-x: hidden;
+    }
+
+    /* Fix Dashboard Widgets Padding on Mobile */
+    .dashboard-widgets .widget-row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .col-xs-12 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
