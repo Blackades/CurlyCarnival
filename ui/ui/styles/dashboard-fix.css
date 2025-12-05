@@ -18,10 +18,19 @@ body .main-sidebar {
     width: 200px !important;
 }
 
-body .main-sidebar+.content-wrapper,
-body .content-wrapper {
-    margin-left: 200px !important;
-    transition: margin-left 0.3s ease-in-out;
+/* Desktop Only Layout Rules */
+@media (min-width: 768px) {
+
+    body .main-sidebar+.content-wrapper,
+    body .content-wrapper {
+        margin-left: 200px !important;
+        transition: margin-left 0.3s ease-in-out;
+    }
+
+    body.sidebar-collapse .main-sidebar+.content-wrapper,
+    body.sidebar-collapse .content-wrapper {
+        margin-left: 50px !important;
+    }
 }
 
 body.sidebar-collapse .main-sidebar+.content-wrapper,
