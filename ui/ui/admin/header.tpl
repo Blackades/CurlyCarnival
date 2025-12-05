@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/phpnuxbill.css?2025.2.4" />
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/7.css" />
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/phpnuxbill-modern.css?v=1.0.5" />
+    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/dashboard-fix.css" />
 
 
     <script src="{$app_url}/ui/ui/scripts/sweetalert2.all.min.js"></script>

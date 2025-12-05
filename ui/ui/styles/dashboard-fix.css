@@ -7,25 +7,25 @@
 /* Force remove excessive padding and margins from main content area */
 body .content-wrapper.dashboard-content {
     padding: 0 !important;
-    margin-left: 0 !important;
 }
 
 /* Fix main wrapper spacing */
-body .main-sidebar + .content-wrapper,
-body .content-wrapper {
-    margin-left: 230px !important; /* Match your sidebar width */
+body .main-sidebar+.content-wrapper,
+body .content-wrapper,
+body .content-wrapper.dashboard-content {
+    margin-left: 230px !important;
+    transition: margin-left 0.3s ease-in-out;
 }
 
-@media (max-width: 767px) {
-    body .main-sidebar + .content-wrapper,
-    body .content-wrapper {
-        margin-left: 0 !important;
-    }
+body.sidebar-collapse .main-sidebar+.content-wrapper,
+body.sidebar-collapse .content-wrapper,
+body.sidebar-collapse .content-wrapper.dashboard-content {
+    margin-left: 50px !important;
 }
 
 /* Remove any container padding that creates the gray space */
-body .content-wrapper > .container,
-body .content-wrapper > .container-fluid {
+body .content-wrapper>.container,
+body .content-wrapper>.container-fluid {
     padding-left: 0 !important;
     padding-right: 0 !important;
     margin-left: 0 !important;
@@ -274,7 +274,7 @@ body .dashboard-widgets .widget-col {
         height: 120px !important;
         padding: 15px !important;
     }
-    
+
     body .info-box-icon {
         width: 70px !important;
         min-width: 70px !important;
@@ -282,11 +282,11 @@ body .dashboard-widgets .widget-col {
         font-size: 32px !important;
         margin-right: 15px !important;
     }
-    
+
     body .info-box-number {
         font-size: 26px !important;
     }
-    
+
     body .info-box-text {
         font-size: 13px !important;
     }
@@ -342,9 +342,9 @@ body .activity-log .list-group {
     padding-right: 0 !important;
 }
 
-body .activity-log .timeline > li,
-body .activity-log ul > li,
-body .activity-log ol > li,
+body .activity-log .timeline>li,
+body .activity-log ul>li,
+body .activity-log ol>li,
 body .activity-log .list-group-item {
     margin-left: 0 !important;
     margin-right: 0 !important;
