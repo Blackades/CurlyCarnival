@@ -202,6 +202,35 @@
     setTimeout(checkPaymentStatus, checkInterval);
 })();
 </script>
+{elseif $trx['status']==2 && $trx['gateway']=='mpesastk'}
+<script>
+// Auto-redirect to dashboard after successful payment
+(function() {
+    var countdown = 5;
+    var messageDiv = document.querySelector('.panel-success .table-responsive');
+    
+    if (messageDiv && messageDiv.parentNode) {
+        var successDiv = document.createElement('div');
+        successDiv.className = 'alert alert-success';
+        successDiv.style.margin = '15px';
+        successDiv.innerHTML = '<i class="fa fa-check-circle"></i> <strong>{Lang::T("Payment Successful!")}</strong> {Lang::T("Redirecting to dashboard in")} <span id="countdown">5</span> {Lang::T("seconds...")}';
+        messageDiv.parentNode.insertBefore(successDiv, messageDiv);
+        
+        var countdownSpan = document.getElementById('countdown');
+        var interval = setInterval(function() {
+            countdown--;
+            if (countdownSpan) {
+                countdownSpan.textContent = countdown;
+            }
+            
+            if (countdown <= 0) {
+                clearInterval(interval);
+                window.location.href = '{$_url}home';
+            }
+        }, 1000);
+    }
+})();
+</script>
 {/if}
 
 {include file="customer/footer.tpl"}
