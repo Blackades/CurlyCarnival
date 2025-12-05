@@ -406,10 +406,14 @@ function mpesastk_payment_notification()
         $callback = $data['Body']['stkCallback'];
         $checkout_id = $callback['CheckoutRequestID'];
         
+        _log("Looking up transaction for CheckoutRequestID: $checkout_id", 'MPESA-CALLBACK');
+        
         // Find transaction using gateway_trx_id field
         $trx = ORM::for_table('tbl_payment_gateway')
             ->where('gateway_trx_id', $checkout_id)
             ->find_one();
+        
+        _log("Transaction lookup result: " . ($trx ? "Found ID {$trx->id}" : "Not found"), 'MPESA-CALLBACK');
             
         if (!$trx) {
             // Log more details for debugging
@@ -441,6 +445,7 @@ function mpesastk_payment_notification()
         
         if ($callback['ResultCode'] == 0) {
             // SUCCESS - Process payment
+            _log("Callback indicates successful payment for CheckoutRequestID: $checkout_id", 'MPESA-CALLBACK');
             
             // Extract metadata from callback
             $metadata = [];
@@ -452,11 +457,14 @@ function mpesastk_payment_notification()
                 }
             }
             
+            _log("Extracted metadata: " . json_encode($metadata), 'MPESA-CALLBACK');
+            
             if (empty($metadata['MpesaReceiptNumber'])) {
                 throw new Exception('Missing receipt number in callback');
             }
             
             // Start transaction to ensure atomicity
+            _log("Starting database transaction", 'MPESA-CALLBACK');
             ORM::get_db()->beginTransaction();
             
             try {
