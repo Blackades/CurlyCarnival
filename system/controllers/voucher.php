@@ -51,6 +51,12 @@ $ui->assign('_user', $user);
 switch ($action) {
 
     case 'activation':
+        // Ensure Order_Voucher template exists
+        if (!Pages::ensureTemplateExists('Order_Voucher.html')) {
+            _log("Failed to load Order_Voucher.html template for voucher activation", 'Voucher', $user['id']);
+            _alert(Lang::T('Unable to load voucher page template. Please contact administrator.'), 'danger', 'home');
+        }
+        
         run_hook('view_activate_voucher'); #HOOK
         $ui->assign('code', alphanumeric(_get('code'), "-_.,"));
         $ui->display('customer/activation.tpl');
