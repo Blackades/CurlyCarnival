@@ -542,91 +542,23 @@ function mpesastk_process_successful_payment($trx)
         
         _log("Processing payment for user: {$user->username}, plan: {$plan->name_plan}", 'MPESA');
         
-        // Calculate expiration date
-        $current_expiry = $user->expiration;
-        if ($current_expiry && strtotime($current_expiry) > time()) {
-            // Extend from current expiry if still active
-            $date_exp = date("Y-m-d", strtotime($current_expiry . " +{$plan->validity} day"));
+        // Use Package::rechargeUser to properly activate the user
+        $router_name = $trx->routers;
+        if (empty($router_name) || $router_name == '0') {
+            $router_name = $plan->routers;
+        }
+        
+        _log("Calling Package::rechargeUser with router: {$router_name}", 'MPESA');
+        
+        $result = Package::rechargeUser($trx->user_id, $router_name, $trx->plan_id, 'M-Pesa STK Push', 'M-Pesa');
+        
+        if ($result) {
+            _log("User activated successfully: {$user->username}", 'MPESA');
+            return true;
         } else {
-            // Start from today if expired or no previous expiry
-            $date_exp = date("Y-m-d", strtotime("+{$plan->validity} day"));
+            throw new Exception('Package::rechargeUser returned false');
         }
-        
-        // Add to Mikrotik if enabled and router specified
-        if (!empty($trx->routers)) {
-            try {
-                $mikrotik = Mikrotik::info($trx->routers);
-                if ($mikrotik && $mikrotik['enabled'] == '1') {
-                    if ($plan->type == 'Hotspot') {
-                        Mikrotik::addHotspotUser($mikrotik, $user->username, $plan, $user->password);
-                        _log("Added Hotspot user: {$user->username}", 'MPESA');
-                    } else if ($plan->type == 'PPPOE') {
-                        Mikrotik::addPpoeUser($mikrotik, $user->username, $plan, $user->password);
-                        _log("Added PPPOE user: {$user->username}", 'MPESA');
-                    }
-                }
-            } catch (Exception $e) {
-                _log("Mikrotik Error: " . $e->getMessage(), 'MPESA-ERROR');
-                // Don't fail the entire process if Mikrotik fails
-            }
-        }
-        
-        // Update user balance
-        try {
-            Balance::plus($user->id, $plan->price);
-            _log("Added balance: {$plan->price} to user: {$user->username}", 'MPESA');
-        } catch (Exception $e) {
-            _log("Balance Error: " . $e->getMessage(), 'MPESA-ERROR');
-            // Continue even if balance update fails
-        }
-        
-        // Create recharge record
-        $recharge = ORM::for_table('tbl_user_recharges')->create();
-        $recharge->customer_id = $user->id;
-        $recharge->username = $user->username;
-        $recharge->plan_id = $plan->id;
-        $recharge->namebp = $plan->name_plan;
-        $recharge->recharged_on = date("Y-m-d");
-        $recharge->recharged_time = date("H:i:s");
-        $recharge->expiration = $date_exp;
-        $recharge->time = $plan->validity;
-        $recharge->amount = $plan->price;
-        $recharge->gateway = 'M-Pesa STK Push';
-        $recharge->payment_method = 'M-Pesa';
-        $recharge->routers = $trx->routers;
-        $recharge->type = 'Customer';
-        
-        if (!$recharge->save()) {
-            throw new Exception('Failed to create recharge record');
-        }
-        
-        // Update user expiration
-        $user->expiration = $date_exp;
-        if (!$user->save()) {
-            throw new Exception('Failed to update user expiration');
-        }
-        
-        _log("User Activated: {$user->username} on {$plan->name_plan} until {$date_exp}", 'MPESA');
-        
-        // Send notification if function exists
-        if (function_exists('sendSMS') || function_exists('sendEmail')) {
-            try {
-                $message = "Payment successful! Your {$plan->name_plan} plan is now active until {$date_exp}.";
-                
-                if (function_exists('sendSMS') && !empty($user->phonenumber)) {
-                    sendSMS($user->phonenumber, $message);
-                }
-                
-                if (function_exists('sendEmail') && !empty($user->email)) {
-                    sendEmail($user->email, 'Payment Confirmation', $message);
-                }
-            } catch (Exception $e) {
-                _log("Notification Error: " . $e->getMessage(), 'MPESA-ERROR');
-                // Don't fail if notification fails
-            }
-        }
-        
-        return true;
+
         
     } catch (Exception $e) {
         _log("Payment Processing Error: " . $e->getMessage(), 'MPESA-ERROR');
