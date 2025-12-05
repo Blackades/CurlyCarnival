@@ -1,100 +1,98 @@
 {include file="sections/header.tpl"}
-<style>
-    .dataTables_wrapper .dataTables_paginate .paginate_button {
-        display: inline-block;
-        padding: 5px 10px;
-        margin-right: 5px;
-        border: 1px solid #ccc;
-        background-color: #fff;
-        color: #333;
-        cursor: pointer;
-    }
-</style>
+
 
 <div class="row">
     <div class="col-sm-12">
-        <div class="panel panel-hovered mb20 panel-primary">
-            <div class="panel-heading">
+        <div class="box box-primary shadow-md mb-4">
+            <div class="box-header with-border py-3">
                 {if in_array($_admin['user_type'],['SuperAdmin','Admin'])}
                 <div class="btn-group pull-right">
-                    <a class="btn btn-primary btn-xs" title="save"
+                    <a class="btn btn-primary btn-sm shadow-sm" title="save"
                         href="{Text::url('customers/csv&token=', $csrf_token)}"
                         onclick="return ask(this, '{Lang::T("This will export to CSV")}?')"><span
                             class="glyphicon glyphicon-download" aria-hidden="true"></span> CSV</a>
                 </div>
                 {/if}
-                {Lang::T('Manage Contact')}
+                <h3 class="box-title">{Lang::T('Manage Contact')}</h3>
             </div>
-            <div class="panel-body">
+            <div class="box-body">
                 <form id="site-search" method="post" action="{Text::url('customers')}">
                     <input type="hidden" name="csrf_token" value="{$csrf_token}">
-                    <div class="md-whiteframe-z1 mb20 text-center" style="padding: 15px">
-                        <div class="col-lg-4">
-                            <div class="input-group">
-                                <span class="input-group-addon">{Lang::T('Order ')}&nbsp;&nbsp;</span>
-                                <div class="row row-no-gutters">
-                                    <div class="col-xs-8">
-                                        <select class="form-control" id="order" name="order">
-                                            <option value="username" {if $order eq 'username' }selected{/if}>
-                                                {Lang::T('Username')}</option>
-                                            <option value="fullname" {if $order eq 'fullname' }selected{/if}>
-                                                {Lang::T('First Name')}</option>
-                                            <option value="lastname" {if $order eq 'lastname' }selected{/if}>
-                                                {Lang::T('Last Name')}</option>
-                                            <option value="created_at" {if $order eq 'created_at' }selected{/if}>
-                                                {Lang::T('Created Date')}</option>
-                                            <option value="balance" {if $order eq 'balance' }selected{/if}>
-                                                {Lang::T('Balance')}</option>
-                                            <option value="status" {if $order eq 'status' }selected{/if}>
-                                                {Lang::T('Status')}</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <select class="form-control" id="orderby" name="orderby">
-                                            <option value="asc" {if $orderby eq 'asc' }selected{/if}>
-                                                {Lang::T('Ascending')}</option>
-                                            <option value="desc" {if $orderby eq 'desc' }selected{/if}>
-                                                {Lang::T('Descending')}</option>
-                                        </select>
+                    <div class="search-filter-container bg-light p-4 rounded-md mb-4">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-12 mb-3">
+                                <div class="form-group mb-0">
+                                    <label class="text-sm text-secondary mb-1">{Lang::T('Order By')}</label>
+                                    <div class="input-group">
+                                        <div class="row row-no-gutters" style="width: 100%;">
+                                            <div class="col-xs-8">
+                                                <select class="form-control" id="order" name="order">
+                                                    <option value="username" {if $order eq 'username' }selected{/if}>
+                                                        {Lang::T('Username')}</option>
+                                                    <option value="fullname" {if $order eq 'fullname' }selected{/if}>
+                                                        {Lang::T('First Name')}</option>
+                                                    <option value="lastname" {if $order eq 'lastname' }selected{/if}>
+                                                        {Lang::T('Last Name')}</option>
+                                                    <option value="created_at" {if $order eq 'created_at' }selected{/if}>
+                                                        {Lang::T('Created Date')}</option>
+                                                    <option value="balance" {if $order eq 'balance' }selected{/if}>
+                                                        {Lang::T('Balance')}</option>
+                                                    <option value="status" {if $order eq 'status' }selected{/if}>
+                                                        {Lang::T('Status')}</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <select class="form-control border-left-0" id="orderby" name="orderby">
+                                                    <option value="asc" {if $orderby eq 'asc' }selected{/if}>
+                                                        {Lang::T('Ascending')}</option>
+                                                    <option value="desc" {if $orderby eq 'desc' }selected{/if}>
+                                                        {Lang::T('Descending')}</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="input-group">
-                                <span class="input-group-addon">{Lang::T('Status')}</span>
-                                <select class="form-control" id="filter" name="filter">
-                                    {foreach $statuses as $status}
-                                    <option value="{$status}" {if $filter eq $status }selected{/if}>{Lang::T($status)}
-                                    </option>
-                                    {/foreach}
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="input-group">
-                                <input type="text" name="search" class="form-control"
-                                    placeholder="{Lang::T('Search')}..." value="{$search}">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-primary" type="submit"><span class="fa fa-search"></span>
-                                        {Lang::T('Search')}</button>
-                                    <button class="btn btn-info" type="submit" name="export" value="csv">
-                                        <span class="glyphicon glyphicon-download" aria-hidden="true"></span> CSV
-                                    </button>
+                            <div class="col-lg-3 col-md-3 col-sm-12 mb-3">
+                                <div class="form-group mb-0">
+                                    <label class="text-sm text-secondary mb-1">{Lang::T('Status')}</label>
+                                    <select class="form-control" id="filter" name="filter">
+                                        {foreach $statuses as $status}
+                                        <option value="{$status}" {if $filter eq $status }selected{/if}>{Lang::T($status)}
+                                        </option>
+                                        {/foreach}
+                                    </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-1">
-                            <a href="{Text::url('customers/add')}" class="btn btn-success text-black btn-block"
-                                title="{Lang::T('Add')}">
-                                <i class="ion ion-android-add"></i><i class="glyphicon glyphicon-user"></i>
-                            </a>
+                            <div class="col-lg-4 col-md-4 col-sm-12 mb-3">
+                                <div class="form-group mb-0">
+                                    <label class="text-sm text-secondary mb-1">{Lang::T('Search')}</label>
+                                    <div class="input-group">
+                                        <input type="text" name="search" class="form-control"
+                                            placeholder="{Lang::T('Search')}..." value="{$search}">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-primary" type="submit"><span class="fa fa-search"></span>
+                                                </button>
+                                            <button class="btn btn-info" type="submit" name="export" value="csv">
+                                                <span class="glyphicon glyphicon-download" aria-hidden="true"></span> CSV
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-12 mb-3">
+                                <label class="text-sm text-secondary mb-1 d-block">&nbsp;</label>
+                                <a href="{Text::url('customers/add')}" class="btn btn-success btn-block shadow-sm"
+                                    title="{Lang::T('Add')}">
+                                    <i class="ion ion-android-add"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </form>
                 <br>&nbsp;
-                <div class="table-responsive table_mobile">
-                    <table id="customerTable" class="table table-bordered table-striped table-hover table-condensed">
+                <div class="table-responsive">
+                    <table id="customerTable" class="table table-striped table-hover">
                         <thead>
                             <tr>
                                 <th><input type="checkbox" id="select-all"></th>

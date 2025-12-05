@@ -2,17 +2,19 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <div class="panel panel-hovered mb20 panel-primary">
-            <div class="panel-heading">
+        <div class="box box-primary shadow-md mb-4">
+            <div class="box-header with-border py-3">
                 <div class="btn-group pull-right">
-                    <a class="btn btn-primary btn-xs" title="save" href="{Text::url('')}services/sync/pppoe"
+                    <a class="btn btn-primary btn-sm shadow-sm" title="save" href="{Text::url('')}services/sync/pppoe"
                         onclick="return ask(this, '{Lang::T('This will sync/send PPPOE plan to Mikrotik')}?')"><span
                             class="glyphicon glyphicon-refresh" aria-hidden="true"></span> sync</a>
-                </div>{Lang::T('PPPOE Package')}
+                </div>
+                <h3 class="box-title">{Lang::T('PPPOE Package')}</h3>
             </div>
             <form id="site-search" method="post" action="{Text::url('')}services/pppoe">
-                <div class="panel-body">
-                    <div class="row row-no-gutters" style="padding: 5px">
+                <div class="box-body">
+                    <div class="search-filter-container bg-light p-4 rounded-md mb-4">
+                        <div class="row row-no-gutters">
                         <div class="col-lg-2">
                             <div class="input-group">
                                 <div class="input-group-btn">
@@ -105,7 +107,7 @@
             </form>
             <div class="table-responsive">
                 <div style="margin-left: 5px; margin-right: 5px;">
-                    <table class="table table-bordered table-striped table-condensed">
+                    <table class="table table-striped table-hover">
                         <thead>
                             <tr>
                                 <th></th>
@@ -175,7 +177,7 @@
                     </table>
                 </div>
             </div>
-            <div class="panel-footer">
+            <div class="box-footer">
                 {include file="pagination.tpl"}
                 <div class="bs-callout bs-callout-info" id="callout-navbar-role">
                     <h4>{Lang::T('Create expired Internet Plan')}</h4>

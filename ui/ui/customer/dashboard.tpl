@@ -1,5 +1,8 @@
 {include file="customer/header.tpl"}
 <!-- user-dashboard -->
+<div class="content-wrapper dashboard-content">
+    <section class="content dashboard-main">
+        <div class="dashboard-widgets">
 
 {function showWidget pos=0}
     {foreach $widgets as $w}
@@ -14,7 +17,7 @@
 {assign pos 1}
 {foreach $rows as $cols}
     {if $cols == 12}
-        <div class="row dashboard-row">
+        <div class="row widget-row">
             <div class="col-md-12">
                 {showWidget widgets=$widgets pos=$pos}
             </div>
@@ -22,9 +25,9 @@
         {assign pos value=$pos+1}
     {else}
         {assign colss explode(",", $cols)}
-        <div class="row dashboard-row">
+        <div class="row widget-row">
             {foreach $colss as $c}
-                <div class="col-md-{$c} dashboard-widget-col">
+                <div class="col-md-{$c} widget-col">
                     {showWidget widgets=$widgets pos=$pos}
                 </div>
                 {assign pos value=$pos+1}
@@ -32,6 +35,9 @@
         </div>
     {/if}
 {/foreach}
+    </div>
+</section>
+</div>
 
 
 {if isset($hostname) && $hchap == 'true' && $_c['hs_auth_method'] == 'hchap'}
