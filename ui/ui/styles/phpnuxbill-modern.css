@@ -12801,26 +12801,33 @@ body.sidebar-collapse .main-header .logo {
    Removes sidebar offset and adds header offset */
 @media (max-width: 767px) {
     /* Content Wrapper - Remove left margin and add top margin for fixed header
-       Force full width on mobile regardless of sidebar state */
+       Force full width on mobile regardless of sidebar state
+       Minimal padding to maximize screen real estate */
     .content-wrapper,
     .sidebar-open .content-wrapper,
     body.sidebar-open .content-wrapper {
         margin-left: 0 !important;
         margin-top: 50px !important;
-        padding: 12px !important;
+        padding: 8px !important; /* Reduced from 12px to 8px for more space */
         width: 100% !important;
         max-width: 100% !important;
         transform: none !important; /* Prevent any transform that might shift content */
         position: relative !important;
         left: 0 !important;
         right: 0 !important;
+        box-sizing: border-box !important;
     }
     
-    /* Ensure wrapper container also has no left margin */
+    /* Ensure wrapper container also has no left margin and uses full width */
     .wrapper,
     .sidebar-open .wrapper,
     body.sidebar-open .wrapper {
         margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
     }
     
     /* Ensure main footer also has no left margin */
@@ -12828,11 +12835,33 @@ body.sidebar-collapse .main-header .logo {
     .sidebar-open .main-footer,
     body.sidebar-open .main-footer {
         margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
     }
     
-    /* Content Header - Adjust title sizing and layout */
+    /* Remove any container padding that might cause left space */
+    .container,
+    .container-fluid {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Content Section - Reduce padding for more space */
+    .content-wrapper > .content,
+    .content-wrapper > section.content {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* Content Header - Adjust title sizing and layout with minimal padding */
     .content-header {
-        padding: 12px 0;
+        padding: 8px 0 !important;
+        margin-bottom: 8px !important;
     }
     
     .content-header h1 {
@@ -14157,21 +14186,27 @@ body.sidebar-collapse .main-header .logo {
 
 /* Mobile: Dashboard widgets single column layout and optimizations */
 @media (max-width: 767px) {
-    /* Force single column layout for all dashboard widgets */
+    /* Force single column layout for all dashboard widgets
+       Remove all margins and padding for maximum space utilization */
     .dashboard-widgets .row,
-    .content .row {
-        margin-left: 0;
-        margin-right: 0;
+    .content .row,
+    .content-wrapper .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
     }
     
-    /* Remove column padding and force full width */
+    /* Remove column padding and force full width
+       Eliminate wasted space on left and right */
     .dashboard-widgets [class*="col-"],
-    .content > .row > [class*="col-"] {
-        width: 100%;
-        padding-left: 0;
-        padding-right: 0;
-        margin-bottom: 16px;
-        float: none;
+    .content > .row > [class*="col-"],
+    .content-wrapper [class*="col-"] {
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-bottom: 12px !important; /* Reduced from 16px to 12px */
+        float: none !important;
+        max-width: 100% !important;
     }
     
     /* Remove bottom margin from last widget */
@@ -14180,17 +14215,38 @@ body.sidebar-collapse .main-header .logo {
         margin-bottom: 0;
     }
     
-    /* Widget boxes with proper spacing */
+    /* Widget boxes with optimized spacing and full width */
     .box,
     .info-box,
     .small-box {
-        margin-bottom: 16px;
+        margin-bottom: 12px !important; /* Reduced from 16px */
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
     }
     
     .box:last-child,
     .info-box:last-child,
     .small-box:last-child {
-        margin-bottom: 0;
+        margin-bottom: 0 !important;
+    }
+    
+    /* Reduce box padding on mobile for more content space */
+    .box {
+        padding: 0 !important;
+    }
+    
+    .box-header {
+        padding: 10px 12px !important;
+    }
+    
+    .box-body {
+        padding: 12px !important;
+    }
+    
+    .box-footer {
+        padding: 10px 12px !important;
     }
     
     /* ========================================================================
