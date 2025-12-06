@@ -11999,6 +11999,13 @@ body.sidebar-collapse .main-header .logo {
         box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
     }
     
+    /* Prevent body scroll when sidebar is open
+       Keeps content in place and prevents horizontal scrolling */
+    body.sidebar-open {
+        overflow-x: hidden !important;
+        position: relative !important;
+    }
+    
     /* Overlay backdrop - Semi-transparent layer behind sidebar
        Uses ::before pseudo-element to avoid extra DOM elements
        Z-index 1040 places it between content (lower) and sidebar (1050)
@@ -12793,11 +12800,34 @@ body.sidebar-collapse .main-header .logo {
 /* Content Wrapper - Main content container adjustments
    Removes sidebar offset and adds header offset */
 @media (max-width: 767px) {
-    /* Content Wrapper - Remove left margin and add top margin for fixed header */
-    .content-wrapper {
+    /* Content Wrapper - Remove left margin and add top margin for fixed header
+       Force full width on mobile regardless of sidebar state */
+    .content-wrapper,
+    .sidebar-open .content-wrapper,
+    body.sidebar-open .content-wrapper {
         margin-left: 0 !important;
-        margin-top: 50px;
-        padding: 12px;
+        margin-top: 50px !important;
+        padding: 12px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        transform: none !important; /* Prevent any transform that might shift content */
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+    
+    /* Ensure wrapper container also has no left margin */
+    .wrapper,
+    .sidebar-open .wrapper,
+    body.sidebar-open .wrapper {
+        margin-left: 0 !important;
+    }
+    
+    /* Ensure main footer also has no left margin */
+    .main-footer,
+    .sidebar-open .main-footer,
+    body.sidebar-open .main-footer {
+        margin-left: 0 !important;
     }
     
     /* Content Header - Adjust title sizing and layout */

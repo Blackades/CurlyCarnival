@@ -285,9 +285,34 @@ function showTaC() {
         initResizeHandler();
     }
     
+    // Force close sidebar on page load for mobile devices
+    // This prevents the sidebar from staying open after page refresh
+    function ensureSidebarClosedOnLoad() {
+        if (!isMobileDevice()) {
+            return;
+        }
+        
+        // Remove sidebar-open class immediately on page load
+        $('body').removeClass('sidebar-open');
+        
+        // Also remove any AdminLTE sidebar classes that might interfere
+        $('body').removeClass('sidebar-collapse sidebar-mini');
+    }
+    
     // Initialize when document is ready
     $(document).ready(function() {
+        // First, ensure sidebar is closed
+        ensureSidebarClosedOnLoad();
+        
+        // Then initialize mobile sidebar behaviors
         initMobileSidebar();
+    });
+    
+    // Also ensure sidebar is closed on page show (handles back/forward navigation)
+    $(window).on('pageshow', function(event) {
+        if (isMobileDevice()) {
+            $('body').removeClass('sidebar-open');
+        }
     });
     
 })();
