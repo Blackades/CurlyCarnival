@@ -33,29 +33,43 @@ body .main-sidebar {
         margin-left: 0 !important;
     }
     
-    /* Ensure main header also adjusts when sidebar is collapsed */
-    body.sidebar-collapse .main-header,
-    body.sidebar-collapse .main-header .navbar,
-    body.sidebar-collapse .main-header .logo {
-        margin-left: 0 !important;
+    /* Fix header layout - logo should be positioned absolutely over sidebar */
+    body .main-header {
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;
+        left: 0 !important;
+        z-index: 1030 !important;
     }
     
-    /* Adjust header to account for sidebar when not collapsed */
-    body:not(.sidebar-collapse) .main-header .navbar {
+    /* Logo positioning - floats on left, fixed width */
+    body .main-header .logo {
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 200px !important;
+        height: 50px !important;
+        float: none !important;
+        transition: all 0.3s ease-in-out;
+        z-index: 1031 !important;
+    }
+    
+    /* Navbar should start right after logo */
+    body .main-header .navbar {
         margin-left: 200px !important;
         transition: margin-left 0.3s ease-in-out;
     }
     
-    /* Logo should always stay in place */
-    body .main-header .logo {
-        width: 200px !important;
-        transition: width 0.3s ease-in-out;
-    }
-    
-    /* When collapsed, logo should be hidden or minimized */
+    /* When collapsed, logo should be hidden */
     body.sidebar-collapse .main-header .logo {
         width: 0 !important;
         overflow: hidden !important;
+        padding: 0 !important;
+    }
+    
+    /* When collapsed, navbar starts from left edge */
+    body.sidebar-collapse .main-header .navbar {
+        margin-left: 0 !important;
     }
     
     /* Hide the collapsed sidebar completely on desktop */
