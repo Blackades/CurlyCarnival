@@ -24,6 +24,7 @@ body .main-sidebar {
     body .main-sidebar+.content-wrapper,
     body .content-wrapper {
         margin-left: 200px !important;
+        padding-left: 0 !important;
         transition: margin-left 0.3s ease-in-out;
     }
 
@@ -183,6 +184,13 @@ body.sidebar-collapse .content-wrapper {
 /* Ensure no nested margin issues */
 body .dashboard-content .content-wrapper {
     margin-left: 0 !important;
+}
+
+/* Remove any padding from content sections that creates gaps */
+body .content-wrapper .content-header,
+body .content-wrapper .content {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
 }
 
 /* Remove any container padding that creates the gray space */
