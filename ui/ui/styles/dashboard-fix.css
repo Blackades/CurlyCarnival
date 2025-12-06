@@ -33,7 +33,7 @@ body .main-sidebar {
         margin-left: 0 !important;
     }
     
-    /* Fix header layout - logo should be positioned absolutely over sidebar */
+    /* Fix header layout - hide logo completely, it's in the sidebar */
     body .main-header {
         position: fixed !important;
         top: 0 !important;
@@ -42,34 +42,21 @@ body .main-sidebar {
         z-index: 1030 !important;
     }
     
-    /* Logo positioning - floats on left, fixed width */
+    /* Hide the logo completely - it's already in the sidebar */
     body .main-header .logo {
-        position: absolute !important;
-        left: 0 !important;
-        top: 0 !important;
-        width: 200px !important;
-        height: 50px !important;
-        float: none !important;
-        transition: all 0.3s ease-in-out;
-        z-index: 1031 !important;
+        display: none !important;
     }
     
-    /* Navbar should start right after logo */
-    body .main-header .navbar {
+    /* Navbar should start from the left edge when sidebar is open */
+    body:not(.sidebar-collapse) .main-header .navbar {
         margin-left: 200px !important;
         transition: margin-left 0.3s ease-in-out;
-    }
-    
-    /* When collapsed, logo should be hidden */
-    body.sidebar-collapse .main-header .logo {
-        width: 0 !important;
-        overflow: hidden !important;
-        padding: 0 !important;
     }
     
     /* When collapsed, navbar starts from left edge */
     body.sidebar-collapse .main-header .navbar {
         margin-left: 0 !important;
+        transition: margin-left 0.3s ease-in-out;
     }
     
     /* Hide the collapsed sidebar completely on desktop */
