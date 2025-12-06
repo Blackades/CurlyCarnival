@@ -73,6 +73,11 @@ body .main-sidebar {
         float: left !important;
         padding: 15px !important;
         margin: 0 !important;
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        height: 50px !important;
+        z-index: 10 !important;
     }
     
     /* Remove any default padding/margin from navbar container */
@@ -118,6 +123,7 @@ body .main-sidebar {
         max-width: 200px !important;
         margin: 0 !important;
         padding: 0 !important;
+        margin-left: 60px !important;
     }
     
     /* Fix search button size to fit within header */
