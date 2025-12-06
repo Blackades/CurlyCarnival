@@ -27,15 +27,33 @@ body .main-sidebar {
         transition: margin-left 0.3s ease-in-out;
     }
 
+    /* When sidebar is collapsed, remove left margin completely */
     body.sidebar-collapse .main-sidebar+.content-wrapper,
     body.sidebar-collapse .content-wrapper {
-        margin-left: 50px !important;
+        margin-left: 0 !important;
+    }
+    
+    /* Ensure main header also adjusts when sidebar is collapsed */
+    body.sidebar-collapse .main-header .navbar {
+        margin-left: 0 !important;
+    }
+    
+    /* Hide the collapsed sidebar completely on desktop */
+    body.sidebar-collapse .main-sidebar {
+        transform: translateX(-200px) !important;
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    /* Show sidebar when not collapsed */
+    body:not(.sidebar-collapse) .main-sidebar {
+        transform: translateX(0) !important;
+        transition: transform 0.3s ease-in-out;
     }
 }
 
 body.sidebar-collapse .main-sidebar+.content-wrapper,
 body.sidebar-collapse .content-wrapper {
-    margin-left: 50px !important;
+    margin-left: 0 !important;
 }
 
 /* Ensure no nested margin issues */

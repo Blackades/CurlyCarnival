@@ -15527,76 +15527,153 @@ body.sidebar-collapse .main-header .logo {
 
 @media (max-width: 767px) {
     
-    /* CRITICAL: Override dark mode for all form elements on mobile */
+    /* ========================================================================
+       CRITICAL: Force Light Theme on Mobile (Override Dark Mode)
+       Black boxes are caused by dark mode - force white backgrounds
+       ====================================================================== */
+    
+    /* Force light theme on mobile - override ALL dark mode classes */
+    body.modern-skin-dark,
+    body.modern-skin-dark *,
+    body.hold-transition,
+    body.hold-transition *,
+    html.modern-skin-dark,
+    html.modern-skin-dark * {
+        /* Remove any dark backgrounds */
+    }
+    
+    /* Form Controls - Force white backgrounds */
     body.modern-skin-dark .form-control,
-    body.modern-skin-dark select,
+    body.modern-skin-dark select.form-control,
     body.modern-skin-dark input[type="text"],
     body.modern-skin-dark input[type="search"],
     body.modern-skin-dark input[type="email"],
     body.modern-skin-dark input[type="password"],
+    body.modern-skin-dark input[type="number"],
     body.modern-skin-dark textarea,
     body.modern-skin-dark .input-group-addon,
-    body.modern-skin-dark .input-group-btn {
+    body.modern-skin-dark .input-group-btn .btn,
+    .modern-skin-dark .form-control,
+    .modern-skin-dark select.form-control,
+    .modern-skin-dark input {
         background-color: #ffffff !important;
+        background: #ffffff !important;
+        color: #262626 !important;
+        border-color: #d9d9d9 !important;
+        box-shadow: none !important;
+    }
+    
+    /* Select dropdowns - Force white */
+    body.modern-skin-dark select,
+    body.modern-skin-dark .select2-container,
+    .modern-skin-dark select {
+        background-color: #ffffff !important;
+        background: #ffffff !important;
+        color: #262626 !important;
+    }
+    
+    /* Buttons - Force proper colors */
+    body.modern-skin-dark .btn-default,
+    .modern-skin-dark .btn-default {
+        background-color: #ffffff !important;
+        background: #ffffff !important;
         color: #262626 !important;
         border-color: #d9d9d9 !important;
     }
     
-    /* Override dark mode for buttons */
-    body.modern-skin-dark .btn-default {
-        background-color: #ffffff !important;
-        color: #262626 !important;
-        border-color: #d9d9d9 !important;
-    }
-    
-    /* Override dark mode for panels/boxes */
+    /* Panels/Boxes - Force white */
     body.modern-skin-dark .box,
-    body.modern-skin-dark .panel {
+    body.modern-skin-dark .panel,
+    .modern-skin-dark .box,
+    .modern-skin-dark .panel {
         background-color: #ffffff !important;
+        background: #ffffff !important;
     }
     
     body.modern-skin-dark .box-header,
-    body.modern-skin-dark .panel-heading {
+    body.modern-skin-dark .panel-heading,
+    .modern-skin-dark .box-header,
+    .modern-skin-dark .panel-heading {
         background-color: #fafafa !important;
+        background: #fafafa !important;
         color: #262626 !important;
     }
     
     body.modern-skin-dark .box-body,
-    body.modern-skin-dark .panel-body {
+    body.modern-skin-dark .panel-body,
+    .modern-skin-dark .box-body,
+    .modern-skin-dark .panel-body {
         background-color: #ffffff !important;
+        background: #ffffff !important;
         color: #262626 !important;
     }
     
-    /* Override dark mode for tables */
-    body.modern-skin-dark .table {
+    /* Tables - Force white */
+    body.modern-skin-dark .table,
+    .modern-skin-dark .table {
         background-color: #ffffff !important;
+        background: #ffffff !important;
         color: #262626 !important;
     }
     
-    body.modern-skin-dark .table thead th {
+    body.modern-skin-dark .table thead th,
+    .modern-skin-dark .table thead th {
         background-color: #fafafa !important;
+        background: #fafafa !important;
         color: #262626 !important;
     }
     
-    body.modern-skin-dark .table tbody td {
+    body.modern-skin-dark .table tbody td,
+    .modern-skin-dark .table tbody td {
         background-color: #ffffff !important;
+        background: #ffffff !important;
         color: #262626 !important;
     }
     
-    /* Override dark mode for labels */
+    /* Labels and text - Force dark text */
     body.modern-skin-dark label,
-    body.modern-skin-dark .control-label {
+    body.modern-skin-dark .control-label,
+    body.modern-skin-dark h1,
+    body.modern-skin-dark h2,
+    body.modern-skin-dark h3,
+    body.modern-skin-dark p,
+    body.modern-skin-dark span,
+    .modern-skin-dark label,
+    .modern-skin-dark .control-label {
         color: #595959 !important;
     }
     
-    /* Override dark mode for select2 */
-    body.modern-skin-dark .select2-container--default .select2-selection--single {
+    /* Select2 - Force white */
+    body.modern-skin-dark .select2-container--default .select2-selection--single,
+    .modern-skin-dark .select2-container--default .select2-selection--single {
         background-color: #ffffff !important;
+        background: #ffffff !important;
         color: #262626 !important;
         border-color: #d9d9d9 !important;
     }
     
-    body.modern-skin-dark .select2-container--default .select2-selection--single .select2-selection__rendered {
+    body.modern-skin-dark .select2-container--default .select2-selection--single .select2-selection__rendered,
+    .modern-skin-dark .select2-container--default .select2-selection--single .select2-selection__rendered {
+        color: #262626 !important;
+    }
+    
+    /* Input group buttons - Force white */
+    body.modern-skin-dark .input-group-btn,
+    .modern-skin-dark .input-group-btn {
+        background-color: #ffffff !important;
+        background: #ffffff !important;
+    }
+    
+    /* Dropdown menus - Force white */
+    body.modern-skin-dark .dropdown-menu,
+    .modern-skin-dark .dropdown-menu {
+        background-color: #ffffff !important;
+        background: #ffffff !important;
+        color: #262626 !important;
+    }
+    
+    body.modern-skin-dark .dropdown-menu > li > a,
+    .modern-skin-dark .dropdown-menu > li > a {
         color: #262626 !important;
     }
     
