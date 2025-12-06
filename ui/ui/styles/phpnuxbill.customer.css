@@ -1,4 +1,99 @@
 /* New Customize Interface Start Here */
+
+/* Hamburger Menu Button Styles - Desktop Visibility Fix */
+.sidebar-toggle {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding: 15px;
+    background-color: transparent;
+    background-image: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.2s ease;
+}
+
+.sidebar-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-toggle:active,
+.sidebar-toggle:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    outline: none;
+}
+
+/* Ensure hamburger icon bars are visible */
+.sidebar-toggle::before {
+    content: "\f0c9";
+    font-family: "FontAwesome";
+    font-size: 18px;
+    color: #fff;
+}
+
+/* Desktop specific styles (width > 767px) */
+@media (min-width: 768px) {
+    .sidebar-toggle {
+        display: block !important;
+        visibility: visible !important;
+    }
+}
+
+/* Mobile specific styles */
+@media (max-width: 767px) {
+    .sidebar-toggle {
+        display: block !important;
+        visibility: visible !important;
+    }
+    
+    /* Mobile sidebar close button */
+    .sidebar-close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 1000;
+        background-color: transparent;
+        border: none;
+        color: #fff;
+        font-size: 24px;
+        padding: 10px;
+        cursor: pointer;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+    
+    .sidebar-close-btn:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .sidebar-close-btn:active {
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+    
+    /* Ensure sidebar overlay is clickable */
+    .sidebar-open::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 799;
+        display: block;
+    }
+    
+    /* Ensure sidebar is above overlay */
+    .sidebar-open .main-sidebar {
+        z-index: 800;
+    }
+}
+
 body {
     position: relative;
     z-index: 1;
@@ -336,6 +431,24 @@ body {
 /* dark mode styles start here */
 .dark-mode {
     background-color: #1a202c;
+    color: #cbd5e0;
+}
+
+/* Dark mode hamburger button styles */
+.dark-mode .sidebar-toggle {
+    background-color: transparent;
+}
+
+.dark-mode .sidebar-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark-mode .sidebar-toggle:active,
+.dark-mode .sidebar-toggle:focus {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.dark-mode .sidebar-toggle::before {
     color: #cbd5e0;
 }
 
@@ -749,4 +862,19 @@ select:not(#filterNavigateMenu),
     font-weight: bold;
     color: inherit;
     margin-right: -59px;
+}
+
+/* Dark mode mobile sidebar close button */
+@media (max-width: 767px) {
+    .dark-mode .sidebar-close-btn {
+        color: #cbd5e0;
+    }
+    
+    .dark-mode .sidebar-close-btn:hover {
+        background-color: rgba(255, 255, 255, 0.08);
+    }
+    
+    .dark-mode .sidebar-close-btn:active {
+        background-color: rgba(255, 255, 255, 0.12);
+    }
 }
