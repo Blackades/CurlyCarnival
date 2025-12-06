@@ -914,3 +914,40 @@ label.required::after {
     margin-bottom: 0;
   }
 }
+
+
+/* ============================================
+   PROFILE PHOTO DISPLAY
+   ============================================ */
+
+/* Profile photo in profile management page */
+.profile-photo-display {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border: 3px solid var(--border-light) !important;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-base);
+  cursor: pointer;
+}
+
+.profile-photo-display:hover {
+  border-color: var(--primary-color) !important;
+  box-shadow: var(--shadow-lg);
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments for profile photo */
+@media (max-width: 767px) {
+  .profile-photo-display {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .profile-photo-display {
+    width: 88px;
+    height: 88px;
+  }
+}

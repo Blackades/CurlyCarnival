@@ -14,9 +14,9 @@
                         <input type="hidden" name="id" value="{$_user['id']}">
                         
                         <div class="text-center mb-4">
-                            <img src="{$app_url}/{$UPLOAD_PATH}{$_user['photo']}.thumb.jpg" width="150" height="150"
+                            <img src="{$app_url}/{$UPLOAD_PATH}{$_user['photo']}.thumb.jpg"
                                 onerror="this.src='{$app_url}/{$UPLOAD_PATH}/user.default.jpg'"
-                                class="rounded-circle border" alt="Profile Photo" onclick="return deletePhoto({$d['id']})">
+                                class="profile-photo-display rounded-circle border" alt="Profile Photo" onclick="return deletePhoto({$d['id']})">
                         </div>
                         
                         <div class="row mb-3">
