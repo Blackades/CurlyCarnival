@@ -12013,6 +12013,7 @@ body.sidebar-collapse .main-header .logo {
         background-color: rgba(0, 0, 0, 0.5); /* 50% opacity black overlay */
         z-index: 1040; /* Below sidebar (1050) but above content */
         animation: fadeIn 0.25s ease-in-out;
+        cursor: pointer; /* Indicate overlay is clickable to close sidebar */
     }
     
     @keyframes fadeIn {
@@ -12034,6 +12035,37 @@ body.sidebar-collapse .main-header .logo {
         height: 100%;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Mobile sidebar close button - Visible X button at top of sidebar
+       Provides clear affordance for closing the menu */
+    .main-sidebar .sidebar-close-btn {
+        display: block;
+        position: sticky;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 50px;
+        background-color: var(--primary-color, #3c8dbc);
+        color: white;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 10;
+        text-align: right;
+        padding: 0 16px;
+        line-height: 50px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .main-sidebar .sidebar-close-btn:hover,
+    .main-sidebar .sidebar-close-btn:active {
+        background-color: var(--primary-hover, #357ca5);
+    }
+    
+    .main-sidebar .sidebar-close-btn i {
+        font-size: 24px;
+        line-height: 50px;
     }
 }
 
@@ -12061,15 +12093,45 @@ body.sidebar-collapse .main-header .logo {
         flex-shrink: 0;
     }
     
-    /* Menu item text */
+    /* Menu item text - Allow wrapping for long menu items
+       Prevents text truncation on mobile devices */
     .sidebar-menu li > a > span {
         flex: 1;
+        white-space: normal; /* Allow text to wrap */
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        line-height: 1.4;
     }
     
-    /* Treeview toggle arrow */
+    /* Treeview toggle arrow - Ensure proper sizing and visibility
+       Fixed width prevents truncation on mobile devices */
     .sidebar-menu li > a > .pull-right-container {
         margin-left: auto;
         padding-left: 8px;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0; /* Prevent shrinking when text is long */
+    }
+    
+    /* Arrow icon sizing - Ensure icons are visible and not truncated */
+    .sidebar-menu li > a > .pull-right-container > .fa,
+    .sidebar-menu li > a > .pull-right-container > i {
+        font-size: 16px;
+        line-height: 1;
+        width: 16px;
+        height: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Rotate arrow when menu is expanded */
+    .sidebar-menu li.menu-open > a > .pull-right-container > .fa-angle-left,
+    .sidebar-menu li.menu-open > a > .pull-right-container > .fa-angle-down {
+        transform: rotate(-90deg);
     }
     
     /* Treeview submenu items */

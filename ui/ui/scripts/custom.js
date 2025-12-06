@@ -248,8 +248,38 @@ function showTaC() {
         });
     }
     
+    // Add close button to sidebar on mobile
+    function addSidebarCloseButton() {
+        if (!isMobileDevice()) {
+            return;
+        }
+        
+        // Check if close button already exists
+        if ($('.main-sidebar .sidebar-close-btn').length > 0) {
+            return;
+        }
+        
+        // Create close button
+        var $closeBtn = $('<button>', {
+            'class': 'sidebar-close-btn',
+            'aria-label': 'Close menu',
+            'html': '<i class="fa fa-times"></i>'
+        });
+        
+        // Add click handler
+        $closeBtn.on('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            closeSidebar();
+        });
+        
+        // Prepend to sidebar (before menu)
+        $('.main-sidebar').prepend($closeBtn);
+    }
+    
     // Initialize all mobile sidebar behaviors
     function initMobileSidebar() {
+        addSidebarCloseButton();
         initSidebarAutoClose();
         initOverlayClickHandler();
         initResizeHandler();
