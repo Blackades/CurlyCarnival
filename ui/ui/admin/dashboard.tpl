@@ -38,7 +38,11 @@
 
         {* Dynamic Widget Grid Layout *}
         {assign var="dtipe" value="dashboard_`$tipeUser`"}
-        {assign var="rows" value="."|explode:$_c[$dtipe]}
+        {if isset($_c[$dtipe]) && $_c[$dtipe] != ''}
+            {assign var="rows" value="."|explode:$_c[$dtipe]}
+        {else}
+            {assign var="rows" value="."|explode:"12.7,5.12"}
+        {/if}
         {assign var="pos" value=1}
         
         <div class="dashboard-widgets">
