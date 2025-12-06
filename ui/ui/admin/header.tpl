@@ -11,19 +11,28 @@
         var appUrl = '{$app_url}';
     </script>
 
+    <!-- Core Framework CSS -->
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/modern-AdminLTE.min.css">
+    
+    <!-- Icon Fonts -->
     <link rel="stylesheet" href="{$app_url}/ui/ui/fonts/ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="{$app_url}/ui/ui/fonts/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/modern-AdminLTE.min.css">
+    
+    <!-- Plugin CSS -->
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/select2.min.css" />
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/select2-bootstrap.min.css" />
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/sweetalert2.min.css" />
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/plugins/pace.css" />
     <link rel="stylesheet" href="{$app_url}/ui/ui/summernote/summernote.min.css" />
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/phpnuxbill.css?2025.2.4" />
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/7.css" />
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/phpnuxbill-modern.css?v=2.0.0" />
+    
+    <!-- Application CSS - Modern styles with mobile optimization -->
+    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/phpnuxbill-modern.css?v=2025.12.06.001" />
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/dashboard-fix.css" />
+    
+    <!-- Legacy CSS - Commented out to prevent conflicts -->
+    <!-- <link rel="stylesheet" href="{$app_url}/ui/ui/styles/phpnuxbill.css?2025.2.4" /> -->
+    <!-- <link rel="stylesheet" href="{$app_url}/ui/ui/styles/7.css" /> -->
 
 
     <script src="{$app_url}/ui/ui/scripts/sweetalert2.all.min.js"></script>
