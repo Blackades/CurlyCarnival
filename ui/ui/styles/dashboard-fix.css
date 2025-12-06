@@ -113,78 +113,85 @@ body .sidebar-menu .badge {
     padding: 3px 6px !important;
     font-size: 9px !important;
     line-height: .9 !important;
-    align-items: center !important;
-    min-height: 155px !important;
-    height: 155px !important;
-    background-color: #ffffff !important;
-    border: none !important;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12) !important;
-    border-radius: 12px !important;
-    padding: 20px !important;
-    margin-bottom: 15px !important;
-    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
-    overflow: hidden !important;
 }
 
-body .info-box:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-    transform: translateY(-2px) !important;
-}
+/* Desktop-only info-box styles (min-width: 992px) */
+@media (min-width: 992px) {
+    body .info-box {
+        min-height: 155px !important;
+        height: 155px !important;
+        background-color: #ffffff !important;
+        border: none !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12) !important;
+        border-radius: 12px !important;
+        padding: 20px !important;
+        margin-bottom: 15px !important;
+        transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+        overflow: hidden !important;
+        display: flex !important;
+        align-items: center !important;
+    }
 
-body .info-box-icon {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 90px !important;
-    min-width: 90px !important;
-    height: 90px !important;
-    font-size: 40px !important;
-    color: rgba(255, 255, 255, 0.95) !important;
-    border-radius: 12px !important;
-    flex-shrink: 0 !important;
-    margin-right: 20px !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
-}
+    body .info-box:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+        transform: translateY(-2px) !important;
+    }
 
-body .info-box-content {
-    flex: 1 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    min-width: 0 !important;
-    overflow: visible !important;
-    padding-right: 10px !important;
-}
+    body .info-box-icon {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 90px !important;
+        min-width: 90px !important;
+        height: 90px !important;
+        font-size: 40px !important;
+        color: rgba(255, 255, 255, 0.95) !important;
+        border-radius: 12px !important;
+        flex-shrink: 0 !important;
+        margin-right: 20px !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    }
 
-body .info-box-text {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    font-size: 14px !important;
-    font-weight: 600 !important;
-    color: rgba(0, 0, 0, 0.6) !important;
-    margin-bottom: 8px !important;
-    white-space: normal !important;
-    overflow: visible !important;
-    text-overflow: clip !important;
-    line-height: 1.4 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.5px !important;
-    position: relative !important;
-    z-index: 10 !important;
-}
+    body .info-box-content {
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        min-width: 0 !important;
+        overflow: visible !important;
+        padding-right: 10px !important;
+    }
 
-body .info-box-number {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    font-size: 32px !important;
-    font-weight: 700 !important;
-    color: rgba(0, 0, 0, 0.85) !important;
-    line-height: 1.2 !important;
-    margin-bottom: 8px !important;
-    position: relative !important;
-    z-index: 10 !important;
+    body .info-box-text {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        color: rgba(0, 0, 0, 0.6) !important;
+        margin-bottom: 8px !important;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+        line-height: 1.4 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+        position: relative !important;
+        z-index: 10 !important;
+    }
+
+    body .info-box-number {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        font-size: 32px !important;
+        font-weight: 700 !important;
+        color: rgba(0, 0, 0, 0.85) !important;
+        line-height: 1.2 !important;
+        margin-bottom: 8px !important;
+        position: relative !important;
+        z-index: 10 !important;
+    }
 }
 
 body .info-box-number small {
@@ -334,14 +341,15 @@ body .dashboard-widgets .widget-col {
     body.sidebar-collapse .content-wrapper {
         margin-left: 0 !important;
         width: 100% !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        padding: 12px !important; /* Balanced padding */
         transform: none !important;
+        box-sizing: border-box !important;
     }
 
     body .dashboard-content {
         width: 100% !important;
         margin-left: 0 !important;
+        padding: 0 !important;
     }
 
     /* Hide sidebar off-screen by default on mobile/tablet */
@@ -366,7 +374,6 @@ body .dashboard-widgets .widget-col {
     /* Overlay effect for sidebar open */
     body.sidebar-open .content-wrapper {
         position: relative;
-        /* margin-left: 200px !important; Optional: Push content or just overlay */
     }
 
     /* Ensure no horizontal scroll */
@@ -375,26 +382,12 @@ body .dashboard-widgets .widget-col {
         overflow-x: hidden !important;
     }
 
+    /* DISABLE desktop info-box styles on mobile - let phpnuxbill-modern.css handle it */
     body .info-box {
-        min-height: 135px !important;
-        height: 135px !important;
-        padding: 15px !important;
-    }
-
-    body .info-box-icon {
-        width: 70px !important;
-        min-width: 70px !important;
-        height: 70px !important;
-        font-size: 32px !important;
-        margin-right: 15px !important;
-    }
-
-    body .info-box-number {
-        font-size: 26px !important;
-    }
-
-    body .info-box-text {
-        font-size: 13px !important;
+        min-height: auto !important;
+        height: auto !important;
+        padding: 16px 12px !important;
+        /* All other styles handled by phpnuxbill-modern.css */
     }
 
     /* Force tables to be responsive */
