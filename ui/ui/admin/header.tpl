@@ -29,6 +29,7 @@
     <!-- Application CSS - Modern styles with mobile optimization -->
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/phpnuxbill-modern.css?v=2025.12.06.002" />
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/dashboard-fix.css" />
+    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/accessibility/skip-links.css" />
     
     <!-- Legacy CSS - Commented out to prevent conflicts -->
     <!-- <link rel="stylesheet" href="{$app_url}/ui/ui/styles/phpnuxbill.css?2025.2.4" /> -->
@@ -47,6 +48,10 @@
 </head>
 
 <body class="hold-transition modern-skin-dark sidebar-mini {if $_kolaps}sidebar-collapse{/if} admin-layout">
+    <!-- Skip Links for Keyboard Navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#main-sidebar" class="skip-link" style="left: 180px;">Skip to navigation</a>
+    
     <div class="wrapper admin-wrapper">
         <!-- Main Header -->
         <header class="main-header admin-header" role="banner">
@@ -612,7 +617,7 @@
         {/if}
 
         <!-- Main Content Wrapper -->
-        <div class="content-wrapper main-content" role="main">
+        <div class="content-wrapper main-content" role="main" id="main-content" aria-label="Main content">
             <!-- Content Header -->
             <section class="content-header page-header">
                 <div class="header-container">

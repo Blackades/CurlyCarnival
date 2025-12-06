@@ -1,27 +1,29 @@
-</section>
-</div>
-{if isset($_c['CompanyFooter'])}
-    <footer class="main-footer">
-        {$_c['CompanyFooter']}
-        <div class="pull-right">
-            <a href="javascript:showPrivacy()">Privacy</a>
-            &bull;
-            <a href="javascript:showTaC()">T &amp; C</a>
+                </div>
+            </main>
         </div>
-    </footer>
-{else}
-    <footer class="main-footer">
-        PHPNuxBill by <a href="https://github.com/hotspotbilling/phpnuxbill" rel="nofollow noreferrer noopener"
-            target="_blank">iBNuX</a>, Theme by <a href="https://adminlte.io/" rel="nofollow noreferrer noopener"
-            target="_blank">AdminLTE</a>
-        <div class="pull-right">
-            <a href="javascript:showPrivacy()">Privacy</a>
-            &bull;
-            <a href="javascript:showTaC()">T &amp; C</a>
-        </div>
-    </footer>
-{/if}
-</div>
+        
+        {if isset($_c['CompanyFooter'])}
+            <footer class="main-footer" role="contentinfo">
+                {$_c['CompanyFooter']}
+                <div class="pull-right">
+                    <a href="javascript:showPrivacy()">Privacy</a>
+                    &bull;
+                    <a href="javascript:showTaC()">T &amp; C</a>
+                </div>
+            </footer>
+        {else}
+            <footer class="main-footer" role="contentinfo">
+                PHPNuxBill by <a href="https://github.com/hotspotbilling/phpnuxbill" rel="nofollow noreferrer noopener"
+                    target="_blank">iBNuX</a>, Theme by <a href="https://adminlte.io/" rel="nofollow noreferrer noopener"
+                    target="_blank">AdminLTE</a>
+                <div class="pull-right">
+                    <a href="javascript:showPrivacy()">Privacy</a>
+                    &bull;
+                    <a href="javascript:showTaC()">T &amp; C</a>
+                </div>
+            </footer>
+        {/if}
+    </div>
 
 
 <!-- Modal -->

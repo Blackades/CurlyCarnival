@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skip Links and Landmarks Demo - PHPNuxBill</title>
+    <link rel="stylesheet" href="base/variables.css">
+    <link rel="stylesheet" href="accessibility/skip-links.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Demo Layout */
+        .demo-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .demo-header {
+            background: #1890ff;
+            color: white;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .demo-header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .demo-header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        .demo-sidebar {
+            background: #f5f5f5;
+            padding: 20px;
+            border-right: 1px solid #d9d9d9;
+            width: 250px;
+            position: fixed;
+            top: 80px;
+            bottom: 60px;
+            overflow-y: auto;
+        }
+
+        .demo-sidebar h2 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .demo-sidebar ul {
+            list-style: none;
+        }
+
+        .demo-sidebar li {
+            margin-bottom: 8px;
+        }
+
+        .demo-sidebar a {
+            display: block;
+            padding: 8px 12px;
+            color: #333;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .demo-sidebar a:hover {
+            background: #e8e8e8;
+        }
+
+        .demo-sidebar a.active {
+            background: #e6f7ff;
+            color: #1890ff;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .demo-main {
+            flex: 1;
+            margin-left: 250px;
+            padding: 30px;
+            margin-bottom: 60px;
+        }
+
+        .demo-main h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #1890ff;
+        }
+
+        .demo-main h2 {
+            font-size: 24px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .demo-main h3 {
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .demo-main p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        .demo-footer {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: #e6f7ff;
+            border: 1px solid #91d5ff;
+            border-radius: 4px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .info-box h3 {
+            color: #1890ff;
+            margin-top: 0;
+        }
+
+        .info-box code {
+            background: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .info-box ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .info-box li {
+            margin-bottom: 8px;
+        }
+
+        /* Landmark Indicator (for demo purposes) */
+        .landmark-indicator {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: #52c41a;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: bold;
+            opacity: 0.8;
+        }
+
+        [role="banner"],
+        [role="navigation"],
+        [role="main"],
+        [role="contentinfo"] {
+            position: relative;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .demo-sidebar {
+                position: static;
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #d9d9d9;
+            }
+
+            .demo-main {
+                margin-left: 0;
+            }
+        }
+
+        /* Focus indicator for demo */
+        *:focus {
+            outline: 3px solid #1890ff;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body class="demo-wrapper">
+    <!-- Skip Links (Press Tab to see them) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#main-navigation" class="skip-link" style="left: 180px;">Skip to navigation</a>
+
+    <!-- Banner (Header) -->
+    <header class="demo-header" role="banner">
+        <span class="landmark-indicator">role="banner"</span>
+        <h1>PHPNuxBill - Skip Links & Landmarks Demo</h1>
+        <p>Press Tab to see skip links | Press D (in screen reader) to navigate landmarks</p>
+    </header>
+
+    <!-- Navigation (Sidebar) -->
+    <aside id="main-navigation" class="demo-sidebar" role="navigation" aria-label="Main navigation">
+        <span class="landmark-indicator">role="navigation"</span>
+        <h2>Navigation Menu</h2>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Dashboard</a></li>
+                <li><a href="#">Customers</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="demo-main" role="main" id="main-content" aria-label="Main content">
+        <span class="landmark-indicator">role="main"</span>
+        
+        <h1>Skip Links and Landmarks Implementation</h1>
+        
+        <div class="info-box">
+            <h3>🎯 How to Test Skip Links</h3>
+            <ol>
+                <li>Click anywhere on this page to focus it</li>
+                <li>Press the <code>Tab</code> key once</li>
+                <li>You should see a blue "Skip to main content" link appear at the top</li>
+                <li>Press <code>Tab</code> again to see the second skip link</li>
+                <li>Press <code>Enter</code> to activate a skip link</li>
+                <li>Your focus will jump to the target section</li>
+            </ol>
+        </div>
+
+        <h2>What Are Skip Links?</h2>
+        <p>
+            Skip links are hidden navigation links that become visible when focused with the keyboard. 
+            They allow keyboard users to bypass repetitive navigation and jump directly to main content areas.
+        </p>
+
+        <h3>Benefits of Skip Links</h3>
+        <ul>
+            <li>Saves time for keyboard users</li>
+            <li>Improves accessibility for screen reader users</li>
+            <li>Meets WCAG 2.1 Level A success criterion 2.4.1 (Bypass Blocks)</li>
+            <li>Enhances overall user experience</li>
+        </ul>
+
+        <h2>What Are Landmarks?</h2>
+        <p>
+            Landmarks are semantic regions of a page that help assistive technology users understand 
+            page structure and navigate efficiently. They can be created using HTML5 semantic elements 
+            or ARIA role attributes.
+        </p>
+
+        <div class="info-box">
+            <h3>🔍 Landmarks on This Page</h3>
+            <ul>
+                <li><strong>Banner:</strong> The blue header at the top (<code>role="banner"</code>)</li>
+                <li><strong>Navigation:</strong> The gray sidebar on the left (<code>role="navigation"</code>)</li>
+                <li><strong>Main:</strong> This content area you're reading (<code>role="main"</code>)</li>
+                <li><strong>Contentinfo:</strong> The dark footer at the bottom (<code>role="contentinfo"</code>)</li>
+            </ul>
+        </div>
+
+        <h3>How to Navigate by Landmarks</h3>
+        <p>Screen reader users can navigate by landmarks using keyboard shortcuts:</p>
+        <ul>
+            <li><strong>NVDA:</strong> Press <code>D</code> to jump to next landmark</li>
+            <li><strong>JAWS:</strong> Press <code>R</code> to jump to next landmark</li>
+            <li><strong>VoiceOver:</strong> Press <code>VO + U</code>, then select "Landmarks"</li>
+        </ul>
+
+        <h2>Heading Hierarchy</h2>
+        <p>
+            This page also demonstrates proper heading hierarchy. Notice how headings follow a 
+            logical sequence: H1 → H2 → H3. This helps screen reader users understand content 
+            structure and navigate efficiently.
+        </p>
+
+        <h3>Current Heading Structure</h3>
+        <ul>
+            <li><strong>H1:</strong> Skip Links and Landmarks Implementation (page title)</li>
+            <li><strong>H2:</strong> Major sections (What Are Skip Links?, What Are Landmarks?, etc.)</li>
+            <li><strong>H3:</strong> Subsections (Benefits, How to Navigate, etc.)</li>
+        </ul>
+
+        <div class="info-box">
+            <h3>✅ Implementation Checklist</h3>
+            <ul>
+                <li>✓ Skip links added at top of page</li>
+                <li>✓ Skip links hidden until focused</li>
+                <li>✓ Skip links point to valid IDs</li>
+                <li>✓ Banner landmark (header) present</li>
+                <li>✓ Navigation landmark (sidebar) present</li>
+                <li>✓ Main landmark (content area) present</li>
+                <li>✓ Contentinfo landmark (footer) present</li>
+                <li>✓ Single H1 per page</li>
+                <li>✓ Sequential heading hierarchy</li>
+                <li>✓ All landmarks properly labeled</li>
+            </ul>
+        </div>
+
+        <h2>Testing Tools</h2>
+        <p>Use these tools to verify the implementation:</p>
+        <ul>
+            <li><strong>Browser DevTools:</strong> Inspect elements and check for role attributes</li>
+            <li><strong>WAVE Extension:</strong> Visual accessibility evaluation</li>
+            <li><strong>axe DevTools:</strong> Automated accessibility testing</li>
+            <li><strong>Lighthouse:</strong> Built into Chrome DevTools</li>
+            <li><strong>Screen Readers:</strong> NVDA (Windows), JAWS (Windows), VoiceOver (macOS)</li>
+        </ul>
+
+        <h2>Additional Resources</h2>
+        <p>For more information, see:</p>
+        <ul>
+            <li><code>ui/ui/styles/accessibility/SKIP_LINKS_AND_LANDMARKS_SUMMARY.md</code></li>
+            <li><code>ui/ui/styles/accessibility/LANDMARKS_GUIDE.md</code></li>
+            <li><code>ui/ui/styles/accessibility/HEADING_HIERARCHY_GUIDE.md</code></li>
+            <li><code>ui/ui/styles/accessibility/verify-landmarks.html</code></li>
+        </ul>
+    </main>
+
+    <!-- Footer -->
+    <footer class="demo-footer" role="contentinfo">
+        <span class="landmark-indicator">role="contentinfo"</span>
+        <p>PHPNuxBill Accessibility Demo | Task 20.5 - Skip Links and Landmarks</p>
+    </footer>
+
+    <script>
+        // Log landmarks for debugging
+        console.log('=== Landmarks on this page ===');
+        document.querySelectorAll('[role], header, nav, main, aside, footer').forEach(el => {
+            const role = el.getAttribute('role') || el.tagName.toLowerCase();
+            const label = el.getAttribute('aria-label') || 'No label';
+            const id = el.id || 'No ID';
+            console.log(`${el.tagName} | role="${role}" | label="${label}" | id="${id}"`);
+        });
+
+        // Log headings for debugging
+        console.log('\n=== Heading hierarchy ===');
+        document.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach(h => {
+            const text = h.textContent.trim().substring(0, 50);
+            console.log(`${h.tagName}: ${text}`);
+        });
+
+        // Highlight skip links when they receive focus
+        document.querySelectorAll('.skip-link').forEach(link => {
+            link.addEventListener('focus', () => {
+                console.log('Skip link focused:', link.textContent);
+            });
+        });
+    </script>
+</body>
+</html>

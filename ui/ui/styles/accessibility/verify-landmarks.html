@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landmarks and Heading Hierarchy Verification Tool</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #1890ff;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #333;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #1890ff;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #1890ff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #40a9ff;
+        }
+
+        button.secondary {
+            background: #52c41a;
+        }
+
+        button.secondary:hover {
+            background: #73d13d;
+        }
+
+        button.danger {
+            background: #f5222d;
+        }
+
+        button.danger:hover {
+            background: #ff4d4f;
+        }
+
+        .results {
+            background: #fafafa;
+            border: 1px solid #d9d9d9;
+            border-radius: 4px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .results pre {
+            background: #fff;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .status.pass {
+            background: #f6ffed;
+            color: #52c41a;
+            border: 1px solid #b7eb8f;
+        }
+
+        .status.fail {
+            background: #fff1f0;
+            color: #f5222d;
+            border: 1px solid #ffccc7;
+        }
+
+        .status.warning {
+            background: #fffbe6;
+            color: #faad14;
+            border: 1px solid #ffe58f;
+        }
+
+        .issue-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .issue-list li {
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            background: white;
+            border-left: 4px solid #f5222d;
+        }
+
+        .issue-list li.warning {
+            border-left-color: #faad14;
+        }
+
+        .landmark-item, .heading-item {
+            padding: 12px;
+            margin-bottom: 8px;
+            background: white;
+            border-radius: 4px;
+            border-left: 4px solid #1890ff;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+
+        .landmark-item .tag {
+            color: #1890ff;
+            font-weight: bold;
+        }
+
+        .landmark-item .role {
+            color: #52c41a;
+        }
+
+        .landmark-item .label {
+            color: #faad14;
+        }
+
+        .heading-item {
+            border-left-color: #722ed1;
+        }
+
+        .heading-item .level {
+            display: inline-block;
+            padding: 2px 8px;
+            background: #722ed1;
+            color: white;
+            border-radius: 3px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 4px solid #1890ff;
+        }
+
+        .stat-card .number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1890ff;
+        }
+
+        .stat-card .label {
+            color: #666;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .info-box {
+            background: #e6f7ff;
+            border: 1px solid #91d5ff;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-box strong {
+            color: #1890ff;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Landmarks & Heading Hierarchy Verification Tool</h1>
+        <p class="subtitle">Test accessibility implementation for PHPNuxBill</p>
+
+        <div class="info-box">
+            <strong>Instructions:</strong> This tool helps verify that skip links, landmarks, and heading hierarchy are properly implemented. 
+            Click the buttons below to run different tests. Open this page alongside your PHPNuxBill pages to test them.
+        </p>
+
+        <!-- Skip Links Section -->
+        <div class="section">
+            <h2>1. Skip Links Verification</h2>
+            <div class="button-group">
+                <button onclick="checkSkipLinks()">Check Skip Links</button>
+                <button class="secondary" onclick="testSkipLinkFunctionality()">Test Skip Link Navigation</button>
+            </div>
+            <div id="skipLinksResults" class="results" style="display: none;"></div>
+        </div>
+
+        <!-- Landmarks Section -->
+        <div class="section">
+            <h2>2. Landmarks Verification</h2>
+            <div class="button-group">
+                <button onclick="checkLandmarks()">Check All Landmarks</button>
+                <button class="secondary" onclick="validateLandmarkStructure()">Validate Structure</button>
+            </div>
+            <div id="landmarksResults" class="results" style="display: none;"></div>
+        </div>
+
+        <!-- Heading Hierarchy Section -->
+        <div class="section">
+            <h2>3. Heading Hierarchy Verification</h2>
+            <div class="button-group">
+                <button onclick="checkHeadingHierarchy()">Check Heading Hierarchy</button>
+                <button class="secondary" onclick="visualizeHeadings()">Visualize Structure</button>
+            </div>
+            <div id="headingsResults" class="results" style="display: none;"></div>
+        </div>
+
+        <!-- Complete Audit Section -->
+        <div class="section">
+            <h2>4. Complete Accessibility Audit</h2>
+            <div class="button-group">
+                <button onclick="runCompleteAudit()">Run Complete Audit</button>
+                <button class="danger" onclick="clearResults()">Clear All Results</button>
+            </div>
+            <div id="auditResults" class="results" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script>
+        // Skip Links Verification
+        function checkSkipLinks() {
+            const results = document.getElementById('skipLinksResults');
+            results.style.display = 'block';
+            
+            const skipLinks = document.querySelectorAll('a.skip-link, a[href^="#main"]');
+            const issues = [];
+            
+            let html = '<h3>Skip Links Found: ' + skipLinks.length + '</h3>';
+            
+            if (skipLinks.length === 0) {
+                issues.push('No skip links found on the page');
+            }
+            
+            html += '<div class="stats">';
+            html += `<div class="stat-card"><div class="number">${skipLinks.length}</div><div class="label">Skip Links</div></div>`;
+            html += '</div>';
+            
+            if (skipLinks.length > 0) {
+                html += '<h4>Skip Links Details:</h4>';
+                skipLinks.forEach((link, index) => {
+                    const href = link.getAttribute('href');
+                    const text = link.textContent.trim();
+                    const target = document.querySelector(href);
+                    
+                    html += `<div class="landmark-item">`;
+                    html += `<span class="tag">${index + 1}.</span> `;
+                    html += `Text: "${text}" → Target: <code>${href}</code>`;
+                    
+                    if (!target) {
+                        html += ` <span class="status fail">Target Not Found</span>`;
+                        issues.push(`Skip link "${text}" points to non-existent target: ${href}`);
+                    } else {
+                        html += ` <span class="status pass">Valid</span>`;
+                    }
+                    
+                    html += '</div>';
+                });
+            }
+            
+            if (issues.length > 0) {
+                html += '<h4>Issues Found:</h4><ul class="issue-list">';
+                issues.forEach(issue => {
+                    html += `<li>${issue}</li>`;
+                });
+                html += '</ul>';
+            } else if (skipLinks.length > 0) {
+                html += '<p><span class="status pass">All skip links are valid!</span></p>';
+            }
+            
+            results.innerHTML = html;
+        }
+
+        function testSkipLinkFunctionality() {
+            alert('To test skip links:\n\n1. Press Tab key to focus on the page\n2. The first Tab should reveal the skip link\n3. Press Enter to activate it\n4. Focus should move to main content\n\nTry it now!');
+        }
+
+        // Landmarks Verification
+        function checkLandmarks() {
+            const results = document.getElementById('landmarksResults');
+            results.style.display = 'block';
+            
+            const landmarks = {
+                banner: document.querySelectorAll('header[role="banner"], [role="banner"]'),
+                navigation: document.querySelectorAll('nav[role="navigation"], [role="navigation"]'),
+                main: document.querySelectorAll('main[role="main"], [role="main"]'),
+                complementary: document.querySelectorAll('aside[role="complementary"], [role="complementary"]'),
+                contentinfo: document.querySelectorAll('footer[role="contentinfo"], [role="contentinfo"]'),
+                search: document.querySelectorAll('[role="search"]'),
+                form: document.querySelectorAll('[role="form"]'),
+                region: document.querySelectorAll('[role="region"]')
+            };
+            
+            const issues = [];
+            let html = '<h3>Landmarks Summary</h3>';
+            
+            html += '<div class="stats">';
+            Object.keys(landmarks).forEach(type => {
+                const count = landmarks[type].length;
+                html += `<div class="stat-card">`;
+                html += `<div class="number">${count}</div>`;
+                html += `<div class="label">${type}</div>`;
+                html += `</div>`;
+            });
+            html += '</div>';
+            
+            // Check for required landmarks
+            if (landmarks.banner.length === 0) {
+                issues.push('Missing banner landmark (header)');
+            } else if (landmarks.banner.length > 1) {
+                issues.push(`Multiple banner landmarks found (${landmarks.banner.length}). Should be only one.`);
+            }
+            
+            if (landmarks.main.length === 0) {
+                issues.push('Missing main landmark');
+            } else if (landmarks.main.length > 1) {
+                issues.push(`Multiple main landmarks found (${landmarks.main.length}). Should be only one.`);
+            }
+            
+            if (landmarks.contentinfo.length === 0) {
+                issues.push('Missing contentinfo landmark (footer)');
+            } else if (landmarks.contentinfo.length > 1) {
+                issues.push(`Multiple contentinfo landmarks found (${landmarks.contentinfo.length}). Should be only one.`);
+            }
+            
+            // List all landmarks
+            html += '<h4>Landmark Details:</h4>';
+            Object.keys(landmarks).forEach(type => {
+                if (landmarks[type].length > 0) {
+                    landmarks[type].forEach((element, index) => {
+                        const label = element.getAttribute('aria-label') || element.getAttribute('aria-labelledby') || 'No label';
+                        const id = element.id ? `#${element.id}` : 'No ID';
+                        
+                        html += `<div class="landmark-item">`;
+                        html += `<span class="tag">&lt;${element.tagName.toLowerCase()}&gt;</span> `;
+                        html += `<span class="role">role="${type}"</span> `;
+                        html += `<span class="label">label="${label}"</span> `;
+                        html += `ID: <code>${id}</code>`;
+                        html += '</div>';
+                    });
+                }
+            });
+            
+            if (issues.length > 0) {
+                html += '<h4>Issues Found:</h4><ul class="issue-list">';
+                issues.forEach(issue => {
+                    html += `<li>${issue}</li>`;
+                });
+                html += '</ul>';
+            } else {
+                html += '<p><span class="status pass">All required landmarks present!</span></p>';
+            }
+            
+            results.innerHTML = html;
+        }
+
+        function validateLandmarkStructure() {
+            const results = document.getElementById('landmarksResults');
+            results.style.display = 'block';
+            
+            const issues = [];
+            const warnings = [];
+            
+            // Check for proper nesting
+            const main = document.querySelector('main, [role="main"]');
+            if (main) {
+                const nestedMain = main.querySelectorAll('main, [role="main"]');
+                if (nestedMain.length > 0) {
+                    issues.push('Main landmark contains nested main landmarks');
+                }
+            }
+            
+            // Check for labeled navigation
+            const navs = document.querySelectorAll('nav, [role="navigation"]');
+            if (navs.length > 1) {
+                navs.forEach((nav, index) => {
+                    const label = nav.getAttribute('aria-label') || nav.getAttribute('aria-labelledby');
+                    if (!label) {
+                        warnings.push(`Navigation ${index + 1} is missing aria-label (recommended when multiple nav elements exist)`);
+                    }
+                });
+            }
+            
+            let html = '<h3>Landmark Structure Validation</h3>';
+            
+            if (issues.length === 0 && warnings.length === 0) {
+                html += '<p><span class="status pass">Landmark structure is valid!</span></p>';
+            }
+            
+            if (issues.length > 0) {
+                html += '<h4>Critical Issues:</h4><ul class="issue-list">';
+                issues.forEach(issue => {
+                    html += `<li>${issue}</li>`;
+                });
+                html += '</ul>';
+            }
+            
+            if (warnings.length > 0) {
+                html += '<h4>Warnings:</h4><ul class="issue-list">';
+                warnings.forEach(warning => {
+                    html += `<li class="warning">${warning}</li>`;
+                });
+                html += '</ul>';
+            }
+            
+            results.innerHTML = html;
+        }
+
+        // Heading Hierarchy Verification
+        function checkHeadingHierarchy() {
+            const results = document.getElementById('headingsResults');
+            results.style.display = 'block';
+            
+            const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+            const issues = [];
+            const warnings = [];
+            
+            let html = '<h3>Heading Hierarchy Analysis</h3>';
+            html += `<p>Total headings found: <strong>${headings.length}</strong></p>`;
+            
+            // Count by level
+            const counts = { h1: 0, h2: 0, h3: 0, h4: 0, h5: 0, h6: 0 };
+            headings.forEach(h => counts[h.tagName.toLowerCase()]++);
+            
+            html += '<div class="stats">';
+            Object.keys(counts).forEach(level => {
+                html += `<div class="stat-card">`;
+                html += `<div class="number">${counts[level]}</div>`;
+                html += `<div class="label">${level.toUpperCase()}</div>`;
+                html += `</div>`;
+            });
+            html += '</div>';
+            
+            // Check for single H1
+            if (counts.h1 === 0) {
+                issues.push('No H1 heading found on the page');
+            } else if (counts.h1 > 1) {
+                issues.push(`Multiple H1 headings found (${counts.h1}). Should be only one per page.`);
+            }
+            
+            // Check for sequential hierarchy
+            let previousLevel = 0;
+            headings.forEach((heading, index) => {
+                const level = parseInt(heading.tagName.substring(1));
+                
+                if (previousLevel > 0 && level > previousLevel + 1) {
+                    issues.push(`Heading level skipped: ${heading.tagName} after H${previousLevel} (heading ${index + 1})`);
+                }
+                
+                previousLevel = level;
+            });
+            
+            // Check for empty headings
+            headings.forEach((heading, index) => {
+                if (!heading.textContent.trim()) {
+                    warnings.push(`Empty heading found: ${heading.tagName} (heading ${index + 1})`);
+                }
+            });
+            
+            if (issues.length > 0) {
+                html += '<h4>Issues Found:</h4><ul class="issue-list">';
+                issues.forEach(issue => {
+                    html += `<li>${issue}</li>`;
+                });
+                html += '</ul>';
+            }
+            
+            if (warnings.length > 0) {
+                html += '<h4>Warnings:</h4><ul class="issue-list">';
+                warnings.forEach(warning => {
+                    html += `<li class="warning">${warning}</li>`;
+                });
+                html += '</ul>';
+            }
+            
+            if (issues.length === 0 && warnings.length === 0) {
+                html += '<p><span class="status pass">Heading hierarchy is valid!</span></p>';
+            }
+            
+            results.innerHTML = html;
+        }
+
+        function visualizeHeadings() {
+            const results = document.getElementById('headingsResults');
+            results.style.display = 'block';
+            
+            const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+            
+            let html = '<h3>Heading Structure Visualization</h3>';
+            html += '<p>Visual representation of heading hierarchy:</p>';
+            
+            headings.forEach((heading, index) => {
+                const level = parseInt(heading.tagName.substring(1));
+                const text = heading.textContent.trim().substring(0, 80);
+                const indent = '&nbsp;&nbsp;'.repeat((level - 1) * 2);
+                
+                html += `<div class="heading-item">`;
+                html += `<span class="level">${heading.tagName}</span>`;
+                html += `${indent}${text}`;
+                html += '</div>';
+            });
+            
+            results.innerHTML = html;
+        }
+
+        // Complete Audit
+        function runCompleteAudit() {
+            const results = document.getElementById('auditResults');
+            results.style.display = 'block';
+            
+            let html = '<h3>Complete Accessibility Audit</h3>';
+            html += '<p>Running comprehensive checks...</p>';
+            
+            // Run all checks
+            checkSkipLinks();
+            checkLandmarks();
+            checkHeadingHierarchy();
+            
+            // Summary
+            const skipLinks = document.querySelectorAll('a.skip-link, a[href^="#main"]').length;
+            const h1Count = document.querySelectorAll('h1').length;
+            const mainLandmark = document.querySelectorAll('main, [role="main"]').length;
+            const banner = document.querySelectorAll('header[role="banner"], [role="banner"]').length;
+            const contentinfo = document.querySelectorAll('footer[role="contentinfo"], [role="contentinfo"]').length;
+            
+            html += '<h4>Audit Summary:</h4>';
+            html += '<div class="stats">';
+            html += `<div class="stat-card"><div class="number">${skipLinks}</div><div class="label">Skip Links</div></div>`;
+            html += `<div class="stat-card"><div class="number">${h1Count}</div><div class="label">H1 Elements</div></div>`;
+            html += `<div class="stat-card"><div class="number">${mainLandmark}</div><div class="label">Main Landmarks</div></div>`;
+            html += `<div class="stat-card"><div class="number">${banner}</div><div class="label">Banner</div></div>`;
+            html += `<div class="stat-card"><div class="number">${contentinfo}</div><div class="label">Footer</div></div>`;
+            html += '</div>';
+            
+            // Overall status
+            const allGood = skipLinks > 0 && h1Count === 1 && mainLandmark === 1 && banner === 1 && contentinfo === 1;
+            
+            if (allGood) {
+                html += '<p><span class="status pass">✓ All core accessibility features are properly implemented!</span></p>';
+            } else {
+                html += '<p><span class="status fail">✗ Some accessibility issues need attention. Check individual sections above.</span></p>';
+            }
+            
+            results.innerHTML = html;
+        }
+
+        function clearResults() {
+            document.getElementById('skipLinksResults').style.display = 'none';
+            document.getElementById('landmarksResults').style.display = 'none';
+            document.getElementById('headingsResults').style.display = 'none';
+            document.getElementById('auditResults').style.display = 'none';
+        }
+
+        // Auto-run audit on load
+        window.addEventListener('load', () => {
+            console.log('Landmarks & Heading Hierarchy Verification Tool loaded');
+            console.log('Use the buttons above to run accessibility checks');
+        });
+    </script>
+</body>
+</html>

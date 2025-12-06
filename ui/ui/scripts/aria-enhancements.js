@@ -13,6 +13,9 @@
         initDynamicContentAria();
         initNavigationAria();
         initTableAria();
+        initIconButtonAria();
+        initDecorativeIconsAria();
+        initAlertAria();
     });
 
     /**
@@ -294,6 +297,173 @@
                 header.setAttribute('aria-sort', 'none');
             }
         });
+    }
+
+    /**
+     * Icon Button ARIA Support
+     * Adds aria-label to icon-only buttons
+     */
+    function initIconButtonAria() {
+        // Find all buttons that contain only icons (no visible text)
+        const buttons = document.querySelectorAll('button, a.btn, a[role="button"]');
+        
+        buttons.forEach(function(button) {
+            // Skip if already has aria-label
+            if (button.hasAttribute('aria-label') || button.hasAttribute('aria-labelledby')) {
+                return;
+            }
+            
+            // Check if button has only icon content
+            const textContent = button.textContent.trim();
+            const hasIcon = button.querySelector('i.fa, i.glyphicon, span.glyphicon, svg');
+            
+            if (hasIcon && (!textContent || textContent.length === 0)) {
+                // Determine label based on icon class or title
+                let label = button.getAttribute('title') || '';
+                
+                if (!label) {
+                    label = getIconLabel(button);
+                }
+                
+                if (label) {
+                    button.setAttribute('aria-label', label);
+                }
+            }
+        });
+        
+        // Handle specific action buttons in tables
+        const actionButtons = document.querySelectorAll('a[href*="edit"], a[href*="delete"], a[href*="view"]');
+        actionButtons.forEach(function(button) {
+            if (!button.hasAttribute('aria-label')) {
+                const href = button.getAttribute('href') || '';
+                const textContent = button.textContent.trim();
+                
+                if (!textContent || textContent.length === 0) {
+                    if (href.includes('edit')) {
+                        button.setAttribute('aria-label', 'Edit item');
+                    } else if (href.includes('delete')) {
+                        button.setAttribute('aria-label', 'Delete item');
+                    } else if (href.includes('view')) {
+                        button.setAttribute('aria-label', 'View details');
+                    }
+                }
+            }
+        });
+    }
+
+    /**
+     * Decorative Icons ARIA Support
+     * Adds aria-hidden to decorative icons
+     */
+    function initDecorativeIconsAria() {
+        // Find all icons that are decorative (have adjacent text)
+        const icons = document.querySelectorAll('i.fa, i.glyphicon, span.glyphicon');
+        
+        icons.forEach(function(icon) {
+            // Skip if already has aria-hidden
+            if (icon.hasAttribute('aria-hidden')) {
+                return;
+            }
+            
+            // Check if icon is decorative (has text sibling or parent has text)
+            const parent = icon.parentElement;
+            const parentText = parent ? parent.textContent.replace(icon.textContent, '').trim() : '';
+            
+            // If parent has text content beyond the icon, mark icon as decorative
+            if (parentText && parentText.length > 0) {
+                icon.setAttribute('aria-hidden', 'true');
+            }
+        });
+    }
+
+    /**
+     * Alert ARIA Support
+     * Adds proper role and aria-live to alerts
+     */
+    function initAlertAria() {
+        // Find all alert elements
+        const alerts = document.querySelectorAll('.alert, .callout, .notification');
+        
+        alerts.forEach(function(alert) {
+            // Add role="alert" if not present
+            if (!alert.hasAttribute('role')) {
+                alert.setAttribute('role', 'alert');
+            }
+            
+            // Add aria-live based on alert type
+            if (!alert.hasAttribute('aria-live')) {
+                if (alert.classList.contains('alert-danger') || 
+                    alert.classList.contains('callout-danger') ||
+                    alert.classList.contains('alert-error')) {
+                    alert.setAttribute('aria-live', 'assertive');
+                } else {
+                    alert.setAttribute('aria-live', 'polite');
+                }
+            }
+        });
+    }
+
+    /**
+     * Get appropriate label for icon-only button
+     */
+    function getIconLabel(button) {
+        const icon = button.querySelector('i, svg');
+        if (!icon) return '';
+        
+        const iconClasses = icon.className;
+        
+        // Common icon mappings
+        const iconMap = {
+            'fa-edit': 'Edit',
+            'fa-pencil': 'Edit',
+            'fa-trash': 'Delete',
+            'fa-trash-o': 'Delete',
+            'fa-eye': 'View',
+            'fa-download': 'Download',
+            'fa-print': 'Print',
+            'fa-save': 'Save',
+            'fa-plus': 'Add',
+            'fa-minus': 'Remove',
+            'fa-close': 'Close',
+            'fa-times': 'Close',
+            'fa-check': 'Confirm',
+            'fa-refresh': 'Refresh',
+            'fa-search': 'Search',
+            'fa-filter': 'Filter',
+            'fa-cog': 'Settings',
+            'fa-user': 'User',
+            'fa-users': 'Users',
+            'fa-home': 'Home',
+            'fa-arrow-left': 'Back',
+            'fa-arrow-right': 'Next',
+            'fa-external-link': 'Open in new window',
+            'fa-info-circle': 'Information',
+            'fa-question-circle': 'Help',
+            'fa-exclamation-triangle': 'Warning',
+            'fa-check-circle': 'Success',
+            'fa-times-circle': 'Error',
+            'glyphicon-edit': 'Edit',
+            'glyphicon-trash': 'Delete',
+            'glyphicon-eye-open': 'View',
+            'glyphicon-download': 'Download',
+            'glyphicon-print': 'Print',
+            'glyphicon-plus': 'Add',
+            'glyphicon-minus': 'Remove',
+            'glyphicon-remove': 'Close',
+            'glyphicon-ok': 'Confirm',
+            'glyphicon-refresh': 'Refresh',
+            'glyphicon-search': 'Search',
+            'glyphicon-qrcode': 'Scan QR code'
+        };
+        
+        // Find matching icon class
+        for (const [iconClass, label] of Object.entries(iconMap)) {
+            if (iconClasses.includes(iconClass)) {
+                return label;
+            }
+        }
+        
+        return '';
     }
 
     /**

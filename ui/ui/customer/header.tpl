@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/modern-AdminLTE.min.css">
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/sweetalert2.min.css" />
     <script src="{$app_url}/ui/ui/scripts/sweetalert2.all.min.js"></script>
+    <script src="{$app_url}/ui/ui/scripts/aria-enhancements.js"></script>
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/phpnuxbill.customer.css?2025.2.4" />
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/phpnuxbill-modern.css?v=1.0.0" />
 
@@ -31,9 +32,13 @@
 </head>
 
 <body class="modern-app-body customer-portal">
+    <!-- Skip Links for Keyboard Navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#customer-sidebar" class="skip-link" style="left: 180px;">Skip to navigation</a>
+    
     <div class="app-wrapper">
         <!-- Main Header -->
-        <header class="main-header header-fixed">
+        <header class="main-header header-fixed" role="banner">
             <div class="header-container">
                 <!-- Logo Section -->
                 <div class="header-brand">
@@ -235,7 +240,7 @@
             </header>
             
             <!-- Main Content -->
-            <main class="content-main">
+            <main class="content-main" role="main" id="main-content" aria-label="Main content">
                 <div class="content-container">
 
 

@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/sweetalert2.min.css" />
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/phpnuxbill-modern.css?v=1.0.0" />
     <script src="{$app_url}/ui/ui/scripts/sweetalert2.all.min.js"></script>
+    <script src="{$app_url}/ui/ui/scripts/aria-enhancements.js"></script>
 
 
 
