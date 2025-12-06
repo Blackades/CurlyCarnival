@@ -61,8 +61,11 @@ body .main-sidebar {
         margin-left: 200px !important;
         margin-right: 0 !important;
         padding-left: 0 !important;
+        padding-right: 0 !important;
         transition: margin-left 0.3s ease-in-out;
         border: none !important;
+        width: auto !important;
+        max-width: calc(100% - 200px) !important;
     }
     
     /* Sidebar toggle button should be at the start of navbar */
@@ -78,6 +81,24 @@ body .main-sidebar {
         padding-left: 0 !important;
     }
     
+    /* Ensure navbar custom menu (right side items) are visible */
+    body .main-header .navbar .navbar-custom-menu {
+        float: right !important;
+        margin-right: 0 !important;
+        padding-right: 15px !important;
+    }
+    
+    /* Fix navbar nav items positioning */
+    body .main-header .navbar .navbar-nav {
+        margin: 0 !important;
+    }
+    
+    /* Ensure search wrap doesn't take too much space */
+    body .main-header .navbar .wrap {
+        max-width: 300px !important;
+        margin: 0 auto !important;
+    }
+    
     /* When sidebar is collapsed, hide logo and adjust navbar */
     body.sidebar-collapse .main-header .logo {
         width: 0 !important;
@@ -87,6 +108,7 @@ body .main-sidebar {
     
     body.sidebar-collapse .main-header .navbar {
         margin-left: 0 !important;
+        max-width: 100% !important;
     }
     
     /* Hide the collapsed sidebar completely on desktop */
