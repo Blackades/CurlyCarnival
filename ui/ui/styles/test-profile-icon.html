@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Icon Display Test</title>
+    <link rel="stylesheet" href="base/variables.css">
+    <link rel="stylesheet" href="base/reset.css">
+    <link rel="stylesheet" href="components/forms.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .test-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+        }
+        
+        .test-section h2 {
+            margin-top: 0;
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .viewport-info {
+            background: #e3f2fd;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #1976d2;
+        }
+        
+        .profile-display-wrapper {
+            text-align: center;
+            padding: 20px;
+            background: #fafafa;
+            border-radius: 4px;
+        }
+        
+        .size-info {
+            margin-top: 15px;
+            padding: 10px;
+            background: #fff3e0;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #e65100;
+        }
+        
+        .instructions {
+            background: #f3e5f5;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        
+        .instructions h3 {
+            margin-top: 0;
+            color: #6a1b9a;
+            font-size: 16px;
+        }
+        
+        .instructions ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 5px;
+        }
+        
+        .checklist {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        
+        .checklist h3 {
+            margin-top: 0;
+            color: #2e7d32;
+            font-size: 16px;
+        }
+        
+        .checklist label {
+            display: block;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+        
+        .checklist input[type="checkbox"] {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1 style="text-align: center; color: #333; margin-bottom: 30px;">Profile Icon Display Test</h1>
+        
+        <div class="instructions">
+            <h3>Testing Instructions</h3>
+            <ul>
+                <li><strong>Desktop Test (≥1280px):</strong> View this page at full screen on a desktop browser</li>
+                <li><strong>Tablet Test (768px-1023px):</strong> Resize browser window or use DevTools responsive mode</li>
+                <li><strong>Mobile Test (&lt;768px):</strong> Resize browser window to mobile size or use DevTools</li>
+                <li><strong>Hover Test:</strong> Hover over the profile icon to see the hover effect</li>
+            </ul>
+        </div>
+        
+        <div class="viewport-info">
+            <strong>Current Viewport:</strong> <span id="viewport-width"></span>px × <span id="viewport-height"></span>px
+            <br>
+            <strong>Breakpoint:</strong> <span id="breakpoint"></span>
+        </div>
+        
+        <div class="test-section">
+            <h2>Profile Photo Display</h2>
+            <div class="profile-display-wrapper">
+                <img src="https://via.placeholder.com/200/3498db/ffffff?text=Profile+Photo"
+                    class="profile-photo-display rounded-circle border" 
+                    alt="Profile Photo"
+                    id="profile-photo">
+            </div>
+            <div class="size-info">
+                <strong>Actual Size:</strong> <span id="actual-width"></span>px × <span id="actual-height"></span>px
+                <br>
+                <strong>Expected Size:</strong> <span id="expected-size"></span>
+            </div>
+        </div>
+        
+        <div class="checklist">
+            <h3>Verification Checklist</h3>
+            <label>
+                <input type="checkbox" id="check-desktop">
+                Desktop (≥1280px): Icon is 96px × 96px
+            </label>
+            <label>
+                <input type="checkbox" id="check-tablet">
+                Tablet (768px-1023px): Icon is 88px × 88px
+            </label>
+            <label>
+                <input type="checkbox" id="check-mobile">
+                Mobile (&lt;768px): Icon is 80px × 80px
+            </label>
+            <label>
+                <input type="checkbox" id="check-hover">
+                Hover effect works (border color changes, slight scale up)
+            </label>
+            <label>
+                <input type="checkbox" id="check-not-dominating">
+                Icon is not dominating the screen (appropriately sized)
+            </label>
+        </div>
+    </div>
+    
+    <script>
+        function updateViewportInfo() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const photo = document.getElementById('profile-photo');
+            
+            // Update viewport dimensions
+            document.getElementById('viewport-width').textContent = width;
+            document.getElementById('viewport-height').textContent = height;
+            
+            // Determine breakpoint and expected size
+            let breakpoint, expectedSize;
+            if (width < 768) {
+                breakpoint = 'Mobile (<768px)';
+                expectedSize = '80px × 80px';
+            } else if (width >= 768 && width < 1024) {
+                breakpoint = 'Tablet (768px-1023px)';
+                expectedSize = '88px × 88px';
+            } else {
+                breakpoint = 'Desktop (≥1024px)';
+                expectedSize = '96px × 96px';
+            }
+            
+            document.getElementById('breakpoint').textContent = breakpoint;
+            document.getElementById('expected-size').textContent = expectedSize;
+            
+            // Get actual computed size
+            const computedStyle = window.getComputedStyle(photo);
+            const actualWidth = Math.round(parseFloat(computedStyle.width));
+            const actualHeight = Math.round(parseFloat(computedStyle.height));
+            
+            document.getElementById('actual-width').textContent = actualWidth;
+            document.getElementById('actual-height').textContent = actualHeight;
+            
+            // Auto-check if size matches
+            if (width < 768 && actualWidth === 80 && actualHeight === 80) {
+                document.getElementById('check-mobile').checked = true;
+            } else if (width >= 768 && width < 1024 && actualWidth === 88 && actualHeight === 88) {
+                document.getElementById('check-tablet').checked = true;
+            } else if (width >= 1280 && actualWidth === 96 && actualHeight === 96) {
+                document.getElementById('check-desktop').checked = true;
+            }
+        }
+        
+        // Update on load and resize
+        updateViewportInfo();
+        window.addEventListener('resize', updateViewportInfo);
+        
+        // Add hover detection
+        const photo = document.getElementById('profile-photo');
+        photo.addEventListener('mouseenter', function() {
+            setTimeout(() => {
+                const computedStyle = window.getComputedStyle(photo);
+                const transform = computedStyle.transform;
+                if (transform && transform !== 'none') {
+                    console.log('Hover effect detected - transform:', transform);
+                }
+            }, 100);
+        });
+    </script>
+</body>
+</html>

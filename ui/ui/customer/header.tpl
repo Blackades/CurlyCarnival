@@ -11,15 +11,23 @@
     </script>
 
     <link rel="shortcut icon" href="{$app_url}/ui/ui/images/logo.png" type="image/x-icon" />
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/bootstrap.min.css">
+    
+    <!-- Icon Fonts -->
     <link rel="stylesheet" href="{$app_url}/ui/ui/fonts/ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="{$app_url}/ui/ui/fonts/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/modern-AdminLTE.min.css">
+    
+    <!-- Plugin CSS -->
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/sweetalert2.min.css" />
+    
+    <!-- Modern CSS System -->
+    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/phpnuxbill-modern.css?v=2025.12.07.001" />
+    
+    <!-- Accessibility -->
+    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/accessibility/skip-links.css" />
+    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/accessibility/focus-indicators.css" />
+    
     <script src="{$app_url}/ui/ui/scripts/sweetalert2.all.min.js"></script>
     <script src="{$app_url}/ui/ui/scripts/aria-enhancements.js"></script>
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/phpnuxbill.customer.css?2025.2.4" />
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/phpnuxbill-modern.css?v=1.0.0" />
 
     <style>
 

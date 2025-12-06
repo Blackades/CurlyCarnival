@@ -184,3 +184,94 @@
 .gap-xxl { gap: var(--spacing-xxl); }
 .gap-3xl { gap: var(--spacing-3xl); }
 .gap-4xl { gap: var(--spacing-4xl); }
+
+/* ========================================
+   BOOTSTRAP-COMPATIBLE NUMERIC SPACING
+   For backward compatibility with existing templates
+   ======================================== */
+
+/* Margin utilities with numeric scale (0-5) */
+.m-1 { margin: var(--spacing-sm); }      /* 8px */
+.m-2 { margin: var(--spacing-md); }      /* 12px */
+.m-3 { margin: var(--spacing-lg); }      /* 16px */
+.m-4 { margin: var(--spacing-xxl); }     /* 24px */
+.m-5 { margin: var(--spacing-3xl); }     /* 32px */
+
+.mt-1 { margin-top: var(--spacing-sm); }
+.mt-2 { margin-top: var(--spacing-md); }
+.mt-3 { margin-top: var(--spacing-lg); }
+.mt-4 { margin-top: var(--spacing-xxl); }
+.mt-5 { margin-top: var(--spacing-3xl); }
+
+.mr-1 { margin-right: var(--spacing-sm); }
+.mr-2 { margin-right: var(--spacing-md); }
+.mr-3 { margin-right: var(--spacing-lg); }
+.mr-4 { margin-right: var(--spacing-xxl); }
+.mr-5 { margin-right: var(--spacing-3xl); }
+
+.mb-1 { margin-bottom: var(--spacing-sm); }
+.mb-2 { margin-bottom: var(--spacing-md); }
+.mb-3 { margin-bottom: var(--spacing-lg); }
+.mb-4 { margin-bottom: var(--spacing-xxl); }
+.mb-5 { margin-bottom: var(--spacing-3xl); }
+
+.ml-1 { margin-left: var(--spacing-sm); }
+.ml-2 { margin-left: var(--spacing-md); }
+.ml-3 { margin-left: var(--spacing-lg); }
+.ml-4 { margin-left: var(--spacing-xxl); }
+.ml-5 { margin-left: var(--spacing-3xl); }
+
+.mx-1 { margin-left: var(--spacing-sm); margin-right: var(--spacing-sm); }
+.mx-2 { margin-left: var(--spacing-md); margin-right: var(--spacing-md); }
+.mx-3 { margin-left: var(--spacing-lg); margin-right: var(--spacing-lg); }
+.mx-4 { margin-left: var(--spacing-xxl); margin-right: var(--spacing-xxl); }
+.mx-5 { margin-left: var(--spacing-3xl); margin-right: var(--spacing-3xl); }
+
+.my-1 { margin-top: var(--spacing-sm); margin-bottom: var(--spacing-sm); }
+.my-2 { margin-top: var(--spacing-md); margin-bottom: var(--spacing-md); }
+.my-3 { margin-top: var(--spacing-lg); margin-bottom: var(--spacing-lg); }
+.my-4 { margin-top: var(--spacing-xxl); margin-bottom: var(--spacing-xxl); }
+.my-5 { margin-top: var(--spacing-3xl); margin-bottom: var(--spacing-3xl); }
+
+/* Padding utilities with numeric scale (0-5) */
+.p-1 { padding: var(--spacing-sm); }
+.p-2 { padding: var(--spacing-md); }
+.p-3 { padding: var(--spacing-lg); }
+.p-4 { padding: var(--spacing-xxl); }
+.p-5 { padding: var(--spacing-3xl); }
+
+.pt-1 { padding-top: var(--spacing-sm); }
+.pt-2 { padding-top: var(--spacing-md); }
+.pt-3 { padding-top: var(--spacing-lg); }
+.pt-4 { padding-top: var(--spacing-xxl); }
+.pt-5 { padding-top: var(--spacing-3xl); }
+
+.pr-1 { padding-right: var(--spacing-sm); }
+.pr-2 { padding-right: var(--spacing-md); }
+.pr-3 { padding-right: var(--spacing-lg); }
+.pr-4 { padding-right: var(--spacing-xxl); }
+.pr-5 { padding-right: var(--spacing-3xl); }
+
+.pb-1 { padding-bottom: var(--spacing-sm); }
+.pb-2 { padding-bottom: var(--spacing-md); }
+.pb-3 { padding-bottom: var(--spacing-lg); }
+.pb-4 { padding-bottom: var(--spacing-xxl); }
+.pb-5 { padding-bottom: var(--spacing-3xl); }
+
+.pl-1 { padding-left: var(--spacing-sm); }
+.pl-2 { padding-left: var(--spacing-md); }
+.pl-3 { padding-left: var(--spacing-lg); }
+.pl-4 { padding-left: var(--spacing-xxl); }
+.pl-5 { padding-left: var(--spacing-3xl); }
+
+.px-1 { padding-left: var(--spacing-sm); padding-right: var(--spacing-sm); }
+.px-2 { padding-left: var(--spacing-md); padding-right: var(--spacing-md); }
+.px-3 { padding-left: var(--spacing-lg); padding-right: var(--spacing-lg); }
+.px-4 { padding-left: var(--spacing-xxl); padding-right: var(--spacing-xxl); }
+.px-5 { padding-left: var(--spacing-3xl); padding-right: var(--spacing-3xl); }
+
+.py-1 { padding-top: var(--spacing-sm); padding-bottom: var(--spacing-sm); }
+.py-2 { padding-top: var(--spacing-md); padding-bottom: var(--spacing-md); }
+.py-3 { padding-top: var(--spacing-lg); padding-bottom: var(--spacing-lg); }
+.py-4 { padding-top: var(--spacing-xxl); padding-bottom: var(--spacing-xxl); }
+.py-5 { padding-top: var(--spacing-3xl); padding-bottom: var(--spacing-3xl); }

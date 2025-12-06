@@ -11,10 +11,6 @@
         var appUrl = '{$app_url}';
     </script>
 
-    <!-- Core Framework CSS -->
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/bootstrap.min.css">
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/modern-AdminLTE.min.css">
-    
     <!-- Icon Fonts -->
     <link rel="stylesheet" href="{$app_url}/ui/ui/fonts/ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="{$app_url}/ui/ui/fonts/font-awesome/css/font-awesome.min.css">
@@ -26,14 +22,12 @@
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/plugins/pace.css" />
     <link rel="stylesheet" href="{$app_url}/ui/ui/summernote/summernote.min.css" />
     
-    <!-- Application CSS - Modern styles with mobile optimization -->
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/phpnuxbill-modern.css?v=2025.12.06.002" />
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/dashboard-fix.css" />
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/accessibility/skip-links.css" />
+    <!-- Modern CSS System -->
+    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/phpnuxbill-modern.css?v=2025.12.07.001" />
     
-    <!-- Legacy CSS - Commented out to prevent conflicts -->
-    <!-- <link rel="stylesheet" href="{$app_url}/ui/ui/styles/phpnuxbill.css?2025.2.4" /> -->
-    <!-- <link rel="stylesheet" href="{$app_url}/ui/ui/styles/7.css" /> -->
+    <!-- Accessibility -->
+    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/accessibility/skip-links.css" />
+    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/accessibility/focus-indicators.css" />
 
     <script src="{$app_url}/ui/ui/scripts/sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>

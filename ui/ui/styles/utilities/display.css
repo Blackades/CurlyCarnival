@@ -454,6 +454,52 @@
 }
 
 /* ========================================
+   BORDER RADIUS UTILITIES
+   ======================================== */
+.rounded { border-radius: var(--radius-sm); }
+.rounded-sm { border-radius: var(--radius-xs); }
+.rounded-lg { border-radius: var(--radius-md); }
+.rounded-xl { border-radius: var(--radius-lg); }
+.rounded-full { border-radius: 9999px; }
+.rounded-circle { border-radius: 50%; }
+.rounded-none { border-radius: 0; }
+
+/* Individual corner radius */
+.rounded-t { border-top-left-radius: var(--radius-sm); border-top-right-radius: var(--radius-sm); }
+.rounded-r { border-top-right-radius: var(--radius-sm); border-bottom-right-radius: var(--radius-sm); }
+.rounded-b { border-bottom-left-radius: var(--radius-sm); border-bottom-right-radius: var(--radius-sm); }
+.rounded-l { border-top-left-radius: var(--radius-sm); border-bottom-left-radius: var(--radius-sm); }
+
+/* ========================================
+   BORDER UTILITIES
+   ======================================== */
+.border { border: 1px solid var(--border-color); }
+.border-0 { border: 0; }
+.border-2 { border: 2px solid var(--border-color); }
+.border-3 { border: 3px solid var(--border-color); }
+.border-4 { border: 4px solid var(--border-color); }
+
+/* Individual borders */
+.border-t { border-top: 1px solid var(--border-color); }
+.border-r { border-right: 1px solid var(--border-color); }
+.border-b { border-bottom: 1px solid var(--border-color); }
+.border-l { border-left: 1px solid var(--border-color); }
+
+.border-t-0 { border-top: 0; }
+.border-r-0 { border-right: 0; }
+.border-b-0 { border-bottom: 0; }
+.border-l-0 { border-left: 0; }
+
+/* Border colors */
+.border-primary { border-color: var(--primary-color); }
+.border-success { border-color: var(--success-color); }
+.border-warning { border-color: var(--warning-color); }
+.border-danger { border-color: var(--danger-color); }
+.border-info { border-color: var(--info-color); }
+.border-light { border-color: var(--border-light); }
+.border-dark { border-color: var(--border-dark); }
+
+/* ========================================
    PRINT UTILITIES
    ======================================== */
 
