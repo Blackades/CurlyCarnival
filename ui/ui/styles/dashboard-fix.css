@@ -34,8 +34,28 @@ body .main-sidebar {
     }
     
     /* Ensure main header also adjusts when sidebar is collapsed */
-    body.sidebar-collapse .main-header .navbar {
+    body.sidebar-collapse .main-header,
+    body.sidebar-collapse .main-header .navbar,
+    body.sidebar-collapse .main-header .logo {
         margin-left: 0 !important;
+    }
+    
+    /* Adjust header to account for sidebar when not collapsed */
+    body:not(.sidebar-collapse) .main-header .navbar {
+        margin-left: 200px !important;
+        transition: margin-left 0.3s ease-in-out;
+    }
+    
+    /* Logo should always stay in place */
+    body .main-header .logo {
+        width: 200px !important;
+        transition: width 0.3s ease-in-out;
+    }
+    
+    /* When collapsed, logo should be hidden or minimized */
+    body.sidebar-collapse .main-header .logo {
+        width: 0 !important;
+        overflow: hidden !important;
     }
     
     /* Hide the collapsed sidebar completely on desktop */
