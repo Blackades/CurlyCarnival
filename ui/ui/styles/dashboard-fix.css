@@ -40,6 +40,7 @@ body .main-sidebar {
         right: 0 !important;
         left: 0 !important;
         z-index: 1030 !important;
+        padding-left: 0 !important;
     }
     
     /* Logo should be positioned over the sidebar */
@@ -52,12 +53,29 @@ body .main-sidebar {
         z-index: 1031 !important;
         display: block !important;
         transition: all 0.3s ease-in-out;
+        float: none !important;
     }
     
-    /* Navbar should start right after the sidebar */
+    /* Navbar should start right after the sidebar - override all default margins */
     body .main-header .navbar {
         margin-left: 200px !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
         transition: margin-left 0.3s ease-in-out;
+        border: none !important;
+    }
+    
+    /* Sidebar toggle button should be at the start of navbar */
+    body .main-header .navbar .sidebar-toggle {
+        float: left !important;
+        padding: 15px !important;
+        margin: 0 !important;
+    }
+    
+    /* Remove any default padding/margin from navbar container */
+    body .main-header .navbar-static-top {
+        margin-left: 0 !important;
+        padding-left: 0 !important;
     }
     
     /* When sidebar is collapsed, hide logo and adjust navbar */
