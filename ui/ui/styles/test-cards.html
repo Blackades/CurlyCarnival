@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Components Test</title>
+  <link rel="stylesheet" href="base/variables.css">
+  <link rel="stylesheet" href="base/reset.css">
+  <link rel="stylesheet" href="base/typography.css">
+  <link rel="stylesheet" href="utilities/spacing.css">
+  <link rel="stylesheet" href="utilities/colors.css">
+  <link rel="stylesheet" href="utilities/display.css">
+  <link rel="stylesheet" href="components/buttons.css">
+  <link rel="stylesheet" href="components/badges.css">
+  <link rel="stylesheet" href="components/cards.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      padding: 40px 20px;
+      background: #f5f5f5;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section {
+      margin-bottom: 48px;
+    }
+    .section-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--text-primary);
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 8px;
+    }
+    .demo-row {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .demo-col {
+      flex: 1;
+      min-width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 style="margin-bottom: 40px;">Card/Panel Component System</h1>
+
+    <!-- Base Card Styles -->
+    <div class="section">
+      <h2 class="section-title">Base Card Container Styles</h2>
+      
+      <div class="demo-row">
+        <div class="demo-col">
+          <div class="panel">
+            <div class="panel-heading">
+              <h3 class="panel-title">Basic Panel</h3>
+            </div>
+            <div class="panel-body">
+              This is a basic panel with white background, border-radius, and shadow elevation. 
+              No borders are used - only shadow for elevation effect.
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-col">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Basic Card</h3>
+            </div>
+            <div class="card-body">
+              This is a basic card component with the same styling as panels. 
+              Both .panel and .card classes work identically.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-row">
+        <div class="demo-col">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Basic Box</h3>
+            </div>
+            <div class="box-body">
+              This is a basic box component. All three naming conventions (.panel, .card, .box) 
+              are supported for compatibility.
+            </div>
+            <div class="box-footer">
+              Box footer with light background
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-col">
+          <div class="panel">
+            <div class="panel-heading">
+              <h3 class="panel-title">Panel with Footer</h3>
+            </div>
+            <div class="panel-body">
+              This panel includes a footer section with a light background and top border.
+            </div>
+            <div class="panel-footer">
+              <button class="btn btn-primary">Save</button>
+              <button class="btn btn-default">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Color Variants -->
+    <div class="section">
+      <h2 class="section-title">Card Color Variants</h2>
+      
+      <div class="demo-row">
+        <div class="demo-col">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Primary Panel</h3>
+            </div>
+            <div class="panel-body">
+              Panel with primary colored header. The header has a blue background with white text.
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-col">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">Success Panel</h3>
+            </div>
+            <div class="panel-body">
+              Panel with success colored header. The header has a green background with white text.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-row">
+        <div class="demo-col">
+          <div class="panel panel-warning">
+            <div class="panel-heading">
+              <h3 class="panel-title">Warning Panel</h3>
+            </div>
+            <div class="panel-body">
+              Panel with warning colored header. The header has an orange background with white text.
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-col">
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+              <h3 class="panel-title">Danger Panel</h3>
+            </div>
+            <div class="panel-body">
+              Panel with danger colored header. The header has a red background with white text.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin: 32px 0 16px; font-size: 18px; font-weight: 600;">Accent Cards (Top Border)</h3>
+      
+      <div class="demo-row">
+        <div class="demo-col">
+          <div class="panel panel-accent-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Primary Accent</h3>
+            </div>
+            <div class="panel-body">
+              Card with a 4px blue top border accent.
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-col">
+          <div class="panel panel-accent-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">Success Accent</h3>
+            </div>
+            <div class="panel-body">
+              Card with a 4px green top border accent.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin: 32px 0 16px; font-size: 18px; font-weight: 600;">Card Modifiers</h3>
+      
+      <div class="demo-row">
+        <div class="demo-col">
+          <div class="panel panel-compact">
+            <div class="panel-heading">
+              <h3 class="panel-title">Compact Panel</h3>
+            </div>
+            <div class="panel-body">
+              This panel has reduced padding (12px 16px) for a more compact appearance.
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-col">
+          <div class="panel panel-borderless">
+            <div class="panel-heading">
+              <h3 class="panel-title">Borderless Panel</h3>
+            </div>
+            <div class="panel-body">
+              This panel uses a border instead of shadow for a flatter appearance.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Metric and Status Cards -->
+    <div class="section">
+      <h2 class="section-title">Metric and Status Cards</h2>
+      
+      <h3 style="margin: 0 0 16px; font-size: 18px; font-weight: 600;">Info Box Components</h3>
+      
+      <div class="demo-row">
+        <div class="demo-col">
+          <div class="info-box">
+            <div class="info-box-icon bg-primary">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="info-box-content">
+              <span class="info-box-text">Total Users</span>
+              <span class="info-box-number">1,234</span>
+              <span class="info-box-subtext">+12% from last month</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-col">
+          <div class="info-box">
+            <div class="info-box-icon bg-success">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="info-box-content">
+              <span class="info-box-text">Total Sales</span>
+              <span class="info-box-number">$45,678</span>
+              <span class="info-box-subtext">+8% from last month</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-row">
+        <div class="demo-col">
+          <div class="info-box">
+            <div class="info-box-icon bg-warning">
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="info-box-content">
+              <span class="info-box-text">Pending Orders</span>
+              <span class="info-box-number">23</span>
+              <span class="info-box-subtext">Requires attention</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-col">
+          <div class="info-box">
+            <div class="info-box-icon bg-danger">
+              <i class="fas fa-times-circle"></i>
+            </div>
+            <div class="info-box-content">
+              <span class="info-box-text">Failed Transactions</span>
+              <span class="info-box-number">5</span>
+              <span class="info-box-subtext">Last 24 hours</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin: 32px 0 16px; font-size: 18px; font-weight: 600;">Small Box Components</h3>
+      
+      <div class="demo-row">
+        <div class="demo-col">
+          <div class="small-box bg-primary">
+            <div class="small-box-inner">
+              <h3>150</h3>
+              <p>New Orders</p>
+            </div>
+            <div class="small-box-icon">
+              <i class="fas fa-shopping-bag"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+              More info <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="demo-col">
+          <div class="small-box bg-success">
+            <div class="small-box-inner">
+              <h3>53%</h3>
+              <p>Bounce Rate</p>
+            </div>
+            <div class="small-box-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+              More info <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-row">
+        <div class="demo-col">
+          <div class="small-box bg-warning">
+            <div class="small-box-inner">
+              <h3>44</h3>
+              <p>User Registrations</p>
+            </div>
+            <div class="small-box-icon">
+              <i class="fas fa-user-plus"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+              More info <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="demo-col">
+          <div class="small-box bg-danger">
+            <div class="small-box-inner">
+              <h3>65</h3>
+              <p>Unique Visitors</p>
+            </div>
+            <div class="small-box-icon">
+              <i class="fas fa-chart-pie"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+              More info <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin: 32px 0 16px; font-size: 18px; font-weight: 600;">Metric Card Components</h3>
+      
+      <div class="demo-row">
+        <div class="demo-col">
+          <div class="metric-card">
+            <div class="metric-card-icon">
+              <i class="fas fa-dollar-sign"></i>
+            </div>
+            <div class="metric-card-value">$12,345</div>
+            <div class="metric-card-label">Revenue</div>
+            <div class="metric-card-change positive">
+              <i class="fas fa-arrow-up"></i>
+              <span>+15.3%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-col">
+          <div class="metric-card">
+            <div class="metric-card-icon text-success">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="metric-card-value">98.5%</div>
+            <div class="metric-card-label">Success Rate</div>
+            <div class="metric-card-change positive">
+              <i class="fas fa-arrow-up"></i>
+              <span>+2.1%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-row">
+        <div class="demo-col">
+          <div class="metric-card">
+            <div class="metric-card-icon text-warning">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="metric-card-value">2.4s</div>
+            <div class="metric-card-label">Avg Response Time</div>
+            <div class="metric-card-change negative">
+              <i class="fas fa-arrow-down"></i>
+              <span>-5.2%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-col">
+          <div class="metric-card">
+            <div class="metric-card-icon text-danger">
+              <i class="fas fa-exclamation-circle"></i>
+            </div>
+            <div class="metric-card-value">12</div>
+            <div class="metric-card-label">Critical Issues</div>
+            <div class="metric-card-change negative">
+              <i class="fas fa-arrow-down"></i>
+              <span>-3 from yesterday</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin: 32px 0 16px; font-size: 18px; font-weight: 600;">Status Card Components</h3>
+      
+      <div class="demo-row">
+        <div class="demo-col">
+          <div class="status-card status-success">
+            <div class="status-card-header">
+              <h3 class="status-card-title">System Status</h3>
+              <span class="badge badge-solid badge-success">Operational</span>
+            </div>
+            <div class="status-card-body">
+              <div class="status-card-value">99.9%</div>
+              <div class="status-card-description">
+                All systems are running smoothly. No issues detected in the last 24 hours.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-col">
+          <div class="status-card status-warning">
+            <div class="status-card-header">
+              <h3 class="status-card-title">Server Load</h3>
+              <span class="badge badge-solid badge-warning">High</span>
+            </div>
+            <div class="status-card-body">
+              <div class="status-card-value">78%</div>
+              <div class="status-card-description">
+                Server load is higher than normal. Consider scaling resources if this persists.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Grid Layouts -->
+    <div class="section">
+      <h2 class="section-title">Card Grid Layouts</h2>
+      
+      <h3 style="margin: 0 0 16px; font-size: 18px; font-weight: 600;">2-Column Grid</h3>
+      <div class="card-grid card-grid-2">
+        <div class="panel">
+          <div class="panel-heading">
+            <h3 class="panel-title">Card 1</h3>
+          </div>
+          <div class="panel-body">
+            Content for card 1 in a 2-column grid layout.
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-heading">
+            <h3 class="panel-title">Card 2</h3>
+          </div>
+          <div class="panel-body">
+            Content for card 2 in a 2-column grid layout.
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin: 32px 0 16px; font-size: 18px; font-weight: 600;">3-Column Grid</h3>
+      <div class="card-grid card-grid-3">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Card 1</h3>
+          </div>
+          <div class="panel-body">
+            Content for card 1 in a 3-column grid.
+          </div>
+        </div>
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            <h3 class="panel-title">Card 2</h3>
+          </div>
+          <div class="panel-body">
+            Content for card 2 in a 3-column grid.
+          </div>
+        </div>
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+            <h3 class="panel-title">Card 3</h3>
+          </div>
+          <div class="panel-body">
+            Content for card 3 in a 3-column grid.
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin: 32px 0 16px; font-size: 18px; font-weight: 600;">4-Column Grid</h3>
+      <div class="card-grid card-grid-4">
+        <div class="metric-card">
+          <div class="metric-card-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="metric-card-value">1,234</div>
+          <div class="metric-card-label">Users</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card-icon text-success">
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+          <div class="metric-card-value">567</div>
+          <div class="metric-card-label">Orders</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card-icon text-warning">
+            <i class="fas fa-dollar-sign"></i>
+          </div>
+          <div class="metric-card-value">$8,901</div>
+          <div class="metric-card-label">Revenue</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card-icon text-danger">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="metric-card-value">23%</div>
+          <div class="metric-card-label">Growth</div>
+        </div>
+      </div>
+
+      <h3 style="margin: 32px 0 16px; font-size: 18px; font-weight: 600;">Auto-Fit Grid (Responsive)</h3>
+      <div class="card-grid card-grid-auto">
+        <div class="info-box">
+          <div class="info-box-icon bg-primary">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="info-box-content">
+            <span class="info-box-text">Messages</span>
+            <span class="info-box-number">456</span>
+          </div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-icon bg-success">
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="info-box-content">
+            <span class="info-box-text">Completed</span>
+            <span class="info-box-number">789</span>
+          </div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-icon bg-warning">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="info-box-content">
+            <span class="info-box-text">Pending</span>
+            <span class="info-box-number">123</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Utility Classes -->
+    <div class="section">
+      <h2 class="section-title">Card Utility Classes</h2>
+      
+      <div class="demo-row">
+        <div class="demo-col">
+          <div class="panel card-clickable">
+            <div class="panel-heading">
+              <h3 class="panel-title">Clickable Card</h3>
+            </div>
+            <div class="panel-body">
+              This card has hover effects that lift it up slightly. Try hovering over it!
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-col">
+          <div class="panel card-loading">
+            <div class="panel-heading">
+              <h3 class="panel-title">Loading Card</h3>
+            </div>
+            <div class="panel-body">
+              This card shows a loading spinner overlay and is disabled.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 48px; padding: 24px; background: var(--background); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+      <h3 style="margin: 0 0 16px; font-size: 18px; font-weight: 600;">Responsive Behavior</h3>
+      <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+        <li><strong>Desktop (≥1024px):</strong> 3-4 column grids display as specified</li>
+        <li><strong>Tablet (768px-1023px):</strong> 3-4 column grids become 2 columns</li>
+        <li><strong>Mobile (&lt;768px):</strong> All grids stack to single column</li>
+        <li><strong>Info boxes:</strong> Stack icon on top of content on mobile</li>
+        <li><strong>Cards:</strong> Maintain proper spacing and padding at all breakpoints</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,768 @@
+/* ============================================
+   TABLE COMPONENT SYSTEM
+   ============================================ */
+
+/* ============================================
+   6.1 TABLE HEADERS
+   ============================================ */
+
+/* Base table styles */
+.table,
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: var(--background);
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+}
+
+/* Table header styling */
+.table thead,
+table thead {
+  background-color: var(--background-secondary);
+}
+
+.table thead th,
+table thead th {
+  padding: 12px 16px;
+  font-weight: 600;
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 2px solid var(--border-light);
+  white-space: nowrap;
+}
+
+/* Right-aligned header cells */
+.table thead th.text-right,
+table thead th.text-right {
+  text-align: right;
+}
+
+/* Center-aligned header cells */
+.table thead th.text-center,
+table thead th.text-center {
+  text-align: center;
+}
+
+/* Sortable table headers */
+.table thead th.sortable,
+table thead th.sortable {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  padding-right: 28px;
+}
+
+.table thead th.sortable:hover,
+table thead th.sortable:hover {
+  background-color: var(--background-hover);
+}
+
+/* Sort indicator */
+.table thead th.sortable::after,
+table thead th.sortable::after {
+  content: '⇅';
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.3;
+  font-size: 12px;
+}
+
+.table thead th.sortable.sort-asc::after,
+table thead th.sortable.sort-asc::after {
+  content: '↑';
+  opacity: 1;
+  color: var(--primary-color);
+}
+
+.table thead th.sortable.sort-desc::after,
+table thead th.sortable.sort-desc::after {
+  content: '↓';
+  opacity: 1;
+  color: var(--primary-color);
+}
+
+
+/* ============================================
+   6.2 TABLE ROWS AND CELLS
+   ============================================ */
+
+/* Table body cells */
+.table tbody td,
+table tbody td {
+  padding: 12px 16px;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-primary);
+}
+
+/* Table rows */
+.table tbody tr,
+table tbody tr {
+  transition: background-color var(--transition-fast);
+}
+
+/* Striped table rows */
+.table-striped tbody tr:nth-child(odd),
+table.table-striped tbody tr:nth-child(odd) {
+  background-color: var(--background);
+}
+
+.table-striped tbody tr:nth-child(even),
+table.table-striped tbody tr:nth-child(even) {
+  background-color: var(--background-secondary);
+}
+
+/* Hover state for table rows */
+.table-hover tbody tr:hover,
+table.table-hover tbody tr:hover,
+.table tbody tr:hover,
+table tbody tr:hover {
+  background-color: var(--background-hover);
+  cursor: pointer;
+}
+
+/* Bordered table */
+.table-bordered,
+table.table-bordered {
+  border: 1px solid var(--border-light);
+}
+
+.table-bordered thead th,
+table.table-bordered thead th,
+.table-bordered tbody td,
+table.table-bordered tbody td {
+  border: 1px solid var(--border-light);
+}
+
+/* Condensed table */
+.table-condensed thead th,
+table.table-condensed thead th,
+.table-condensed tbody td,
+table.table-condensed tbody td {
+  padding: 8px 12px;
+}
+
+/* Cell alignment utilities */
+.table td.text-right,
+table td.text-right {
+  text-align: right;
+}
+
+.table td.text-center,
+table td.text-center {
+  text-align: center;
+}
+
+.table td.text-left,
+table td.text-left {
+  text-align: left;
+}
+
+/* Cell with no wrap */
+.table td.no-wrap,
+table td.no-wrap,
+.table th.no-wrap,
+table th.no-wrap {
+  white-space: nowrap;
+}
+
+
+/* ============================================
+   6.3 TABLE ACTION BUTTONS
+   ============================================ */
+
+/* Action buttons container in table cells */
+.table-actions,
+.action-buttons {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+/* Compact icon buttons for table actions */
+.table-actions .btn,
+.action-buttons .btn,
+.btn-table-action {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  transition: all var(--transition-fast);
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+/* View button (Info/Blue) */
+.table-actions .btn-view,
+.action-buttons .btn-view,
+.btn-table-action.btn-view {
+  color: var(--info-color);
+}
+
+.table-actions .btn-view:hover,
+.action-buttons .btn-view:hover,
+.btn-table-action.btn-view:hover {
+  background-color: var(--info-bg);
+  border-color: var(--info-border);
+  color: var(--info-color);
+}
+
+/* Edit button (Primary/Blue) */
+.table-actions .btn-edit,
+.action-buttons .btn-edit,
+.btn-table-action.btn-edit {
+  color: var(--primary-color);
+}
+
+.table-actions .btn-edit:hover,
+.action-buttons .btn-edit:hover,
+.btn-table-action.btn-edit:hover {
+  background-color: var(--primary-light);
+  border-color: var(--primary-border);
+  color: var(--primary-color);
+}
+
+/* Delete button (Danger/Red) */
+.table-actions .btn-delete,
+.action-buttons .btn-delete,
+.btn-table-action.btn-delete {
+  color: var(--danger-color);
+}
+
+.table-actions .btn-delete:hover,
+.action-buttons .btn-delete:hover,
+.btn-table-action.btn-delete:hover {
+  background-color: var(--danger-bg);
+  border-color: var(--danger-border);
+  color: var(--danger-color);
+}
+
+/* Additional action button variants */
+.table-actions .btn-success,
+.action-buttons .btn-success,
+.btn-table-action.btn-success {
+  color: var(--success-color);
+}
+
+.table-actions .btn-success:hover,
+.action-buttons .btn-success:hover,
+.btn-table-action.btn-success:hover {
+  background-color: var(--success-bg);
+  border-color: var(--success-border);
+  color: var(--success-color);
+}
+
+.table-actions .btn-warning,
+.action-buttons .btn-warning,
+.btn-table-action.btn-warning {
+  color: var(--warning-color);
+}
+
+.table-actions .btn-warning:hover,
+.action-buttons .btn-warning:hover,
+.btn-table-action.btn-warning:hover {
+  background-color: var(--warning-bg);
+  border-color: var(--warning-border);
+  color: var(--warning-color);
+}
+
+/* Focus state for accessibility */
+.table-actions .btn:focus,
+.action-buttons .btn:focus,
+.btn-table-action:focus {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+/* Disabled action buttons */
+.table-actions .btn:disabled,
+.action-buttons .btn:disabled,
+.btn-table-action:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+
+/* ============================================
+   6.4 EMPTY TABLE STATE
+   ============================================ */
+
+/* Empty state container */
+.table-empty-state,
+.empty-table-state {
+  padding: 48px 24px;
+  text-align: center;
+  background-color: var(--background);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+}
+
+/* Empty state icon */
+.table-empty-state .empty-icon,
+.empty-table-state .empty-icon {
+  font-size: 48px;
+  color: var(--text-tertiary);
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+/* Empty state message */
+.table-empty-state .empty-message,
+.empty-table-state .empty-message {
+  font-size: var(--font-size-lg);
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+/* Empty state subtext */
+.table-empty-state .empty-subtext,
+.empty-table-state .empty-subtext {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  line-height: var(--line-height-relaxed);
+}
+
+/* Empty state action button */
+.table-empty-state .btn,
+.empty-table-state .btn {
+  margin-top: 8px;
+}
+
+/* Empty state in table body */
+.table tbody tr.empty-row,
+table tbody tr.empty-row {
+  background-color: var(--background);
+}
+
+.table tbody tr.empty-row:hover,
+table tbody tr.empty-row:hover {
+  background-color: var(--background);
+  cursor: default;
+}
+
+.table tbody tr.empty-row td,
+table tbody tr.empty-row td {
+  padding: 48px 24px;
+  text-align: center;
+  border: none;
+}
+
+
+/* ============================================
+   6.5 TABLE TOOLBAR AND FOOTER
+   ============================================ */
+
+/* Table toolbar (above table) */
+.table-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: var(--background);
+  border: 1px solid var(--border-light);
+  border-bottom: none;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Toolbar title */
+.table-toolbar .toolbar-title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Toolbar left section */
+.table-toolbar .toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+/* Toolbar right section */
+.table-toolbar .toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Toolbar search input */
+.table-toolbar .toolbar-search {
+  position: relative;
+  min-width: 200px;
+}
+
+.table-toolbar .toolbar-search input {
+  width: 100%;
+  padding-left: 36px;
+  height: 36px;
+}
+
+.table-toolbar .toolbar-search::before {
+  content: '🔍';
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-tertiary);
+  pointer-events: none;
+}
+
+/* Toolbar filter buttons */
+.table-toolbar .toolbar-filters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Toolbar action buttons */
+.table-toolbar .toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Table with toolbar - remove top border radius */
+.table-toolbar + .table-responsive .table,
+.table-toolbar + table {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* Table footer (below table) */
+.table-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: var(--background);
+  border: 1px solid var(--border-light);
+  border-top: none;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Footer info text */
+.table-footer .footer-info {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+/* Pagination controls */
+.table-pagination,
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.table-pagination li,
+.pagination li {
+  display: inline-block;
+}
+
+.table-pagination a,
+.table-pagination button,
+.pagination a,
+.pagination button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 8px;
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  background-color: var(--background);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.table-pagination a:hover,
+.table-pagination button:hover,
+.pagination a:hover,
+.pagination button:hover {
+  background-color: var(--background-hover);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.table-pagination .active a,
+.table-pagination .active button,
+.pagination .active a,
+.pagination .active button {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--text-inverse);
+  pointer-events: none;
+}
+
+.table-pagination .disabled a,
+.table-pagination .disabled button,
+.pagination .disabled a,
+.pagination .disabled button {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Pagination with ellipsis */
+.table-pagination .ellipsis,
+.pagination .ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  color: var(--text-tertiary);
+}
+
+/* Page size selector */
+.table-footer .page-size-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.table-footer .page-size-selector select {
+  width: auto;
+  height: 32px;
+  padding: 4px 28px 4px 8px;
+  font-size: var(--font-size-sm);
+}
+
+
+/* ============================================
+   6.6 RESPONSIVE TABLE BEHAVIOR
+   ============================================ */
+
+/* Responsive table wrapper */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+}
+
+.table-responsive .table,
+.table-responsive table {
+  margin-bottom: 0;
+  border: none;
+}
+
+/* Remove border radius from table inside responsive wrapper */
+.table-responsive .table,
+.table-responsive table {
+  border-radius: 0;
+}
+
+/* Scrollbar styling for responsive tables */
+.table-responsive::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+  background-color: var(--background-secondary);
+  border-radius: var(--radius-sm);
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: var(--radius-sm);
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+  background-color: var(--border-dark);
+}
+
+/* Mobile responsive styles */
+@media (max-width: 767px) {
+  /* Reduce padding on mobile */
+  .table thead th,
+  table thead th,
+  .table tbody td,
+  table tbody td {
+    padding: 8px 12px;
+    font-size: var(--font-size-sm);
+  }
+  
+  /* Condensed table on mobile */
+  .table-condensed thead th,
+  table.table-condensed thead th,
+  .table-condensed tbody td,
+  table.table-condensed tbody td {
+    padding: 6px 8px;
+    font-size: var(--font-size-xs);
+  }
+  
+  /* Stack toolbar vertically */
+  .table-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  
+  .table-toolbar .toolbar-left,
+  .table-toolbar .toolbar-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .table-toolbar .toolbar-search {
+    width: 100%;
+    min-width: auto;
+  }
+  
+  .table-toolbar .toolbar-filters,
+  .table-toolbar .toolbar-actions {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  /* Stack footer vertically */
+  .table-footer {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  
+  .table-footer .footer-info {
+    order: 1;
+    margin-bottom: 12px;
+  }
+  
+  .table-footer .table-pagination,
+  .table-footer .pagination {
+    order: 2;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .table-footer .page-size-selector {
+    order: 3;
+    justify-content: center;
+    margin-top: 12px;
+  }
+  
+  /* Ensure action buttons remain accessible on mobile */
+  .table-actions .btn,
+  .action-buttons .btn,
+  .btn-table-action {
+    min-width: 36px;
+    min-height: 36px;
+    width: 36px;
+    height: 36px;
+  }
+  
+  /* Hide less important columns on mobile (optional utility classes) */
+  .table th.hide-mobile,
+  .table td.hide-mobile,
+  table th.hide-mobile,
+  table td.hide-mobile {
+    display: none;
+  }
+  
+  /* Horizontal scroll indicator */
+  .table-responsive::after {
+    content: '← Scroll →';
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    font-size: 10px;
+    color: var(--text-tertiary);
+    background-color: var(--background-secondary);
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    pointer-events: none;
+    opacity: 0.7;
+  }
+}
+
+/* Tablet responsive styles */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Slightly reduce padding on tablet */
+  .table thead th,
+  table thead th,
+  .table tbody td,
+  table tbody td {
+    padding: 10px 14px;
+  }
+  
+  /* Adjust toolbar on tablet */
+  .table-toolbar .toolbar-search {
+    min-width: 180px;
+  }
+  
+  /* Hide optional columns on tablet */
+  .table th.hide-tablet,
+  .table td.hide-tablet,
+  table th.hide-tablet,
+  table td.hide-tablet {
+    display: none;
+  }
+}
+
+/* Desktop styles - full display */
+@media (min-width: 1024px) {
+  /* Full padding on desktop */
+  .table thead th,
+  table thead th,
+  .table tbody td,
+  table tbody td {
+    padding: 12px 16px;
+  }
+  
+  /* Wider search on desktop */
+  .table-toolbar .toolbar-search {
+    min-width: 250px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .table-toolbar,
+  .table-footer,
+  .table-actions,
+  .action-buttons {
+    display: none;
+  }
+  
+  .table,
+  table {
+    border: 1px solid var(--border-color);
+  }
+  
+  .table thead th,
+  table thead th {
+    background-color: var(--background-secondary) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

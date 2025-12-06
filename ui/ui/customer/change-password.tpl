@@ -1,40 +1,48 @@
 {include file="customer/header.tpl"}
 <!-- user-change-password -->
 
-<div class="row">
-    <div class="col-sm-12 col-md-12">
-        <div class="panel panel-primary panel-hovered panel-stacked mb30">
-            <div class="panel-heading">{Lang::T('Change Password')}</div>
-            <div class="panel-body">
-                <form class="form-horizontal" method="post" role="form"
-                    action="{Text::url('accounts/change-password-post')}">
-                    <input type="hidden" name="csrf_token" value="{$csrf_token|escape:'html'}">
-                    <div class="form-group">
-                        <label class="col-md-2 control-label">{Lang::T('Current Password')}</label>
-                        <div class="col-md-6">
-                            <input type="password" class="form-control" id="password" name="password">
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title mb-0">{Lang::T('Change Password')}</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{Text::url('accounts/change-password-post')}">
+                        <input type="hidden" name="csrf_token" value="{$csrf_token|escape:'html'}">
+                        
+                        <div class="row mb-3">
+                            <label class="col-md-4 col-form-label">{Lang::T('Current Password')}</label>
+                            <div class="col-md-8">
+                                <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-2 control-label">{Lang::T('New Password')}</label>
-                        <div class="col-md-6">
-                            <input type="password" class="form-control" id="npass" name="npass">
+                        
+                        <div class="row mb-3">
+                            <label class="col-md-4 col-form-label">{Lang::T('New Password')}</label>
+                            <div class="col-md-8">
+                                <input type="password" class="form-control" id="npass" name="npass" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-2 control-label">{Lang::T('Confirm New Password')}</label>
-                        <div class="col-md-6">
-                            <input type="password" class="form-control" id="cnpass" name="cnpass">
+                        
+                        <div class="row mb-3">
+                            <label class="col-md-4 col-form-label">{Lang::T('Confirm New Password')}</label>
+                            <div class="col-md-8">
+                                <input type="password" class="form-control" id="cnpass" name="cnpass" required>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <div class="col-lg-offset-2 col-lg-10">
-                            <button class="btn btn-success" type="submit">{Lang::T('Save Changes')}</button>
-                            Or <a href="{Text::url('home')}">{Lang::T('Cancel')}</a>
+                        <div class="row">
+                            <div class="col-md-8 offset-md-4">
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-success" type="submit">{Lang::T('Save Changes')}</button>
+                                    <a href="{Text::url('home')}" class="btn btn-outline-secondary">{Lang::T('Cancel')}</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

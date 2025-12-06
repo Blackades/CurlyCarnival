@@ -1,69 +1,72 @@
 {include file="customer/header.tpl"}
-<!-- user-orderPlan -->
-<div class="row">
-    <div class="col-sm-12">
-        {if $_c['enable_balance'] == 'yes'}
-            <div class="box box-solid box-success bg-gray-light balance-package-container">
-                <div class="box-header">{Lang::T('Buy Balance Package')}</div>
-                <div class="box-body row">
-                    {foreach $plans_balance as $plan}
-                        <div class="col col-md-4">
-                            <div class="box box-solid box-default balance-plan-card">
-                                <div class="box-header text-bold">{$plan['name_plan']}</div>
-                                <div class="table-responsive">
-                                    <div style="margin-left: 5px; margin-right: 5px;">
-                                        <table class="table table-bordered table-striped">
-                                            <tbody>
-                                                <tr>
-                                                    <td>{Lang::T('Price')}</td>
-                                                    <td>{Lang::moneyFormat($plan['price'])}
-                                                        {if !empty($plan['price_old'])}
-                                                            <sup
-                                                                style="text-decoration: line-through; color: red">{Lang::moneyFormat($plan['price_old'])}</sup>
-                                                        {/if}
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="box-body">
-                                    <a href="{Text::url('order/gateway/0/')}{$plan['id']}"
-                                        onclick="return ask(this, '{Lang::T('Buy Balance')}?')"
-                                        class="btn btn-sm btn-block btn-primary btn-buy">{Lang::T('Buy')}</a>
-                                </div>
-                            </div>
+
+<!-- Balance Package Order -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            {if $_c['enable_balance'] == 'yes'}
+                <div class="page-header mb-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h1 class="page-title">{Lang::T('Buy Balance Package')}</h1>
                         </div>
-                    {/foreach}
-                    {if $_c['allow_balance_custom'] eq 'yes'}
-                        <div class="col col-md-4">
-                            <form action="{Text::url('order/gateway/0/0')}" method="post">
-                                <input type="hidden" name="custom" value="1">
-                                <div class="box box-solid box-default balance-plan-card custom-balance-card">
-                                    <div class="box-header text-bold">{Lang::T('Custom Balance')}</div>
-                                    <div class="table-responsive">
-                                        <div style="margin-left: 5px; margin-right: 5px;">
-                                            <table class="table table-bordered table-striped">
-                                                <tbody>
-                                                    <tr>
-                                                        <input type="number" name="amount" id="amount" class="form-control"
-                                                            placeholder="{Lang::T('Input Desired Amount')}">
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                    </div>
+                </div>
+                
+                <div class="balance-plans-container">
+                    <div class="row">
+                        {foreach $plans_balance as $plan}
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="card plan-card h-100">
+                                    <div class="card-header text-center">
+                                        <h3 class="card-title mb-0">{$plan['name_plan']}</h3>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <div class="price-display mb-3">
+                                            <div class="price-amount">
+                                                {Lang::moneyFormat($plan['price'])}
+                                                {if !empty($plan['price_old'])}
+                                                    <small class="text-muted text-decoration-line-through ms-2">{Lang::moneyFormat($plan['price_old'])}</small>
+                                                {/if}
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="box-body">
-                                        <button onclick="return ask(this, '{Lang::T('Buy Balance')}?')"
-                                            class="btn btn-sm btn-block btn-primary btn-buy">{Lang::T('Buy')}</button>
+                                    <div class="card-footer">
+                                        <a href="{Text::url('order/gateway/0/')}{$plan['id']}"
+                                            onclick="return ask(this, '{Lang::T('Buy Balance')}?')"
+                                            class="btn btn-primary btn-block">{Lang::T('Buy')}</a>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-                    {/if}
+                            </div>
+                        {/foreach}
+                        
+                        {if $_c['allow_balance_custom'] eq 'yes'}
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <form action="{Text::url('order/gateway/0/0')}" method="post">
+                                    <input type="hidden" name="custom" value="1">
+                                    <div class="card plan-card h-100 custom-balance-card">
+                                        <div class="card-header text-center">
+                                            <h3 class="card-title mb-0">{Lang::T('Custom Balance')}</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <label for="amount" class="form-label">{Lang::T('Amount')}</label>
+                                                <input type="number" name="amount" id="amount" class="form-control"
+                                                    placeholder="{Lang::T('Input Desired Amount')}" required>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button type="submit" onclick="return ask(this, '{Lang::T('Buy Balance')}?')"
+                                                class="btn btn-primary btn-block">{Lang::T('Buy')}</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        {/if}
+                    </div>
                 </div>
-            </div>
-        {/if}
+            {/if}
+        </div>
     </div>
 </div>
 {include file="customer/footer.tpl"}

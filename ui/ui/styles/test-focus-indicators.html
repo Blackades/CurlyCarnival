@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Indicators Test - PHPNuxBill Modern Design</title>
+    <link rel="stylesheet" href="phpnuxbill-modern.css">
+    <style>
+        body {
+            padding: 20px;
+            font-family: var(--font-family);
+        }
+        .test-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+        }
+        .test-section h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+        .focus-instructions {
+            background: var(--info-bg);
+            border: 1px solid var(--info-border);
+            padding: 16px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 20px;
+        }
+        .focus-instructions h3 {
+            margin-top: 0;
+            color: var(--info-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="focus-instructions">
+        <h3>🎯 Focus Indicators Testing Instructions</h3>
+        <p><strong>Use Tab key to navigate through all interactive elements.</strong> Each element should show a clear, visible focus ring when focused.</p>
+        <ul>
+            <li><kbd>Tab</kbd> - Move to next focusable element</li>
+            <li><kbd>Shift + Tab</kbd> - Move to previous focusable element</li>
+            <li><kbd>Enter</kbd> or <kbd>Space</kbd> - Activate buttons and links</li>
+            <li><kbd>Arrow keys</kbd> - Navigate within button groups and menus</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>Button Focus Indicators</h2>
+        <div class="test-grid">
+            <div>
+                <h4>Primary Buttons</h4>
+                <button class="btn btn-primary">Primary Button</button>
+                <button class="btn btn-success">Success Button</button>
+                <button class="btn btn-warning">Warning Button</button>
+                <button class="btn btn-danger">Danger Button</button>
+                <button class="btn btn-info">Info Button</button>
+                <button class="btn btn-default">Default Button</button>
+            </div>
+            <div>
+                <h4>Outline Buttons</h4>
+                <button class="btn btn-outline-primary">Outline Primary</button>
+                <button class="btn btn-outline-success">Outline Success</button>
+                <button class="btn btn-outline-warning">Outline Warning</button>
+                <button class="btn btn-outline-danger">Outline Danger</button>
+            </div>
+            <div>
+                <h4>Button Sizes</h4>
+                <button class="btn btn-primary btn-xs">Extra Small</button>
+                <button class="btn btn-primary btn-sm">Small</button>
+                <button class="btn btn-primary">Default</button>
+                <button class="btn btn-primary btn-lg">Large</button>
+            </div>
+            <div>
+                <h4>Icon Buttons</h4>
+                <button class="btn btn-primary btn-icon">🔍</button>
+                <button class="btn btn-success btn-icon">✓</button>
+                <button class="btn btn-danger btn-icon">✕</button>
+                <button class="btn btn-warning btn-icon">⚠</button>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px;">
+            <h4>Button Groups</h4>
+            <div class="btn-group">
+                <button class="btn btn-default">First</button>
+                <button class="btn btn-default">Second</button>
+                <button class="btn btn-default">Third</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Form Element Focus Indicators</h2>
+        <div class="test-grid">
+            <div>
+                <h4>Text Inputs</h4>
+                <div class="form-group">
+                    <label for="text-input">Text Input</label>
+                    <input type="text" id="text-input" class="form-control" placeholder="Enter text">
+                </div>
+                <div class="form-group">
+                    <label for="email-input">Email Input</label>
+                    <input type="email" id="email-input" class="form-control" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="password-input">Password Input</label>
+                    <input type="password" id="password-input" class="form-control" placeholder="Enter password">
+                </div>
+            </div>
+            <div>
+                <h4>Select and Textarea</h4>
+                <div class="form-group">
+                    <label for="select-input">Select Dropdown</label>
+                    <select id="select-input" class="form-control">
+                        <option>Option 1</option>
+                        <option>Option 2</option>
+                        <option>Option 3</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="textarea-input">Textarea</label>
+                    <textarea id="textarea-input" class="form-control" rows="3" placeholder="Enter message"></textarea>
+                </div>
+            </div>
+            <div>
+                <h4>Checkboxes and Radios</h4>
+                <div class="checkbox">
+                    <input type="checkbox" id="checkbox1">
+                    <label for="checkbox1">Checkbox Option 1</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="checkbox2">
+                    <label for="checkbox2">Checkbox Option 2</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" id="radio1" name="radio-group">
+                    <label for="radio1">Radio Option 1</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" id="radio2" name="radio-group">
+                    <label for="radio2">Radio Option 2</label>
+                </div>
+            </div>
+            <div>
+                <h4>Validation States</h4>
+                <div class="form-group has-error">
+                    <label for="error-input">Error State</label>
+                    <input type="text" id="error-input" class="form-control" value="Invalid input">
+                    <div class="help-block">This field has an error</div>
+                </div>
+                <div class="form-group has-success">
+                    <label for="success-input">Success State</label>
+                    <input type="text" id="success-input" class="form-control" value="Valid input">
+                    <div class="help-block">This field is valid</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Navigation Focus Indicators</h2>
+        <div class="test-grid">
+            <div>
+                <h4>Breadcrumb Navigation</h4>
+                <nav class="breadcrumb">
+                    <div class="breadcrumb-item"><a href="#">Home</a></div>
+                    <div class="breadcrumb-item"><a href="#">Category</a></div>
+                    <div class="breadcrumb-item active">Current Page</div>
+                </nav>
+            </div>
+            <div>
+                <h4>Top Navigation</h4>
+                <nav class="navbar">
+                    <div class="navbar-brand">Brand</div>
+                    <ul class="navbar-nav">
+                        <li class="navbar-nav-item">
+                            <a href="#" class="navbar-nav-link">Home</a>
+                        </li>
+                        <li class="navbar-nav-item">
+                            <a href="#" class="navbar-nav-link active">Active</a>
+                        </li>
+                        <li class="navbar-nav-item">
+                            <a href="#" class="navbar-nav-link">About</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div>
+                <h4>Dropdown Menu</h4>
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" onclick="toggleDropdown(this)">
+                        Dropdown Menu
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" class="dropdown-item">Action 1</a></li>
+                        <li><a href="#" class="dropdown-item">Action 2</a></li>
+                        <li><div class="dropdown-divider"></div></li>
+                        <li><a href="#" class="dropdown-item">Separated Action</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <h4>Sidebar Menu Sample</h4>
+                <div style="background: var(--background); border: 1px solid var(--border-light); border-radius: var(--radius-sm); padding: 16px;">
+                    <ul class="sidebar-menu">
+                        <li class="sidebar-menu-item">
+                            <a href="#" class="sidebar-menu-link">
+                                <span class="sidebar-menu-icon">🏠</span>
+                                <span class="sidebar-menu-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a href="#" class="sidebar-menu-link active">
+                                <span class="sidebar-menu-icon">👥</span>
+                                <span class="sidebar-menu-text">Users</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a href="#" class="sidebar-menu-link">
+                                <span class="sidebar-menu-icon">⚙️</span>
+                                <span class="sidebar-menu-text">Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Table Focus Indicators</h2>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="sortable">Name</th>
+                        <th class="sortable">Email</th>
+                        <th class="sortable">Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td><span class="badge badge-success">Active</span></td>
+                        <td>
+                            <div class="table-actions">
+                                <button class="btn btn-table-action btn-view" title="View">👁</button>
+                                <button class="btn btn-table-action btn-edit" title="Edit">✏️</button>
+                                <button class="btn btn-table-action btn-delete" title="Delete">🗑</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td><span class="badge badge-warning">Pending</span></td>
+                        <td>
+                            <div class="table-actions">
+                                <button class="btn btn-table-action btn-view" title="View">👁</button>
+                                <button class="btn btn-table-action btn-edit" title="Edit">✏️</button>
+                                <button class="btn btn-table-action btn-delete" title="Delete">🗑</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="margin-top: 16px;">
+            <h4>Pagination</h4>
+            <ul class="pagination">
+                <li><a href="#">‹ Previous</a></li>
+                <li><a href="#">1</a></li>
+                <li class="active"><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">Next ›</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Alert Focus Indicators</h2>
+        <div class="test-grid">
+            <div>
+                <div class="alert alert-success alert-dismissible">
+                    <div class="alert-icon">✓</div>
+                    <div class="alert-content">
+                        <div class="alert-title">Success!</div>
+                        <div class="alert-message">Your action was completed successfully.</div>
+                    </div>
+                    <button class="alert-close" onclick="this.parentElement.remove()">✕</button>
+                </div>
+            </div>
+            <div>
+                <div class="alert alert-warning alert-dismissible">
+                    <div class="alert-icon">⚠</div>
+                    <div class="alert-content">
+                        <div class="alert-title">Warning!</div>
+                        <div class="alert-message">Please review your input before proceeding.</div>
+                    </div>
+                    <button class="alert-close" onclick="this.parentElement.remove()">✕</button>
+                </div>
+            </div>
+            <div>
+                <div class="alert alert-danger alert-dismissible">
+                    <div class="alert-icon">✕</div>
+                    <div class="alert-content">
+                        <div class="alert-title">Error!</div>
+                        <div class="alert-message">An error occurred while processing your request.</div>
+                    </div>
+                    <button class="alert-close" onclick="this.parentElement.remove()">✕</button>
+                </div>
+            </div>
+            <div>
+                <div class="alert alert-info alert-dismissible">
+                    <div class="alert-icon">ℹ</div>
+                    <div class="alert-content">
+                        <div class="alert-title">Information</div>
+                        <div class="alert-message">Here's some helpful information for you.</div>
+                    </div>
+                    <button class="alert-close" onclick="this.parentElement.remove()">✕</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Modal Focus Indicators</h2>
+        <button class="btn btn-primary" onclick="openModal()">Open Test Modal</button>
+        
+        <!-- Modal -->
+        <div class="modal" id="testModal">
+            <div class="modal-backdrop"></div>
+            <div class="modal-dialog">
+                <div class="modal-header">
+                    <h3 class="modal-title">Test Modal</h3>
+                    <button class="modal-close" onclick="closeModal()">✕</button>
+                </div>
+                <div class="modal-body">
+                    <p>This modal tests focus trapping. Use Tab to navigate through the focusable elements.</p>
+                    <div class="form-group">
+                        <label for="modal-input">Input Field</label>
+                        <input type="text" id="modal-input" class="form-control" placeholder="Test input">
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-select">Select Field</label>
+                        <select id="modal-select" class="form-control">
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" onclick="closeModal()">Cancel</button>
+                    <button class="btn btn-primary">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Link Focus Indicators</h2>
+        <div class="test-grid">
+            <div>
+                <h4>Regular Links</h4>
+                <p><a href="#">Regular link</a> in paragraph text.</p>
+                <p><a href="#" class="btn btn-link">Button-styled link</a></p>
+            </div>
+            <div>
+                <h4>Links in Different Contexts</h4>
+                <div style="background: var(--primary-color); color: white; padding: 16px; border-radius: var(--radius-sm);">
+                    <p><a href="#" style="color: white;">Link on dark background</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts/focus-management.js"></script>
+    <script>
+        function toggleDropdown(button) {
+            const dropdown = button.closest('.dropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        function openModal() {
+            const modal = document.getElementById('testModal');
+            modal.classList.add('show');
+            // Focus first input
+            setTimeout(() => {
+                modal.querySelector('input').focus();
+            }, 100);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('testModal');
+            modal.classList.remove('show');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown.show').forEach(dropdown => {
+                    dropdown.classList.remove('show');
+                });
+            }
+        });
+
+        // Close modal when clicking backdrop
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal-backdrop')) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

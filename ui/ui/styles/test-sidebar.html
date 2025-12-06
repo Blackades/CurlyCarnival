@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Navigation Test - PHPNuxBill Modern Design</title>
+    <link rel="stylesheet" href="phpnuxbill-modern.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-family);
+        }
+        
+        .main-content {
+            margin-left: 240px;
+            padding: var(--spacing-xl);
+            min-height: 100vh;
+            background: var(--background-secondary);
+        }
+        
+        @media (max-width: 767px) {
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Mobile hamburger button -->
+    <button class="sidebar-toggle" id="sidebarToggle">
+        <div class="sidebar-toggle-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+
+    <!-- Sidebar backdrop for mobile -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <!-- User Panel -->
+        <div class="sidebar-user-panel">
+            <img src="https://via.placeholder.com/48x48/1890ff/ffffff?text=JD" alt="User Avatar" class="sidebar-user-image">
+            <div class="sidebar-user-info">
+                <h4 class="sidebar-user-name">John Doe</h4>
+                <p class="sidebar-user-status online">Online</p>
+            </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <div class="sidebar-menu-group">
+            <h5 class="sidebar-section-header">Main Navigation</h5>
+            <ul class="sidebar-menu">
+                <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-link active">
+                        <div class="sidebar-menu-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <span class="sidebar-menu-text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-link">
+                        <div class="sidebar-menu-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <span class="sidebar-menu-text">Customers</span>
+                        <span class="sidebar-menu-badge">24</span>
+                    </a>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-link">
+                        <div class="sidebar-menu-icon">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                        <span class="sidebar-menu-text">Hotspot</span>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li class="sidebar-menu-item">
+                            <a href="#" class="sidebar-menu-link">
+                                <div class="sidebar-menu-icon">
+                                    <i class="fas fa-circle"></i>
+                                </div>
+                                <span class="sidebar-menu-text">Active Sessions</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a href="#" class="sidebar-menu-link">
+                                <div class="sidebar-menu-icon">
+                                    <i class="fas fa-circle"></i>
+                                </div>
+                                <span class="sidebar-menu-text">User Profiles</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-link">
+                        <div class="sidebar-menu-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <span class="sidebar-menu-text">Billing</span>
+                        <span class="sidebar-menu-badge warning">!</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <hr class="sidebar-divider">
+
+        <div class="sidebar-menu-group">
+            <h5 class="sidebar-section-header">System</h5>
+            <ul class="sidebar-menu">
+                <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-link">
+                        <div class="sidebar-menu-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <span class="sidebar-menu-text">Settings</span>
+                    </a>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-link">
+                        <div class="sidebar-menu-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <span class="sidebar-menu-text">Reports</span>
+                    </a>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-link disabled">
+                        <div class="sidebar-menu-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <span class="sidebar-menu-text">Backup (Disabled)</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <hr class="sidebar-divider">
+
+        <div class="sidebar-menu-group">
+            <ul class="sidebar-menu">
+                <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-link">
+                        <div class="sidebar-menu-icon">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </div>
+                        <span class="sidebar-menu-text">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Top Navigation Bar -->
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <i class="fas fa-bolt" style="margin-right: 8px; color: var(--primary-color);"></i>
+                PHPNuxBill
+            </div>
+            <ul class="navbar-nav">
+                <li class="navbar-nav-item">
+                    <a href="#" class="navbar-nav-link">
+                        <i class="fas fa-bell"></i>
+                    </a>
+                </li>
+                <li class="navbar-nav-item dropdown">
+                    <a href="#" class="navbar-nav-link dropdown-toggle">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" class="dropdown-item">My Profile</a></li>
+                        <li><a href="#" class="dropdown-item">Settings</a></li>
+                        <li class="dropdown-divider"></li>
+                        <li><a href="#" class="dropdown-item">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Overview</li>
+            </ol>
+        </nav>
+
+        <!-- Page Content -->
+        <div class="container-fluid">
+            <h1>Sidebar Navigation Test</h1>
+            <p>This page demonstrates the sidebar navigation system with the following features:</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-header">
+                            <h3>Desktop Features</h3>
+                        </div>
+                        <div class="panel-body">
+                            <ul>
+                                <li>Fixed sidebar with 240px width</li>
+                                <li>User panel with avatar and status</li>
+                                <li>Menu items with icons and hover states</li>
+                                <li>Active state with blue accent</li>
+                                <li>Submenu items with indentation</li>
+                                <li>Section headers and dividers</li>
+                                <li>Badge notifications</li>
+                                <li>Disabled menu items</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-header">
+                            <h3>Mobile Features</h3>
+                        </div>
+                        <div class="panel-body">
+                            <ul>
+                                <li>Hamburger menu button (44x44px)</li>
+                                <li>Slide-in/out animation</li>
+                                <li>Backdrop overlay</li>
+                                <li>Touch-friendly menu items (48px height)</li>
+                                <li>Responsive behavior</li>
+                            </ul>
+                            <p><strong>Test:</strong> Resize your browser to mobile width (&lt;768px) to see the mobile navigation in action.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Mobile sidebar toggle functionality
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('show');
+            sidebarBackdrop.classList.toggle('show');
+            sidebarToggle.classList.toggle('active');
+        }
+
+        sidebarToggle.addEventListener('click', toggleSidebar);
+        sidebarBackdrop.addEventListener('click', toggleSidebar);
+
+        // Close sidebar on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && sidebar.classList.contains('show')) {
+                toggleSidebar();
+            }
+        });
+
+        // Dropdown functionality
+        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const dropdown = this.closest('.dropdown');
+                dropdown.classList.toggle('show');
+            });
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown.show').forEach(dropdown => {
+                    dropdown.classList.remove('show');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

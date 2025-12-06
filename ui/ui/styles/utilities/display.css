@@ -1,0 +1,476 @@
+/**
+ * PHPNuxBill Modern Design System
+ * Display and Layout Utilities
+ */
+
+/* ========================================
+   DISPLAY UTILITIES
+   ======================================== */
+.d-none { display: none; }
+.d-block { display: block; }
+.d-inline { display: inline; }
+.d-inline-block { display: inline-block; }
+.d-flex { display: flex; }
+.d-inline-flex { display: inline-flex; }
+.d-grid { display: grid; }
+.d-inline-grid { display: inline-grid; }
+
+/* ========================================
+   FLEXBOX UTILITIES
+   ======================================== */
+
+/* Flex Direction */
+.flex-row { flex-direction: row; }
+.flex-row-reverse { flex-direction: row-reverse; }
+.flex-col { flex-direction: column; }
+.flex-col-reverse { flex-direction: column-reverse; }
+
+/* Flex Wrap */
+.flex-wrap { flex-wrap: wrap; }
+.flex-nowrap { flex-wrap: nowrap; }
+.flex-wrap-reverse { flex-wrap: wrap-reverse; }
+
+/* Justify Content */
+.justify-start { justify-content: flex-start; }
+.justify-end { justify-content: flex-end; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+.justify-evenly { justify-content: space-evenly; }
+
+/* Align Items */
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+.items-center { align-items: center; }
+.items-baseline { align-items: baseline; }
+.items-stretch { align-items: stretch; }
+
+/* Align Content */
+.content-start { align-content: flex-start; }
+.content-end { align-content: flex-end; }
+.content-center { align-content: center; }
+.content-between { align-content: space-between; }
+.content-around { align-content: space-around; }
+.content-stretch { align-content: stretch; }
+
+/* Align Self */
+.self-auto { align-self: auto; }
+.self-start { align-self: flex-start; }
+.self-end { align-self: flex-end; }
+.self-center { align-self: center; }
+.self-stretch { align-self: stretch; }
+
+/* Flex Grow and Shrink */
+.flex-1 { flex: 1 1 0%; }
+.flex-auto { flex: 1 1 auto; }
+.flex-initial { flex: 0 1 auto; }
+.flex-none { flex: none; }
+
+.flex-grow-0 { flex-grow: 0; }
+.flex-grow { flex-grow: 1; }
+
+.flex-shrink-0 { flex-shrink: 0; }
+.flex-shrink { flex-shrink: 1; }
+
+/* ========================================
+   POSITION UTILITIES
+   ======================================== */
+.position-static { position: static; }
+.position-relative { position: relative; }
+.position-absolute { position: absolute; }
+.position-fixed { position: fixed; }
+.position-sticky { position: sticky; }
+
+/* Position Shortcuts */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed { position: fixed; }
+.sticky { position: sticky; }
+
+/* ========================================
+   OVERFLOW UTILITIES
+   ======================================== */
+.overflow-auto { overflow: auto; }
+.overflow-hidden { overflow: hidden; }
+.overflow-visible { overflow: visible; }
+.overflow-scroll { overflow: scroll; }
+
+.overflow-x-auto { overflow-x: auto; }
+.overflow-x-hidden { overflow-x: hidden; }
+.overflow-x-visible { overflow-x: visible; }
+.overflow-x-scroll { overflow-x: scroll; }
+
+.overflow-y-auto { overflow-y: auto; }
+.overflow-y-hidden { overflow-y: hidden; }
+.overflow-y-visible { overflow-y: visible; }
+.overflow-y-scroll { overflow-y: scroll; }
+
+/* ========================================
+   VISIBILITY UTILITIES
+   ======================================== */
+.visible { visibility: visible; }
+.invisible { visibility: hidden; }
+
+/* ========================================
+   Z-INDEX UTILITIES
+   ======================================== */
+.z-0 { z-index: 0; }
+.z-10 { z-index: 10; }
+.z-20 { z-index: 20; }
+.z-30 { z-index: 30; }
+.z-40 { z-index: 40; }
+.z-50 { z-index: 50; }
+.z-dropdown { z-index: var(--z-dropdown); }
+.z-sticky { z-index: var(--z-sticky); }
+.z-fixed { z-index: var(--z-fixed); }
+.z-modal { z-index: var(--z-modal); }
+.z-tooltip { z-index: var(--z-tooltip); }
+
+/* ========================================
+   WIDTH UTILITIES
+   ======================================== */
+.w-auto { width: auto; }
+.w-full { width: 100%; }
+.w-screen { width: 100vw; }
+.w-min { width: min-content; }
+.w-max { width: max-content; }
+.w-fit { width: fit-content; }
+
+.w-25 { width: 25%; }
+.w-50 { width: 50%; }
+.w-75 { width: 75%; }
+
+/* ========================================
+   HEIGHT UTILITIES
+   ======================================== */
+.h-auto { height: auto; }
+.h-full { height: 100%; }
+.h-screen { height: 100vh; }
+.h-min { height: min-content; }
+.h-max { height: max-content; }
+.h-fit { height: fit-content; }
+
+.h-25 { height: 25%; }
+.h-50 { height: 50%; }
+.h-75 { height: 75%; }
+
+/* ========================================
+   MIN/MAX WIDTH AND HEIGHT
+   ======================================== */
+.min-w-0 { min-width: 0; }
+.min-w-full { min-width: 100%; }
+.max-w-full { max-width: 100%; }
+
+.min-h-0 { min-height: 0; }
+.min-h-full { min-height: 100%; }
+.min-h-screen { min-height: 100vh; }
+.max-h-full { max-height: 100%; }
+.max-h-screen { max-height: 100vh; }
+
+/* ========================================
+   CURSOR UTILITIES
+   ======================================== */
+.cursor-auto { cursor: auto; }
+.cursor-pointer { cursor: pointer; }
+.cursor-not-allowed { cursor: not-allowed; }
+.cursor-move { cursor: move; }
+.cursor-text { cursor: text; }
+
+/* ========================================
+   POINTER EVENTS
+   ======================================== */
+.pointer-events-none { pointer-events: none; }
+.pointer-events-auto { pointer-events: auto; }
+
+/* ========================================
+   USER SELECT
+   ======================================== */
+.select-none { user-select: none; }
+.select-text { user-select: text; }
+.select-all { user-select: all; }
+.select-auto { user-select: auto; }
+
+/* ========================================
+   RESPONSIVE VISIBILITY UTILITIES
+   Mobile-first approach
+   ======================================== */
+
+/* Hide on all screen sizes */
+.hidden {
+  display: none !important;
+}
+
+/* Show on all screen sizes */
+.visible {
+  display: block !important;
+}
+
+/* ========================================
+   MOBILE (< 768px) - XS
+   ======================================== */
+
+/* Hidden on mobile */
+.hidden-xs {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .hidden-xs {
+    display: block !important;
+  }
+}
+
+/* Visible only on mobile */
+.visible-xs {
+  display: block !important;
+}
+
+@media (min-width: 768px) {
+  .visible-xs {
+    display: none !important;
+  }
+}
+
+/* ========================================
+   TABLET (768px - 1023px) - SM
+   ======================================== */
+
+/* Hidden on tablet and up */
+.hidden-sm {
+  display: block !important;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hidden-sm {
+    display: none !important;
+  }
+}
+
+/* Visible only on tablet */
+.visible-sm {
+  display: none !important;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .visible-sm {
+    display: block !important;
+  }
+}
+
+/* Hidden on tablet and up (including desktop) */
+.hidden-sm-up {
+  display: block !important;
+}
+
+@media (min-width: 768px) {
+  .hidden-sm-up {
+    display: none !important;
+  }
+}
+
+/* Visible on tablet and up */
+.visible-sm-up {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .visible-sm-up {
+    display: block !important;
+  }
+}
+
+/* ========================================
+   DESKTOP (1024px - 1439px) - MD
+   ======================================== */
+
+/* Hidden on desktop */
+.hidden-md {
+  display: block !important;
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .hidden-md {
+    display: none !important;
+  }
+}
+
+/* Visible only on desktop */
+.visible-md {
+  display: none !important;
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .visible-md {
+    display: block !important;
+  }
+}
+
+/* Hidden on desktop and up */
+.hidden-md-up {
+  display: block !important;
+}
+
+@media (min-width: 1024px) {
+  .hidden-md-up {
+    display: none !important;
+  }
+}
+
+/* Visible on desktop and up */
+.visible-md-up {
+  display: none !important;
+}
+
+@media (min-width: 1024px) {
+  .visible-md-up {
+    display: block !important;
+  }
+}
+
+/* ========================================
+   LARGE DESKTOP (>= 1440px) - LG
+   ======================================== */
+
+/* Hidden on large desktop */
+.hidden-lg {
+  display: block !important;
+}
+
+@media (min-width: 1440px) {
+  .hidden-lg {
+    display: none !important;
+  }
+}
+
+/* Visible only on large desktop */
+.visible-lg {
+  display: none !important;
+}
+
+@media (min-width: 1440px) {
+  .visible-lg {
+    display: block !important;
+  }
+}
+
+/* ========================================
+   RESPONSIVE DISPLAY TYPE UTILITIES
+   ======================================== */
+
+/* Inline display variants */
+.visible-xs-inline,
+.visible-sm-inline,
+.visible-md-inline,
+.visible-lg-inline {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  .visible-xs-inline {
+    display: inline !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .visible-sm-inline {
+    display: inline !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .visible-md-inline {
+    display: inline !important;
+  }
+}
+
+@media (min-width: 1440px) {
+  .visible-lg-inline {
+    display: inline !important;
+  }
+}
+
+/* Inline-block display variants */
+.visible-xs-inline-block,
+.visible-sm-inline-block,
+.visible-md-inline-block,
+.visible-lg-inline-block {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  .visible-xs-inline-block {
+    display: inline-block !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .visible-sm-inline-block {
+    display: inline-block !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .visible-md-inline-block {
+    display: inline-block !important;
+  }
+}
+
+@media (min-width: 1440px) {
+  .visible-lg-inline-block {
+    display: inline-block !important;
+  }
+}
+
+/* Flex display variants */
+.visible-xs-flex,
+.visible-sm-flex,
+.visible-md-flex,
+.visible-lg-flex {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  .visible-xs-flex {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .visible-sm-flex {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .visible-md-flex {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 1440px) {
+  .visible-lg-flex {
+    display: flex !important;
+  }
+}
+
+/* ========================================
+   PRINT UTILITIES
+   ======================================== */
+
+@media print {
+  .hidden-print {
+    display: none !important;
+  }
+  
+  .visible-print {
+    display: block !important;
+  }
+  
+  .visible-print-inline {
+    display: inline !important;
+  }
+  
+  .visible-print-inline-block {
+    display: inline-block !important;
+  }
+}

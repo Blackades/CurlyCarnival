@@ -1,0 +1,666 @@
+/**
+ * PHPNuxBill Modern Design System
+ * Focus Indicators Enhancement
+ * 
+ * Comprehensive focus styling for all interactive elements
+ * Ensures WCAG 2.1 AA compliance for keyboard navigation
+ */
+
+/* ========================================
+   FOCUS RING VARIABLES
+   ======================================== */
+
+:root {
+  /* Enhanced focus ring colors for different contexts */
+  --focus-ring-primary: 0 0 0 3px rgba(24, 144, 255, 0.2);
+  --focus-ring-success: 0 0 0 3px rgba(82, 196, 26, 0.2);
+  --focus-ring-warning: 0 0 0 3px rgba(250, 173, 20, 0.2);
+  --focus-ring-danger: 0 0 0 3px rgba(245, 34, 45, 0.2);
+  --focus-ring-info: 0 0 0 3px rgba(24, 144, 255, 0.2);
+  
+  /* Focus ring for dark backgrounds */
+  --focus-ring-inverse: 0 0 0 3px rgba(255, 255, 255, 0.3);
+  
+  /* Focus ring thickness and style */
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 2px;
+  --focus-ring-style: solid;
+}
+
+/* ========================================
+   GLOBAL FOCUS RESET
+   ======================================== */
+
+/* Remove default browser focus outlines */
+*:focus {
+  outline: none;
+}
+
+/* Ensure focus is visible for keyboard users only */
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+/* ========================================
+   BUTTON FOCUS INDICATORS
+   ======================================== */
+
+/* Enhanced button focus styling */
+.btn:focus,
+.btn:focus-visible,
+button:focus,
+button:focus-visible,
+input[type="submit"]:focus,
+input[type="submit"]:focus-visible,
+input[type="button"]:focus,
+input[type="button"]:focus-visible,
+input[type="reset"]:focus,
+input[type="reset"]:focus-visible,
+a.btn:focus,
+a.btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-primary);
+  position: relative;
+  z-index: 1;
+}
+
+/* Color-specific button focus rings */
+.btn-primary:focus,
+.btn-primary:focus-visible,
+.btn-info:focus,
+.btn-info:focus-visible {
+  box-shadow: var(--focus-ring-primary);
+}
+
+.btn-success:focus,
+.btn-success:focus-visible {
+  box-shadow: var(--focus-ring-success);
+}
+
+.btn-warning:focus,
+.btn-warning:focus-visible {
+  box-shadow: var(--focus-ring-warning);
+}
+
+.btn-danger:focus,
+.btn-danger:focus-visible {
+  box-shadow: var(--focus-ring-danger);
+}
+
+.btn-default:focus,
+.btn-default:focus-visible {
+  box-shadow: var(--focus-ring-primary);
+}
+
+.btn-link:focus,
+.btn-link:focus-visible {
+  box-shadow: var(--focus-ring-primary);
+  text-decoration: underline;
+}
+
+/* Outline button focus rings */
+.btn-outline-primary:focus,
+.btn-outline-primary:focus-visible,
+.btn-outline-info:focus,
+.btn-outline-info:focus-visible {
+  box-shadow: var(--focus-ring-primary);
+}
+
+.btn-outline-success:focus,
+.btn-outline-success:focus-visible {
+  box-shadow: var(--focus-ring-success);
+}
+
+.btn-outline-warning:focus,
+.btn-outline-warning:focus-visible {
+  box-shadow: var(--focus-ring-warning);
+}
+
+.btn-outline-danger:focus,
+.btn-outline-danger:focus-visible {
+  box-shadow: var(--focus-ring-danger);
+}
+
+.btn-outline-default:focus,
+.btn-outline-default:focus-visible {
+  box-shadow: var(--focus-ring-primary);
+}
+
+/* ========================================
+   FORM ELEMENT FOCUS INDICATORS
+   ======================================== */
+
+/* Enhanced form control focus styling */
+.form-control:focus,
+.form-control:focus-visible,
+input[type="text"]:focus,
+input[type="text"]:focus-visible,
+input[type="email"]:focus,
+input[type="email"]:focus-visible,
+input[type="password"]:focus,
+input[type="password"]:focus-visible,
+input[type="number"]:focus,
+input[type="number"]:focus-visible,
+input[type="tel"]:focus,
+input[type="tel"]:focus-visible,
+input[type="url"]:focus,
+input[type="url"]:focus-visible,
+input[type="search"]:focus,
+input[type="search"]:focus-visible,
+input[type="date"]:focus,
+input[type="date"]:focus-visible,
+input[type="time"]:focus,
+input[type="time"]:focus-visible,
+input[type="datetime-local"]:focus,
+input[type="datetime-local"]:focus-visible,
+textarea:focus,
+textarea:focus-visible {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: var(--focus-ring-primary);
+}
+
+/* Select dropdown focus */
+select:focus,
+select:focus-visible,
+select.form-control:focus,
+select.form-control:focus-visible {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: var(--focus-ring-primary);
+}
+
+/* Validation state focus rings */
+.form-group.has-error .form-control:focus,
+.form-group.has-error .form-control:focus-visible,
+.form-group.has-error input:focus,
+.form-group.has-error input:focus-visible,
+.form-group.has-error select:focus,
+.form-group.has-error select:focus-visible,
+.form-group.has-error textarea:focus,
+.form-group.has-error textarea:focus-visible,
+.form-control.is-invalid:focus,
+.form-control.is-invalid:focus-visible,
+input.is-invalid:focus,
+input.is-invalid:focus-visible {
+  border-color: var(--danger-color);
+  box-shadow: var(--focus-ring-danger);
+}
+
+.form-group.has-success .form-control:focus,
+.form-group.has-success .form-control:focus-visible,
+.form-group.has-success input:focus,
+.form-group.has-success input:focus-visible,
+.form-group.has-success select:focus,
+.form-group.has-success select:focus-visible,
+.form-group.has-success textarea:focus,
+.form-group.has-success textarea:focus-visible,
+.form-control.is-valid:focus,
+.form-control.is-valid:focus-visible,
+input.is-valid:focus,
+input.is-valid:focus-visible {
+  border-color: var(--success-color);
+  box-shadow: var(--focus-ring-success);
+}
+
+.form-group.has-warning .form-control:focus,
+.form-group.has-warning .form-control:focus-visible,
+.form-group.has-warning input:focus,
+.form-group.has-warning input:focus-visible,
+.form-group.has-warning select:focus,
+.form-group.has-warning select:focus-visible,
+.form-group.has-warning textarea:focus,
+.form-group.has-warning textarea:focus-visible,
+.form-control.is-warning:focus,
+.form-control.is-warning:focus-visible,
+input.is-warning:focus,
+input.is-warning:focus-visible {
+  border-color: var(--warning-color);
+  box-shadow: var(--focus-ring-warning);
+}
+
+/* Custom checkbox and radio focus */
+.checkbox input[type="checkbox"]:focus + label::before,
+.checkbox input[type="checkbox"]:focus-visible + label::before,
+.radio input[type="radio"]:focus + label::before,
+.radio input[type="radio"]:focus-visible + label::before {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: var(--focus-ring-primary);
+}
+
+/* ========================================
+   NAVIGATION FOCUS INDICATORS
+   ======================================== */
+
+/* Sidebar navigation focus */
+.sidebar-menu-link:focus,
+.sidebar-menu-link:focus-visible {
+  outline: none;
+  background-color: var(--background-hover);
+  box-shadow: inset 0 0 0 2px var(--primary-color);
+  position: relative;
+  z-index: 1;
+}
+
+/* Top navigation focus */
+.navbar-nav-link:focus,
+.navbar-nav-link:focus-visible {
+  outline: none;
+  background: var(--background-hover);
+  box-shadow: var(--focus-ring-primary);
+  border-radius: var(--radius-sm);
+}
+
+/* Breadcrumb focus */
+.breadcrumb-item a:focus,
+.breadcrumb-item a:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-primary);
+  border-radius: var(--radius-sm);
+  text-decoration: underline;
+}
+
+/* Dropdown menu focus */
+.dropdown-toggle:focus,
+.dropdown-toggle:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-primary);
+  border-radius: var(--radius-sm);
+}
+
+.dropdown-item:focus,
+.dropdown-item:focus-visible {
+  outline: none;
+  background: var(--background-hover);
+  box-shadow: inset 0 0 0 2px var(--primary-color);
+}
+
+/* ========================================
+   TABLE FOCUS INDICATORS
+   ======================================== */
+
+/* Table action button focus */
+.table-actions .btn:focus,
+.table-actions .btn:focus-visible,
+.action-buttons .btn:focus,
+.action-buttons .btn:focus-visible,
+.btn-table-action:focus,
+.btn-table-action:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-primary);
+  position: relative;
+  z-index: 1;
+}
+
+/* Color-specific table action focus */
+.table-actions .btn-view:focus,
+.table-actions .btn-view:focus-visible,
+.action-buttons .btn-view:focus,
+.action-buttons .btn-view:focus-visible,
+.btn-table-action.btn-view:focus,
+.btn-table-action.btn-view:focus-visible {
+  box-shadow: var(--focus-ring-info);
+}
+
+.table-actions .btn-edit:focus,
+.table-actions .btn-edit:focus-visible,
+.action-buttons .btn-edit:focus,
+.action-buttons .btn-edit:focus-visible,
+.btn-table-action.btn-edit:focus,
+.btn-table-action.btn-edit:focus-visible {
+  box-shadow: var(--focus-ring-primary);
+}
+
+.table-actions .btn-delete:focus,
+.table-actions .btn-delete:focus-visible,
+.action-buttons .btn-delete:focus,
+.action-buttons .btn-delete:focus-visible,
+.btn-table-action.btn-delete:focus,
+.btn-table-action.btn-delete:focus-visible {
+  box-shadow: var(--focus-ring-danger);
+}
+
+.table-actions .btn-success:focus,
+.table-actions .btn-success:focus-visible,
+.action-buttons .btn-success:focus,
+.action-buttons .btn-success:focus-visible,
+.btn-table-action.btn-success:focus,
+.btn-table-action.btn-success:focus-visible {
+  box-shadow: var(--focus-ring-success);
+}
+
+.table-actions .btn-warning:focus,
+.table-actions .btn-warning:focus-visible,
+.action-buttons .btn-warning:focus,
+.action-buttons .btn-warning:focus-visible,
+.btn-table-action.btn-warning:focus,
+.btn-table-action.btn-warning:focus-visible {
+  box-shadow: var(--focus-ring-warning);
+}
+
+/* Sortable table header focus */
+.table thead th.sortable:focus,
+.table thead th.sortable:focus-visible,
+table thead th.sortable:focus,
+table thead th.sortable:focus-visible {
+  outline: none;
+  background-color: var(--primary-light);
+  box-shadow: inset 0 0 0 2px var(--primary-color);
+}
+
+/* Pagination focus */
+.table-pagination a:focus,
+.table-pagination a:focus-visible,
+.table-pagination button:focus,
+.table-pagination button:focus-visible,
+.pagination a:focus,
+.pagination a:focus-visible,
+.pagination button:focus,
+.pagination button:focus-visible {
+  outline: none;
+  background-color: var(--background-hover);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  box-shadow: var(--focus-ring-primary);
+  position: relative;
+  z-index: 1;
+}
+
+/* ========================================
+   MODAL FOCUS INDICATORS
+   ======================================== */
+
+/* Modal close button focus */
+.modal-close:focus,
+.modal-close:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-primary);
+  background: var(--background-hover);
+}
+
+/* ========================================
+   ALERT FOCUS INDICATORS
+   ======================================== */
+
+/* Alert close button focus */
+.alert-close:focus,
+.alert-close:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-primary);
+  opacity: 1;
+}
+
+/* Color-specific alert close focus */
+.alert-success .alert-close:focus,
+.alert-success .alert-close:focus-visible {
+  box-shadow: var(--focus-ring-success);
+}
+
+.alert-warning .alert-close:focus,
+.alert-warning .alert-close:focus-visible {
+  box-shadow: var(--focus-ring-warning);
+}
+
+.alert-danger .alert-close:focus,
+.alert-danger .alert-close:focus-visible {
+  box-shadow: var(--focus-ring-danger);
+}
+
+.alert-info .alert-close:focus,
+.alert-info .alert-close:focus-visible,
+.alert-primary .alert-close:focus,
+.alert-primary .alert-close:focus-visible {
+  box-shadow: var(--focus-ring-info);
+}
+
+/* ========================================
+   LINK FOCUS INDICATORS
+   ======================================== */
+
+/* General link focus */
+a:focus,
+a:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-primary);
+  border-radius: var(--radius-sm);
+  text-decoration: underline;
+}
+
+/* Links in dark backgrounds */
+.bg-primary a:focus,
+.bg-primary a:focus-visible,
+.bg-success a:focus,
+.bg-success a:focus-visible,
+.bg-warning a:focus,
+.bg-warning a:focus-visible,
+.bg-danger a:focus,
+.bg-danger a:focus-visible,
+.bg-info a:focus,
+.bg-info a:focus-visible {
+  box-shadow: var(--focus-ring-inverse);
+}
+
+/* ========================================
+   MOBILE FOCUS ENHANCEMENTS
+   ======================================== */
+
+/* Enhanced touch targets for mobile focus */
+@media (max-width: 767px) {
+  /* Larger focus rings on mobile */
+  .btn:focus,
+  .btn:focus-visible,
+  button:focus,
+  button:focus-visible,
+  input[type="submit"]:focus,
+  input[type="submit"]:focus-visible,
+  input[type="button"]:focus,
+  input[type="button"]:focus-visible,
+  input[type="reset"]:focus,
+  input[type="reset"]:focus-visible,
+  a.btn:focus,
+  a.btn:focus-visible {
+    box-shadow: 0 0 0 4px rgba(24, 144, 255, 0.25);
+  }
+  
+  /* Enhanced sidebar focus on mobile */
+  .sidebar-menu-link:focus,
+  .sidebar-menu-link:focus-visible {
+    box-shadow: inset 0 0 0 3px var(--primary-color);
+  }
+  
+  /* Enhanced form focus on mobile */
+  .form-control:focus,
+  .form-control:focus-visible,
+  input:focus,
+  input:focus-visible,
+  select:focus,
+  select:focus-visible,
+  textarea:focus,
+  textarea:focus-visible {
+    box-shadow: 0 0 0 4px rgba(24, 144, 255, 0.25);
+  }
+  
+  /* Enhanced checkbox/radio focus on mobile */
+  .checkbox input[type="checkbox"]:focus + label::before,
+  .checkbox input[type="checkbox"]:focus-visible + label::before,
+  .radio input[type="radio"]:focus + label::before,
+  .radio input[type="radio"]:focus-visible + label::before {
+    box-shadow: 0 0 0 4px rgba(24, 144, 255, 0.25);
+  }
+}
+
+/* ========================================
+   HIGH CONTRAST MODE SUPPORT
+   ======================================== */
+
+/* Enhanced focus for high contrast mode */
+@media (prefers-contrast: high) {
+  *:focus,
+  *:focus-visible {
+    outline: 3px solid;
+    outline-offset: 2px;
+  }
+  
+  .btn:focus,
+  .btn:focus-visible,
+  button:focus,
+  button:focus-visible {
+    outline-color: ButtonText;
+  }
+  
+  .form-control:focus,
+  .form-control:focus-visible,
+  input:focus,
+  input:focus-visible,
+  select:focus,
+  select:focus-visible,
+  textarea:focus,
+  textarea:focus-visible {
+    outline-color: Highlight;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION SUPPORT
+   ======================================== */
+
+/* Remove focus transitions for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *:focus,
+  *:focus-visible {
+    transition: none;
+  }
+}
+
+/* ========================================
+   SKIP LINKS
+   ======================================== */
+
+/* Skip to main content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--primary-color);
+  color: var(--text-inverse);
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  z-index: 9999;
+  font-weight: var(--font-weight-medium);
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 6px;
+  outline: none;
+  box-shadow: var(--focus-ring-inverse);
+}
+
+/* ========================================
+   FOCUS TRAP UTILITIES
+   ======================================== */
+
+/* Focus trap for modals and dropdowns */
+.focus-trap {
+  position: relative;
+}
+
+.focus-trap-start,
+.focus-trap-end {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ========================================
+   KEYBOARD NAVIGATION INDICATORS
+   ======================================== */
+
+/* Visual indicator for keyboard navigation mode */
+body.keyboard-navigation *:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Hide focus indicators when using mouse */
+body.mouse-navigation *:focus {
+  outline: none;
+}
+
+/* ========================================
+   ARIA LIVE REGION STYLING
+   ======================================== */
+
+/* Screen reader announcements */
+.sr-only,
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.sr-only-focusable:focus,
+.sr-only-focusable:focus-visible,
+.visually-hidden-focusable:focus,
+.visually-hidden-focusable:focus-visible {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  padding: inherit !important;
+  margin: inherit !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+}
+
+/* Live region for dynamic content announcements */
+.live-region {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* ========================================
+   FOCUS MANAGEMENT UTILITIES
+   ======================================== */
+
+/* Disable focus for decorative elements */
+.no-focus,
+[aria-hidden="true"] {
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Force focus visibility */
+.force-focus-visible:focus {
+  outline: 2px solid var(--primary-color) !important;
+  outline-offset: 2px !important;
+  box-shadow: var(--focus-ring-primary) !important;
+}
+
+/* Focus within container */
+.focus-within:focus-within {
+  box-shadow: var(--focus-ring-primary);
+  border-radius: var(--radius-sm);
+}

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert Components Test</title>
+    <link rel="stylesheet" href="base/variables.css">
+    <link rel="stylesheet" href="base/reset.css">
+    <link rel="stylesheet" href="base/typography.css">
+    <link rel="stylesheet" href="components/alerts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            padding: 20px;
+            background-color: var(--background-secondary);
+            font-family: var(--font-family);
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+        h1 {
+            margin-bottom: 30px;
+            color: var(--text-primary);
+        }
+        h2 {
+            margin: 30px 0 15px 0;
+            color: var(--text-primary);
+            font-size: 18px;
+        }
+        h3 {
+            margin: 20px 0 10px 0;
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Alert Components Test</h1>
+        
+        <h2>Base Alert Structure</h2>
+        
+        <!-- Basic alert with icon and close button -->
+        <div class="alert">
+            <div class="alert-icon">
+                <i class="fas fa-info-circle"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-title">Information Alert</div>
+                <div class="alert-message">This is a basic alert with an icon, title, message, and close button.</div>
+            </div>
+            <button class="alert-close" type="button">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <!-- Alert with message only -->
+        <div class="alert">
+            <div class="alert-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-message">This is an alert with just a message and no title.</div>
+            </div>
+            <button class="alert-close" type="button">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <!-- Alert without close button -->
+        <div class="alert">
+            <div class="alert-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-title">Warning Alert</div>
+                <div class="alert-message">This alert doesn't have a close button.</div>
+            </div>
+        </div>
+        
+        <!-- Alert without icon -->
+        <div class="alert no-icon">
+            <div class="alert-content">
+                <div class="alert-title">No Icon Alert</div>
+                <div class="alert-message">This alert doesn't have an icon.</div>
+            </div>
+            <button class="alert-close" type="button">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <!-- Alert with long content -->
+        <div class="alert">
+            <div class="alert-icon">
+                <i class="fas fa-info-circle"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-title">Long Content Alert</div>
+                <div class="alert-message">This is an alert with longer content to test how the layout handles multiple lines of text. The icon should stay aligned with the first line, and the close button should remain positioned correctly at the top right.</div>
+            </div>
+            <button class="alert-close" type="button">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <h2>Alert Color Variants</h2>
+        
+        <!-- Success Alert -->
+        <div class="alert alert-success">
+            <div class="alert-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-title">Success!</div>
+                <div class="alert-message">Your action was completed successfully.</div>
+            </div>
+            <button class="alert-close" type="button">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <!-- Warning Alert -->
+        <div class="alert alert-warning">
+            <div class="alert-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-title">Warning</div>
+                <div class="alert-message">Please review your input before proceeding.</div>
+            </div>
+            <button class="alert-close" type="button">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <!-- Danger Alert -->
+        <div class="alert alert-danger">
+            <div class="alert-icon">
+                <i class="fas fa-times-circle"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-title">Error</div>
+                <div class="alert-message">An error occurred while processing your request.</div>
+            </div>
+            <button class="alert-close" type="button">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <!-- Info Alert -->
+        <div class="alert alert-info">
+            <div class="alert-icon">
+                <i class="fas fa-info-circle"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-title">Information</div>
+                <div class="alert-message">Here's some helpful information for you.</div>
+            </div>
+            <button class="alert-close" type="button">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <!-- Primary Alert -->
+        <div class="alert alert-primary">
+            <div class="alert-icon">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-title">Primary Alert</div>
+                <div class="alert-message">This is a primary branded alert.</div>
+            </div>
+            <button class="alert-close" type="button">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <!-- Color variants without titles -->
+        <div class="alert alert-success">
+            <div class="alert-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-message">Success message without title.</div>
+            </div>
+        </div>
+        
+        <div class="alert alert-warning">
+            <div class="alert-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-message">Warning message without title.</div>
+            </div>
+        </div>
+        
+        <div class="alert alert-danger">
+            <div class="alert-icon">
+                <i class="fas fa-times-circle"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-message">Error message without title.</div>
+            </div>
+        </div>
+        
+        <div class="alert alert-info">
+            <div class="alert-icon">
+                <i class="fas fa-info-circle"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-message">Info message without title.</div>
+            </div>
+        </div>
+        
+        <h2>Alert Modifiers</h2>
+        
+        <!-- Bordered Alerts -->
+        <h3>Bordered Alerts (Left Accent)</h3>
+        <div class="alert alert-bordered alert-success">
+            <div class="alert-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-title">Bordered Success</div>
+                <div class="alert-message">This is a bordered success alert with left accent.</div>
+            </div>
+        </div>
+        
+        <div class="alert alert-bordered alert-warning">
+            <div class="alert-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-title">Bordered Warning</div>
+                <div class="alert-message">This is a bordered warning alert with left accent.</div>
+            </div>
+        </div>
+        
+        <div class="alert alert-bordered alert-danger">
+            <div class="alert-icon">
+                <i class="fas fa-times-circle"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-title">Bordered Error</div>
+                <div class="alert-message">This is a bordered error alert with left accent.</div>
+            </div>
+        </div>
+        
+        <!-- Dismissible Alerts -->
+        <h3>Dismissible Alerts</h3>
+        <div class="alert alert-dismissible alert-info">
+            <div class="alert-icon">
+                <i class="fas fa-info-circle"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-title">Dismissible Alert</div>
+                <div class="alert-message">This alert can be dismissed with the close button positioned absolutely.</div>
+            </div>
+            <button class="alert-close" type="button" onclick="dismissAlert(this)">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <!-- Alert Sizes -->
+        <h3>Alert Sizes</h3>
+        <div class="alert alert-sm alert-success">
+            <div class="alert-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-title">Small Alert</div>
+                <div class="alert-message">This is a small sized alert.</div>
+            </div>
+            <button class="alert-close" type="button">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="alert alert-warning">
+            <div class="alert-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-title">Default Alert</div>
+                <div class="alert-message">This is a default sized alert.</div>
+            </div>
+            <button class="alert-close" type="button">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="alert alert-lg alert-danger">
+            <div class="alert-icon">
+                <i class="fas fa-times-circle"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-title">Large Alert</div>
+                <div class="alert-message">This is a large sized alert.</div>
+            </div>
+            <button class="alert-close" type="button">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <!-- Compact Alerts -->
+        <h3>Compact Alerts</h3>
+        <div class="alert alert-compact alert-info">
+            <div class="alert-icon">
+                <i class="fas fa-info-circle"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-message">Compact alert with minimal spacing.</div>
+            </div>
+        </div>
+        
+        <!-- Solid Alerts -->
+        <h3>Solid Alerts (High Contrast)</h3>
+        <div class="alert alert-solid alert-success">
+            <div class="alert-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-title">Solid Success</div>
+                <div class="alert-message">This is a solid success alert with high contrast.</div>
+            </div>
+            <button class="alert-close" type="button">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="alert alert-solid alert-warning">
+            <div class="alert-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-title">Solid Warning</div>
+                <div class="alert-message">This is a solid warning alert with high contrast.</div>
+            </div>
+            <button class="alert-close" type="button">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="alert alert-solid alert-danger">
+            <div class="alert-icon">
+                <i class="fas fa-times-circle"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-title">Solid Error</div>
+                <div class="alert-message">This is a solid error alert with high contrast.</div>
+            </div>
+            <button class="alert-close" type="button">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <!-- Dismissible with Animation Test -->
+        <h3>Dismissible with Animation</h3>
+        <div class="alert alert-dismissible alert-primary" id="animatedAlert">
+            <div class="alert-icon">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-title">Animated Dismissal</div>
+                <div class="alert-message">Click the close button to see the fade-out animation.</div>
+            </div>
+            <button class="alert-close" type="button" onclick="dismissAlertWithAnimation(this)">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        function dismissAlert(button) {
+            const alert = button.closest('.alert');
+            alert.style.display = 'none';
+        }
+        
+        function dismissAlertWithAnimation(button) {
+            const alert = button.closest('.alert');
+            alert.classList.add('alert-dismissing');
+            setTimeout(() => {
+                alert.remove();
+            }, 350); // Match the animation duration
+        }
+    </script>
+</body>
+</html>

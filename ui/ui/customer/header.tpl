@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="has-aside-left has-aside-mobile-transition has-navbar-fixed-top has-aside-expanded">
+<html lang="en" class="modern-app has-sidebar has-header">
 
 <head>
     <meta charset="utf-8">
@@ -30,164 +30,213 @@
 
 </head>
 
-<body class="hold-transition modern-skin-dark sidebar-mini">
-    <div class="wrapper">
-        <header class="main-header" style="position:fixed; width: 100%">
-            <a href="{Text::url('home')}" class="logo">
-                <span class="logo-mini"><b>N</b>uX</span>
-                <span class="logo-lg">{$_c['CompanyName']}</span>
-            </a>
-            <nav class="navbar navbar-static-top">
-                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                    <span class="sr-only">Toggle navigation</span>
-                </a>
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <a class="toggle-container" href="#">
-                                <i class="toggle-icon" id="toggleIcon">🌜</i>
-                            </a>
-                        </li>
-                        <li class="dropdown tasks-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                                <i class="fa fa-flag-o"></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <!-- inner menu: contains the actual data -->
-                                    <ul class="menu" api-get-text="{Text::url('autoload_user/language&select=',$user_language)}"></ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dropdown notifications-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-envelope-o"></i>
-                                <span class="label label-warning"
-                                    api-get-text="{Text::url('autoload_user/inbox_unread')}"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <!-- inner menu: contains the actual data -->
-                                    <ul class="menu" api-get-text="{Text::url('autoload_user/inbox')}"></ul>
-                                </li>
-                                <li class="footer"><a href="{Text::url('mail')}">{Lang::T('Inbox')}</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                {if $_c['enable_balance'] == 'yes'}
-                                    <span
-                                        style="color: whitesmoke;">&nbsp;{Lang::moneyFormat($_user['balance'])}&nbsp;</span>
-                                {else}
-                                    <span>{$_user['fullname']}</span>
-                                {/if}
-                                <img src="{$app_url}/{$UPLOAD_PATH}{$_user['photo']}.thumb.jpg"
-                                    onerror="this.src='{$app_url}/{$UPLOAD_PATH}/user.default.jpg'" class="user-image"
-                                    alt="User Image">
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="user-header">
-                                    <img src="{$app_url}/{$UPLOAD_PATH}{$_user['photo']}.thumb.jpg"
-                                        onerror="this.src='{$app_url}/{$UPLOAD_PATH}/user.default.jpg'" class="img-circle"
-                                        alt="User Image">
+<body class="modern-app-body customer-portal">
+    <div class="app-wrapper">
+        <!-- Main Header -->
+        <header class="main-header header-fixed">
+            <div class="header-container">
+                <!-- Logo Section -->
+                <div class="header-brand">
+                    <a href="{Text::url('home')}" class="brand-link">
+                        <span class="brand-mini"><b>N</b>uX</span>
+                        <span class="brand-text">{$_c['CompanyName']}</span>
+                    </a>
+                </div>
 
-                                    <p>
-                                        {$_user['fullname']}
-                                        <small>{$_user['phonenumber']}<br>
-                                            {$_user['email']}</small>
-                                    </p>
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle btn-icon" data-toggle="push-menu" role="button" 
+                        aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="customer-sidebar">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                    <span class="sr-only">Toggle navigation</span>
+                </button>
+
+                <!-- Header Navigation -->
+                <nav class="header-nav">
+                    <ul class="nav-list">
+                        <!-- Theme Toggle -->
+                        <li class="nav-item">
+                            <a class="nav-link theme-toggle" href="#" aria-label="Toggle between light and dark theme" role="button">
+                                <i class="toggle-icon" id="toggleIcon" aria-hidden="true">🌜</i>
+                            </a>
+                        </li>
+
+                        <!-- Language Selector -->
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" 
+                               aria-label="Select language" aria-haspopup="true" role="button">
+                                <i class="fa fa-flag-o" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-label="Language options">
+                                <li class="dropdown-content">
+                                    <ul class="language-menu" api-get-text="{Text::url('autoload_user/language&select=',$user_language)}" role="menu"></ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Notifications -->
+                        <li class="nav-item dropdown notifications-dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" 
+                               aria-label="View notifications" aria-haspopup="true" role="button">
+                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                <span class="badge badge-warning notification-count" api-get-text="{Text::url('autoload_user/inbox_unread')}" 
+                                      aria-label="Unread notifications count"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right notifications-menu" role="menu" aria-label="Notifications">
+                                <li class="dropdown-content">
+                                    <ul class="notification-list" api-get-text="{Text::url('autoload_user/inbox')}" role="menu" 
+                                        aria-live="polite" aria-label="Notification list"></ul>
+                                </li>
+                                <li class="dropdown-footer">
+                                    <a href="{Text::url('mail')}" class="btn btn-sm btn-primary" role="menuitem">{Lang::T('Inbox')}</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- User Menu -->
+                        <li class="nav-item dropdown user-dropdown">
+                            <a href="#" class="nav-link dropdown-toggle user-menu-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <div class="user-info">
+                                    {if $_c['enable_balance'] == 'yes'}
+                                        <span class="user-balance">{Lang::moneyFormat($_user['balance'])}</span>
+                                    {else}
+                                        <span class="user-name">{$_user['fullname']}</span>
+                                    {/if}
+                                    <img src="{$app_url}/{$UPLOAD_PATH}{$_user['photo']}.thumb.jpg"
+                                        onerror="this.src='{$app_url}/{$UPLOAD_PATH}/user.default.jpg'" 
+                                        class="user-avatar" alt="User Avatar">
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right user-menu">
+                                <li class="user-header">
+                                    <div class="user-profile">
+                                        <img src="{$app_url}/{$UPLOAD_PATH}{$_user['photo']}.thumb.jpg"
+                                            onerror="this.src='{$app_url}/{$UPLOAD_PATH}/user.default.jpg'" 
+                                            class="user-profile-image" alt="User Profile">
+                                        <div class="user-details">
+                                            <h4 class="user-name">{$_user['fullname']}</h4>
+                                            <p class="user-contact">
+                                                <small>{$_user['phonenumber']}<br>{$_user['email']}</small>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li class="user-body">
-                                    <div class="row">
-                                        <div class="col-xs-7 text-center text-sm">
-                                            <a href="{Text::url('accounts/change-password')}"><i class="ion ion-settings"></i>
-                                                {Lang::T('Change Password')}</a>
+                                    <div class="user-actions">
+                                        <div class="action-item">
+                                            <a href="{Text::url('accounts/change-password')}" class="action-link">
+                                                <i class="ion ion-settings"></i>
+                                                <span>{Lang::T('Change Password')}</span>
+                                            </a>
                                         </div>
-                                        <div class="col-xs-5 text-center text-sm">
-                                            <a href="{Text::url('accounts/profile')}"><i class="ion ion-person"></i>
-                                                {Lang::T('My Account')}</a>
+                                        <div class="action-item">
+                                            <a href="{Text::url('accounts/profile')}" class="action-link">
+                                                <i class="ion ion-person"></i>
+                                                <span>{Lang::T('My Account')}</span>
+                                            </a>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="user-footer">
-                                    <div class="pull-right">
-                                        <a href="{Text::url('logout')}" class="btn btn-default btn-flat"><i
-                                                class="ion ion-power"></i> {Lang::T('Logout')}</a>
-                                    </div>
+                                    <a href="{Text::url('logout')}" class="btn btn-default btn-block logout-btn">
+                                        <i class="ion ion-power"></i> {Lang::T('Logout')}
+                                    </a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
-                </div>
-            </nav>
+                </nav>
+            </div>
         </header>
 
-        <aside class="main-sidebar" style="position:fixed;">
-            <section class="sidebar">
-                <ul class="sidebar-menu" data-widget="tree">
-                    <li {if $_system_menu eq 'home'}class="active" {/if}>
-                        <a href="{Text::url('home')}">
-                            <i class="ion ion-monitor"></i>
-                            <span>{Lang::T('Dashboard')}</span>
-                        </a>
-                    </li>
-                    {$_MENU_AFTER_DASHBOARD}
-                    <li {if $_system_menu eq 'inbox'}class="active" {/if}>
-                        <a href="{Text::url('mail')}">
-                            <i class="fa fa-envelope"></i>
-                            <span>{Lang::T('Inbox')}</span>
-                        </a>
-                    </li>
-                    {$_MENU_AFTER_INBOX}
-                    {if $_c['disable_voucher'] != 'yes'}
-                        <li {if $_system_menu eq 'voucher'}class="active" {/if}>
-                            <a href="{Text::url('voucher/activation')}">
-                                <i class="fa fa-ticket"></i>
-                                <span>Voucher</span>
+        <!-- Sidebar Navigation -->
+        <aside id="customer-sidebar" class="main-sidebar sidebar-fixed" role="navigation" aria-label="Customer navigation">
+            <div class="sidebar-container">
+                <nav class="sidebar-nav">
+                    <ul class="nav-menu" data-widget="tree" role="menubar">
+                        <!-- Dashboard -->
+                        <li class="nav-item {if $_system_menu eq 'home'}active{/if}">
+                            <a href="{Text::url('home')}" class="nav-link">
+                                <i class="nav-icon ion ion-monitor"></i>
+                                <span class="nav-text">{Lang::T('Dashboard')}</span>
                             </a>
                         </li>
-                    {/if}
-                    {if $_c['payment_gateway'] != 'none' or $_c['payment_gateway'] == '' }
-                        {if $_c['enable_balance'] == 'yes'}
-                            <li {if $_system_menu eq 'balance'}class="active" {/if}>
-                                <a href="{Text::url('order/balance')}">
-                                    <i class="ion ion-ios-cart"></i>
-                                    <span>{Lang::T('Buy Balance')}</span>
+                        
+                        {$_MENU_AFTER_DASHBOARD}
+                        
+                        <!-- Inbox -->
+                        <li class="nav-item {if $_system_menu eq 'inbox'}active{/if}">
+                            <a href="{Text::url('mail')}" class="nav-link">
+                                <i class="nav-icon fa fa-envelope"></i>
+                                <span class="nav-text">{Lang::T('Inbox')}</span>
+                            </a>
+                        </li>
+                        
+                        {$_MENU_AFTER_INBOX}
+                        
+                        <!-- Voucher -->
+                        {if $_c['disable_voucher'] != 'yes'}
+                            <li class="nav-item {if $_system_menu eq 'voucher'}active{/if}">
+                                <a href="{Text::url('voucher/activation')}" class="nav-link">
+                                    <i class="nav-icon fa fa-ticket"></i>
+                                    <span class="nav-text">Voucher</span>
                                 </a>
                             </li>
                         {/if}
-                        <li {if $_system_menu eq 'package'}class="active" {/if}>
-                            <a href="{Text::url('order/package')}">
-                                <i class="ion ion-ios-cart"></i>
-                                <span>{Lang::T('Buy Package')}</span>
+                        
+                        <!-- Payment Gateway Options -->
+                        {if $_c['payment_gateway'] != 'none' or $_c['payment_gateway'] == '' }
+                            {if $_c['enable_balance'] == 'yes'}
+                                <li class="nav-item {if $_system_menu eq 'balance'}active{/if}">
+                                    <a href="{Text::url('order/balance')}" class="nav-link">
+                                        <i class="nav-icon ion ion-ios-cart"></i>
+                                        <span class="nav-text">{Lang::T('Buy Balance')}</span>
+                                    </a>
+                                </li>
+                            {/if}
+                            
+                            <li class="nav-item {if $_system_menu eq 'package'}active{/if}">
+                                <a href="{Text::url('order/package')}" class="nav-link">
+                                    <i class="nav-icon ion ion-ios-cart"></i>
+                                    <span class="nav-text">{Lang::T('Buy Package')}</span>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item {if $_system_menu eq 'history'}active{/if}">
+                                <a href="{Text::url('order/history')}" class="nav-link">
+                                    <i class="nav-icon fa fa-file-text"></i>
+                                    <span class="nav-text">{Lang::T('Payment History')}</span>
+                                </a>
+                            </li>
+                        {/if}
+                        
+                        {$_MENU_AFTER_ORDER}
+                        
+                        <!-- Activation History -->
+                        <li class="nav-item {if $_system_menu eq 'list-activated'}active{/if}">
+                            <a href="{Text::url('voucher/list-activated')}" class="nav-link">
+                                <i class="nav-icon fa fa-list-alt"></i>
+                                <span class="nav-text">{Lang::T('Activation History')}</span>
                             </a>
                         </li>
-                        <li {if $_system_menu eq 'history'}class="active" {/if}>
-                            <a href="{Text::url('order/history')}">
-                                <i class="fa fa-file-text"></i>
-                                <span>{Lang::T('Payment History')}</span>
-                            </a>
-                        </li>
-                    {/if}
-                    {$_MENU_AFTER_ORDER}
-                    <li {if $_system_menu eq 'list-activated'}class="active" {/if}>
-                        <a href="{Text::url('voucher/list-activated')}">
-                            <i class="fa fa-list-alt"></i>
-                            <span>{Lang::T('Activation History')}</span>
-                        </a>
-                    </li>
-                    {$_MENU_AFTER_HISTORY}
-                </ul>
-            </section>
+                        
+                        {$_MENU_AFTER_HISTORY}
+                    </ul>
+                </nav>
+            </div>
         </aside>
 
-        <div class="content-wrapper">
-            <section class="content-header">
-                <h1>
-                    {$_title}
-                </h1>
-            </section>
-            <section class="content">
+        <!-- Main Content Area -->
+        <div class="content-wrapper main-content">
+            <!-- Content Header -->
+            <header class="content-header">
+                <div class="content-header-container">
+                    <h1 class="page-title">{$_title}</h1>
+                </div>
+            </header>
+            
+            <!-- Main Content -->
+            <main class="content-main">
+                <div class="content-container">
 
 
                 {if isset($notify)}

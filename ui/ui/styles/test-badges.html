@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badge System Test - PHPNuxBill Modern Design</title>
+    <link rel="stylesheet" href="base/variables.css">
+    <link rel="stylesheet" href="base/reset.css">
+    <link rel="stylesheet" href="base/typography.css">
+    <link rel="stylesheet" href="components/badges.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f5f5f5;
+            font-family: var(--font-family);
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .test-section h2 {
+            margin-bottom: 15px;
+            color: #262626;
+            border-bottom: 2px solid #e8e8e8;
+            padding-bottom: 8px;
+        }
+        .test-section h3 {
+            margin: 20px 0 10px 0;
+            color: #595959;
+        }
+        .badge-demo {
+            margin: 5px;
+        }
+        .demo-row {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .demo-label {
+            min-width: 120px;
+            font-weight: 600;
+            color: #8c8c8c;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        .notification-demo {
+            position: relative;
+            display: inline-block;
+            background: #1890ff;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Badge System Test - PHPNuxBill Modern Design</h1>
+    
+    <!-- Base Badge Structure -->
+    <div class="test-section">
+        <h2>1. Base Badge Structure</h2>
+        <p>Basic badge with pill shape, appropriate padding and font-size:</p>
+        <div class="demo-row">
+            <span class="demo-label">Base Badge:</span>
+            <span class="badge">Default Badge</span>
+        </div>
+    </div>
+
+    <!-- Badge Color Variants -->
+    <div class="test-section">
+        <h2>2. Badge Color Variants</h2>
+        
+        <h3>Light Background Badges (Default)</h3>
+        <div class="demo-row">
+            <span class="demo-label">Primary:</span>
+            <span class="badge badge-primary">Primary</span>
+        </div>
+        <div class="demo-row">
+            <span class="demo-label">Success:</span>
+            <span class="badge badge-success">Success</span>
+        </div>
+        <div class="demo-row">
+            <span class="demo-label">Warning:</span>
+            <span class="badge badge-warning">Warning</span>
+        </div>
+        <div class="demo-row">
+            <span class="demo-label">Danger:</span>
+            <span class="badge badge-danger">Danger</span>
+        </div>
+        <div class="demo-row">
+            <span class="demo-label">Info:</span>
+            <span class="badge badge-info">Info</span>
+        </div>
+
+        <h3>Solid Badge Variants</h3>
+        <div class="demo-row">
+            <span class="demo-label">Solid Primary:</span>
+            <span class="badge badge-primary-solid">Primary</span>
+        </div>
+        <div class="demo-row">
+            <span class="demo-label">Solid Success:</span>
+            <span class="badge badge-success-solid">Success</span>
+        </div>
+        <div class="demo-row">
+            <span class="demo-label">Solid Warning:</span>
+            <span class="badge badge-warning-solid">Warning</span>
+        </div>
+        <div class="demo-row">
+            <span class="demo-label">Solid Danger:</span>
+            <span class="badge badge-danger-solid">Danger</span>
+        </div>
+        <div class="demo-row">
+            <span class="demo-label">Solid Info:</span>
+            <span class="badge badge-info-solid">Info</span>
+        </div>
+
+        <h3>Outline Badge Variants</h3>
+        <div class="demo-row">
+            <span class="demo-label">Outline Primary:</span>
+            <span class="badge badge-outline-primary">Primary</span>
+        </div>
+        <div class="demo-row">
+            <span class="demo-label">Outline Success:</span>
+            <span class="badge badge-outline-success">Success</span>
+        </div>
+        <div class="demo-row">
+            <span class="demo-label">Outline Warning:</span>
+            <span class="badge badge-outline-warning">Warning</span>
+        </div>
+        <div class="demo-row">
+            <span class="demo-label">Outline Danger:</span>
+            <span class="badge badge-outline-danger">Danger</span>
+        </div>
+        <div class="demo-row">
+            <span class="demo-label">Outline Info:</span>
+            <span class="badge badge-outline-info">Info</span>
+        </div>
+    </div>
+
+    <!-- Badge Sizes and Shapes -->
+    <div class="test-section">
+        <h2>3. Badge Sizes and Shapes</h2>
+        
+        <h3>Badge Sizes</h3>
+        <div class="demo-row">
+            <span class="demo-label">Small:</span>
+            <span class="badge badge-primary badge-sm">Small</span>
+        </div>
+        <div class="demo-row">
+            <span class="demo-label">Default:</span>
+            <span class="badge badge-primary">Default</span>
+        </div>
+        <div class="demo-row">
+            <span class="demo-label">Large:</span>
+            <span class="badge badge-primary badge-lg">Large</span>
+        </div>
+
+        <h3>Badge Shapes</h3>
+        <div class="demo-row">
+            <span class="demo-label">Pill (Default):</span>
+            <span class="badge badge-success">Pill Shape</span>
+        </div>
+        <div class="demo-row">
+            <span class="demo-label">Rounded:</span>
+            <span class="badge badge-success badge-rounded">Rounded</span>
+        </div>
+        <div class="demo-row">
+            <span class="demo-label">Square:</span>
+            <span class="badge badge-success badge-square">Square</span>
+        </div>
+
+        <h3>Icon Badges</h3>
+        <div class="demo-row">
+            <span class="demo-label">With Icon:</span>
+            <span class="badge badge-info badge-with-icon">
+                <i class="fa fa-star"></i>
+                Featured
+            </span>
+        </div>
+        <div class="demo-row">
+            <span class="demo-label">Icon Only:</span>
+            <span class="badge badge-primary-solid badge-icon-only">
+                <i class="fa fa-check"></i>
+            </span>
+            <span class="badge badge-danger-solid badge-icon-only badge-sm">
+                <i class="fa fa-times"></i>
+            </span>
+            <span class="badge badge-success-solid badge-icon-only badge-lg">
+                <i class="fa fa-plus"></i>
+            </span>
+        </div>
+    </div>
+
+    <!-- Status Indicators -->
+    <div class="test-section">
+        <h2>4. Status Indicator Components</h2>
+        
+        <h3>Status Dots</h3>
+        <div class="demo-row">
+            <span class="demo-label">Basic Dots:</span>
+            <span class="status-dot status-dot-primary"></span>Primary
+            <span class="status-dot status-dot-success"></span>Success
+            <span class="status-dot status-dot-warning"></span>Warning
+            <span class="status-dot status-dot-danger"></span>Danger
+            <span class="status-dot status-dot-info"></span>Info
+            <span class="status-dot status-dot-gray"></span>Inactive
+        </div>
+        <div class="demo-row">
+            <span class="demo-label">Pulsing Dot:</span>
+            <span class="status-dot status-dot-success status-dot-pulse"></span>Live Status
+        </div>
+
+        <h3>Status Icons</h3>
+        <div class="demo-row">
+            <span class="demo-label">Icon Status:</span>
+            <span class="status-icon status-icon-success">
+                <i class="fa fa-check-circle"></i>
+                Online
+            </span>
+        </div>
+        <div class="demo-row">
+            <span class="demo-label">Warning:</span>
+            <span class="status-icon status-icon-warning">
+                <i class="fa fa-exclamation-triangle"></i>
+                Pending
+            </span>
+        </div>
+        <div class="demo-row">
+            <span class="demo-label">Error:</span>
+            <span class="status-icon status-icon-danger">
+                <i class="fa fa-times-circle"></i>
+                Offline
+            </span>
+        </div>
+
+        <h3>Status Text</h3>
+        <div class="demo-row">
+            <span class="demo-label">Text Only:</span>
+            <span class="status-text status-text-success">Active</span>
+            <span class="status-text status-text-warning">Pending</span>
+            <span class="status-text status-text-danger">Inactive</span>
+        </div>
+
+        <h3>Combined Status</h3>
+        <div class="demo-row">
+            <span class="demo-label">Dot + Text:</span>
+            <span class="status-with-dot">
+                <span class="status-dot status-dot-success"></span>
+                Server Online
+            </span>
+        </div>
+        <div class="demo-row">
+            <span class="demo-label">Icon + Text:</span>
+            <span class="status-with-icon status-icon-primary">
+                <i class="fa fa-info-circle"></i>
+                System Status
+            </span>
+        </div>
+    </div>
+
+    <!-- Badge Groups and Modifiers -->
+    <div class="test-section">
+        <h2>5. Badge Groups and Modifiers</h2>
+        
+        <h3>Badge Groups</h3>
+        <div class="demo-row">
+            <span class="demo-label">Horizontal:</span>
+            <div class="badge-group">
+                <span class="badge badge-primary">Web</span>
+                <span class="badge badge-success">API</span>
+                <span class="badge badge-warning">Mobile</span>
+                <span class="badge badge-info">Desktop</span>
+            </div>
+        </div>
+        <div class="demo-row">
+            <span class="demo-label">Vertical:</span>
+            <div class="badge-group-vertical">
+                <span class="badge badge-primary">Frontend</span>
+                <span class="badge badge-success">Backend</span>
+                <span class="badge badge-warning">Database</span>
+            </div>
+        </div>
+
+        <h3>Dismissible Badges</h3>
+        <div class="demo-row">
+            <span class="demo-label">Dismissible:</span>
+            <span class="badge badge-primary badge-dismissible">
+                Removable Tag
+                <button class="badge-close" onclick="this.parentElement.classList.add('badge-fade-out')">&times;</button>
+            </span>
+            <span class="badge badge-success badge-dismissible">
+                Another Tag
+                <button class="badge-close" onclick="this.parentElement.classList.add('badge-fade-out')">&times;</button>
+            </span>
+        </div>
+
+        <h3>Notification Badges</h3>
+        <div class="demo-row">
+            <span class="demo-label">Notifications:</span>
+            <div class="notification-demo">
+                Messages
+                <span class="badge-notification">3</span>
+            </div>
+            <div class="notification-demo">
+                Alerts
+                <span class="badge-notification badge-notification-warning">12</span>
+            </div>
+            <div class="notification-demo">
+                Updates
+                <span class="badge-notification-dot badge-notification-success"></span>
+            </div>
+        </div>
+
+        <h3>Counter Badges</h3>
+        <div class="demo-row">
+            <span class="demo-label">Counters:</span>
+            <span class="badge-counter">5</span>
+            <span class="badge-counter badge-counter-primary">23</span>
+            <span class="badge-counter badge-counter-success">100+</span>
+            <span class="badge-counter badge-counter-lg badge-counter-danger">999</span>
+        </div>
+
+        <h3>Interactive Badges</h3>
+        <div class="demo-row">
+            <span class="demo-label">Clickable:</span>
+            <span class="badge badge-primary badge-clickable" onclick="alert('Badge clicked!')">Click Me</span>
+            <span class="badge badge-success badge-clickable badge-shadow">With Shadow</span>
+        </div>
+        <div class="demo-row">
+            <span class="demo-label">Disabled:</span>
+            <span class="badge badge-primary badge-disabled">Disabled</span>
+        </div>
+    </div>
+
+    <!-- Usage Examples -->
+    <div class="test-section">
+        <h2>6. Real-World Usage Examples</h2>
+        
+        <h3>User Profile</h3>
+        <div class="demo-row">
+            <span style="font-weight: 600;">John Doe</span>
+            <span class="badge badge-success-solid badge-sm">Admin</span>
+            <span class="status-dot status-dot-success"></span>Online
+        </div>
+
+        <h3>Service Status</h3>
+        <div class="demo-row">
+            <span>Web Server:</span>
+            <span class="status-icon status-icon-success">
+                <i class="fa fa-check-circle"></i>
+                Running
+            </span>
+            <span class="badge badge-success badge-sm">99.9% Uptime</span>
+        </div>
+
+        <h3>Task Management</h3>
+        <div class="demo-row">
+            <span>Project Alpha</span>
+            <div class="badge-group">
+                <span class="badge badge-primary">Frontend</span>
+                <span class="badge badge-warning">In Progress</span>
+                <span class="badge badge-info badge-with-icon">
+                    <i class="fa fa-clock"></i>
+                    Due Soon
+                </span>
+            </div>
+        </div>
+
+        <h3>Notification Center</h3>
+        <div class="demo-row">
+            <div class="notification-demo">
+                <i class="fa fa-bell"></i> Notifications
+                <span class="badge-notification badge-notification-danger">5</span>
+            </div>
+            <div class="notification-demo">
+                <i class="fa fa-envelope"></i> Messages
+                <span class="badge-notification badge-notification-primary">12</span>
+            </div>
+            <div class="notification-demo">
+                <i class="fa fa-cog"></i> Updates
+                <span class="badge-notification-dot badge-notification-warning"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactivity for testing
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle dismissible badges
+            document.querySelectorAll('.badge-close').forEach(button => {
+                button.addEventListener('click', function() {
+                    const badge = this.parentElement;
+                    badge.classList.add('badge-fade-out');
+                    setTimeout(() => {
+                        badge.remove();
+                    }, 250);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

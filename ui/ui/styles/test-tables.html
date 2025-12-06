@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table Component System - PHPNuxBill Modern Design</title>
+  <link rel="stylesheet" href="base/variables.css">
+  <link rel="stylesheet" href="base/reset.css">
+  <link rel="stylesheet" href="base/typography.css">
+  <link rel="stylesheet" href="components/buttons.css">
+  <link rel="stylesheet" href="components/forms.css">
+  <link rel="stylesheet" href="components/tables.css">
+  <style>
+    body {
+      padding: 40px 20px;
+      background-color: #f5f5f5;
+    }
+    .demo-section {
+      margin-bottom: 48px;
+      background-color: white;
+      padding: 24px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    .demo-section h2 {
+      margin-top: 0;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #f0f0f0;
+    }
+    .demo-section h3 {
+      margin-top: 32px;
+      margin-bottom: 16px;
+      font-size: 18px;
+      color: #595959;
+    }
+    .demo-description {
+      margin-bottom: 20px;
+      color: #595959;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center; margin-bottom: 40px;">Table Component System</h1>
+
+  <!-- Basic Table -->
+  <div class="demo-section">
+    <h2>6.1 & 6.2: Basic Table with Headers and Rows</h2>
+    <p class="demo-description">
+      Table with styled headers (subtle background, 600 font-weight, 12px 16px padding, bottom border) 
+      and consistent cell styling with subtle borders.
+    </p>
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Customer Name</th>
+          <th>Email</th>
+          <th>Plan</th>
+          <th>Status</th>
+          <th class="text-right">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>001</td>
+          <td>John Doe</td>
+          <td>john.doe@example.com</td>
+          <td>Premium</td>
+          <td><span style="color: #52c41a;">Active</span></td>
+          <td class="text-right">$99.00</td>
+        </tr>
+        <tr>
+          <td>002</td>
+          <td>Jane Smith</td>
+          <td>jane.smith@example.com</td>
+          <td>Basic</td>
+          <td><span style="color: #52c41a;">Active</span></td>
+          <td class="text-right">$49.00</td>
+        </tr>
+        <tr>
+          <td>003</td>
+          <td>Bob Johnson</td>
+          <td>bob.johnson@example.com</td>
+          <td>Enterprise</td>
+          <td><span style="color: #faad14;">Pending</span></td>
+          <td class="text-right">$199.00</td>
+        </tr>
+        <tr>
+          <td>004</td>
+          <td>Alice Williams</td>
+          <td>alice.williams@example.com</td>
+          <td>Premium</td>
+          <td><span style="color: #f5222d;">Suspended</span></td>
+          <td class="text-right">$99.00</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Striped and Hover Table -->
+  <div class="demo-section">
+    <h2>Striped Table with Hover Effect</h2>
+    <p class="demo-description">
+      Alternating row backgrounds for striped tables with hover state highlighting.
+    </p>
+    
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Date</th>
+          <th>Customer</th>
+          <th>Product</th>
+          <th class="text-right">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>#ORD-1001</td>
+          <td>2024-01-15</td>
+          <td>Michael Brown</td>
+          <td>Internet Package - 50Mbps</td>
+          <td class="text-right">$59.99</td>
+        </tr>
+        <tr>
+          <td>#ORD-1002</td>
+          <td>2024-01-16</td>
+          <td>Sarah Davis</td>
+          <td>Internet Package - 100Mbps</td>
+          <td class="text-right">$89.99</td>
+        </tr>
+        <tr>
+          <td>#ORD-1003</td>
+          <td>2024-01-17</td>
+          <td>David Wilson</td>
+          <td>Internet Package - 200Mbps</td>
+          <td class="text-right">$129.99</td>
+        </tr>
+        <tr>
+          <td>#ORD-1004</td>
+          <td>2024-01-18</td>
+          <td>Emma Martinez</td>
+          <td>Internet Package - 50Mbps</td>
+          <td class="text-right">$59.99</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Table with Action Buttons -->
+  <div class="demo-section">
+    <h2>6.3: Table with Action Buttons</h2>
+    <p class="demo-description">
+      Compact icon buttons for table actions (view, edit, delete) with proper spacing and hover effects.
+    </p>
+    
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Status</th>
+          <th class="text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>admin</td>
+          <td>admin@phpnuxbill.com</td>
+          <td>Administrator</td>
+          <td><span style="color: #52c41a;">Active</span></td>
+          <td class="text-center">
+            <div class="table-actions">
+              <button class="btn btn-view" title="View" aria-label="View user">
+                <i class="fa fa-eye"></i>
+              </button>
+              <button class="btn btn-edit" title="Edit" aria-label="Edit user">
+                <i class="fa fa-edit"></i>
+              </button>
+              <button class="btn btn-delete" title="Delete" aria-label="Delete user">
+                <i class="fa fa-trash"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>operator</td>
+          <td>operator@phpnuxbill.com</td>
+          <td>Operator</td>
+          <td><span style="color: #52c41a;">Active</span></td>
+          <td class="text-center">
+            <div class="table-actions">
+              <button class="btn btn-view" title="View" aria-label="View user">
+                <i class="fa fa-eye"></i>
+              </button>
+              <button class="btn btn-edit" title="Edit" aria-label="Edit user">
+                <i class="fa fa-edit"></i>
+              </button>
+              <button class="btn btn-delete" title="Delete" aria-label="Delete user">
+                <i class="fa fa-trash"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>customer</td>
+          <td>customer@example.com</td>
+          <td>Customer</td>
+          <td><span style="color: #8c8c8c;">Inactive</span></td>
+          <td class="text-center">
+            <div class="table-actions">
+              <button class="btn btn-view" title="View" aria-label="View user">
+                <i class="fa fa-eye"></i>
+              </button>
+              <button class="btn btn-edit" title="Edit" aria-label="Edit user">
+                <i class="fa fa-edit"></i>
+              </button>
+              <button class="btn btn-delete" title="Delete" aria-label="Delete user">
+                <i class="fa fa-trash"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Empty Table State -->
+  <div class="demo-section">
+    <h2>6.4: Empty Table State</h2>
+    <p class="demo-description">
+      Centered empty state layout with icon, message, subtext, and optional action button.
+    </p>
+    
+    <div class="table-empty-state">
+      <div class="empty-icon">📋</div>
+      <div class="empty-message">No data available</div>
+      <div class="empty-subtext">
+        There are no records to display at this time.<br>
+        Click the button below to add your first entry.
+      </div>
+      <button class="btn btn-primary">
+        <i class="fa fa-plus"></i> Add New Record
+      </button>
+    </div>
+  </div>
+
+  <!-- Table with Toolbar and Footer -->
+  <div class="demo-section">
+    <h2>6.5: Table with Toolbar and Footer</h2>
+    <p class="demo-description">
+      Complete table with toolbar (search, filters, actions) and footer (pagination, info text).
+    </p>
+    
+    <!-- Toolbar -->
+    <div class="table-toolbar">
+      <div class="toolbar-left">
+        <h3 class="toolbar-title">Customer List</h3>
+        <div class="toolbar-search">
+          <input type="text" class="form-control" placeholder="Search customers...">
+        </div>
+      </div>
+      <div class="toolbar-right">
+        <div class="toolbar-filters">
+          <button class="btn btn-default btn-sm">All</button>
+          <button class="btn btn-default btn-sm">Active</button>
+          <button class="btn btn-default btn-sm">Inactive</button>
+        </div>
+        <div class="toolbar-actions">
+          <button class="btn btn-default btn-sm">
+            <i class="fa fa-download"></i> Export
+          </button>
+          <button class="btn btn-primary btn-sm">
+            <i class="fa fa-plus"></i> Add Customer
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Table -->
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Plan</th>
+            <th>Status</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>001</td>
+            <td>John Doe</td>
+            <td>john.doe@example.com</td>
+            <td>+1 234 567 8900</td>
+            <td>Premium</td>
+            <td><span style="color: #52c41a;">Active</span></td>
+            <td class="text-center">
+              <div class="table-actions">
+                <button class="btn btn-view" title="View"><i class="fa fa-eye"></i></button>
+                <button class="btn btn-edit" title="Edit"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-delete" title="Delete"><i class="fa fa-trash"></i></button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>002</td>
+            <td>Jane Smith</td>
+            <td>jane.smith@example.com</td>
+            <td>+1 234 567 8901</td>
+            <td>Basic</td>
+            <td><span style="color: #52c41a;">Active</span></td>
+            <td class="text-center">
+              <div class="table-actions">
+                <button class="btn btn-view" title="View"><i class="fa fa-eye"></i></button>
+                <button class="btn btn-edit" title="Edit"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-delete" title="Delete"><i class="fa fa-trash"></i></button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>003</td>
+            <td>Bob Johnson</td>
+            <td>bob.johnson@example.com</td>
+            <td>+1 234 567 8902</td>
+            <td>Enterprise</td>
+            <td><span style="color: #faad14;">Pending</span></td>
+            <td class="text-center">
+              <div class="table-actions">
+                <button class="btn btn-view" title="View"><i class="fa fa-eye"></i></button>
+                <button class="btn btn-edit" title="Edit"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-delete" title="Delete"><i class="fa fa-trash"></i></button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- Footer -->
+    <div class="table-footer">
+      <div class="footer-info">
+        Showing 1 to 3 of 3 entries
+      </div>
+      <ul class="table-pagination">
+        <li class="disabled">
+          <a href="#" aria-label="Previous">
+            <i class="fa fa-chevron-left"></i>
+          </a>
+        </li>
+        <li class="active">
+          <a href="#">1</a>
+        </li>
+        <li>
+          <a href="#">2</a>
+        </li>
+        <li>
+          <a href="#">3</a>
+        </li>
+        <li>
+          <a href="#" aria-label="Next">
+            <i class="fa fa-chevron-right"></i>
+          </a>
+        </li>
+      </ul>
+      <div class="page-size-selector">
+        <label>Show</label>
+        <select class="form-control">
+          <option>10</option>
+          <option>25</option>
+          <option>50</option>
+          <option>100</option>
+        </select>
+        <label>entries</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Responsive Table -->
+  <div class="demo-section">
+    <h2>6.6: Responsive Table</h2>
+    <p class="demo-description">
+      Table with horizontal scroll wrapper for mobile devices. Resize your browser to see the responsive behavior.
+    </p>
+    
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Date</th>
+            <th>Customer</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Discount</th>
+            <th>Tax</th>
+            <th class="text-right">Total</th>
+            <th class="text-center">Status</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#ORD-1001</td>
+            <td>2024-01-15</td>
+            <td>Michael Brown</td>
+            <td>Internet Package - 50Mbps</td>
+            <td>1</td>
+            <td>$59.99</td>
+            <td>$0.00</td>
+            <td>$6.00</td>
+            <td class="text-right">$65.99</td>
+            <td class="text-center"><span style="color: #52c41a;">Paid</span></td>
+            <td class="text-center">
+              <div class="table-actions">
+                <button class="btn btn-view" title="View"><i class="fa fa-eye"></i></button>
+                <button class="btn btn-edit" title="Edit"><i class="fa fa-edit"></i></button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>#ORD-1002</td>
+            <td>2024-01-16</td>
+            <td>Sarah Davis</td>
+            <td>Internet Package - 100Mbps</td>
+            <td>1</td>
+            <td>$89.99</td>
+            <td>$5.00</td>
+            <td>$8.50</td>
+            <td class="text-right">$93.49</td>
+            <td class="text-center"><span style="color: #52c41a;">Paid</span></td>
+            <td class="text-center">
+              <div class="table-actions">
+                <button class="btn btn-view" title="View"><i class="fa fa-eye"></i></button>
+                <button class="btn btn-edit" title="Edit"><i class="fa fa-edit"></i></button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Bordered and Condensed Tables -->
+  <div class="demo-section">
+    <h2>Table Variants</h2>
+    
+    <h3>Bordered Table</h3>
+    <p class="demo-description">All cells have visible borders.</p>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Item One</td>
+          <td>Active</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Item Two</td>
+          <td>Inactive</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <h3>Condensed Table</h3>
+    <p class="demo-description">Reduced padding for compact display.</p>
+    <table class="table table-condensed table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Item One</td>
+          <td>Active</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Item Two</td>
+          <td>Inactive</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Item Three</td>
+          <td>Active</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Sortable Table Headers -->
+  <div class="demo-section">
+    <h2>Sortable Table Headers</h2>
+    <p class="demo-description">
+      Table headers with sort indicators. Click headers to sort (demo only shows styling).
+    </p>
+    
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th class="sortable">ID</th>
+          <th class="sortable sort-asc">Name</th>
+          <th class="sortable">Email</th>
+          <th class="sortable sort-desc">Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Alice</td>
+          <td>alice@example.com</td>
+          <td>2024-01-15</td>
+          <td>
+            <div class="table-actions">
+              <button class="btn btn-edit"><i class="fa fa-edit"></i></button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Bob</td>
+          <td>bob@example.com</td>
+          <td>2024-01-14</td>
+          <td>
+            <div class="table-actions">
+              <button class="btn btn-edit"><i class="fa fa-edit"></i></button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Font Awesome Icons (for demo purposes) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</body>
+</html>

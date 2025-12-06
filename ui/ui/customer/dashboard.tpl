@@ -1,40 +1,47 @@
 {include file="customer/header.tpl"}
-<!-- user-dashboard -->
-<!-- user-dashboard -->
+
+<!-- Customer Dashboard -->
+<div class="dashboard-container">
     <div class="dashboard-widgets">
 
-{function showWidget pos=0}
-    {foreach $widgets as $w}
-        {if $w['position'] == $pos}
-            {$w['content']}
-        {/if}
-    {/foreach}
-{/function}
+        {function showWidget pos=0}
+            {foreach $widgets as $w}
+                {if $w['position'] == $pos}
+                    <div class="widget-wrapper">
+                        {$w['content']}
+                    </div>
+                {/if}
+            {/foreach}
+        {/function}
 
-
-{assign rows explode(".", $_c['dashboard_Customer'])}
-{assign pos 1}
-{foreach $rows as $cols}
-    {if $cols == 12}
-        <div class="row widget-row">
-            <div class="col-md-12">
-                {showWidget widgets=$widgets pos=$pos}
-            </div>
-        </div>
-        {assign pos value=$pos+1}
-    {else}
-        {assign colss explode(",", $cols)}
-        <div class="row widget-row">
-            {foreach $colss as $c}
-                <div class="col-md-{$c} widget-col">
-                    {showWidget widgets=$widgets pos=$pos}
+        {assign rows explode(".", $_c['dashboard_Customer'])}
+        {assign pos 1}
+        
+        {foreach $rows as $cols}
+            {if $cols == 12}
+                <div class="dashboard-row full-width-row">
+                    <div class="dashboard-col col-full">
+                        {showWidget widgets=$widgets pos=$pos}
+                    </div>
                 </div>
                 {assign pos value=$pos+1}
-            {/foreach}
-        </div>
-    {/if}
-{/foreach}
+            {else}
+                {assign colss explode(",", $cols)}
+                <div class="dashboard-row multi-col-row">
+                    {foreach $colss as $c}
+                        <div class="dashboard-col col-{$c}">
+                            <div class="widget-container">
+                                {showWidget widgets=$widgets pos=$pos}
+                            </div>
+                        </div>
+                        {assign pos value=$pos+1}
+                    {/foreach}
+                </div>
+            {/if}
+        {/foreach}
+        
     </div>
+</div>
 
 
 {if isset($hostname) && $hchap == 'true' && $_c['hs_auth_method'] == 'hchap'}

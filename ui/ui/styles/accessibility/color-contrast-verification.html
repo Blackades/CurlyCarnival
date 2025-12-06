@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Contrast Verification - WCAG AA Compliance</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        h1 {
+            color: #262626;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #595959;
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            color: #262626;
+            border-bottom: 2px solid #e6f7ff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .contrast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .contrast-item {
+            border: 1px solid #d9d9d9;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .contrast-sample {
+            padding: 20px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .contrast-info {
+            padding: 15px;
+            background: #fafafa;
+            border-top: 1px solid #f0f0f0;
+            font-size: 14px;
+        }
+        
+        .ratio {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .status {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            display: inline-block;
+        }
+        
+        .pass {
+            background: #f6ffed;
+            color: #52c41a;
+            border: 1px solid #b7eb8f;
+        }
+        
+        .fail {
+            background: #fff1f0;
+            color: #f5222d;
+            border: 1px solid #ffccc7;
+        }
+        
+        .warning {
+            background: #fffbe6;
+            color: #faad14;
+            border: 1px solid #ffe58f;
+        }
+        
+        .color-info {
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+            font-size: 12px;
+            color: #8c8c8c;
+        }
+        
+        .summary {
+            background: #e6f7ff;
+            border: 1px solid #91d5ff;
+            border-radius: 6px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        .summary h3 {
+            color: #1890ff;
+            margin-top: 0;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .stat {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 4px;
+            border: 1px solid #d9d9d9;
+        }
+        
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #595959;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Color Contrast Verification</h1>
+        <p class="subtitle">WCAG AA Compliance Testing for PHPNuxBill Modern Design System</p>
+        
+        <div class="section">
+            <h2>Primary & Semantic Colors on White Background</h2>
+            <div class="contrast-grid" id="primary-colors"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Button Text Contrast</h2>
+            <div class="contrast-grid" id="button-colors"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Status Indicators & Badges</h2>
+            <div class="contrast-grid" id="status-colors"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Text Colors on Various Backgrounds</h2>
+            <div class="contrast-grid" id="text-colors"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Alert & Notification Colors</h2>
+            <div class="contrast-grid" id="alert-colors"></div>
+        </div>
+        
+        <div class="summary">
+            <h3>Compliance Summary</h3>
+            <div class="stats" id="summary-stats"></div>
+        </div>
+    </div>
+
+    <script>
+        // Color definitions from our design system
+        const colors = {
+            // Primary colors
+            primary: '#1890ff',
+            primaryHover: '#40a9ff',
+            primaryActive: '#096dd9',
+            primaryLight: '#e6f7ff',
+            primaryBorder: '#91d5ff',
+            
+            // Semantic colors
+            success: '#52c41a',
+            successHover: '#73d13d',
+            successActive: '#389e0d',
+            successBg: '#f6ffed',
+            successBorder: '#b7eb8f',
+            
+            warning: '#faad14',
+            warningHover: '#ffc53d',
+            warningActive: '#d48806',
+            warningBg: '#fffbe6',
+            warningBorder: '#ffe58f',
+            
+            danger: '#f5222d',
+            dangerHover: '#ff4d4f',
+            dangerActive: '#cf1322',
+            dangerBg: '#fff1f0',
+            dangerBorder: '#ffccc7',
+            
+            info: '#1890ff',
+            infoHover: '#40a9ff',
+            infoActive: '#096dd9',
+            infoBg: '#e6f7ff',
+            infoBorder: '#91d5ff',
+            
+            // Neutral colors
+            textPrimary: '#262626',
+            textSecondary: '#595959',
+            textTertiary: '#8c8c8c',
+            textDisabled: '#bfbfbf',
+            textInverse: '#ffffff',
+            
+            background: '#ffffff',
+            backgroundSecondary: '#fafafa',
+            backgroundHover: '#f5f5f5',
+            backgroundActive: '#e8e8e8',
+            
+            borderColor: '#d9d9d9',
+            borderLight: '#f0f0f0',
+            borderDark: '#8c8c8c'
+        };
+
+        // Convert hex to RGB
+        function hexToRgb(hex) {
+            const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+            return result ? {
+                r: parseInt(result[1], 16),
+                g: parseInt(result[2], 16),
+                b: parseInt(result[3], 16)
+            } : null;
+        }
+
+        // Calculate relative luminance
+        function getLuminance(rgb) {
+            const rsRGB = rgb.r / 255;
+            const gsRGB = rgb.g / 255;
+            const bsRGB = rgb.b / 255;
+
+            const r = rsRGB <= 0.03928 ? rsRGB / 12.92 : Math.pow((rsRGB + 0.055) / 1.055, 2.4);
+            const g = gsRGB <= 0.03928 ? gsRGB / 12.92 : Math.pow((gsRGB + 0.055) / 1.055, 2.4);
+            const b = bsRGB <= 0.03928 ? bsRGB / 12.92 : Math.pow((bsRGB + 0.055) / 1.055, 2.4);
+
+            return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+        }
+
+        // Calculate contrast ratio
+        function getContrastRatio(color1, color2) {
+            const rgb1 = hexToRgb(color1);
+            const rgb2 = hexToRgb(color2);
+            
+            const lum1 = getLuminance(rgb1);
+            const lum2 = getLuminance(rgb2);
+            
+            const brightest = Math.max(lum1, lum2);
+            const darkest = Math.min(lum1, lum2);
+            
+            return (brightest + 0.05) / (darkest + 0.05);
+        }
+
+        // Get compliance status
+        function getComplianceStatus(ratio, isLargeText = false) {
+            const threshold = isLargeText ? 3.0 : 4.5;
+            if (ratio >= threshold) {
+                return { status: 'pass', text: 'PASS' };
+            } else if (ratio >= 3.0) {
+                return { status: 'warning', text: isLargeText ? 'PASS' : 'LARGE TEXT ONLY' };
+            } else {
+                return { status: 'fail', text: 'FAIL' };
+            }
+        }
+
+        // Create contrast item HTML
+        function createContrastItem(foreground, background, label, isLargeText = false) {
+            const ratio = getContrastRatio(foreground, background);
+            const compliance = getComplianceStatus(ratio, isLargeText);
+            
+            return `
+                <div class="contrast-item">
+                    <div class="contrast-sample" style="color: ${foreground}; background-color: ${background};">
+                        ${label}
+                        <br>
+                        <span style="font-size: ${isLargeText ? '18px' : '14px'};">Sample text for contrast testing</span>
+                    </div>
+                    <div class="contrast-info">
+                        <div class="ratio">Ratio: ${ratio.toFixed(2)}:1</div>
+                        <div class="status ${compliance.status}">${compliance.text}</div>
+                        <div class="color-info">
+                            Foreground: ${foreground}<br>
+                            Background: ${background}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Test combinations and track results
+        let totalTests = 0;
+        let passedTests = 0;
+        let warningTests = 0;
+        let failedTests = 0;
+
+        function addTest(ratio, isLargeText = false) {
+            totalTests++;
+            const compliance = getComplianceStatus(ratio, isLargeText);
+            if (compliance.status === 'pass') passedTests++;
+            else if (compliance.status === 'warning') warningTests++;
+            else failedTests++;
+        }
+
+        // Primary & Semantic Colors
+        const primarySection = document.getElementById('primary-colors');
+        const primaryTests = [
+            { color: colors.primary, bg: colors.background, label: 'Primary Blue' },
+            { color: colors.success, bg: colors.background, label: 'Success Green' },
+            { color: colors.warning, bg: colors.background, label: 'Warning Orange' },
+            { color: colors.danger, bg: colors.background, label: 'Danger Red' },
+            { color: colors.info, bg: colors.background, label: 'Info Blue' },
+            { color: colors.textPrimary, bg: colors.background, label: 'Primary Text' },
+            { color: colors.textSecondary, bg: colors.background, label: 'Secondary Text' },
+            { color: colors.textTertiary, bg: colors.background, label: 'Tertiary Text' }
+        ];
+
+        primaryTests.forEach(test => {
+            const ratio = getContrastRatio(test.color, test.bg);
+            addTest(ratio);
+            primarySection.innerHTML += createContrastItem(test.color, test.bg, test.label);
+        });
+
+        // Button Text Contrast
+        const buttonSection = document.getElementById('button-colors');
+        const buttonTests = [
+            { color: colors.textInverse, bg: colors.primary, label: 'Primary Button' },
+            { color: colors.textInverse, bg: colors.success, label: 'Success Button' },
+            { color: colors.textInverse, bg: colors.warning, label: 'Warning Button' },
+            { color: colors.textInverse, bg: colors.danger, label: 'Danger Button' },
+            { color: colors.textPrimary, bg: colors.background, label: 'Default Button' },
+            { color: colors.primary, bg: colors.background, label: 'Link Button' }
+        ];
+
+        buttonTests.forEach(test => {
+            const ratio = getContrastRatio(test.color, test.bg);
+            addTest(ratio);
+            buttonSection.innerHTML += createContrastItem(test.color, test.bg, test.label);
+        });
+
+        // Status Indicators & Badges
+        const statusSection = document.getElementById('status-colors');
+        const statusTests = [
+            { color: colors.success, bg: colors.successBg, label: 'Success Badge' },
+            { color: colors.warning, bg: colors.warningBg, label: 'Warning Badge' },
+            { color: colors.danger, bg: colors.dangerBg, label: 'Danger Badge' },
+            { color: colors.info, bg: colors.infoBg, label: 'Info Badge' },
+            { color: colors.textInverse, bg: colors.success, label: 'Success Solid Badge' },
+            { color: colors.textInverse, bg: colors.warning, label: 'Warning Solid Badge' },
+            { color: colors.textInverse, bg: colors.danger, label: 'Danger Solid Badge' },
+            { color: colors.textInverse, bg: colors.info, label: 'Info Solid Badge' }
+        ];
+
+        statusTests.forEach(test => {
+            const ratio = getContrastRatio(test.color, test.bg);
+            addTest(ratio);
+            statusSection.innerHTML += createContrastItem(test.color, test.bg, test.label);
+        });
+
+        // Text Colors on Various Backgrounds
+        const textSection = document.getElementById('text-colors');
+        const textTests = [
+            { color: colors.textPrimary, bg: colors.backgroundSecondary, label: 'Primary Text on Secondary BG' },
+            { color: colors.textSecondary, bg: colors.backgroundSecondary, label: 'Secondary Text on Secondary BG' },
+            { color: colors.textTertiary, bg: colors.backgroundSecondary, label: 'Tertiary Text on Secondary BG' },
+            { color: colors.textPrimary, bg: colors.backgroundHover, label: 'Primary Text on Hover BG' },
+            { color: colors.textInverse, bg: colors.textPrimary, label: 'Inverse Text on Dark BG' },
+            { color: colors.textDisabled, bg: colors.background, label: 'Disabled Text' }
+        ];
+
+        textTests.forEach(test => {
+            const ratio = getContrastRatio(test.color, test.bg);
+            addTest(ratio);
+            textSection.innerHTML += createContrastItem(test.color, test.bg, test.label);
+        });
+
+        // Alert & Notification Colors
+        const alertSection = document.getElementById('alert-colors');
+        const alertTests = [
+            { color: colors.success, bg: colors.successBg, label: 'Success Alert' },
+            { color: colors.warning, bg: colors.warningBg, label: 'Warning Alert' },
+            { color: colors.danger, bg: colors.dangerBg, label: 'Danger Alert' },
+            { color: colors.info, bg: colors.infoBg, label: 'Info Alert' }
+        ];
+
+        alertTests.forEach(test => {
+            const ratio = getContrastRatio(test.color, test.bg);
+            addTest(ratio);
+            alertSection.innerHTML += createContrastItem(test.color, test.bg, test.label);
+        });
+
+        // Update summary
+        const summarySection = document.getElementById('summary-stats');
+        const passRate = ((passedTests / totalTests) * 100).toFixed(1);
+        
+        summarySection.innerHTML = `
+            <div class="stat">
+                <div class="stat-number" style="color: #52c41a;">${passedTests}</div>
+                <div class="stat-label">Passed</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number" style="color: #faad14;">${warningTests}</div>
+                <div class="stat-label">Warnings</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number" style="color: #f5222d;">${failedTests}</div>
+                <div class="stat-label">Failed</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number" style="color: #1890ff;">${totalTests}</div>
+                <div class="stat-label">Total Tests</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number" style="color: ${passRate >= 90 ? '#52c41a' : passRate >= 70 ? '#faad14' : '#f5222d'};">${passRate}%</div>
+                <div class="stat-label">Pass Rate</div>
+            </div>
+        `;
+    </script>
+</body>
+</html>

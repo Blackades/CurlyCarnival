@@ -1,0 +1,745 @@
+/**
+ * PHPNuxBill Modern Design System
+ * Button Component Styles
+ * 
+ * Includes base button styles and all color variants
+ */
+
+/* ========================================
+   BASE BUTTON STYLES
+   ======================================== */
+
+.btn,
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+a.btn {
+  /* Layout */
+  display: inline-block;
+  padding: 8px 16px;
+  height: 36px;
+  line-height: 1.5;
+  
+  /* Typography */
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  
+  /* Visual */
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background-color: var(--background);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+  
+  /* Interaction */
+  cursor: pointer;
+  user-select: none;
+  transition: all var(--transition-fast);
+  
+  /* Remove default button styles */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Hover State */
+.btn:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+a.btn:hover {
+  text-decoration: none;
+  box-shadow: var(--shadow-md);
+}
+
+/* Active State */
+.btn:active,
+button:active,
+input[type="submit"]:active,
+input[type="button"]:active,
+input[type="reset"]:active,
+a.btn:active {
+  box-shadow: var(--shadow-sm);
+  transform: translateY(1px);
+}
+
+/* Focus State - Accessibility */
+.btn:focus,
+button:focus,
+input[type="submit"]:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+a.btn:focus {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+/* Disabled State */
+.btn:disabled,
+.btn.disabled,
+button:disabled,
+button.disabled,
+input[type="submit"]:disabled,
+input[type="button"]:disabled,
+input[type="reset"]:disabled,
+a.btn.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ========================================
+   BUTTON COLOR VARIANTS
+   ======================================== */
+
+/* PRIMARY BUTTON */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--text-inverse);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+  color: var(--text-inverse);
+}
+
+.btn-primary:active {
+  background-color: var(--primary-active);
+  border-color: var(--primary-active);
+  color: var(--text-inverse);
+}
+
+.btn-primary:focus {
+  box-shadow: var(--shadow-focus);
+}
+
+/* SUCCESS BUTTON */
+.btn-success {
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+  color: var(--text-inverse);
+}
+
+.btn-success:hover {
+  background-color: var(--success-hover);
+  border-color: var(--success-hover);
+  color: var(--text-inverse);
+}
+
+.btn-success:active {
+  background-color: var(--success-active);
+  border-color: var(--success-active);
+  color: var(--text-inverse);
+}
+
+.btn-success:focus {
+  box-shadow: 0 0 0 3px rgba(82, 196, 26, 0.2);
+}
+
+/* WARNING BUTTON */
+.btn-warning {
+  background-color: var(--warning-color);
+  border-color: var(--warning-color);
+  color: var(--text-inverse);
+}
+
+.btn-warning:hover {
+  background-color: var(--warning-hover);
+  border-color: var(--warning-hover);
+  color: var(--text-inverse);
+}
+
+.btn-warning:active {
+  background-color: var(--warning-active);
+  border-color: var(--warning-active);
+  color: var(--text-inverse);
+}
+
+.btn-warning:focus {
+  box-shadow: 0 0 0 3px rgba(250, 173, 20, 0.2);
+}
+
+/* DANGER BUTTON */
+.btn-danger {
+  background-color: var(--danger-color);
+  border-color: var(--danger-color);
+  color: var(--text-inverse);
+}
+
+.btn-danger:hover {
+  background-color: var(--danger-hover);
+  border-color: var(--danger-hover);
+  color: var(--text-inverse);
+}
+
+.btn-danger:active {
+  background-color: var(--danger-active);
+  border-color: var(--danger-active);
+  color: var(--text-inverse);
+}
+
+.btn-danger:focus {
+  box-shadow: 0 0 0 3px rgba(245, 34, 45, 0.2);
+}
+
+/* INFO BUTTON */
+.btn-info {
+  background-color: var(--info-color);
+  border-color: var(--info-color);
+  color: var(--text-inverse);
+}
+
+.btn-info:hover {
+  background-color: var(--info-hover);
+  border-color: var(--info-hover);
+  color: var(--text-inverse);
+}
+
+.btn-info:active {
+  background-color: var(--info-active);
+  border-color: var(--info-active);
+  color: var(--text-inverse);
+}
+
+.btn-info:focus {
+  box-shadow: var(--shadow-focus);
+}
+
+/* DEFAULT BUTTON */
+.btn-default {
+  background-color: var(--background);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.btn-default:hover {
+  background-color: var(--background-hover);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.btn-default:active {
+  background-color: var(--background-active);
+  border-color: var(--border-dark);
+  color: var(--text-primary);
+}
+
+.btn-default:focus {
+  box-shadow: var(--shadow-focus);
+}
+
+/* LINK BUTTON */
+.btn-link {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--primary-color);
+  box-shadow: none;
+}
+
+.btn-link:hover {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--primary-hover);
+  box-shadow: none;
+  text-decoration: underline;
+}
+
+.btn-link:active {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--primary-active);
+  box-shadow: none;
+}
+
+.btn-link:focus {
+  box-shadow: var(--shadow-focus);
+  text-decoration: none;
+}
+
+/* ========================================
+   BUTTON SIZES
+   ======================================== */
+
+/* Extra Small Button */
+.btn-xs {
+  height: 28px;
+  padding: 4px 8px;
+  font-size: var(--font-size-xs);
+  line-height: 1.5;
+}
+
+/* Small Button */
+.btn-sm {
+  height: 32px;
+  padding: 6px 12px;
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+}
+
+/* Default Button - Already defined in base styles */
+/* Height: 36px, Padding: 8px 16px, Font-size: 14px */
+
+/* Large Button */
+.btn-lg {
+  height: 40px;
+  padding: 10px 20px;
+  font-size: var(--font-size-lg);
+  line-height: 1.5;
+}
+
+/* ========================================
+   MOBILE TOUCH TARGET OPTIMIZATION
+   ======================================== */
+
+/* Ensure minimum 44px touch targets on mobile devices */
+@media (max-width: 767px) {
+  .btn,
+  button,
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"],
+  a.btn {
+    min-height: 44px;
+    height: auto;
+    padding: 12px 16px;
+  }
+  
+  .btn-xs {
+    min-height: 44px;
+    height: auto;
+    padding: 12px 12px;
+  }
+  
+  .btn-sm {
+    min-height: 44px;
+    height: auto;
+    padding: 12px 14px;
+  }
+  
+  .btn-lg {
+    min-height: 44px;
+    height: auto;
+    padding: 12px 20px;
+  }
+}
+
+/* ========================================
+   BUTTON MODIFIERS
+   ======================================== */
+
+/* ICON BUTTON - Square shape for icon-only buttons */
+.btn-icon {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.btn-icon.btn-xs {
+  width: 28px;
+  height: 28px;
+}
+
+.btn-icon.btn-sm {
+  width: 32px;
+  height: 32px;
+}
+
+.btn-icon.btn-lg {
+  width: 40px;
+  height: 40px;
+}
+
+/* Icon button mobile touch targets */
+@media (max-width: 767px) {
+  .btn-icon {
+    width: 44px;
+    min-height: 44px;
+    height: 44px;
+  }
+  
+  .btn-icon.btn-xs,
+  .btn-icon.btn-sm {
+    width: 44px;
+    min-height: 44px;
+    height: 44px;
+  }
+  
+  .btn-icon.btn-lg {
+    width: 48px;
+    min-height: 48px;
+    height: 48px;
+  }
+}
+
+/* CIRCLE BUTTON - Fully rounded icon button */
+.btn-circle {
+  border-radius: var(--radius-round);
+}
+
+/* BLOCK BUTTON - Full width button */
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+/* Block button in button groups */
+.btn-group .btn-block {
+  display: block;
+  width: 100%;
+}
+
+/* OUTLINE BUTTON VARIANTS */
+
+/* Outline Primary */
+.btn-outline-primary {
+  background-color: transparent;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  box-shadow: none;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--text-inverse);
+}
+
+.btn-outline-primary:active {
+  background-color: var(--primary-active);
+  border-color: var(--primary-active);
+  color: var(--text-inverse);
+}
+
+.btn-outline-primary:focus {
+  box-shadow: var(--shadow-focus);
+}
+
+/* Outline Success */
+.btn-outline-success {
+  background-color: transparent;
+  border-color: var(--success-color);
+  color: var(--success-color);
+  box-shadow: none;
+}
+
+.btn-outline-success:hover {
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+  color: var(--text-inverse);
+}
+
+.btn-outline-success:active {
+  background-color: var(--success-active);
+  border-color: var(--success-active);
+  color: var(--text-inverse);
+}
+
+.btn-outline-success:focus {
+  box-shadow: 0 0 0 3px rgba(82, 196, 26, 0.2);
+}
+
+/* Outline Warning */
+.btn-outline-warning {
+  background-color: transparent;
+  border-color: var(--warning-color);
+  color: var(--warning-color);
+  box-shadow: none;
+}
+
+.btn-outline-warning:hover {
+  background-color: var(--warning-color);
+  border-color: var(--warning-color);
+  color: var(--text-inverse);
+}
+
+.btn-outline-warning:active {
+  background-color: var(--warning-active);
+  border-color: var(--warning-active);
+  color: var(--text-inverse);
+}
+
+.btn-outline-warning:focus {
+  box-shadow: 0 0 0 3px rgba(250, 173, 20, 0.2);
+}
+
+/* Outline Danger */
+.btn-outline-danger {
+  background-color: transparent;
+  border-color: var(--danger-color);
+  color: var(--danger-color);
+  box-shadow: none;
+}
+
+.btn-outline-danger:hover {
+  background-color: var(--danger-color);
+  border-color: var(--danger-color);
+  color: var(--text-inverse);
+}
+
+.btn-outline-danger:active {
+  background-color: var(--danger-active);
+  border-color: var(--danger-active);
+  color: var(--text-inverse);
+}
+
+.btn-outline-danger:focus {
+  box-shadow: 0 0 0 3px rgba(245, 34, 45, 0.2);
+}
+
+/* Outline Info */
+.btn-outline-info {
+  background-color: transparent;
+  border-color: var(--info-color);
+  color: var(--info-color);
+  box-shadow: none;
+}
+
+.btn-outline-info:hover {
+  background-color: var(--info-color);
+  border-color: var(--info-color);
+  color: var(--text-inverse);
+}
+
+.btn-outline-info:active {
+  background-color: var(--info-active);
+  border-color: var(--info-active);
+  color: var(--text-inverse);
+}
+
+.btn-outline-info:focus {
+  box-shadow: var(--shadow-focus);
+}
+
+/* Outline Default */
+.btn-outline-default {
+  background-color: transparent;
+  border-color: var(--border-color);
+  color: var(--text-primary);
+  box-shadow: none;
+}
+
+.btn-outline-default:hover {
+  background-color: var(--background-hover);
+  border-color: var(--border-dark);
+  color: var(--text-primary);
+}
+
+.btn-outline-default:active {
+  background-color: var(--background-active);
+  border-color: var(--border-dark);
+  color: var(--text-primary);
+}
+
+.btn-outline-default:focus {
+  box-shadow: var(--shadow-focus);
+}
+
+/* ========================================
+   BUTTON GROUPS
+   ======================================== */
+
+/* Horizontal Button Group */
+.btn-group {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm); /* 8px spacing between buttons */
+  flex-wrap: nowrap;
+}
+
+.btn-group .btn {
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* Vertical Button Group */
+.btn-group-vertical {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--spacing-sm);
+}
+
+.btn-group-vertical .btn {
+  margin: 0;
+  width: 100%;
+}
+
+/* Connected Button Group (no gap, merged borders) */
+.btn-group-connected {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+}
+
+.btn-group-connected .btn {
+  margin: 0;
+  border-radius: 0;
+  margin-left: -1px; /* Overlap borders */
+}
+
+.btn-group-connected .btn:first-child {
+  border-top-left-radius: var(--radius-sm);
+  border-bottom-left-radius: var(--radius-sm);
+  margin-left: 0;
+}
+
+.btn-group-connected .btn:last-child {
+  border-top-right-radius: var(--radius-sm);
+  border-bottom-right-radius: var(--radius-sm);
+}
+
+.btn-group-connected .btn:hover,
+.btn-group-connected .btn:focus,
+.btn-group-connected .btn:active {
+  z-index: 1;
+  position: relative;
+}
+
+/* Button Group Sizes */
+.btn-group-sm .btn {
+  height: 32px;
+  padding: 6px 12px;
+  font-size: var(--font-size-sm);
+}
+
+.btn-group-lg .btn {
+  height: 40px;
+  padding: 10px 20px;
+  font-size: var(--font-size-lg);
+}
+
+/* ========================================
+   BUTTON TOOLBARS
+   ======================================== */
+
+/* Button Toolbar - Container for multiple button groups */
+.btn-toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg); /* 16px spacing between groups */
+  flex-wrap: wrap;
+}
+
+.btn-toolbar .btn-group {
+  flex-shrink: 0;
+}
+
+/* Toolbar with justified spacing */
+.btn-toolbar-justified {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+/* Toolbar with centered content */
+.btn-toolbar-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+/* Toolbar with right-aligned content */
+.btn-toolbar-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+/* Toolbar section dividers */
+.btn-toolbar-divider {
+  width: 1px;
+  height: 24px;
+  background-color: var(--border-color);
+  margin: 0 var(--spacing-sm);
+}
+
+/* ========================================
+   RESPONSIVE BUTTON GROUPS (MOBILE)
+   ======================================== */
+
+/* Mobile: Stack button groups vertically and allow wrapping */
+@media (max-width: 767px) {
+  /* Button groups wrap on mobile */
+  .btn-group {
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+  
+  /* Full-width buttons in groups on mobile (optional modifier) */
+  .btn-group-mobile-stack {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn-group-mobile-stack .btn {
+    width: 100%;
+  }
+  
+  /* Connected groups break on mobile */
+  .btn-group-connected {
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+  
+  .btn-group-connected .btn {
+    border-radius: var(--radius-sm);
+    margin-left: 0;
+  }
+  
+  /* Toolbars stack vertically on mobile */
+  .btn-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-md);
+  }
+  
+  .btn-toolbar .btn-group {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .btn-toolbar-justified,
+  .btn-toolbar-center,
+  .btn-toolbar-right {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-md);
+  }
+  
+  /* Hide toolbar dividers on mobile */
+  .btn-toolbar-divider {
+    display: none;
+  }
+}
+
+/* Tablet: Allow some wrapping but maintain horizontal layout */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .btn-toolbar {
+    gap: var(--spacing-md);
+  }
+  
+  .btn-toolbar-justified,
+  .btn-toolbar-center,
+  .btn-toolbar-right {
+    gap: var(--spacing-md);
+  }
+}

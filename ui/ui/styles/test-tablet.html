@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablet Styles Test</title>
+    <link rel="stylesheet" href="base/variables.css">
+    <link rel="stylesheet" href="base/reset.css">
+    <link rel="stylesheet" href="base/typography.css">
+    <link rel="stylesheet" href="layout/grid.css">
+    <link rel="stylesheet" href="layout/containers.css">
+    <link rel="stylesheet" href="layout/sidebar.css">
+    <link rel="stylesheet" href="components/buttons.css">
+    <link rel="stylesheet" href="components/forms.css">
+    <link rel="stylesheet" href="components/cards.css">
+    <link rel="stylesheet" href="components/tables.css">
+    <link rel="stylesheet" href="components/modals.css">
+    <link rel="stylesheet" href="components/alerts.css">
+    <link rel="stylesheet" href="components/badges.css">
+    <link rel="stylesheet" href="responsive/tablet.css">
+    <style>
+        /* Demo styles */
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .demo-section {
+            margin-bottom: 40px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .demo-title {
+            color: #1890ff;
+            border-bottom: 2px solid #1890ff;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+        .viewport-indicator {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #1890ff;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <div class="viewport-indicator">Tablet View (768px - 1023px)</div>
+    
+    <h1>Tablet-Specific Styles Test</h1>
+    <p>Resize your browser to tablet width (768px - 1023px) to see tablet-specific styles.</p>
+
+    <!-- 2-Column Card Layout Test -->
+    <div class="demo-section">
+        <h2 class="demo-title">2-Column Card Layout</h2>
+        <div class="card-grid">
+            <div class="panel">
+                <div class="panel-header">
+                    <h3>Card 1</h3>
+                </div>
+                <div class="panel-body">
+                    <p>This card should be in a 2-column layout on tablet devices.</p>
+                    <div class="btn-group">
+                        <button class="btn btn-primary">Action</button>
+                        <button class="btn btn-default">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="panel">
+                <div class="panel-header">
+                    <h3>Card 2</h3>
+                </div>
+                <div class="panel-body">
+                    <p>Cards should have proper spacing and padding on tablet.</p>
+                    <span class="badge badge-success">Active</span>
+                    <span class="badge badge-warning">Pending</span>
+                </div>
+            </div>
+            
+            <div class="panel">
+                <div class="panel-header">
+                    <h3>Card 3</h3>
+                </div>
+                <div class="panel-body">
+                    <p>Third card in the grid layout.</p>
+                    <div class="alert alert-info">
+                        <i class="fa fa-info-circle"></i>
+                        Info alert in tablet view
+                    </div>
+                </div>
+            </div>
+            
+            <div class="panel">
+                <div class="panel-header">
+                    <h3>Card 4</h3>
+                </div>
+                <div class="panel-body">
+                    <p>Fourth card completing the 2x2 grid.</p>
+                    <button class="btn btn-success btn-block">Full Width Button</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Cards Test -->
+    <div class="demo-section">
+        <h2 class="demo-title">Dashboard Cards (2-Column)</h2>
+        <div class="dashboard-cards">
+            <div class="info-box">
+                <div class="info-box-icon bg-primary">
+                    <i class="fa fa-users"></i>
+                </div>
+                <div class="info-box-content">
+                    <div class="info-box-number">1,234</div>
+                    <div class="info-box-text">Total Users</div>
+                </div>
+            </div>
+            
+            <div class="info-box">
+                <div class="info-box-icon bg-success">
+                    <i class="fa fa-shopping-cart"></i>
+                </div>
+                <div class="info-box-content">
+                    <div class="info-box-number">567</div>
+                    <div class="info-box-text">Orders</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Form Layout Test -->
+    <div class="demo-section">
+        <h2 class="demo-title">Tablet Form Layouts</h2>
+        
+        <h3>2-Column Form Row</h3>
+        <form>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" class="form-control" placeholder="Enter first name">
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" class="form-control" placeholder="Enter last name">
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" class="form-control" placeholder="Enter phone">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Address</label>
+                <textarea class="form-control" rows="3" placeholder="Enter full address"></textarea>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-default">Cancel</button>
+                <button type="button" class="btn btn-danger">Delete</button>
+            </div>
+        </form>
+
+        <h3>Horizontal Form</h3>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label">Username:</label>
+                <div class="form-control-wrapper">
+                    <input type="text" class="form-control" placeholder="Enter username">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Password:</label>
+                <div class="form-control-wrapper">
+                    <input type="password" class="form-control" placeholder="Enter password">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Role:</label>
+                <div class="form-control-wrapper">
+                    <select class="form-control">
+                        <option>Admin</option>
+                        <option>User</option>
+                        <option>Manager</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Table Test -->
+    <div class="demo-section">
+        <h2 class="demo-title">Tablet Table Layout</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Created</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td><span class="badge badge-success">Active</span></td>
+                        <td>2024-01-15</td>
+                        <td>
+                            <button class="btn btn-xs btn-info">View</button>
+                            <button class="btn btn-xs btn-primary">Edit</button>
+                            <button class="btn btn-xs btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td><span class="badge badge-warning">Pending</span></td>
+                        <td>2024-01-14</td>
+                        <td>
+                            <button class="btn btn-xs btn-info">View</button>
+                            <button class="btn btn-xs btn-primary">Edit</button>
+                            <button class="btn btn-xs btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Sidebar Layout Test -->
+    <div class="demo-section">
+        <h2 class="demo-title">Sidebar Width (200px on Tablet)</h2>
+        <div style="position: relative; height: 300px; border: 1px solid #ddd;">
+            <div class="sidebar" style="position: absolute; top: 0; left: 0; height: 100%; background: #f8f9fa; border-right: 1px solid #ddd;">
+                <div class="user-panel">
+                    <div class="user-image" style="width: 42px; height: 42px; background: #1890ff; border-radius: 50%; margin-bottom: 8px;"></div>
+                    <div class="user-name">John Doe</div>
+                    <div class="user-status">Online</div>
+                </div>
+                <nav class="nav">
+                    <div class="nav-item">
+                        <i class="nav-icon fa fa-dashboard"></i>
+                        <span class="nav-text">Dashboard</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="nav-icon fa fa-users"></i>
+                        <span class="nav-text">Users</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="nav-icon fa fa-cog"></i>
+                        <span class="nav-text">Settings</span>
+                    </div>
+                </nav>
+            </div>
+            <div class="main-content" style="background: white; height: 100%; padding: 20px;">
+                <h3>Main Content Area</h3>
+                <p>This content area should have a left margin of 200px on tablet to accommodate the narrower sidebar.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Button Groups Test -->
+    <div class="demo-section">
+        <h2 class="demo-title">Button Groups (Horizontal on Tablet)</h2>
+        <div class="btn-group">
+            <button class="btn btn-primary">Primary</button>
+            <button class="btn btn-success">Success</button>
+            <button class="btn btn-warning">Warning</button>
+            <button class="btn btn-danger">Danger</button>
+        </div>
+        
+        <div class="btn-toolbar" style="margin-top: 16px;">
+            <div class="btn-group">
+                <button class="btn btn-default">Left</button>
+                <button class="btn btn-default">Center</button>
+                <button class="btn btn-default">Right</button>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-info">Info</button>
+                <button class="btn btn-info">More Info</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Typography Test -->
+    <div class="demo-section">
+        <h2 class="demo-title">Tablet Typography</h2>
+        <h1>Heading 1 (26px)</h1>
+        <h2>Heading 2 (22px)</h2>
+        <h3>Heading 3 (18px)</h3>
+        <h4>Heading 4 (16px)</h4>
+        <h5>Heading 5 (14px)</h5>
+        <p>Body text should be 14px on tablet devices with proper line height for readability.</p>
+    </div>
+
+    <!-- Utility Classes Test -->
+    <div class="demo-section">
+        <h2 class="demo-title">Tablet Utility Classes</h2>
+        <div class="visible-tablet" style="background: #e6f7ff; padding: 12px; border-radius: 4px; margin-bottom: 12px;">
+            This element is visible only on tablet devices.
+        </div>
+        <div class="mt-tablet-2 p-tablet-2" style="background: #f6ffed; border-radius: 4px;">
+            This element has tablet-specific margin-top and padding.
+        </div>
+    </div>
+
+    <script>
+        // Show current viewport width
+        function updateViewportIndicator() {
+            const indicator = document.querySelector('.viewport-indicator');
+            const width = window.innerWidth;
+            if (width >= 768 && width <= 1023) {
+                indicator.textContent = `Tablet View (${width}px)`;
+                indicator.style.background = '#52c41a';
+            } else if (width < 768) {
+                indicator.textContent = `Mobile View (${width}px)`;
+                indicator.style.background = '#faad14';
+            } else {
+                indicator.textContent = `Desktop View (${width}px)`;
+                indicator.style.background = '#1890ff';
+            }
+        }
+
+        updateViewportIndicator();
+        window.addEventListener('resize', updateViewportIndicator);
+    </script>
+</body>
+</html>

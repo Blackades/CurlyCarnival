@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desktop Styles Test - PHPNuxBill Modern UI</title>
+    <link rel="stylesheet" href="phpnuxbill-modern.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Test-specific styles */
+        .test-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 2px dashed #e0e0e0;
+            border-radius: 8px;
+        }
+        .test-title {
+            color: #1890ff;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .viewport-indicator {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #1890ff;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 9999;
+        }
+        body {
+            padding-top: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="viewport-indicator">Desktop View (≥1024px)</div>
+
+    <div class="container">
+        <h1>Desktop Styles Test</h1>
+        <p>This page demonstrates desktop-specific styles (1024px and up) including 3-4 column layouts, hover states, multi-column forms, and proper content max-widths.</p>
+
+        <!-- 3-Column Card Layout Test -->
+        <div class="test-section">
+            <h2 class="test-title">3-Column Card Layout</h2>
+            <div class="grid-3">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <i class="fa fa-users"></i> Users
+                    </div>
+                    <div class="panel-body">
+                        <h3>1,234</h3>
+                        <p>Total registered users</p>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <i class="fa fa-shopping-cart"></i> Orders
+                    </div>
+                    <div class="panel-body">
+                        <h3>567</h3>
+                        <p>Orders this month</p>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <i class="fa fa-dollar-sign"></i> Revenue
+                    </div>
+                    <div class="panel-body">
+                        <h3>$12,345</h3>
+                        <p>Monthly revenue</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4-Column Card Layout Test -->
+        <div class="test-section">
+            <h2 class="test-title">4-Column Card Layout (Small Cards)</h2>
+            <div class="grid-4">
+                <div class="small-box bg-primary">
+                    <div class="inner">
+                        <h3>150</h3>
+                        <p>New Orders</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-shopping-bag"></i>
+                    </div>
+                </div>
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <h3>53%</h3>
+                        <p>Bounce Rate</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-chart-line"></i>
+                    </div>
+                </div>
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                        <h3>44</h3>
+                        <p>User Registrations</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-user-plus"></i>
+                    </div>
+                </div>
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h3>65</h3>
+                        <p>Unique Visitors</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-chart-pie"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Metrics Layout -->
+        <div class="test-section">
+            <h2 class="test-title">Dashboard Metrics (4-Column)</h2>
+            <div class="dashboard-metrics">
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fa fa-users text-primary"></i>
+                    </div>
+                    <div class="metric-content">
+                        <h4>2,345</h4>
+                        <span>Active Users</span>
+                        <div class="metric-change positive">
+                            <i class="fa fa-arrow-up"></i> +12%
+                        </div>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fa fa-shopping-cart text-success"></i>
+                    </div>
+                    <div class="metric-content">
+                        <h4>1,234</h4>
+                        <span>Total Orders</span>
+                        <div class="metric-change positive">
+                            <i class="fa fa-arrow-up"></i> +8%
+                        </div>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fa fa-dollar-sign text-warning"></i>
+                    </div>
+                    <div class="metric-content">
+                        <h4>$45,678</h4>
+                        <span>Revenue</span>
+                        <div class="metric-change negative">
+                            <i class="fa fa-arrow-down"></i> -3%
+                        </div>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fa fa-chart-line text-info"></i>
+                    </div>
+                    <div class="metric-content">
+                        <h4>89%</h4>
+                        <span>Conversion</span>
+                        <div class="metric-change positive">
+                            <i class="fa fa-arrow-up"></i> +5%
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hover States Test -->
+        <div class="test-section">
+            <h2 class="test-title">Interactive Elements with Hover States</h2>
+            
+            <h4>Buttons (hover for effects)</h4>
+            <div style="margin-bottom: 20px;">
+                <button class="btn btn-primary">Primary Button</button>
+                <button class="btn btn-success">Success Button</button>
+                <button class="btn btn-warning">Warning Button</button>
+                <button class="btn btn-danger">Danger Button</button>
+                <button class="btn btn-default">Default Button</button>
+            </div>
+
+            <h4>Cards with Hover Effects</h4>
+            <div class="grid-3" style="margin-bottom: 20px;">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Hover Card 1</h5>
+                        <p>Hover over this card to see the elevation effect.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Hover Card 2</h5>
+                        <p>Cards lift up and show enhanced shadow on hover.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Hover Card 3</h5>
+                        <p>Smooth transitions make interactions feel responsive.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h4>Table with Row Hover</h4>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td><span class="badge badge-success">Active</span></td>
+                        <td>
+                            <div class="table-actions">
+                                <button class="btn btn-sm btn-info"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></button>
+                                <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td><span class="badge badge-warning">Pending</span></td>
+                        <td>
+                            <div class="table-actions">
+                                <button class="btn btn-sm btn-info"><i class="fa fa-eye"></i></button>
+                                <button class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></button>
+                                <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Multi-Column Forms Test -->
+        <div class="test-section">
+            <h2 class="test-title">Multi-Column Forms Optimization</h2>
+            
+            <h4>Horizontal Form Layout</h4>
+            <form class="form-horizontal" style="margin-bottom: 30px;">
+                <div class="form-group">
+                    <label class="control-label">Full Name:</label>
+                    <div class="form-control-wrapper">
+                        <input type="text" class="form-control" placeholder="Enter full name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Email Address:</label>
+                    <div class="form-control-wrapper">
+                        <input type="email" class="form-control" placeholder="Enter email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Phone Number:</label>
+                    <div class="form-control-wrapper">
+                        <input type="tel" class="form-control" placeholder="Enter phone">
+                    </div>
+                </div>
+            </form>
+
+            <h4>Two-Column Form Layout</h4>
+            <form class="form-columns-2" style="margin-bottom: 30px;">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" class="form-control" placeholder="First name">
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" class="form-control" placeholder="Last name">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" placeholder="Email address">
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" class="form-control" placeholder="Phone number">
+                </div>
+            </form>
+
+            <h4>Three-Column Form Layout</h4>
+            <form class="form-columns-3" style="margin-bottom: 30px;">
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" class="form-control" placeholder="City">
+                </div>
+                <div class="form-group">
+                    <label>State</label>
+                    <select class="form-control">
+                        <option>Select State</option>
+                        <option>California</option>
+                        <option>New York</option>
+                        <option>Texas</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>ZIP Code</label>
+                    <input type="text" class="form-control" placeholder="ZIP">
+                </div>
+            </form>
+
+            <h4>Inline Form Elements</h4>
+            <form class="form-inline">
+                <div class="form-group">
+                    <label class="control-label">Search:</label>
+                    <input type="text" class="form-control" placeholder="Enter search term">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Category:</label>
+                    <select class="form-control">
+                        <option>All Categories</option>
+                        <option>Users</option>
+                        <option>Orders</option>
+                        <option>Products</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+
+        <!-- Content Max-Width Test -->
+        <div class="test-section">
+            <h2 class="test-title">Content Max-Width Containers</h2>
+            
+            <div class="content-wrapper" style="background: #f8f9fa; padding: 20px; margin-bottom: 20px;">
+                <h4>Content Wrapper (max-width: 1200px)</h4>
+                <p>This container has a maximum width of 1200px and is centered on larger screens. It provides optimal reading width and prevents content from stretching too wide on large displays.</p>
+            </div>
+
+            <div class="page-content" style="background: #e9ecef; padding: 20px; margin-bottom: 20px;">
+                <h4>Page Content (max-width: 960px)</h4>
+                <p>This container is optimized for page content with a maximum width of 960px, providing excellent readability for text-heavy content.</p>
+            </div>
+
+            <div class="form-container" style="background: #dee2e6; padding: 20px;">
+                <h4>Form Container (max-width: 800px)</h4>
+                <p>Forms are contained within 800px maximum width to maintain optimal form field lengths and improve user experience.</p>
+                <div class="form-group">
+                    <label>Sample Form Field</label>
+                    <input type="text" class="form-control" placeholder="This input respects the form container width">
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Layout Test -->
+        <div class="test-section">
+            <h2 class="test-title">Dashboard Grid Layout</h2>
+            <div class="dashboard-grid">
+                <div class="main-dashboard">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <i class="fa fa-chart-bar"></i> Analytics Overview
+                        </div>
+                        <div class="panel-body">
+                            <div class="chart-container" style="background: #f8f9fa; display: flex; align-items: center; justify-content: center; color: #6c757d;">
+                                <div style="text-align: center;">
+                                    <i class="fa fa-chart-line" style="font-size: 48px; margin-bottom: 16px;"></i>
+                                    <p>Chart would be displayed here</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-sidebar">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <i class="fa fa-clock"></i> Recent Activity
+                        </div>
+                        <div class="panel-body">
+                            <div class="activity-item" style="padding: 12px 0; border-bottom: 1px solid #f0f0f0;">
+                                <div style="display: flex; align-items: center;">
+                                    <i class="fa fa-user text-primary" style="margin-right: 12px;"></i>
+                                    <div>
+                                        <strong>New user registered</strong>
+                                        <br><small class="text-muted">2 minutes ago</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="activity-item" style="padding: 12px 0; border-bottom: 1px solid #f0f0f0;">
+                                <div style="display: flex; align-items: center;">
+                                    <i class="fa fa-shopping-cart text-success" style="margin-right: 12px;"></i>
+                                    <div>
+                                        <strong>Order completed</strong>
+                                        <br><small class="text-muted">5 minutes ago</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="activity-item" style="padding: 12px 0;">
+                                <div style="display: flex; align-items: center;">
+                                    <i class="fa fa-exclamation-triangle text-warning" style="margin-right: 12px;"></i>
+                                    <div>
+                                        <strong>System alert</strong>
+                                        <br><small class="text-muted">10 minutes ago</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Actions Test -->
+        <div class="test-section">
+            <h2 class="test-title">Form Actions Alignment</h2>
+            <form>
+                <div class="form-group">
+                    <label>Sample Field</label>
+                    <input type="text" class="form-control" placeholder="Enter some data">
+                </div>
+                <div class="form-group">
+                    <label>Another Field</label>
+                    <textarea class="form-control" rows="3" placeholder="Enter description"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-default">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactivity for testing
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update viewport indicator
+            function updateViewportIndicator() {
+                const indicator = document.querySelector('.viewport-indicator');
+                const width = window.innerWidth;
+                if (width >= 1440) {
+                    indicator.textContent = 'Large Desktop (≥1440px)';
+                    indicator.style.backgroundColor = '#52c41a';
+                } else if (width >= 1024) {
+                    indicator.textContent = 'Desktop (≥1024px)';
+                    indicator.style.backgroundColor = '#1890ff';
+                } else if (width >= 768) {
+                    indicator.textContent = 'Tablet (≥768px)';
+                    indicator.style.backgroundColor = '#faad14';
+                } else {
+                    indicator.textContent = 'Mobile (<768px)';
+                    indicator.style.backgroundColor = '#f5222d';
+                }
+            }
+
+            updateViewportIndicator();
+            window.addEventListener('resize', updateViewportIndicator);
+        });
+    </script>
+</body>
+</html>

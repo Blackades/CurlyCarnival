@@ -1,0 +1,107 @@
+/* ============================================
+   CONTAINER LAYOUTS
+   Responsive container max-widths
+   ============================================ */
+
+/* Base container - mobile-first */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* Fluid container - always full width */
+.container-fluid {
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* Container max-widths at breakpoints */
+/* Tablet: 768px */
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .container-fluid {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Desktop: 1024px */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 960px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  
+  .container-fluid {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* Large Desktop: 1280px */
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+/* Extra Large Desktop: 1440px */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+/* Extra Extra Large Desktop: 1536px */
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* Content wrapper */
+.content-wrapper {
+  padding: 20px;
+}
+
+@media (min-width: 768px) {
+  .content-wrapper {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content-wrapper {
+    padding: 32px;
+  }
+}
+
+/* Section containers */
+.section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}

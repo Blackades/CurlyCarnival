@@ -1,0 +1,916 @@
+/* ============================================
+   FORM COMPONENT SYSTEM
+   ============================================ */
+
+/* ============================================
+   5.1 TEXT INPUTS AND TEXTAREAS
+   ============================================ */
+
+/* Base input styles */
+.form-control,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+textarea {
+  display: block;
+  width: 100%;
+  height: 36px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-family: var(--font-family);
+  line-height: var(--line-height-base);
+  color: var(--text-primary);
+  background-color: var(--background);
+  background-image: none;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  box-sizing: border-box;
+}
+
+/* Textarea specific */
+textarea,
+textarea.form-control {
+  height: auto;
+  min-height: 80px;
+  resize: vertical;
+  padding: 8px 12px;
+}
+
+/* Hover state */
+.form-control:hover:not(:disabled):not([readonly]),
+input[type="text"]:hover:not(:disabled):not([readonly]),
+input[type="email"]:hover:not(:disabled):not([readonly]),
+input[type="password"]:hover:not(:disabled):not([readonly]),
+input[type="number"]:hover:not(:disabled):not([readonly]),
+input[type="tel"]:hover:not(:disabled):not([readonly]),
+input[type="url"]:hover:not(:disabled):not([readonly]),
+input[type="search"]:hover:not(:disabled):not([readonly]),
+input[type="date"]:hover:not(:disabled):not([readonly]),
+input[type="time"]:hover:not(:disabled):not([readonly]),
+input[type="datetime-local"]:hover:not(:disabled):not([readonly]),
+textarea:hover:not(:disabled):not([readonly]) {
+  border-color: var(--primary-hover);
+}
+
+/* Focus state */
+.form-control:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+input[type="datetime-local"]:focus,
+textarea:focus {
+  outline: 0;
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-focus);
+}
+
+/* Disabled state */
+.form-control:disabled,
+.form-control[readonly],
+input[type="text"]:disabled,
+input[type="text"][readonly],
+input[type="email"]:disabled,
+input[type="email"][readonly],
+input[type="password"]:disabled,
+input[type="password"][readonly],
+input[type="number"]:disabled,
+input[type="number"][readonly],
+input[type="tel"]:disabled,
+input[type="tel"][readonly],
+input[type="url"]:disabled,
+input[type="url"][readonly],
+input[type="search"]:disabled,
+input[type="search"][readonly],
+input[type="date"]:disabled,
+input[type="date"][readonly],
+input[type="time"]:disabled,
+input[type="time"][readonly],
+input[type="datetime-local"]:disabled,
+input[type="datetime-local"][readonly],
+textarea:disabled,
+textarea[readonly] {
+  background-color: var(--background-secondary);
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Placeholder text styling */
+.form-control::placeholder,
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
+input[type="number"]::placeholder,
+input[type="tel"]::placeholder,
+input[type="url"]::placeholder,
+input[type="search"]::placeholder,
+textarea::placeholder {
+  color: var(--text-tertiary);
+  opacity: 1;
+}
+
+/* Input sizes */
+.form-control-sm,
+input.input-sm {
+  height: 32px;
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
+.form-control-lg,
+input.input-lg {
+  height: 40px;
+  padding: 10px 16px;
+  font-size: 16px;
+}
+
+textarea.form-control-sm {
+  min-height: 60px;
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
+textarea.form-control-lg {
+  min-height: 100px;
+  padding: 10px 16px;
+  font-size: 16px;
+}
+
+
+/* ============================================
+   5.2 SELECT DROPDOWNS
+   ============================================ */
+
+/* Base select styles */
+select,
+select.form-control {
+  display: block;
+  width: 100%;
+  height: 36px;
+  padding: 8px 32px 8px 12px;
+  font-size: 14px;
+  font-family: var(--font-family);
+  line-height: var(--line-height-base);
+  color: var(--text-primary);
+  background-color: var(--background);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23595959' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+/* Hover state */
+select:hover:not(:disabled),
+select.form-control:hover:not(:disabled) {
+  border-color: var(--primary-hover);
+}
+
+/* Focus state */
+select:focus,
+select.form-control:focus {
+  outline: 0;
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-focus);
+}
+
+/* Disabled state */
+select:disabled,
+select.form-control:disabled {
+  background-color: var(--background-secondary);
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Select sizes */
+select.form-control-sm {
+  height: 32px;
+  padding: 6px 28px 6px 10px;
+  font-size: 13px;
+  background-position: right 10px center;
+  background-size: 10px;
+}
+
+select.form-control-lg {
+  height: 40px;
+  padding: 10px 36px 10px 16px;
+  font-size: 16px;
+  background-position: right 16px center;
+  background-size: 14px;
+}
+
+/* Multiple select */
+select[multiple],
+select[size] {
+  height: auto;
+  padding: 8px 12px;
+  background-image: none;
+}
+
+/* Option styling */
+select option {
+  padding: 8px 12px;
+  color: var(--text-primary);
+  background-color: var(--background);
+}
+
+select option:hover {
+  background-color: var(--background-hover);
+}
+
+select option:checked {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+}
+
+
+/* ============================================
+   5.3 CUSTOM CHECKBOX AND RADIO BUTTON STYLES
+   ============================================ */
+
+/* Hide default checkbox and radio */
+input[type="checkbox"],
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* Custom checkbox container */
+.checkbox,
+.radio {
+  position: relative;
+  display: block;
+  margin-bottom: 8px;
+  padding-left: 28px;
+  min-height: 20px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox label,
+.radio label {
+  display: inline-block;
+  position: relative;
+  padding-left: 0;
+  margin-bottom: 0;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+/* Custom checkbox/radio indicator */
+.checkbox input[type="checkbox"] + label::before,
+.radio input[type="radio"] + label::before {
+  content: '';
+  position: absolute;
+  left: -28px;
+  top: 1px;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border-color);
+  background-color: var(--background);
+  transition: all var(--transition-fast);
+}
+
+/* Checkbox - square with rounded corners */
+.checkbox input[type="checkbox"] + label::before {
+  border-radius: 3px;
+}
+
+/* Radio - circle */
+.radio input[type="radio"] + label::before {
+  border-radius: 50%;
+}
+
+/* Checkmark icon for checkbox */
+.checkbox input[type="checkbox"] + label::after {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 5px;
+  width: 10px;
+  height: 6px;
+  border-left: 2px solid var(--background);
+  border-bottom: 2px solid var(--background);
+  transform: rotate(-45deg);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+/* Dot indicator for radio */
+.radio input[type="radio"] + label::after {
+  content: '';
+  position: absolute;
+  left: -22px;
+  top: 7px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--background);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+/* Hover state */
+.checkbox input[type="checkbox"]:hover:not(:disabled) + label::before,
+.radio input[type="radio"]:hover:not(:disabled) + label::before {
+  border-color: var(--primary-hover);
+}
+
+/* Checked state */
+.checkbox input[type="checkbox"]:checked + label::before,
+.radio input[type="radio"]:checked + label::before {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.checkbox input[type="checkbox"]:checked + label::after,
+.radio input[type="radio"]:checked + label::after {
+  opacity: 1;
+}
+
+/* Focus state */
+.checkbox input[type="checkbox"]:focus + label::before,
+.radio input[type="radio"]:focus + label::before {
+  outline: 0;
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-focus);
+}
+
+/* Disabled state */
+.checkbox input[type="checkbox"]:disabled + label,
+.radio input[type="radio"]:disabled + label {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.checkbox input[type="checkbox"]:disabled + label::before,
+.radio input[type="radio"]:disabled + label::before {
+  background-color: var(--background-secondary);
+  cursor: not-allowed;
+}
+
+/* Inline checkboxes and radios */
+.checkbox-inline,
+.radio-inline {
+  position: relative;
+  display: inline-block;
+  padding-left: 28px;
+  margin-right: 16px;
+  margin-bottom: 0;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.checkbox-inline input[type="checkbox"],
+.radio-inline input[type="radio"] {
+  position: absolute;
+  left: 0;
+  top: 2px;
+}
+
+/* Mobile touch targets (44x44px minimum) */
+@media (max-width: 767px) {
+  .checkbox input[type="checkbox"],
+  .radio input[type="radio"] {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .checkbox input[type="checkbox"] + label::before,
+  .radio input[type="radio"] + label::before {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .checkbox input[type="checkbox"] + label::after {
+    left: -23px;
+    top: 6px;
+    width: 12px;
+    height: 7px;
+  }
+  
+  .radio input[type="radio"] + label::after {
+    left: -21px;
+    top: 8px;
+    width: 12px;
+    height: 12px;
+  }
+  
+  /* Increase touch target area */
+  .checkbox,
+  .radio {
+    padding-left: 32px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkbox input[type="checkbox"] + label::before,
+  .radio input[type="radio"] + label::before {
+    left: -32px;
+  }
+}
+
+
+/* ============================================
+   5.4 FORM VALIDATION STATES
+   ============================================ */
+
+/* Form group container */
+.form-group {
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.form-group label {
+  display: inline-block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Help text */
+.help-block,
+.form-text {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Error state */
+.form-group.has-error .form-control,
+.form-group.has-error input[type="text"],
+.form-group.has-error input[type="email"],
+.form-group.has-error input[type="password"],
+.form-group.has-error input[type="number"],
+.form-group.has-error input[type="tel"],
+.form-group.has-error input[type="url"],
+.form-group.has-error input[type="search"],
+.form-group.has-error select,
+.form-group.has-error textarea,
+.form-control.is-invalid,
+input.is-invalid {
+  border-color: var(--danger-color);
+  padding-right: 36px;
+}
+
+.form-group.has-error .form-control:focus,
+.form-group.has-error input:focus,
+.form-group.has-error select:focus,
+.form-group.has-error textarea:focus,
+.form-control.is-invalid:focus,
+input.is-invalid:focus {
+  border-color: var(--danger-color);
+  box-shadow: 0 0 0 3px rgba(245, 34, 45, 0.2);
+}
+
+/* Error message */
+.form-group.has-error .help-block,
+.form-group.has-error .form-text,
+.error-message,
+.invalid-feedback {
+  color: var(--danger-color);
+  font-size: 13px;
+  margin-top: 6px;
+  display: block;
+}
+
+/* Error icon */
+.form-group.has-error::after,
+.form-control.is-invalid::after {
+  content: '✕';
+  position: absolute;
+  right: 12px;
+  top: 38px;
+  color: var(--danger-color);
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.form-group.has-error.no-label::after {
+  top: 10px;
+}
+
+/* Success state */
+.form-group.has-success .form-control,
+.form-group.has-success input[type="text"],
+.form-group.has-success input[type="email"],
+.form-group.has-success input[type="password"],
+.form-group.has-success input[type="number"],
+.form-group.has-success input[type="tel"],
+.form-group.has-success input[type="url"],
+.form-group.has-success input[type="search"],
+.form-group.has-success select,
+.form-group.has-success textarea,
+.form-control.is-valid,
+input.is-valid {
+  border-color: var(--success-color);
+  padding-right: 36px;
+}
+
+.form-group.has-success .form-control:focus,
+.form-group.has-success input:focus,
+.form-group.has-success select:focus,
+.form-group.has-success textarea:focus,
+.form-control.is-valid:focus,
+input.is-valid:focus {
+  border-color: var(--success-color);
+  box-shadow: 0 0 0 3px rgba(82, 196, 26, 0.2);
+}
+
+/* Success message */
+.form-group.has-success .help-block,
+.form-group.has-success .form-text,
+.success-message,
+.valid-feedback {
+  color: var(--success-color);
+  font-size: 13px;
+  margin-top: 6px;
+  display: block;
+}
+
+/* Success icon */
+.form-group.has-success::after,
+.form-control.is-valid::after {
+  content: '✓';
+  position: absolute;
+  right: 12px;
+  top: 38px;
+  color: var(--success-color);
+  font-size: 18px;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.form-group.has-success.no-label::after {
+  top: 10px;
+}
+
+/* Warning state */
+.form-group.has-warning .form-control,
+.form-group.has-warning input[type="text"],
+.form-group.has-warning input[type="email"],
+.form-group.has-warning input[type="password"],
+.form-group.has-warning input[type="number"],
+.form-group.has-warning input[type="tel"],
+.form-group.has-warning input[type="url"],
+.form-group.has-warning input[type="search"],
+.form-group.has-warning select,
+.form-group.has-warning textarea,
+.form-control.is-warning,
+input.is-warning {
+  border-color: var(--warning-color);
+  padding-right: 36px;
+}
+
+.form-group.has-warning .form-control:focus,
+.form-group.has-warning input:focus,
+.form-group.has-warning select:focus,
+.form-group.has-warning textarea:focus,
+.form-control.is-warning:focus,
+input.is-warning:focus {
+  border-color: var(--warning-color);
+  box-shadow: 0 0 0 3px rgba(250, 173, 20, 0.2);
+}
+
+/* Warning message */
+.form-group.has-warning .help-block,
+.form-group.has-warning .form-text,
+.warning-message {
+  color: var(--warning-color);
+  font-size: 13px;
+  margin-top: 6px;
+  display: block;
+}
+
+/* Warning icon */
+.form-group.has-warning::after,
+.form-control.is-warning::after {
+  content: '⚠';
+  position: absolute;
+  right: 12px;
+  top: 38px;
+  color: var(--warning-color);
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.form-group.has-warning.no-label::after {
+  top: 10px;
+}
+
+/* Required field indicator */
+.form-group.required label::after,
+label.required::after {
+  content: ' *';
+  color: var(--danger-color);
+  font-weight: bold;
+}
+
+
+/* ============================================
+   5.5 INPUT GROUPS AND FORM LAYOUTS
+   ============================================ */
+
+/* Input group container */
+.input-group {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  width: 100%;
+}
+
+.input-group .form-control,
+.input-group input {
+  position: relative;
+  flex: 1 1 auto;
+  width: 1%;
+  min-width: 0;
+  margin-bottom: 0;
+}
+
+/* Input group addons */
+.input-group-addon,
+.input-group-prepend,
+.input-group-append {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: var(--line-height-base);
+  color: var(--text-secondary);
+  text-align: center;
+  white-space: nowrap;
+  background-color: var(--background-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.input-group-prepend {
+  border-right: 0;
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+}
+
+.input-group-append {
+  border-left: 0;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.input-group > .form-control:not(:first-child),
+.input-group > input:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.input-group > .form-control:not(:last-child),
+.input-group > input:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Input group buttons */
+.input-group-btn {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+
+.input-group-btn .btn {
+  position: relative;
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+.input-group-btn:first-child .btn {
+  border-top-left-radius: var(--radius-sm);
+  border-bottom-left-radius: var(--radius-sm);
+  border-right: 0;
+}
+
+.input-group-btn:last-child .btn {
+  border-top-right-radius: var(--radius-sm);
+  border-bottom-right-radius: var(--radius-sm);
+  border-left: 0;
+}
+
+/* Horizontal form layout */
+.form-horizontal .form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.form-horizontal .form-group label {
+  flex: 0 0 150px;
+  margin-bottom: 0;
+  margin-right: 16px;
+  text-align: right;
+}
+
+.form-horizontal .form-group .form-control,
+.form-horizontal .form-group input,
+.form-horizontal .form-group select,
+.form-horizontal .form-group textarea {
+  flex: 1;
+}
+
+/* Inline form layout */
+.form-inline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.form-inline .form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  margin-right: 12px;
+}
+
+.form-inline .form-group label {
+  margin-bottom: 0;
+  margin-right: 8px;
+}
+
+.form-inline .form-control,
+.form-inline input,
+.form-inline select {
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.form-inline .btn {
+  margin-left: 8px;
+}
+
+/* Form row for grid layouts */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -8px;
+  margin-left: -8px;
+}
+
+.form-row > .col,
+.form-row > [class*="col-"] {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+/* Column classes for form layouts */
+.col-form-label {
+  padding-top: calc(8px + 1px);
+  padding-bottom: calc(8px + 1px);
+  margin-bottom: 0;
+  font-size: inherit;
+  line-height: var(--line-height-base);
+}
+
+/* Static form control (read-only display) */
+.form-control-static {
+  min-height: 36px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-bottom: 0;
+  line-height: var(--line-height-base);
+  border: solid transparent;
+  border-width: 1px 0;
+}
+
+/* Form actions (button container) */
+.form-actions {
+  padding: 16px 0;
+  margin-top: 16px;
+  border-top: 1px solid var(--border-light);
+  text-align: right;
+}
+
+.form-actions .btn {
+  margin-left: 8px;
+}
+
+.form-actions .btn:first-child {
+  margin-left: 0;
+}
+
+/* Responsive form stacking on mobile */
+@media (max-width: 767px) {
+  /* Stack horizontal forms vertically */
+  .form-horizontal .form-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .form-horizontal .form-group label {
+    flex: 0 0 auto;
+    text-align: left;
+    margin-bottom: 6px;
+    margin-right: 0;
+  }
+  
+  /* Stack inline forms vertically */
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .form-inline .form-group {
+    flex-direction: column;
+    align-items: stretch;
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
+  
+  .form-inline .form-group label {
+    margin-right: 0;
+    margin-bottom: 6px;
+  }
+  
+  .form-inline .form-control,
+  .form-inline input,
+  .form-inline select {
+    width: 100%;
+  }
+  
+  .form-inline .btn {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  /* Stack form rows */
+  .form-row {
+    flex-direction: column;
+  }
+  
+  .form-row > .col,
+  .form-row > [class*="col-"] {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  /* Full-width inputs on mobile */
+  .form-control,
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="search"],
+  select,
+  textarea {
+    height: 44px;
+    font-size: 16px;
+  }
+  
+  textarea {
+    height: auto;
+    min-height: 100px;
+  }
+  
+  /* Stack form actions buttons */
+  .form-actions {
+    text-align: center;
+  }
+  
+  .form-actions .btn {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 8px;
+  }
+  
+  .form-actions .btn:last-child {
+    margin-bottom: 0;
+  }
+}

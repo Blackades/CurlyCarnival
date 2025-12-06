@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Navigation Test - PHPNuxBill Modern</title>
+    <link rel="stylesheet" href="phpnuxbill-modern.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+        
+        /* Demo content */
+        .demo-content {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .demo-section {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* Simulate dropdown functionality */
+        .dropdown:hover .dropdown-menu {
+            display: block !important;
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    </style>
+</head>
+<body class="hold-transition modern-skin-dark sidebar-mini">
+    <div class="wrapper">
+        <!-- Admin Header -->
+        <header class="main-header">
+            <a href="#" class="logo">
+                <span class="logo-mini"><b>N</b>uX</span>
+                <span class="logo-lg">PHPNuxBill Admin</span>
+            </a>
+            <nav class="navbar navbar-static-top">
+                <a href="#" class="sidebar-toggle" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- Search -->
+                        <div class="wrap">
+                            <div class="">
+                                <button id="openSearch" class="search">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Theme Toggle -->
+                        <li>
+                            <a class="toggle-container" href="#">
+                                <i class="toggle-icon">🌜</i>
+                            </a>
+                        </li>
+                        
+                        <!-- Language Dropdown -->
+                        <li class="dropdown tasks-menu">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-flag-o"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <ul class="menu">
+                                        <li><a href="#">English</a></li>
+                                        <li><a href="#">Español</a></li>
+                                        <li><a href="#">Français</a></li>
+                                        <li><a href="#">Deutsch</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <!-- Notifications -->
+                        <li class="dropdown notifications-menu">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-envelope-o"></i>
+                                <span class="label label-warning">3</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <ul class="menu">
+                                        <li class="notification-item unread">
+                                            <div class="notification-icon success">
+                                                <i class="fa fa-check"></i>
+                                            </div>
+                                            <div class="notification-content">
+                                                <div class="notification-title">Payment Received</div>
+                                                <div class="notification-text">Customer John Doe has made a payment</div>
+                                                <div class="notification-time">2 minutes ago</div>
+                                            </div>
+                                        </li>
+                                        <li class="notification-item">
+                                            <div class="notification-icon info">
+                                                <i class="fa fa-info"></i>
+                                            </div>
+                                            <div class="notification-content">
+                                                <div class="notification-title">System Update</div>
+                                                <div class="notification-text">New features are now available</div>
+                                                <div class="notification-time">1 hour ago</div>
+                                            </div>
+                                        </li>
+                                        <li class="notification-item">
+                                            <div class="notification-icon warning">
+                                                <i class="fa fa-exclamation"></i>
+                                            </div>
+                                            <div class="notification-content">
+                                                <div class="notification-title">Low Balance Alert</div>
+                                                <div class="notification-text">Customer balance is running low</div>
+                                                <div class="notification-time">3 hours ago</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="footer">
+                                    <a href="#">View All Messages</a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <!-- User Menu -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle">
+                                <span>John Administrator</span>
+                                <img src="https://via.placeholder.com/32x32/1890ff/ffffff?text=JA" class="user-image" alt="Avatar">
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="user-header">
+                                    <img src="https://via.placeholder.com/64x64/1890ff/ffffff?text=JA" class="img-circle" alt="Avatar">
+                                    <p>
+                                        John Administrator
+                                        <small>Super Admin</small>
+                                    </p>
+                                </li>
+                                <li class="user-body">
+                                    <div class="row">
+                                        <div class="col-xs-7 text-center text-sm">
+                                            <a href="#">
+                                                <i class="fa fa-cog"></i>
+                                                Change Password
+                                            </a>
+                                        </div>
+                                        <div class="col-xs-5 text-center text-sm">
+                                            <a href="#">
+                                                <i class="fa fa-user"></i>
+                                                My Account
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="user-footer">
+                                    <div class="pull-right">
+                                        <a href="#" class="btn btn-default btn-flat">
+                                            <i class="fa fa-power-off"></i>
+                                            Logout
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Search Overlay -->
+        <div id="searchOverlay" class="search-overlay">
+            <div class="search-container">
+                <input type="text" id="searchTerm" class="searchTerm" placeholder="Search Users" autocomplete="off">
+                <div id="searchResults" class="search-results">
+                    <!-- Search results will be displayed here -->
+                </div>
+                <button type="button" id="closeSearch" class="cancelButton">Cancel</button>
+            </div>
+        </div>
+
+        <!-- Maintenance Mode Notification -->
+        <div class="notification-top-bar">
+            <p>The website is currently in maintenance mode, this means that some or all functionality may be unavailable to regular users during this time. <small>&nbsp;&nbsp;<a href="#">Turn Off</a></small></p>
+        </div>
+
+        <!-- Content Wrapper -->
+        <div class="content-wrapper has-notification-bar">
+            <section class="content-header">
+                <h1>Header Navigation Test</h1>
+            </section>
+
+            <section class="content">
+                <div class="demo-content">
+                    <div class="demo-section">
+                        <h2>Header Components Test</h2>
+                        <p>This page demonstrates the header and top navigation styling:</p>
+                        <ul>
+                            <li><strong>Fixed Header:</strong> White background with shadow elevation</li>
+                            <li><strong>Logo Area:</strong> Blue background with company name</li>
+                            <li><strong>Search Button:</strong> Opens overlay search interface</li>
+                            <li><strong>Theme Toggle:</strong> Moon icon for dark mode toggle</li>
+                            <li><strong>Language Dropdown:</strong> Flag icon with language options</li>
+                            <li><strong>Notifications:</strong> Envelope icon with badge and dropdown</li>
+                            <li><strong>User Menu:</strong> Avatar with comprehensive user options</li>
+                        </ul>
+                    </div>
+
+                    <div class="demo-section">
+                        <h3>Customer Header Variant</h3>
+                        <p>The customer header includes:</p>
+                        <ul>
+                            <li>Balance display in the user menu</li>
+                            <li>Simplified navigation options</li>
+                            <li>Mobile-responsive design</li>
+                        </ul>
+                    </div>
+
+                    <div class="demo-section">
+                        <h3>Interactive Features</h3>
+                        <p>Hover over the navigation items to see:</p>
+                        <ul>
+                            <li>Smooth hover transitions</li>
+                            <li>Dropdown menu animations</li>
+                            <li>Focus states for accessibility</li>
+                            <li>Notification badges with pulse animation</li>
+                        </ul>
+                    </div>
+
+                    <div class="demo-section">
+                        <h3>Responsive Behavior</h3>
+                        <p>Resize the browser window to see:</p>
+                        <ul>
+                            <li>Logo text changes to mini version on mobile</li>
+                            <li>Dropdown menus adapt to screen size</li>
+                            <li>Touch-friendly button sizes</li>
+                            <li>Proper spacing and padding adjustments</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Simple demo functionality
+        document.getElementById('openSearch')?.addEventListener('click', function() {
+            document.getElementById('searchOverlay').classList.add('active');
+        });
+
+        document.getElementById('closeSearch')?.addEventListener('click', function() {
+            document.getElementById('searchOverlay').classList.remove('active');
+        });
+
+        // Close search overlay when clicking backdrop
+        document.getElementById('searchOverlay')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('active');
+            }
+        });
+
+        // Theme toggle demo
+        document.querySelector('.toggle-container')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            const icon = this.querySelector('.toggle-icon');
+            icon.textContent = icon.textContent === '🌜' ? '🌞' : '🌜';
+        });
+    </script>
+</body>
+</html>

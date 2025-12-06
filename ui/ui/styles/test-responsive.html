@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Breakpoint System Test - PHPNuxBill</title>
+    <link rel="stylesheet" href="phpnuxbill-modern.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .test-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+        .test-section h2 {
+            margin-top: 0;
+            color: #1890ff;
+        }
+        .breakpoint-indicator {
+            padding: 16px;
+            margin: 16px 0;
+            border-radius: 4px;
+            font-weight: 600;
+            text-align: center;
+        }
+        .demo-box {
+            padding: 16px;
+            background: white;
+            border: 2px solid #d9d9d9;
+            border-radius: 4px;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Responsive Breakpoint System Test</h1>
+        <p>Resize your browser window to test the responsive breakpoints.</p>
+
+        <!-- Breakpoint Indicators -->
+        <div class="test-section">
+            <h2>Current Breakpoint Indicator</h2>
+            <div class="breakpoint-indicator visible-xs" style="background: #ff4d4f; color: white;">
+                📱 Mobile (< 768px)
+            </div>
+            <div class="breakpoint-indicator visible-sm" style="background: #faad14; color: white;">
+                📱 Tablet (768px - 1023px)
+            </div>
+            <div class="breakpoint-indicator visible-md" style="background: #52c41a; color: white;">
+                💻 Desktop (1024px - 1439px)
+            </div>
+            <div class="breakpoint-indicator visible-lg" style="background: #1890ff; color: white;">
+                🖥️ Large Desktop (≥ 1440px)
+            </div>
+        </div>
+
+        <!-- Container Max-Width Test -->
+        <div class="test-section">
+            <h2>Container Max-Width Test</h2>
+            <p>The container should have different max-widths at each breakpoint:</p>
+            <ul>
+                <li>Mobile: 100% width</li>
+                <li>Tablet (768px): 720px max-width</li>
+                <li>Desktop (1024px): 960px max-width</li>
+                <li>Large Desktop (1440px): 1200px max-width</li>
+            </ul>
+            <div style="background: #e6f7ff; padding: 16px; border-radius: 4px;">
+                This content is inside a .container div
+            </div>
+        </div>
+
+        <!-- Visibility Utilities Test -->
+        <div class="test-section">
+            <h2>Visibility Utilities Test</h2>
+            
+            <div class="demo-box visible-xs">
+                <strong>visible-xs:</strong> Only visible on mobile (< 768px)
+            </div>
+            
+            <div class="demo-box visible-sm">
+                <strong>visible-sm:</strong> Only visible on tablet (768px - 1023px)
+            </div>
+            
+            <div class="demo-box visible-md">
+                <strong>visible-md:</strong> Only visible on desktop (1024px - 1439px)
+            </div>
+            
+            <div class="demo-box visible-lg">
+                <strong>visible-lg:</strong> Only visible on large desktop (≥ 1440px)
+            </div>
+            
+            <div class="demo-box hidden-xs">
+                <strong>hidden-xs:</strong> Hidden on mobile, visible on tablet and up
+            </div>
+            
+            <div class="demo-box visible-sm-up">
+                <strong>visible-sm-up:</strong> Visible on tablet and up (≥ 768px)
+            </div>
+            
+            <div class="demo-box visible-md-up">
+                <strong>visible-md-up:</strong> Visible on desktop and up (≥ 1024px)
+            </div>
+        </div>
+
+        <!-- Grid System Test -->
+        <div class="test-section">
+            <h2>Responsive Grid System Test</h2>
+            <p>Grid should adapt: 1 column (mobile) → 2 columns (tablet) → 3 columns (desktop)</p>
+            
+            <div class="grid-3">
+                <div class="demo-box">Grid Item 1</div>
+                <div class="demo-box">Grid Item 2</div>
+                <div class="demo-box">Grid Item 3</div>
+                <div class="demo-box">Grid Item 4</div>
+                <div class="demo-box">Grid Item 5</div>
+                <div class="demo-box">Grid Item 6</div>
+            </div>
+        </div>
+
+        <!-- Flexbox Grid Test -->
+        <div class="test-section">
+            <h2>Flexbox Column System Test</h2>
+            <p>Columns should stack on mobile and display side-by-side on larger screens</p>
+            
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="demo-box">
+                        <strong>Column 1</strong><br>
+                        xs-12, sm-6, md-4
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="demo-box">
+                        <strong>Column 2</strong><br>
+                        xs-12, sm-6, md-4
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4">
+                    <div class="demo-box">
+                        <strong>Column 3</strong><br>
+                        xs-12, sm-12, md-4
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card Grid Test -->
+        <div class="test-section">
+            <h2>Card Grid Test</h2>
+            <p>Cards should adapt: 1 column (mobile) → 2 columns (tablet) → 3 columns (desktop) → 4 columns (large desktop)</p>
+            
+            <div class="grid-4">
+                <div class="demo-box" style="min-height: 120px;">Card 1</div>
+                <div class="demo-box" style="min-height: 120px;">Card 2</div>
+                <div class="demo-box" style="min-height: 120px;">Card 3</div>
+                <div class="demo-box" style="min-height: 120px;">Card 4</div>
+            </div>
+        </div>
+
+        <!-- Touch Target Test -->
+        <div class="test-section">
+            <h2>Touch Target Test (Mobile)</h2>
+            <p>On mobile (< 768px), buttons should be at least 44px tall for touch-friendly interaction</p>
+            
+            <button class="btn" style="background: #1890ff; color: white; border: none; border-radius: 4px; padding: 8px 16px; cursor: pointer;">
+                Test Button (should be 44px+ on mobile)
+            </button>
+        </div>
+
+        <!-- Typography Scale Test -->
+        <div class="test-section">
+            <h2>Responsive Typography Test</h2>
+            <p>Headings should scale down on mobile for better readability</p>
+            
+            <h1>Heading 1 - Responsive</h1>
+            <h2>Heading 2 - Responsive</h2>
+            <h3>Heading 3 - Responsive</h3>
+            <h4>Heading 4 - Responsive</h4>
+            <p>Body text should be 16px on mobile to prevent zoom on iOS</p>
+        </div>
+
+        <!-- Display Type Variants Test -->
+        <div class="test-section">
+            <h2>Display Type Variants Test</h2>
+            
+            <div>
+                <span class="visible-xs-inline" style="background: #ff4d4f; color: white; padding: 4px 8px; border-radius: 4px;">
+                    Inline on mobile
+                </span>
+                <span class="visible-sm-inline" style="background: #faad14; color: white; padding: 4px 8px; border-radius: 4px;">
+                    Inline on tablet
+                </span>
+                <span class="visible-md-inline" style="background: #52c41a; color: white; padding: 4px 8px; border-radius: 4px;">
+                    Inline on desktop
+                </span>
+                <span class="visible-lg-inline" style="background: #1890ff; color: white; padding: 4px 8px; border-radius: 4px;">
+                    Inline on large desktop
+                </span>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Display current viewport width
+        function updateViewportInfo() {
+            const width = window.innerWidth;
+            let breakpoint = '';
+            
+            if (width < 768) {
+                breakpoint = 'Mobile (< 768px)';
+            } else if (width >= 768 && width < 1024) {
+                breakpoint = 'Tablet (768px - 1023px)';
+            } else if (width >= 1024 && width < 1440) {
+                breakpoint = 'Desktop (1024px - 1439px)';
+            } else {
+                breakpoint = 'Large Desktop (≥ 1440px)';
+            }
+            
+            console.log(`Viewport: ${width}px - ${breakpoint}`);
+        }
+        
+        updateViewportInfo();
+        window.addEventListener('resize', updateViewportInfo);
+    </script>
+</body>
+</html>

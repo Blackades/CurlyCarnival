@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Components Test - PHPNuxBill Modern UI</title>
+  <link rel="stylesheet" href="base/variables.css">
+  <link rel="stylesheet" href="base/reset.css">
+  <link rel="stylesheet" href="base/typography.css">
+  <link rel="stylesheet" href="components/forms.css">
+  <style>
+    body {
+      padding: 40px 20px;
+      background-color: #f5f5f5;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    .section {
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .section:last-child {
+      border-bottom: none;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 32px;
+      color: #262626;
+    }
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: #262626;
+    }
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #595959;
+    }
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .demo-item {
+      padding: 16px;
+      background: #fafafa;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Form Component System Test</h1>
+
+    <!-- 5.1 Text Inputs and Textareas -->
+    <div class="section">
+      <h2>5.1 Text Inputs and Textareas</h2>
+      
+      <h3>Basic Text Inputs</h3>
+      <div class="form-group">
+        <label>Default Input</label>
+        <input type="text" class="form-control" placeholder="Enter text...">
+      </div>
+
+      <div class="form-group">
+        <label>Email Input</label>
+        <input type="email" class="form-control" placeholder="email@example.com">
+      </div>
+
+      <div class="form-group">
+        <label>Password Input</label>
+        <input type="password" class="form-control" placeholder="Enter password">
+      </div>
+
+      <h3>Input States</h3>
+      <div class="demo-grid">
+        <div class="form-group">
+          <label>Hover State (hover over input)</label>
+          <input type="text" class="form-control" placeholder="Hover me">
+        </div>
+
+        <div class="form-group">
+          <label>Focus State (click input)</label>
+          <input type="text" class="form-control" placeholder="Click to focus">
+        </div>
+
+        <div class="form-group">
+          <label>Disabled Input</label>
+          <input type="text" class="form-control" placeholder="Disabled" disabled>
+        </div>
+
+        <div class="form-group">
+          <label>Readonly Input</label>
+          <input type="text" class="form-control" value="Read only value" readonly>
+        </div>
+      </div>
+
+      <h3>Input Sizes</h3>
+      <div class="form-group">
+        <label>Small Input</label>
+        <input type="text" class="form-control form-control-sm" placeholder="Small input">
+      </div>
+
+      <div class="form-group">
+        <label>Default Input</label>
+        <input type="text" class="form-control" placeholder="Default input">
+      </div>
+
+      <div class="form-group">
+        <label>Large Input</label>
+        <input type="text" class="form-control form-control-lg" placeholder="Large input">
+      </div>
+
+      <h3>Textarea</h3>
+      <div class="form-group">
+        <label>Default Textarea</label>
+        <textarea class="form-control" placeholder="Enter multiple lines of text..."></textarea>
+      </div>
+
+      <div class="demo-grid">
+        <div class="form-group">
+          <label>Small Textarea</label>
+          <textarea class="form-control form-control-sm" placeholder="Small textarea"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Large Textarea</label>
+          <textarea class="form-control form-control-lg" placeholder="Large textarea"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5.2 Select Dropdowns -->
+    <div class="section">
+      <h2>5.2 Select Dropdowns</h2>
+      
+      <h3>Basic Select</h3>
+      <div class="form-group">
+        <label>Default Select</label>
+        <select class="form-control">
+          <option>Select an option...</option>
+          <option>Option 1</option>
+          <option>Option 2</option>
+          <option>Option 3</option>
+          <option>Option 4</option>
+        </select>
+      </div>
+
+      <h3>Select Sizes</h3>
+      <div class="demo-grid">
+        <div class="form-group">
+          <label>Small Select</label>
+          <select class="form-control form-control-sm">
+            <option>Small select</option>
+            <option>Option 1</option>
+            <option>Option 2</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Default Select</label>
+          <select class="form-control">
+            <option>Default select</option>
+            <option>Option 1</option>
+            <option>Option 2</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Large Select</label>
+          <select class="form-control form-control-lg">
+            <option>Large select</option>
+            <option>Option 1</option>
+            <option>Option 2</option>
+          </select>
+        </div>
+      </div>
+
+      <h3>Select States</h3>
+      <div class="demo-grid">
+        <div class="form-group">
+          <label>Disabled Select</label>
+          <select class="form-control" disabled>
+            <option>Disabled select</option>
+            <option>Option 1</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Multiple Select</label>
+          <select class="form-control" multiple size="4">
+            <option>Option 1</option>
+            <option>Option 2</option>
+            <option>Option 3</option>
+            <option>Option 4</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5.3 Checkboxes and Radio Buttons -->
+    <div class="section">
+      <h2>5.3 Custom Checkbox and Radio Button Styles</h2>
+      
+      <h3>Checkboxes</h3>
+      <div class="checkbox">
+        <input type="checkbox" id="check1">
+        <label for="check1">Default checkbox</label>
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" id="check2" checked>
+        <label for="check2">Checked checkbox</label>
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" id="check3" disabled>
+        <label for="check3">Disabled checkbox</label>
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" id="check4" checked disabled>
+        <label for="check4">Checked and disabled</label>
+      </div>
+
+      <h3>Radio Buttons</h3>
+      <div class="radio">
+        <input type="radio" name="radio1" id="radio1" checked>
+        <label for="radio1">Selected radio button</label>
+      </div>
+      <div class="radio">
+        <input type="radio" name="radio1" id="radio2">
+        <label for="radio2">Unselected radio button</label>
+      </div>
+      <div class="radio">
+        <input type="radio" name="radio1" id="radio3">
+        <label for="radio3">Another option</label>
+      </div>
+      <div class="radio">
+        <input type="radio" name="radio2" id="radio4" disabled>
+        <label for="radio4">Disabled radio button</label>
+      </div>
+
+      <h3>Inline Checkboxes and Radios</h3>
+      <div style="margin-bottom: 16px;">
+        <label class="checkbox-inline">
+          <input type="checkbox" id="inline-check1"> Option 1
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="inline-check2" checked> Option 2
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="inline-check3"> Option 3
+        </label>
+      </div>
+
+      <div>
+        <label class="radio-inline">
+          <input type="radio" name="inline-radio" id="inline-radio1" checked> Choice A
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inline-radio" id="inline-radio2"> Choice B
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inline-radio" id="inline-radio3"> Choice C
+        </label>
+      </div>
+    </div>
+
+    <!-- 5.4 Form Validation States -->
+    <div class="section">
+      <h2>5.4 Form Validation States</h2>
+      
+      <h3>Error State</h3>
+      <div class="form-group has-error">
+        <label>Email Address</label>
+        <input type="email" class="form-control" value="invalid-email">
+        <span class="help-block">Please enter a valid email address.</span>
+      </div>
+
+      <h3>Success State</h3>
+      <div class="form-group has-success">
+        <label>Username</label>
+        <input type="text" class="form-control" value="john_doe">
+        <span class="help-block">Username is available!</span>
+      </div>
+
+      <h3>Warning State</h3>
+      <div class="form-group has-warning">
+        <label>Password</label>
+        <input type="password" class="form-control" value="weak">
+        <span class="help-block">Password strength: Weak. Consider using a stronger password.</span>
+      </div>
+
+      <h3>Required Field</h3>
+      <div class="form-group required">
+        <label>Full Name</label>
+        <input type="text" class="form-control" placeholder="Enter your full name">
+        <span class="help-block">This field is required.</span>
+      </div>
+
+      <h3>Multiple Validation States</h3>
+      <div class="demo-grid">
+        <div class="form-group has-error no-label">
+          <input type="text" class="form-control" placeholder="Error state">
+          <span class="error-message">This field has an error</span>
+        </div>
+
+        <div class="form-group has-success no-label">
+          <input type="text" class="form-control" placeholder="Success state">
+          <span class="success-message">Looks good!</span>
+        </div>
+
+        <div class="form-group has-warning no-label">
+          <input type="text" class="form-control" placeholder="Warning state">
+          <span class="warning-message">Please review this field</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5.5 Input Groups and Form Layouts -->
+    <div class="section">
+      <h2>5.5 Input Groups and Form Layouts</h2>
+      
+      <h3>Input Groups with Addons</h3>
+      <div class="form-group">
+        <label>Price</label>
+        <div class="input-group">
+          <span class="input-group-prepend">$</span>
+          <input type="text" class="form-control" placeholder="0.00">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Website URL</label>
+        <div class="input-group">
+          <span class="input-group-prepend">https://</span>
+          <input type="text" class="form-control" placeholder="example.com">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="username">
+          <span class="input-group-append">@example.com</span>
+        </div>
+      </div>
+
+      <h3>Horizontal Form Layout</h3>
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" class="form-control" placeholder="John">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" class="form-control" placeholder="Doe">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" class="form-control" placeholder="john@example.com">
+        </div>
+      </form>
+
+      <h3>Inline Form Layout</h3>
+      <form class="form-inline">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" class="form-control" placeholder="Enter name">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" class="form-control" placeholder="Enter email">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+      <h3>Form Actions</h3>
+      <div class="form-group">
+        <label>Comment</label>
+        <textarea class="form-control" placeholder="Enter your comment..."></textarea>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="btn btn-default">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+      </div>
+    </div>
+
+    <!-- Complete Form Example -->
+    <div class="section">
+      <h2>Complete Form Example</h2>
+      <form>
+        <div class="form-group required">
+          <label>Full Name</label>
+          <input type="text" class="form-control" placeholder="Enter your full name">
+        </div>
+
+        <div class="form-group required">
+          <label>Email Address</label>
+          <input type="email" class="form-control" placeholder="email@example.com">
+          <span class="help-block">We'll never share your email with anyone else.</span>
+        </div>
+
+        <div class="form-group">
+          <label>Phone Number</label>
+          <div class="input-group">
+            <span class="input-group-prepend">+1</span>
+            <input type="tel" class="form-control" placeholder="(555) 123-4567">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Country</label>
+          <select class="form-control">
+            <option>Select a country...</option>
+            <option>United States</option>
+            <option>Canada</option>
+            <option>United Kingdom</option>
+            <option>Australia</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Message</label>
+          <textarea class="form-control" rows="4" placeholder="Enter your message..."></textarea>
+        </div>
+
+        <div class="checkbox">
+          <input type="checkbox" id="terms">
+          <label for="terms">I agree to the terms and conditions</label>
+        </div>
+
+        <div class="checkbox">
+          <input type="checkbox" id="newsletter" checked>
+          <label for="newsletter">Subscribe to newsletter</label>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-default">Cancel</button>
+          <button type="submit" class="btn btn-primary">Submit Form</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <style>
+    /* Add button styles for demo */
+    .btn {
+      display: inline-block;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.5;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      transition: all 0.15s ease-in-out;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      color: #fff;
+      background-color: #1890ff;
+      border-color: #1890ff;
+    }
+
+    .btn-primary:hover {
+      background-color: #40a9ff;
+      border-color: #40a9ff;
+    }
+
+    .btn-default {
+      color: #262626;
+      background-color: #fff;
+      border-color: #d9d9d9;
+    }
+
+    .btn-default:hover {
+      background-color: #f5f5f5;
+      border-color: #d9d9d9;
+    }
+  </style>
+</body>
+</html>

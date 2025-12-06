@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typography Test - PHPNuxBill Modern Design</title>
+    <link rel="stylesheet" href="phpnuxbill-modern.css">
+    <style>
+        body {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        .section h2 {
+            border-bottom: 2px solid #1890ff;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Typography System Test</h1>
+    <p class="lead">This page demonstrates the complete typography system including headings, body text, links, code elements, and utility classes.</p>
+
+    <!-- Heading Hierarchy -->
+    <div class="section">
+        <h2>Heading Hierarchy</h2>
+        <h1>Heading 1 - Main Page Title</h1>
+        <h2>Heading 2 - Section Title</h2>
+        <h3>Heading 3 - Subsection Title</h3>
+        <h4>Heading 4 - Component Title</h4>
+        <h5>Heading 5 - Small Component Title</h5>
+        <h6>Heading 6 - Smallest Heading</h6>
+    </div>
+
+    <!-- Body Text -->
+    <div class="section">
+        <h2>Body Text</h2>
+        <p>This is a regular paragraph with normal body text. It demonstrates the default font size, line height, and spacing. The text should be easy to read and comfortable for extended reading sessions.</p>
+        <p class="lead">This is a lead paragraph with larger text. It's typically used for introductory content or important messages that need to stand out from regular body text.</p>
+        <small>This is small text, useful for captions, footnotes, or secondary information.</small>
+    </div>
+
+    <!-- Text Utility Classes -->
+    <div class="section">
+        <h2>Text Utility Classes</h2>
+        
+        <h3>Text Sizes</h3>
+        <p class="text-xs">Extra small text (12px)</p>
+        <p class="text-sm">Small text (14px)</p>
+        <p class="text-base">Base text (14px)</p>
+        <p class="text-lg">Large text (16px)</p>
+        <p class="text-xl">Extra large text (18px)</p>
+        <p class="text-2xl">2XL text (22px)</p>
+        <p class="text-3xl">3XL text (28px)</p>
+
+        <h3>Text Weights</h3>
+        <p class="text-normal">Normal weight (400)</p>
+        <p class="text-medium">Medium weight (500)</p>
+        <p class="text-semibold">Semibold weight (600)</p>
+        <p class="text-bold">Bold weight (700)</p>
+
+        <h3>Text Colors</h3>
+        <p class="text-primary">Primary text color</p>
+        <p class="text-secondary">Secondary text color</p>
+        <p class="text-tertiary">Tertiary text color</p>
+        <p class="text-success">Success text color</p>
+        <p class="text-warning">Warning text color</p>
+        <p class="text-danger">Danger text color</p>
+        <p class="text-info">Info text color</p>
+
+        <h3>Text Alignment</h3>
+        <p class="text-left">Left aligned text</p>
+        <p class="text-center">Center aligned text</p>
+        <p class="text-right">Right aligned text</p>
+
+        <h3>Text Transform</h3>
+        <p class="text-uppercase">Uppercase text</p>
+        <p class="text-lowercase">LOWERCASE TEXT</p>
+        <p class="text-capitalize">capitalize each word</p>
+    </div>
+
+    <!-- Links -->
+    <div class="section">
+        <h2>Link Styles</h2>
+        <p>This is a paragraph with a <a href="#">default link</a> that changes color on hover.</p>
+        <p>
+            <a href="#" class="link-primary">Primary link</a> |
+            <a href="#" class="link-success">Success link</a> |
+            <a href="#" class="link-warning">Warning link</a> |
+            <a href="#" class="link-danger">Danger link</a> |
+            <a href="#" class="link-muted">Muted link</a>
+        </p>
+        <p><a href="#" class="link-underline">Link with underline</a></p>
+    </div>
+
+    <!-- Code and Pre -->
+    <div class="section">
+        <h2>Code and Pre Elements</h2>
+        <p>Inline code example: <code>const greeting = "Hello World";</code></p>
+        
+        <p>Code block example:</p>
+        <pre><code>function calculateTotal(items) {
+  return items.reduce((sum, item) => {
+    return sum + item.price * item.quantity;
+  }, 0);
+}</code></pre>
+
+        <p>Keyboard shortcut: Press <kbd>Ctrl</kbd> + <kbd>S</kbd> to save.</p>
+    </div>
+
+    <!-- Lists -->
+    <div class="section">
+        <h2>Lists</h2>
+        <ul class="list-disc">
+            <li>Unordered list item 1</li>
+            <li>Unordered list item 2</li>
+            <li>Unordered list item 3</li>
+        </ul>
+
+        <ol class="list-decimal">
+            <li>Ordered list item 1</li>
+            <li>Ordered list item 2</li>
+            <li>Ordered list item 3</li>
+        </ol>
+    </div>
+
+    <!-- Blockquote -->
+    <div class="section">
+        <h2>Blockquote</h2>
+        <blockquote>
+            <p>This is a blockquote. It's used for quotations or to highlight important information that deserves special attention. The styling includes a left border and italic text.</p>
+        </blockquote>
+    </div>
+
+    <!-- Horizontal Rule -->
+    <div class="section">
+        <h2>Horizontal Rule</h2>
+        <p>Content above the horizontal rule.</p>
+        <hr>
+        <p>Content below the horizontal rule.</p>
+    </div>
+
+    <!-- Mark/Highlight -->
+    <div class="section">
+        <h2>Highlighted Text</h2>
+        <p>This paragraph contains <mark>highlighted text</mark> that stands out from the rest of the content.</p>
+    </div>
+
+    <!-- Responsive Typography -->
+    <div class="section">
+        <h2>Responsive Typography</h2>
+        <p class="text-hide-mobile">This text is hidden on mobile devices (< 768px)</p>
+        <p class="text-hide-desktop">This text is hidden on desktop devices (>= 768px)</p>
+        <p class="text-responsive-sm">This text changes size responsively (small on mobile, base on desktop)</p>
+        <p class="text-responsive-base">This text changes size responsively (base on mobile, large on desktop)</p>
+    </div>
+
+    <!-- Line Height -->
+    <div class="section">
+        <h2>Line Height Variations</h2>
+        <p class="leading-tight">This paragraph has tight line height (1.25). It's useful for headings or when you need to conserve vertical space while maintaining readability.</p>
+        <p class="leading-base">This paragraph has base line height (1.5). This is the default line height for most body text and provides comfortable reading.</p>
+        <p class="leading-relaxed">This paragraph has relaxed line height (1.75). It's useful for longer form content where extra breathing room improves readability.</p>
+    </div>
+
+</body>
+</html>
