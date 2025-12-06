@@ -15527,6 +15527,81 @@ body.sidebar-collapse .main-header .logo {
 
 @media (max-width: 767px) {
     
+    /* CRITICAL: Override dark mode for all form elements on mobile */
+    body.modern-skin-dark .form-control,
+    body.modern-skin-dark select,
+    body.modern-skin-dark input[type="text"],
+    body.modern-skin-dark input[type="search"],
+    body.modern-skin-dark input[type="email"],
+    body.modern-skin-dark input[type="password"],
+    body.modern-skin-dark textarea,
+    body.modern-skin-dark .input-group-addon,
+    body.modern-skin-dark .input-group-btn {
+        background-color: #ffffff !important;
+        color: #262626 !important;
+        border-color: #d9d9d9 !important;
+    }
+    
+    /* Override dark mode for buttons */
+    body.modern-skin-dark .btn-default {
+        background-color: #ffffff !important;
+        color: #262626 !important;
+        border-color: #d9d9d9 !important;
+    }
+    
+    /* Override dark mode for panels/boxes */
+    body.modern-skin-dark .box,
+    body.modern-skin-dark .panel {
+        background-color: #ffffff !important;
+    }
+    
+    body.modern-skin-dark .box-header,
+    body.modern-skin-dark .panel-heading {
+        background-color: #fafafa !important;
+        color: #262626 !important;
+    }
+    
+    body.modern-skin-dark .box-body,
+    body.modern-skin-dark .panel-body {
+        background-color: #ffffff !important;
+        color: #262626 !important;
+    }
+    
+    /* Override dark mode for tables */
+    body.modern-skin-dark .table {
+        background-color: #ffffff !important;
+        color: #262626 !important;
+    }
+    
+    body.modern-skin-dark .table thead th {
+        background-color: #fafafa !important;
+        color: #262626 !important;
+    }
+    
+    body.modern-skin-dark .table tbody td {
+        background-color: #ffffff !important;
+        color: #262626 !important;
+    }
+    
+    /* Override dark mode for labels */
+    body.modern-skin-dark label,
+    body.modern-skin-dark .control-label {
+        color: #595959 !important;
+    }
+    
+    /* Override dark mode for select2 */
+    body.modern-skin-dark .select2-container--default .select2-selection--single {
+        background-color: #ffffff !important;
+        color: #262626 !important;
+        border-color: #d9d9d9 !important;
+    }
+    
+    body.modern-skin-dark .select2-container--default .select2-selection--single .select2-selection__rendered {
+        color: #262626 !important;
+    }
+    
+
+    
     /* Page Title - Compact */
     .content-header h1 {
         font-size: 18px !important;

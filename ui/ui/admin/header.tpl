@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="{$app_url}/ui/ui/summernote/summernote.min.css" />
     
     <!-- Application CSS - Modern styles with mobile optimization -->
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/phpnuxbill-modern.css?v=2025.12.06.001" />
+    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/phpnuxbill-modern.css?v=2025.12.06.002" />
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/dashboard-fix.css" />
     
     <!-- Legacy CSS - Commented out to prevent conflicts -->
