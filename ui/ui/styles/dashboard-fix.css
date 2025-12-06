@@ -86,17 +86,62 @@ body .main-sidebar {
         float: right !important;
         margin-right: 0 !important;
         padding-right: 15px !important;
+        position: absolute !important;
+        right: 0 !important;
+        top: 0 !important;
+        height: 50px !important;
+        display: flex !important;
+        align-items: center !important;
     }
     
     /* Fix navbar nav items positioning */
     body .main-header .navbar .navbar-nav {
         margin: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        height: 50px !important;
+    }
+    
+    /* Ensure toggle icon and user menu are visible */
+    body .main-header .navbar .navbar-nav > li {
+        display: inline-block !important;
+        float: none !important;
+    }
+    
+    /* Fix user dropdown positioning */
+    body .main-header .navbar .navbar-nav > li.dropdown {
+        position: relative !important;
     }
     
     /* Ensure search wrap doesn't take too much space */
     body .main-header .navbar .wrap {
-        max-width: 300px !important;
-        margin: 0 auto !important;
+        max-width: 200px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    /* Fix search button size to fit within header */
+    body .main-header .navbar .wrap .search {
+        padding: 8px 15px !important;
+        height: auto !important;
+        max-height: 40px !important;
+        font-size: 14px !important;
+        line-height: 1 !important;
+    }
+    
+    /* Hide the Cancel button that appears in the header */
+    body .main-header button:contains("Cancel"),
+    body .main-header .navbar button[type="button"]:not(.search):not(.sidebar-toggle) {
+        display: none !important;
+    }
+    
+    /* Specifically hide cancel button by text content */
+    body .main-header .navbar button {
+        max-height: 40px !important;
+    }
+    
+    body .main-header .navbar button:not(.search):not(.sidebar-toggle):not(.dropdown-toggle) {
+        display: none !important;
     }
     
     /* When sidebar is collapsed, hide logo and adjust navbar */
