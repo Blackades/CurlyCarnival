@@ -12811,21 +12811,21 @@ body.sidebar-collapse .main-header .logo {
     }
     
     /* Content Wrapper - Remove left margin and add top margin for fixed header
-       Force full width on mobile regardless of sidebar state
-       Minimal padding to maximize screen real estate */
+       Balanced padding for readability without truncation */
     .content-wrapper,
     .sidebar-open .content-wrapper,
     body.sidebar-open .content-wrapper {
         margin: 0 !important;
         margin-top: 50px !important;
-        padding: 4px !important; /* Further reduced to 4px for maximum space */
-        width: 100vw !important; /* Use viewport width */
-        max-width: 100vw !important;
-        transform: none !important; /* Prevent any transform that might shift content */
+        padding: 12px !important; /* Balanced padding to prevent truncation */
+        width: 100% !important;
+        max-width: 100% !important;
+        transform: none !important;
         position: relative !important;
         left: 0 !important;
         right: 0 !important;
         box-sizing: border-box !important;
+        overflow-x: hidden !important;
     }
     
     /* Ensure wrapper container also has no left margin and uses full width */
@@ -12868,15 +12868,38 @@ body.sidebar-collapse .main-header .logo {
         padding: 0 !important;
         width: 100% !important;
         max-width: 100% !important;
+        box-sizing: border-box !important;
     }
     
-    /* Dashboard sections - remove all padding */
+    /* Dashboard sections - balanced padding */
     .dashboard-content .content-header,
     .dashboard-content .content {
         padding-left: 0 !important;
         padding-right: 0 !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Dashboard title - Compact and modern */
+    .dashboard-content .content-header h1,
+    .dashboard-content .dashboard-title {
+        font-size: 20px !important;
+        font-weight: 600 !important;
+        margin: 0 0 4px 0 !important;
+        padding: 0 !important;
+        line-height: 1.3 !important;
+        color: var(--text-primary) !important;
+    }
+    
+    .dashboard-content .content-header h1 small,
+    .dashboard-content .dashboard-title small {
+        display: block !important;
+        font-size: 12px !important;
+        font-weight: 400 !important;
+        margin-top: 2px !important;
+        opacity: 0.7 !important;
     }
     
     /* Dashboard main content area */
@@ -12885,6 +12908,7 @@ body.sidebar-collapse .main-header .logo {
         padding: 0 !important;
         margin: 0 !important;
         width: 100% !important;
+        box-sizing: border-box !important;
     }
     
     /* Content Section - Reduce padding for more space */
@@ -14291,55 +14315,70 @@ body.sidebar-collapse .main-header .logo {
     }
     
     /* ========================================================================
-       Info Boxes - Horizontal Mobile Layout
+       Info Boxes - Modern Compact Mobile Layout
+       Clean, aesthetic design optimized for mobile screens
        ====================================================================== */
     
     .info-box {
-        min-height: auto;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 12px;
-        border-radius: 6px;
+        min-height: auto !important;
+        display: flex !important;
+        flex-direction: column !important; /* Vertical layout for better mobile fit */
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 16px 12px !important;
+        border-radius: 8px !important;
+        text-align: center !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08) !important;
     }
     
-    /* Info box icon */
+    /* Info box icon - Centered and prominent */
     .info-box-icon {
-        width: 60px;
-        height: 60px;
-        flex-shrink: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 28px;
-        border-radius: 6px;
-        margin-right: 12px;
+        width: 48px !important;
+        height: 48px !important;
+        flex-shrink: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 24px !important;
+        border-radius: 50% !important; /* Circular icon */
+        margin-right: 0 !important;
+        margin-bottom: 8px !important;
+        background-color: rgba(255, 255, 255, 0.2) !important;
     }
     
-    /* Info box content */
+    /* Info box content - Centered */
     .info-box-content {
-        flex: 1;
-        padding: 0;
-        min-width: 0; /* Allow text truncation */
+        flex: 1 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        text-align: center !important;
     }
     
-    /* Info box text */
+    /* Info box text - Compact and readable */
     .info-box-text {
-        font-size: 13px;
-        font-weight: 500;
-        text-transform: uppercase;
-        margin-bottom: 4px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        font-size: 11px !important;
+        font-weight: 600 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+        margin-bottom: 6px !important;
+        white-space: normal !important; /* Allow wrapping */
+        overflow: visible !important;
+        text-overflow: clip !important;
+        line-height: 1.3 !important;
+        opacity: 0.9 !important;
     }
     
-    /* Info box number */
+    /* Info box number - Large and bold */
     .info-box-number {
-        font-size: 22px;
-        font-weight: 700;
-        line-height: 1.2;
-        margin: 0;
+        font-size: 28px !important;
+        font-weight: 700 !important;
+        line-height: 1 !important;
+        margin: 0 !important;
+        color: inherit !important;
     }
     
     /* Info box progress bar (if present) */
@@ -14366,65 +14405,70 @@ body.sidebar-collapse .main-header .logo {
     }
     
     /* ========================================================================
-       Small Boxes - Mobile Layout Adjustments
+       Small Boxes - Modern Compact Mobile Layout
        ====================================================================== */
     
     .small-box {
-        padding: 16px;
-        border-radius: 6px;
-        position: relative;
-        overflow: hidden;
+        padding: 16px !important;
+        border-radius: 8px !important;
+        position: relative !important;
+        overflow: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08) !important;
     }
     
-    /* Small box inner content */
+    /* Small box inner content - Centered */
     .small-box > .inner {
-        padding: 0;
+        padding: 0 !important;
+        text-align: center !important;
+        position: relative !important;
+        z-index: 2 !important;
     }
     
-    /* Small box heading */
+    /* Small box heading - Prominent but not oversized */
     .small-box h3 {
-        font-size: 32px;
-        font-weight: 700;
-        margin: 0 0 8px 0;
-        line-height: 1.2;
+        font-size: 32px !important;
+        font-weight: 700 !important;
+        margin: 0 0 4px 0 !important;
+        line-height: 1.1 !important;
+        color: inherit !important;
     }
     
-    /* Small box paragraph */
+    /* Small box paragraph - Compact */
     .small-box p {
-        font-size: 14px;
-        margin: 0;
-        line-height: 1.4;
+        font-size: 11px !important;
+        margin: 0 !important;
+        line-height: 1.3 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+        font-weight: 600 !important;
+        opacity: 0.9 !important;
     }
     
-    /* Small box icon positioning for mobile */
+    /* Small box icon - Subtle background element */
     .small-box .icon {
-        position: absolute;
-        font-size: 60px;
-        top: auto;
-        bottom: 12px;
-        right: 12px;
-        opacity: 0.15;
-        transition: all var(--transition-base, 0.25s ease-in-out);
+        position: absolute !important;
+        font-size: 80px !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        opacity: 0.08 !important;
+        z-index: 1 !important;
+        transition: all var(--transition-base, 0.25s ease-in-out) !important;
     }
     
-    /* Small box footer link */
+    /* Small box footer link - Hidden on mobile for cleaner look */
     .small-box .small-box-footer {
-        display: block;
-        padding: 8px 0 0 0;
-        margin-top: 12px;
-        text-align: left;
-        font-size: 13px;
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        display: none !important; /* Hide footer on mobile for cleaner design */
     }
     
-    .small-box .small-box-footer:hover {
-        text-decoration: underline;
-    }
-    
-    /* Small box hover effect */
-    .small-box:hover .icon {
-        font-size: 70px;
-        opacity: 0.2;
+    /* Small box hover effect - Subtle */
+    .small-box:active .icon {
+        opacity: 0.12 !important;
+        transform: translate(-50%, -50%) scale(1.1) !important;
     }
     
     /* ========================================================================
